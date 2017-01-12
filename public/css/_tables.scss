@@ -1,0 +1,128 @@
+#record-table thead th {
+  text-align: center;
+}
+
+table.table-center > thead > tr > th,
+table.table-center > tbody > tr > td,
+table.table-center > tfoot > tr > td {
+  vertical-align: middle;
+  text-align: center;
+}
+
+table.record-table > tbody > tr > td,
+table.record-table > tfoot > tr > td {
+  vertical-align: middle;
+}
+
+table.table-center > tbody > tr > td.text-left {
+  text-align: left;
+}
+
+table.table-center > tbody > tr > td.text-right {
+  text-align: right;
+}
+
+.table-headless > thead > tr > th {
+  padding: 0;
+  border: 0;
+}
+
+.table-light-head > thead > tr {
+  background: none;
+}
+
+.table-light-head > thead > tr > th {
+  border-bottom: 0;
+  font-weight: normal;
+}
+
+.table-bordered-last > tbody > tr:last-child > td {
+  border-bottom: 1px solid #ddd;
+}
+
+.table-media .media-heading {
+  margin-bottom: 10px;
+}
+
+.table-media .media-heading {
+  font-size: 14px;
+}
+
+.table-media .media-object {
+  width: 48px;
+  height: 48px;
+}
+
+.product-media .media-heading, .user-media .media-heading {
+  margin-bottom: 10px;
+}
+
+.user-media .media-heading, .user-media .media-heading a {
+  color: inherit;
+  font-size: 16px;
+}
+
+.user-media .media-object {
+  width: 48px;
+  height: 48px;
+}
+
+.product-media .media-heading {
+  font-size: 14px;
+}
+
+/* 内部无表单的情况下不设置宽度,避免某一列table被撑开
+https://github.com/twbs/bootstrap/issues/14990 */
+.user-media .media-body,
+.product-media .media-body {
+  width: auto;
+}
+
+.record-table {
+  table-layout: fixed;
+}
+
+.record-table th, .record-table td {
+  white-space: nowrap;
+  text-align: center;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.record-table td.text-left {
+  text-align: left;
+}
+
+.record-table td.text-right {
+  text-align: right;
+}
+
+.table tbody tr td.table-empty-tips {
+  font-size: 16px;
+  padding: 20px 0;
+  color: rgb(133, 133, 133);
+}
+
+.message-media {
+  padding: 15px 0;
+  margin-top: 0;
+  border: 0;
+  border-top: 1px solid #eee;
+}
+
+.message-media .media-actions {
+  width: 140px;
+  visibility: hidden
+}
+
+.message-media a:hover {
+  text-decoration: none;
+}
+
+.message-media .media-actions i {
+  color: #6FB3E0;
+}
+
+.message-media .media-actions i:hover {
+  color: #4F99C6
+}

@@ -1,0 +1,151 @@
+/* Button */
+.btn {
+  border-radius: 0;
+  box-shadow: none !important;
+  vertical-align: middle;
+  margin: 0;
+  position: relative
+}
+
+.btn.active, .open > .btn.active.dropdown-toggle {
+  box-shadow: none
+}
+
+.btn-lg, .btn-group-lg > .btn {
+  line-height: 1.4;
+  padding: 5px 16px 6px
+}
+
+.btn-xlg, .btn-group-xlg > .btn {
+  line-height: 1.35;
+  padding: 7px 16px;
+  font-size: 18px
+}
+
+.btn-sm, .btn-group-sm > .btn {
+  font-size: 13px;
+  padding: 4px 9px;
+  line-height: 1.38
+}
+
+.btn-xs, .btn-group-xs > .btn {
+  padding-top: 3px;
+  padding-bottom: 3px;
+}
+
+.btn-mini, .btn-group-mini > .btn {
+  padding: 1px 5px;
+  font-size: 12px;
+  line-height: 1.5
+}
+
+.btn-minier, .btn-group-minier > .btn {
+  padding: 0 4px;
+  line-height: 18px;
+  font-size: 12px
+}
+
+/* Deprecate .btn-white */
+.btn-default, .btn-white {
+  @include button-variant($btn-default-color, $btn-default-bg, $btn-default-border);
+}
+
+.btn-primary {
+  @include button-variant($btn-primary-color, $btn-primary-bg, $btn-primary-bg);
+}
+
+.btn-success {
+  @include button-variant($btn-success-color, $btn-success-bg, $btn-success-bg);
+}
+
+.btn-info {
+  @include button-variant($btn-info-color, $btn-info-bg, $btn-info-bg);
+}
+
+.btn-warning {
+  @include button-variant($btn-warning-color, $btn-warning-bg, $btn-warning-bg);
+}
+
+.btn-danger {
+  @include button-variant($btn-danger-color, $btn-danger-bg, $btn-danger-bg);
+}
+
+.btn-inverse {
+  @include button-variant(#fff, #555, #555);
+}
+
+.btn.disabled.active, .btn[disabled].active, .btn.disabled:focus, .btn[disabled]:focus, .btn.disabled:active, .btn[disabled]:active {
+  outline: 0
+}
+
+.btn.disabled:active, .btn[disabled]:active {
+  top: 0;
+  left: 0
+}
+
+.btn.btn-link {
+  border-width: 0 !important;
+  background: transparent none !important;
+  color: #08c !important;
+  text-shadow: none !important;
+  padding: 4px 12px !important;
+  line-height: 20px !important
+}
+
+.btn.btn-link:hover {
+  background: none !important;
+  text-shadow: none !important
+}
+
+.btn.btn-link.active {
+  background: none !important;
+  text-decoration: underline;
+  color: #009ceb !important
+}
+
+.btn.btn-link.active:after {
+  display: none
+}
+
+.btn.btn-link.disabled, .btn.btn-link[disabled] {
+  background: transparent none !important;
+  opacity: .65;
+  filter: alpha(opacity=65);
+  text-decoration: none !important
+}
+
+.btn.btn-round {
+  border-bottom-width: 2px;
+  border-radius: 4px !important
+}
+
+.btn-group > .btn, .btn-group + .btn {
+  border-width: 1px
+}
+
+/* Scroll up button */
+.btn-scroll-up {
+  border-width: 0;
+  position: fixed;
+  right: 2px;
+  z-index: 99;
+  -webkit-transition-duration: .3s;
+  transition-duration: .3s;
+  opacity: 0;
+  bottom: -24px;
+  visibility: hidden
+}
+
+.btn-scroll-up.display {
+  opacity: .7;
+  bottom: 2px;
+  visibility: visible
+}
+
+.btn-scroll-up:hover {
+  opacity: 1;
+}
+
+.btn-scroll-up:focus {
+  outline: 0
+}

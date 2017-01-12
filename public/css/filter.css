@@ -1,0 +1,40 @@
+.filter-form .control-label {
+  padding-right: 0;
+  padding-left: 0;
+}
+
+/* 让表单更紧凑 */
+.filter-form .form-group {
+  margin-bottom: 10px;
+}
+
+.filter-form .form-group:last-child {
+  margin-bottom: 0;
+}
+
+/* 选择项 */
+.filter-item {
+  line-height: 24px;
+  margin-top: 4px;
+  margin-right: 6px;
+  padding: 0 6px;
+  border: 1px solid transparent;
+  border-radius: 3px;
+  display: inline-block;
+  color: inherit;
+}
+
+.filter-item:hover {
+  border-color: #d5d5d5;
+  color: inherit;
+}
+
+.filter-item:focus {
+  color: inherit;
+}
+
+.filter-item.active {
+  border-color: #428bca;
+  color: #428bca;
+  background: #fff;
+}

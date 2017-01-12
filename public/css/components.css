@@ -1,0 +1,1419 @@
+.img-max {
+  width: 100%;
+}
+
+.text-lg {
+  font-size: 18px;
+}
+
+/* Form */
+.form-control-static {
+  font-size: 14px;
+}
+
+/* Tables */
+.table {
+  border-top: 1px solid #ddd;
+}
+
+th, td, .table-bordered {
+  border-radius: 0 !important
+}
+
+.table > thead > tr {
+  color: #707070;
+  font-weight: 400;
+  background: #f6f6f6;
+}
+
+.table > thead > tr > th {
+  font-weight: 700;
+  border-bottom-width: 1px;
+}
+
+.table > thead > tr > th:first-child {
+  border-left-color: #F1F1F1
+}
+
+.table.table-bordered > thead > tr > th {
+  vertical-align: middle
+}
+
+.table.table-bordered > thead > tr > th:first-child {
+  border-left-color: #ddd
+}
+
+th.center, td.center {
+  text-align: center
+}
+
+th .lbl, td .lbl {
+  margin-bottom: 0
+}
+
+th .lbl:only-child, td .lbl:only-child {
+  vertical-align: top
+}
+
+.table-header {
+  background-color: #307ecc;
+  color: #FFF;
+  font-size: 14px;
+  line-height: 38px;
+  padding-left: 12px;
+  margin-bottom: 1px
+}
+
+.table-header .close {
+  margin-right: 8px;
+  margin-top: 0;
+  opacity: .45;
+  filter: alpha(opacity=45)
+}
+
+.table-header .close:hover {
+  opacity: .75;
+  filter: alpha(opacity=75)
+}
+
+.table-header-tips i {
+  vertical-align: bottom;
+}
+
+/* Tooltips */
+.tooltip.in {
+  opacity: 1;
+  filter: alpha(opacity=100)
+}
+
+.tooltip-inner {
+  background-color: #333;
+  color: #FFF;
+  font-size: 12px;
+  text-shadow: 1px 1px 0 rgba(42, 45, 50, .5);
+  border-radius: 0;
+  padding: 5px 9px
+}
+
+.tooltip.top .tooltip-arrow {
+  border-bottom-width: 0;
+  border-top-color: #333;
+  -moz-border-top-colors: #333
+}
+
+.tooltip.right .tooltip-arrow {
+  border-left-width: 0;
+  border-right-color: #333;
+  -moz-border-right-colors: #333
+}
+
+.tooltip.left .tooltip-arrow {
+  border-right-width: 0;
+  border-left-color: #333;
+  -moz-border-left-colors: #333
+}
+
+.tooltip.bottom .tooltip-arrow {
+  border-top-width: 0;
+  border-bottom-color: #333;
+  -moz-border-bottom-colors: #333
+}
+
+/* Popovers */
+.popover {
+  border-radius: 0;
+  padding: 0;
+  border-color: #ccc;
+  border-width: 1px;
+  box-shadow: none;
+  color: #4D6883
+}
+
+.popover-title {
+  border-radius: 0;
+  background-color: #eff3f8;
+  color: #555;
+  border-bottom: 1px solid #dde6f0;
+}
+
+.popover.bottom > .arrow:after {
+  top: 1px;
+  margin-left: -10px;
+  border-bottom-color: #eff3f8;
+  -moz-border-bottom-colors: #eff3f8;
+  border-top-width: 0
+}
+
+.popover.left > .arrow:after {
+  -moz-border-left-colors: #FFF
+}
+
+.popover.right > .arrow:after {
+  -moz-border-right-colors: #FFF
+}
+
+.popover.top > .arrow:after {
+  -moz-border-top-colors: #FFF
+}
+
+/* Thumbnails */
+.ace-thumbnails {
+  list-style: none;
+  margin: 0;
+  padding: 0
+}
+
+.ace-thumbnails > li {
+  float: left;
+  display: block;
+  position: relative;
+  overflow: hidden;
+  margin: 2px;
+  border: 2px solid #333
+}
+
+.ace-thumbnails > li > :first-child {
+  display: block;
+  position: relative
+}
+
+.ace-thumbnails > li > :first-child:focus {
+  outline: 0
+}
+
+.ace-thumbnails > li .tags {
+  display: inline-block;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  overflow: visible;
+  direction: rtl;
+  padding: 0;
+  margin: 0;
+  height: auto;
+  width: auto;
+  background-color: transparent;
+  border-width: 0;
+  vertical-align: inherit
+}
+
+.ace-thumbnails > li .tags > .label-holder {
+  opacity: .92;
+  filter: alpha(opacity=92);
+  display: table;
+  margin: 1px 0 0 0;
+  direction: ltr;
+  text-align: left
+}
+
+.ace-thumbnails > li .tags > .label-holder:hover {
+  opacity: 1;
+  filter: alpha(opacity=100)
+}
+
+.ace-thumbnails > li > .tools {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: -30px;
+  width: 24px;
+  background-color: rgba(0, 0, 0, .55);
+  text-align: center;
+  vertical-align: middle;
+  -webkit-transition: all .2s ease;
+  -o-transition: all .2s ease;
+  transition: all .2s ease
+}
+
+.ace-thumbnails > li > .tools.tools-right {
+  left: auto;
+  right: -30px
+}
+
+.ace-thumbnails > li > .tools.tools-bottom {
+  width: auto;
+  height: 28px;
+  left: 0;
+  right: 0;
+  top: auto;
+  bottom: -30px
+}
+
+.ace-thumbnails > li > .tools.tools-top {
+  width: auto;
+  height: 28px;
+  left: 0;
+  right: 0;
+  top: -30px;
+  bottom: auto
+}
+
+.ace-thumbnails > li:hover > .tools {
+  left: 0;
+  right: 0
+}
+
+.ace-thumbnails > li:hover > .tools.tools-bottom {
+  top: auto;
+  bottom: 0
+}
+
+.ace-thumbnails > li:hover > .tools.tools-top {
+  bottom: auto;
+  top: 0
+}
+
+.ace-thumbnails > li:hover > .tools.tools-right {
+  left: auto;
+  right: 0
+}
+
+.ace-thumbnails > li > .in.tools {
+  left: 0;
+  right: 0
+}
+
+.ace-thumbnails > li > .in.tools.tools-bottom {
+  top: auto;
+  bottom: 0
+}
+
+.ace-thumbnails > li > .in.tools.tools-top {
+  bottom: auto;
+  top: 0
+}
+
+.ace-thumbnails > li > .in.tools.tools-right {
+  left: auto;
+  right: 0
+}
+
+.ace-thumbnails > li > .tools > a, .ace-thumbnails > li > :first-child .inner a {
+  display: inline-block;
+  color: #FFF;
+  font-size: 18px;
+  font-weight: 400;
+  padding: 0 4px
+}
+
+.ace-thumbnails > li > .tools > a:hover, .ace-thumbnails > li > :first-child .inner a:hover {
+  text-decoration: none;
+  color: #C9E2EA
+}
+
+.ace-thumbnails > li .tools.tools-bottom > a, .ace-thumbnails > li .tools.tools-top > a {
+  display: inline-block
+}
+
+.ace-thumbnails > li > :first-child > .text {
+  position: absolute;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  top: 0;
+  text-align: center;
+  color: #FFF;
+  background-color: rgba(0, 0, 0, .55);
+  opacity: 0;
+  filter: alpha(opacity=0);
+  -webkit-transition: all .2s ease;
+  -o-transition: all .2s ease;
+  transition: all .2s ease
+}
+
+.ace-thumbnails > li > :first-child > .text:before {
+  content: '';
+  display: inline-block;
+  height: 100%;
+  vertical-align: middle;
+  margin-right: 0
+}
+
+.ace-thumbnails > li > :first-child > .text > .inner {
+  padding: 4px 0;
+  margin: 0;
+  display: inline-block;
+  vertical-align: middle;
+  max-width: 90%
+}
+
+.ace-thumbnails > li:hover > :first-child > .text {
+  opacity: 1;
+  filter: alpha(opacity=100)
+}
+
+/* 图片选择器 */
+.image-picker li {
+  margin: 0 6px 6px 0;
+  border: 1px solid #b5b5b5;
+  padding: 4px;
+  border-radius: 4px;
+  width: 108px;
+  height: 108px;
+}
+
+.image-picker li.selected {
+  border-color: #44b549;
+}
+
+.image-picker img {
+  max-width: 100px;
+  max-height: 100px;
+}
+
+.image-picker .select-image {
+  border: 1px dashed rgb(170, 170, 170);
+  cursor: pointer;
+}
+
+.image-picker .select-image:hover {
+  border-color: rgb(245, 153, 66);
+}
+
+.image-picker .select-image:hover h5,
+.image-picker .select-image:hover i {
+  color: rgb(245, 153, 66);
+}
+
+.image-picker .select-image h5 {
+  color: #CCC;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.image-picker .select-image i {
+  font-size: 56px;
+  color: #CCC;
+}
+
+.ace-thumbnails > li > .tools {
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+.image-picker-xs li {
+  padding: 1px;
+  border-radius: 3px;
+  width: 60px;
+  height: 60px;
+}
+
+.image-picker-xs img {
+  max-width: 60px;
+  max-height: 60px;
+}
+
+.image-picker-xs .select-image h5 {
+  letter-spacing: 3px;
+  line-height: 22px;
+  margin-top: 6px;
+  margin-left: 2px;
+}
+
+/* todo */
+.ui-sortable-placeholder, .ui-sortable-helper, .ui-sortable-placeholder > a, .ui-sortable-helper > a {
+  cursor: move !important
+}
+
+/* DataTables */
+.dataTables_length select {
+  width: 70px;
+  height: 25px;
+  padding: 2px 3px
+}
+
+.dataTables_length label {
+  font-weight: 400
+}
+
+.dataTables_filter {
+  text-align: right
+}
+
+.dataTables_filter input[type=text], .dataTables_filter input[type=search] {
+  width: 125px;
+  height: 18px;
+  line-height: 18px;
+  -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+  padding: 4px 6px
+}
+
+.dataTables_filter label {
+  font-weight: 400
+}
+
+.dataTables_info {
+  font-size: 14px
+}
+
+.dataTables_paginate {
+  text-align: right
+}
+
+.dataTables_paginate .pagination {
+  margin: 0 12px
+}
+
+.dataTables_wrapper label {
+  display: inline-block;
+  font-size: 13px
+}
+
+.dataTables_wrapper input[type=text], .dataTables_wrapper input[type=search], .dataTables_wrapper select {
+  margin-bottom: 0 !important;
+  margin: 0 4px
+}
+
+.dataTables_wrapper .row {
+  margin: 0 !important
+}
+
+.dataTables_wrapper .row:first-child {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  background-color: #EFF3F8
+}
+
+.dataTables_wrapper .row:first-child + .dataTable {
+  border-top: 1px solid #ddd;
+  border-bottom: 1px solid #ddd
+}
+
+.dataTables_wrapper .row:last-child {
+  border-bottom: 1px solid #e0e0e0;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  background-color: #EFF3F8
+}
+
+.dataTables_wrapper .dataTables_scroll + .row {
+  border-top: 1px solid #e0e0e0
+}
+
+.dataTable {
+  margin-bottom: 0
+}
+
+.dataTable > thead > tr > th[class*=sort] {
+  cursor: pointer
+}
+
+.dataTable > thead > tr > th[class*=sort]:after {
+  float: right;
+  display: inline;
+  content: "\f0dc";
+  font-family: FontAwesome;
+  font-size: 13px;
+  font-weight: 400;
+  color: #555
+}
+
+.dataTable > thead > tr > th[class*=sort]:hover {
+  color: #547ea8
+}
+
+.dataTable > thead > tr > th[class*=sorting_] {
+  color: #307ecc
+}
+
+/*.dataTable > thead > tr > th.sorting_desc, .dataTable > thead > tr > th.sorting_asc {
+    background-image: -webkit-linear-gradient(top, #eff3f8 0, #e3e7ed 100%);
+    background-image: -o-linear-gradient(top, #eff3f8 0, #e3e7ed 100%);
+    background-image: linear-gradient(to bottom, #eff3f8 0, #e3e7ed 100%);
+    background-repeat: repeat-x;
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffeff3f8', endColorstr='#ffe3e7ed', GradientType=0)
+}*/
+
+.dataTable > thead > tr > th.sorting_desc:after {
+  content: "\f0dd";
+  top: -6px;
+  color: #307ecc
+}
+
+.dataTable > thead > tr > th.sorting_asc:after {
+  content: "\f0de";
+  top: 4px;
+  color: #307ecc
+}
+
+.dataTable > thead > tr > th.sorting_disabled {
+  cursor: inherit
+}
+
+.dataTable > thead > tr > th.sorting_disabled:after {
+  display: none
+}
+
+.dataTables_scrollHead + .dataTables_scrollBody > .dataTable > thead > tr > th:after {
+  display: none
+}
+
+.dataTables_scrollHeadInner {
+  width: auto !important
+}
+
+.dataTables_scrollHeadInner > .dataTable > thead > tr > th {
+  border-bottom-width: 0 !important
+}
+
+.dataTables_borderWrap .dataTables_scrollBody, .dataTables_borderWrap .dataTables_scrollHead {
+  border: 1px solid #ddd !important;
+  border-width: 0 1px !important
+}
+
+.dataTables_borderWrap .dataTables_scrollBody .table-bordered, .dataTables_borderWrap .dataTables_scrollHead .table-bordered {
+  border-left-width: 0;
+  border-right-width: 0
+}
+
+.dataTables_borderWrap .dataTables_scrollBody .table-bordered > thead > tr > th:first-child, .dataTables_borderWrap .dataTables_scrollHead .table-bordered > thead > tr > th:first-child, .dataTables_borderWrap .dataTables_scrollBody .table-bordered > tbody > tr > td:first-child, .dataTables_borderWrap .dataTables_scrollHead .table-bordered > tbody > tr > td:first-child {
+  border-left-width: 0
+}
+
+.dataTables_borderWrap .dataTables_scrollBody .table-bordered > thead > tr > th:last-child, .dataTables_borderWrap .dataTables_scrollHead .table-bordered > thead > tr > th:last-child, .dataTables_borderWrap .dataTables_scrollBody .table-bordered > tbody > tr > td:last-child, .dataTables_borderWrap .dataTables_scrollHead .table-bordered > tbody > tr > td:last-child {
+  border-right-width: 0
+}
+
+table.dataTable {
+  clear: both;
+  max-width: none !important
+}
+
+table.dataTable th:active {
+  outline: 0
+}
+
+div.dataTables_scrollHead table {
+  margin-bottom: 0 !important;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0
+}
+
+div.dataTables_scrollHead table thead tr:last-child th:first-child, div.dataTables_scrollHead table thead tr:last-child td:first-child {
+  border-bottom-left-radius: 0 !important;
+  border-bottom-right-radius: 0 !important
+}
+
+div.dataTables_scrollBody table {
+  border-top: none;
+  margin-top: 0 !important;
+  margin-bottom: 0 !important
+}
+
+div.dataTables_scrollBody tbody tr:first-child th, div.dataTables_scrollBody tbody tr:first-child td {
+  border-top: none
+}
+
+div.dataTables_scrollFoot table {
+  margin-top: 0 !important;
+  border-top: none
+}
+
+.DTTT_Print .main-content {
+  margin-left: 0 !important;
+  margin-right: 0 !important
+}
+
+.DTTT_Print .navbar-fixed-top + .main-container {
+  padding-top: 0
+}
+
+.tableTools-container {
+  margin-bottom: 8px
+}
+
+.tableTools-alert.gritter-item-wrapper {
+  padding: 12px 11px 8px;
+  z-index: 1999
+}
+
+ul.ColVis_collection {
+  z-index: 2002
+}
+
+ul.ColVis_collection > li > a {
+  padding: 0
+}
+
+ul.ColVis_collection > li > a:focus {
+  outline: 0
+}
+
+ul.ColVis_collection > li.ColVis_Special {
+  border-top: 1px solid #DDD
+}
+
+ul.ColVis_collection > li.ColVis_Special > a {
+  padding: 6px 11px 7px;
+  text-align: center
+}
+
+ul.ColVis_collection label {
+  margin: auto;
+  padding: 6px 11px 7px;
+  display: block;
+  cursor: pointer
+}
+
+div.ColVis_catcher {
+  position: absolute;
+  z-index: 1101
+}
+
+div.ColVis_collectionBackground {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: #000;
+  z-index: 1100
+}
+
+/* dataTables 自定义样式 */
+.dataTable th.sorting_disabled {
+  color: rgb(112, 112, 112) !important;
+}
+
+.dataTables_paginate {
+  float: right;
+  height: 32px;
+}
+
+.dataTables_paginate .pagination {
+  margin-right: 0;
+}
+
+.dataTables_length {
+  float: right;
+}
+
+.dataTables_length select {
+  padding: 4px 6px;
+  height: 32px;
+}
+
+.dataTables_length label {
+  margin-bottom: 0;
+}
+
+.dataTables_info {
+  float: left;
+  padding: 4px 0;
+}
+
+.dataTables_processing {
+  font-size: 14px;
+  float: left;
+  padding: 4px 6px;
+}
+
+.dataTables_wrapper .row:last-child {
+  border: 1px solid rgb(221, 221, 221);
+  border-top: 0;
+}
+
+.table tbody tr td.dataTables_empty {
+  text-align: center;
+  font-size: 16px;
+  padding: 40px 0;
+}
+
+/* 修复禁用排序后,移动到header上仍会变颜色的问题 */
+.dataTable th.sorting_disabled:hover {
+  color: inherit;
+}
+
+/* Select2 */
+.select2-container .select2-choice {
+  border-radius: 0;
+  height: 32px;
+  line-height: 28px
+}
+
+.select2-container.select2-drop-above .select2-choice {
+  border-radius: 0
+}
+
+.select2-container[class*=input-] {
+  max-width: none
+}
+
+.select2-container.input-mini {
+  min-width: 100px
+}
+
+.select2-container .select2-choice abbr, .select2-search-choice-close {
+  background: 0 0
+}
+
+.select2-container .select2-choice abbr:before, .select2-search-choice-close:before {
+  font-family: FontAwesome;
+  font-size: 12px;
+  display: inline;
+  content: "\f00d";
+  color: #888;
+  position: relative;
+  top: -1px
+}
+
+.select2-container .select2-choice abbr:hover:before, .select2-search-choice-close:hover:before {
+  color: #555
+}
+
+.select2-container .select2-choice abbr:before {
+  top: -7px
+}
+
+.select2-search-choice-close:hover {
+  text-decoration: none !important
+}
+
+.select2-drop {
+  border-radius: 0;
+  border: 1px solid #4492C9;
+  border-width: 0 1px 3px
+}
+
+.select2-drop.select2-drop-above {
+  border-radius: 0
+}
+
+.select2-container .select2-choice {
+  background: #FAFAFA none
+}
+
+.select2-container-active .select2-choice, .select2-container-active .select2-choices, .select2-dropdown-open.select2-drop-above .select2-choice, .select2-dropdown-open.select2-drop-above .select2-choices, .select2-container-multi.select2-container-active .select2-choices {
+  border-color: #4492C9
+}
+
+.select2-results .select2-highlighted {
+  background: #316AC5
+}
+
+.select2-container .select2-choice .select2-arrow {
+  border-radius: 0;
+  background: transparent none;
+  border: none
+}
+
+.select2-container .select2-choice .select2-arrow b {
+  background: 0 0
+}
+
+.select2-container .select2-choice .select2-arrow b:before {
+  font-family: FontAwesome;
+  font-size: 12px;
+  display: inline;
+  content: "\f0d7";
+  color: #888;
+  position: relative;
+  left: 5px
+}
+
+.select2-dropdown-open .select2-choice .select2-arrow b:before {
+  content: "\f0d8"
+}
+
+.select2-search .select2-input {
+  background: #fff none;
+  margin-top: 4px
+}
+
+.select2-search:after {
+  font-family: FontAwesome;
+  font-size: 14px;
+  display: inline;
+  content: "\f002";
+  color: #777;
+  position: relative;
+  top: 0;
+  left: -20px;
+  z-index: 0
+}
+
+.select2-dropdown-open.select2-drop-above .select2-choice, .select2-dropdown-open.select2-drop-above .select2-choices {
+  background-image: none;
+  background-color: #F6F6F6
+}
+
+.select2-container-multi .select2-choices .select2-search-field input {
+  border: none !important;
+  -webkit-box-shadow: none !important;
+  box-shadow: none !important;
+  background: none !important;
+  font-size: 14px
+}
+
+.select2-container-multi .select2-choices .select2-search-choice {
+  line-height: 16px;
+  padding-bottom: 4px
+}
+
+.select2-container-active .select2-choice, .select2-container-active .select2-choices, .select2-container-multi.select2-container-active .select2-choices, .select2-dropdown-open.select2-drop-above .select2-choice, .select2-dropdown-open.select2-drop-above .select2-choices {
+  -webkit-box-shadow: none;
+  box-shadow: none
+}
+
+.select2-search input.select2-active {
+  background-color: #FFF;
+  position: relative;
+  z-index: 1
+}
+
+.select2-container-active.select2-dropdown-open .select2-choice {
+  background-image: -webkit-linear-gradient(top, #eee 0, #fff 100%);
+  background-image: -o-linear-gradient(top, #eee 0, #fff 100%);
+  background-image: linear-gradient(to bottom, #eee 0, #fff 100%);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffeeeeee', endColorstr='#ffffffff', GradientType=0)
+}
+
+.select2-container-active.select2-drop-above .select2-choice {
+  background-image: -webkit-linear-gradient(top, #fff 0, #eee 100%);
+  background-image: -o-linear-gradient(top, #fff 0, #eee 100%);
+  background-image: linear-gradient(to bottom, #fff 0, #eee 100%);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffffff', endColorstr='#ffeeeeee', GradientType=0)
+}
+
+.form-group.has-error .select2-choice, .form-group.has-error .select2-choices {
+  border-color: #f2a696 !important
+}
+
+.form-group.has-info .select2-choice, .form-group.has-info .select2-choices {
+  border-color: #72aec2 !important
+}
+
+.form-group.has-warning .select2-choice, .form-group.has-warning .select2-choices {
+  border-color: #e3c94c !important
+}
+
+.form-group.has-success .select2-choice, .form-group.has-success .select2-choices {
+  border-color: #9cc573 !important
+}
+
+.select2-container-multi.tag-input-style .select2-choices .select2-search-choice {
+  background-image: none;
+  background-color: #91b8d0;
+  color: #FFF;
+  display: inline-block;
+  font-size: 13px;
+  font-weight: 400;
+  margin-bottom: 3px;
+  margin-right: 0;
+  padding: 6px 22px 7px 9px;
+  position: relative;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, .15);
+  transition: all .2s ease 0s;
+  vertical-align: baseline;
+  white-space: nowrap;
+  border: none;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  border-radius: 0
+}
+
+.select2-container-multi.tag-input-style .select2-choices .select2-search-choice .select2-search-choice-close {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: auto;
+  width: 18px;
+  height: auto;
+  line-height: 25px;
+  text-align: center
+}
+
+.select2-container-multi.tag-input-style .select2-choices .select2-search-choice .select2-search-choice-close:before {
+  color: #FFF;
+  position: static;
+  font-size: 11px
+}
+
+.select2-container-multi.tag-input-style .select2-choices .select2-search-choice .select2-search-choice-close:hover {
+  background-color: rgba(0, 0, 0, .2)
+}
+
+.select2-container-multi.tag-input-style .select2-choices .select2-search-choice .select2-search-choice-close:hover:before {
+  color: #FFF
+}
+
+/* Datepickers */
+.input-group.date .input-group-addon {
+  cursor: pointer
+}
+
+.datepicker td, .daterangepicker td, .datepicker th, .daterangepicker th {
+  border-radius: 0 !important;
+  font-size: 13px
+}
+
+.datepicker td.active, .daterangepicker td.active, .datepicker td.active:hover, .daterangepicker td.active:hover {
+  background: #2283c5 !important
+}
+
+.datepicker td.active.disabled, .daterangepicker td.active.disabled, .datepicker td.active.disabled:hover, .daterangepicker td.active.disabled:hover {
+  background: #8b9aa3 !important
+}
+
+.datepicker td, .datepicker th {
+  min-width: 32px
+}
+
+.datepicker-dropdown.datepicker-orient-bottom:after, .datepicker-dropdown.datepicker-orient-bottom:before {
+  top: auto
+}
+
+.daterangepicker .calendar-date {
+  border-radius: 0
+}
+
+.datepicker-months .month, .datepicker-years .year {
+  border-radius: 0 !important
+}
+
+.datepicker-months .month.active, .datepicker-years .year.active, .datepicker-months .month.active:hover, .datepicker-years .year.active:hover, .datepicker-months .month.active:focus, .datepicker-years .year.active:focus, .datepicker-months .month.active:active, .datepicker-years .year.active:active {
+  background-image: none !important;
+  background-color: #2283c5 !important
+}
+
+.bootstrap-timepicker-widget table td input {
+  width: 32px
+}
+
+.well .datepicker table tr td.day:hover {
+  background-color: #7d8893;
+  color: #FFF
+}
+
+.bootstrap-timepicker-widget table td a:hover {
+  border-radius: 0
+}
+
+.daterangepicker.opensleft:before, .daterangepicker.opensright:before {
+  -moz-border-bottom-colors: rgba(0, 0, 0, .2)
+}
+
+.daterangepicker.opensleft:after, .daterangepicker.opensright:after {
+  -moz-border-bottom-colors: #fff
+}
+
+.datepicker-dropdown:before {
+  -moz-border-bottom-colors: rgba(0, 0, 0, .2)
+}
+
+.datepicker-dropdown:after {
+  -moz-border-bottom-colors: #fff
+}
+
+.datepicker-dropdown.datepicker-orient-bottom:before {
+  -moz-border-top-colors: #999
+}
+
+.datepicker-dropdown.datepicker-orient-bottom:after {
+  -moz-border-top-colors: #FFF
+}
+
+.bootstrap-timepicker-widget.dropdown-menu:before {
+  -moz-border-bottom-colors: rgba(0, 0, 0, .2)
+}
+
+.bootstrap-timepicker-widget.dropdown-menu:after {
+  -moz-border-bottom-colors: #FFF
+}
+
+.bootstrap-timepicker-widget.timepicker-orient-bottom:before {
+  -moz-border-top-colors: #999
+}
+
+.bootstrap-timepicker-widget.timepicker-orient-bottom:after {
+  -moz-border-top-colors: #FFF
+}
+
+.bootstrap-datetimepicker-widget [class=btn] {
+  border-width: 0 !important;
+  background-color: transparent !important;
+  color: #7399b8 !important;
+  text-shadow: none !important
+}
+
+.bootstrap-datetimepicker-widget [class=btn]:hover {
+  color: #1B6AAA !important
+}
+
+.bootstrap-datetimepicker-widget .btn.btn-primary {
+  border-width: 3px !important
+}
+
+.bootstrap-datetimepicker-widget .picker-switch {
+  margin-bottom: 2px
+}
+
+.bootstrap-datetimepicker-widget .picker-switch .btn {
+  width: 90% !important;
+  background-color: #EEE !important;
+  color: #478fca !important;
+  font-size: 16px
+}
+
+.bootstrap-datetimepicker-widget .picker-switch .btn:hover {
+  background-color: #e3edf5 !important
+}
+
+.bootstrap-datetimepicker-widget td span {
+  border-radius: 0
+}
+
+.bootstrap-datetimepicker-widget .timepicker-hour, .bootstrap-datetimepicker-widget .timepicker-minute, .bootstrap-datetimepicker-widget .timepicker-second {
+  color: #555 !important
+}
+
+.ui-datepicker {
+  background-color: #FFF;
+  border: 1px solid rgba(0, 0, 0, .2);
+  -webkit-box-shadow: 0 2px 4px rgba(0, 0, 0, .2);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, .2)
+}
+
+.ui-datepicker .ui-datepicker-prev, .ui-datepicker .ui-datepicker-next {
+  height: 26px;
+  min-width: 32px;
+  max-width: 32px;
+  text-align: center;
+  cursor: pointer;
+  color: transparent;
+  line-height: 26px;
+  -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  box-sizing: content-box
+}
+
+.ui-datepicker .ui-datepicker-prev .ui-icon, .ui-datepicker .ui-datepicker-next .ui-icon {
+  color: transparent;
+  visibility: hidden
+}
+
+.ui-datepicker .ui-datepicker-prev:hover, .ui-datepicker .ui-datepicker-next:hover {
+  background-color: #EEE;
+  text-decoration: none
+}
+
+.ui-datepicker .ui-datepicker-prev:before, .ui-datepicker .ui-datepicker-next:before {
+  display: inline;
+  font-family: FontAwesome;
+  font-size: 14px;
+  content: "\f060";
+  color: #393939
+}
+
+.ui-datepicker .ui-datepicker-prev-hover, .ui-datepicker .ui-datepicker-next-hover {
+  top: 2px
+}
+
+.ui-datepicker .ui-datepicker-next:before {
+  content: "\f061"
+}
+
+.ui-datepicker .ui-datepicker-prev-hover {
+  left: 2px
+}
+
+.ui-datepicker .ui-datepicker-next-hover {
+  right: 2px
+}
+
+.ui-datepicker td {
+  padding: 0
+}
+
+.ui-datepicker td > a, .ui-datepicker td > span {
+  display: inline-block;
+  height: 22px;
+  min-width: 24px;
+  max-width: 24px;
+  text-align: center;
+  color: #393939;
+  font-size: 13px;
+  -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  box-sizing: content-box
+}
+
+.ui-datepicker td > a:hover {
+  background-color: #EEE
+}
+
+.ui-datepicker td > a.ui-state-highlight {
+  background-color: #D5E5EF
+}
+
+.ui-datepicker td > a.ui-state-active {
+  background-color: #2283c5;
+  color: #FFF
+}
+
+.ui-datepicker td > a.ui-priority-secondary {
+  color: #888
+}
+
+.ui-datepicker td > span {
+  color: #999
+}
+
+.ui-datepicker td .ui-datepicker-title select {
+  height: 24px;
+  line-height: 24px;
+  padding: 2px 3px
+}
+
+.ui-datepicker td .ui-datepicker-buttonpane {
+  background-color: #DDD;
+  height: 1px
+}
+
+.ui-widget-overlay {
+  background: rgba(0, 0, 0, .25);
+  opacity: 1 !important;
+  filter: alpha(opacity=100) !important;
+  z-index: 1039 !important
+}
+
+.ui-menu {
+  -webkit-box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+  width: 150px;
+  -webkit-box-shadow: 0 2px 4px rgba(0, 0, 0, .2);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, .2);
+  background-color: #FFF;
+  border: 1px solid rgba(0, 0, 0, .2);
+  padding: 3px
+}
+
+.ui-menu .ui-state-focus, .ui-menu .ui-state-active {
+  margin: auto
+}
+
+.ui-menu .ui-menu-item {
+  padding: 5px 10px 6px;
+  color: #444;
+  cursor: pointer;
+  display: block;
+  -webkit-box-sizing: inherit;
+  -moz-box-sizing: inherit;
+  box-sizing: inherit;
+  width: auto; /* 修复100%超出 */
+}
+
+.ui-menu .ui-menu-item .ui-menu-icon {
+  float: right;
+  position: relative;
+  left: auto;
+  right: 4px;
+  bottom: auto;
+  text-indent: 0
+}
+
+.ui-menu .ui-menu-item .ui-menu-icon:before {
+  content: "\f105";
+  font-family: FontAwesome;
+  font-size: 14px;
+  display: inline
+}
+
+.ui-menu .ui-menu-item:hover, .ui-menu .ui-state-focus, .ui-menu .ui-state-active, .ui-menu .ui-menu-item:hover > .ui-menu-icon, .ui-menu .ui-state-focus > .ui-menu-icon, .ui-menu .ui-state-active > .ui-menu-icon {
+  text-decoration: none;
+  background-color: #4f99c6;
+  color: #FFF;
+  margin: auto;
+  font-weight: 400
+}
+
+.ui-menu .ui-menu-item:hover .ui-menu-icon, .ui-menu .ui-state-focus .ui-menu-icon, .ui-menu .ui-state-active .ui-menu-icon, .ui-menu .ui-menu-item:hover > .ui-menu-icon .ui-menu-icon, .ui-menu .ui-state-focus > .ui-menu-icon .ui-menu-icon, .ui-menu .ui-state-active > .ui-menu-icon .ui-menu-icon {
+  color: #FFF
+}
+
+.ui-menu .ui-state-disabled, .ui-menu .ui-state-disabled .ui-menu-icon {
+  color: #999;
+  cursor: default
+}
+
+.ui-menu .ui-state-disabled:hover, .ui-menu .ui-state-disabled.ui-state-focus, .ui-menu .ui-state-disabled.ui-state-active, .ui-menu .ui-state-disabled:hover .ui-menu-icon, .ui-menu .ui-state-disabled.ui-state-focus .ui-menu-icon, .ui-menu .ui-state-disabled.ui-state-active .ui-menu-icon {
+  background-color: #FFF;
+  color: #999
+}
+
+.ui-autocomplete {
+  background-color: #FFF;
+  border: 1px solid rgba(0, 0, 0, .2);
+  -webkit-box-shadow: 0 2px 4px rgba(0, 0, 0, .2);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, .2)
+}
+
+.ui-autocomplete-category {
+  padding: 6px;
+  position: relative;
+  background-color: #eef4f9;
+  color: #478fca;
+  font-weight: bolder;
+  border: 1px solid #DAE6ED;
+  border-width: 1px 0
+}
+
+.multiselect-container > li > a {
+  padding: 0
+}
+
+.multiselect-container > li > a > label {
+  padding: 7px 10px 7px 20px
+}
+
+.draggable-placeholder {
+  border: 2px dashed #D9D9D9 !important;
+  background-color: #F7F7F7 !important
+}
+
+/* Bootbox */
+.bootbox .modal-dialog {
+  padding-top: 10%;
+}
+
+/* jQuery AppendGrid */
+.appendGrid .btn {
+  margin: 0 2px;
+}
+
+.appendGrid .first {
+  vertical-align: middle;
+  text-align: center;
+}
+
+/* 表单底部的操作按钮 */
+.table-bottom-actions {
+  padding: 15px 0;
+}
+
+/* 表单展示tooltip的列 */
+.tooltip-col {
+  padding-left: 0;
+  padding-top: 6px
+}
+
+/* select2插件自定义CSS */
+.select2-container-multi .select2-choices .select2-search-field input.select2-input {
+  -webkit-transition-duration: 0s;
+  transition-duration: 0s;
+}
+
+.form-group .select2-container .select2-choices, .form-group .select2-container .select2-choice {
+  border-radius: 0;
+}
+
+.form-group .select2-choice .select2-arrow b:before {
+  content: "";
+}
+
+.form-group .select2-chosen, .form-group .select2-choice > span:first-child {
+  padding: 7px 12px;
+}
+
+/* 弹出编辑窗 */
+.config-tab-content {
+  border: 0;
+  padding-bottom: 0;
+}
+
+/* 滑动插件 */
+.ui-slider-green {
+  background-color: #44b549;
+}
+
+.ui-slider .ui-slider-handle:before {
+  content: "";
+}
+
+.slider-with-input {
+  width: 200px;
+  display: inline-block
+}
+
+.slider-input {
+  width: 40px;
+  margin-left: 15px;
+  text-align: center;
+  display: inline-block;
+}
+
+/* 日期范围选择器 */
+.daterangepicker .ranges {
+  width: 170px !important;
+}
+
+.daterangepicker .ranges .input-mini {
+  width: 76px !important;
+}
+
+/* 适合显示日期的输入框 */
+.form-inline .input-date {
+  width: 110px;
+}
+
+/* 滑动插件 */
+.ui-slider {
+  background-color: #D5D5D5
+}
+
+.ui-slider-horizontal {
+  height: 9px
+}
+
+.ui-slider-vertical {
+  width: 9px
+}
+
+.ui-slider .ui-slider-handle {
+  border-radius: 0;
+  width: 1.45em;
+  height: 1.45em;
+  background-color: #F8F8F8;
+  border: 1px solid
+}
+
+.ui-slider .ui-slider-handle:hover {
+  background-color: #FFF
+}
+
+.ui-slider .ui-slider-handle:hover, .ui-slider .ui-slider-handle:focus, .ui-slider .ui-slider-handle:active {
+  outline: 0;
+  -webkit-box-shadow: 1px 1px 1px 0 rgba(0, 0, 0, .3);
+  box-shadow: 1px 1px 1px 0 rgba(0, 0, 0, .3)
+}
+
+.ui-slider-horizontal .ui-slider-handle {
+  margin-left: -.725em;
+  top: -.4em
+}
+
+.ui-slider-vertical .ui-slider-handle {
+  left: -.35em;
+  margin-bottom: -.65em
+}
+
+.well {
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+
+/* 统一解决jQuery UI Datepicker被Bootstrap input-group, Ueditor挡住的问题 */
+.hasDatepicker {
+  position: relative;
+  z-index: 50;
+}
+
+/* 支持addon在中间的情况 */
+.input-group-addon:not(:last-child) {
+  border-right: 0;
+}

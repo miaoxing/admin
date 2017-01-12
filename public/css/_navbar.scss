@@ -1,0 +1,91 @@
+/* Navbar */
+.navbar {
+  margin: 0;
+  border-radius: 0;
+  background-color: #fff;
+  border-left: 0;
+  border-right: 0;
+  border-top: 3px solid $link-color;
+  border-bottom: 1px solid #ddd;
+}
+
+.navbar-brand {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  min-width: 189px;
+  height: 45px;
+}
+
+.navbar .navbar-toggle {
+  padding-top: 7px;
+  padding-bottom: 7px;
+  background-color: rgba(0, 0, 0, .15);
+  border: 0;
+  margin-top: 5px;
+  margin-bottom: 0;
+  width: 40px;
+  height: 35px;
+}
+
+.navbar .navbar-toggle:focus {
+  background-color: rgba(0, 0, 0, .15);
+}
+
+.navbar .navbar-toggle:hover {
+  background-color: rgba(255, 255, 255, .1);
+}
+
+.navbar .navbar-toggle.collapsed {
+  background-color: rgba(255, 255, 255, 0.2);
+  border: 1px solid $brand-primary;
+}
+
+.navbar .navbar-toggle.collapsed:focus {
+  background-color: rgba(255, 255, 255, .2);
+}
+
+.navbar .navbar-toggle.pull-left {
+  margin-left: 15px;
+  margin-right: 0;
+}
+
+.navbar-toggle .fa {
+  color: $brand-primary;
+  font-size: 22px;
+}
+
+.logo {
+  width: 26px;
+  display: inline-block;
+  font-size: 0;
+  line-height: 13px;
+}
+
+.logo > .btn {
+  padding: 5px;
+  margin-right: 1px;
+  opacity: .95;
+  border-color: transparent;
+  border-radius: 2px;
+}
+
+.navbar .navbar-nav > li > a {
+  padding-top: 12px;
+  height: 45px;
+  font-size: 16px;
+  color: $gray-dark;
+}
+
+.navbar .navbar-nav > li > a:hover,
+.navbar .navbar-nav > li > a:focus,
+.navbar .navbar-nav > li.open > a,
+.navbar .navbar-nav > .active > a,
+.navbar .navbar-nav > .active > a:focus,
+.navbar .navbar-nav > .active > a:hover {
+  background-color: transparent;
+  color: $link-color;
+}
+
+.navbar .navbar-nav > li > .dropdown-menu > li > a {
+  line-height: 2
+}

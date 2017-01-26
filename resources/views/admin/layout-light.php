@@ -1,3 +1,15 @@
+<?php if ($loginBg = $setting('admin.loginBg')) : ?>
+  <?= $block('css') ?>
+  <!-- htmllint tag-bans="false" -->
+  <style>
+    .main-container-light:before {
+      background-image: url(<?= $e($loginBg) ?>);
+    }
+  </style>
+  <!-- htmllint tag-bans="$previous" -->
+  <?= $block->end() ?>
+<?php endif ?>
+
 <?php require $view->getFile('admin:admin/header.php') ?>
 
 <div class="main-container main-container-light" id="main-container">

@@ -22,6 +22,7 @@
         <tr>
           <th>用户名</th>
           <th>昵称</th>
+          <th>邮箱</th>
           <th>分组</th>
           <th>创建时间</th>
           <th>
@@ -61,6 +62,9 @@
           render: function (data, type, full) {
             return data || full.username;
           }
+        },
+        {
+          data: 'email'
         },
         {
           data: 'group.name'

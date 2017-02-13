@@ -52,7 +52,7 @@ $view->layout('admin:admin/layout-light.php')
 
 <?= $block('js') ?>
 <script>
-  require(['plugins/user/assets/users', 'jquery-form'], function (user) {
+  require(['plugins/user/js/users', 'jquery-form'], function (user) {
     user.loginAction();
   });
 </script>

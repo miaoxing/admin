@@ -44,7 +44,8 @@ $view->layout('admin:admin/layout-light.php')
     <?php if ($setting('admin.enableRegister')) : ?>
       <hr>
       <div class="m-t text-center">
-        没有账号，点击<a href="<?= $url('registration/register') ?>">注册</a>
+        没有账号，点击<a href="<?= $url('registration/register') ?>">注册</a>，
+        <a href="<?= $url('registration/forget') ?>">忘记密码</a>
       </div>
     <?php endif ?>
   </div>

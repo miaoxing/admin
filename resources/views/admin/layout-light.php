@@ -13,7 +13,7 @@
 <?php require $view->getFile('admin:admin/header.php') ?>
 
 <div class="alert alert-warning text-center no-border bigger-120 p-x-0 visible-xs-block">
-  为了确保你更好的使用体验，请在电脑端登录
+  为了确保您更好的使用体验，请在电脑端登录
 </div>
 
 <div class="main-container main-container-light" id="main-container">

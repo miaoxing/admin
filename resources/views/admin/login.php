@@ -5,7 +5,7 @@ $view->layout('admin:admin/layout-light.php')
 
 <div class="page-header">
   <h1 class="page-title-light">
-    登录
+    <?= $setting('login.title', '登录') ?>
   </h1>
 </div>
 

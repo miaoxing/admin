@@ -33,6 +33,19 @@ class Admin extends \miaoxing\plugin\BaseController
                 // 排序
                 $users->desc('id');
 
+                //
+                if ($req['name']) {
+                    $users->andWhere('name like ?', ['%' . $req['name'] . '%']);
+                }
+
+                if ($req['nickName']) {
+                    $users->andWhere('nickName like ?', ['%' . $req['nickName'] . '%']);
+                }
+
+                if ($req['email']) {
+                    $users->andWhere('email like ?', ['%' . $req['email'] . '%']);
+                }
+
                 $users = $users->findAll();
 
                 $data = [];
@@ -175,6 +188,7 @@ class Admin extends \miaoxing\plugin\BaseController
     {
         $user = wei()->user()->findOneById($req['id']);
         $user->save(['enable' => $req['enable']]);
+
         return $this->suc();
     }
 }

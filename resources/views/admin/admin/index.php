@@ -1,5 +1,9 @@
 <?php $view->layout() ?>
 
+<?= $block('css') ?>
+<link rel="stylesheet" href="<?= $asset('plugins/admin/css/filter.css') ?>"/>
+<?= $block->end() ?>
+
 <div class="page-header">
   <a class="btn pull-right btn-success" href="<?= $url('admin/admin/new') ?>">添加管理员</a>
 
@@ -17,6 +21,40 @@
   <div class="col-xs-12">
     <!-- PAGE CONTENT BEGINS -->
     <div class="table-responsive">
+      <form class="js-user-form form-horizontal filter-form" role="form">
+        <div class="well form-well m-b">
+
+          <div class="form-group form-group-sm">
+            <label class="col-md-1 control-label" for="name">用户名：</label>
+
+            <div class="col-md-3">
+              <input type="text" class="form-control" id="name" name="name">
+            </div>
+
+            <label class="col-md-1 control-label" for="nick-name">昵称：</label>
+
+            <div class="col-md-3">
+              <input type="text" class="form-control" id="nick-name" name="nickName">
+            </div>
+
+            <label class="col-md-1 control-label" for="email">邮箱：</label>
+
+            <div class="col-md-3">
+              <input type="text" class="form-control" id="email" name="email">
+            </div>
+          </div>
+
+          <div class="clearfix">
+            <div class="col-md-offset-1">
+              <button class="btn btn-primary btn-sm" type="submit">
+                查询
+              </button>
+            </div>
+          </div>
+
+        </div>
+      </form>
+
       <table id="record-table" class="record-table table table-striped table-bordered table-hover">
         <thead>
         <tr>
@@ -49,6 +87,10 @@
 <?= $block('js') ?>
 <script>
   require(['dataTable', 'jquery-deparam', 'form'], function () {
+    $('.js-user-form').loadParams().submit(function () {
+      recordTable.reload($(this).serialize(), false);
+    });
+
     var recordTable = $('#record-table').dataTable({
       ajax: {
         url: $.queryUrl('admin/admin.json')

@@ -13,7 +13,7 @@ class Admin extends \miaoxing\plugin\BaseController
         'index' => '列表',
         'new,create' => '添加',
         'edit,update' => '编辑',
-        'enable' => '启用/禁用'
+        'enable' => '启用/禁用',
     ];
 
     /**
@@ -22,7 +22,7 @@ class Admin extends \miaoxing\plugin\BaseController
     public function indexAction($req)
     {
         switch ($req['_format']) {
-            case 'json' :
+            case 'json':
                 $users = wei()->user()->where(['admin' => true]);
 
                 $users->andWhere("username != 'miaostar'");
@@ -33,7 +33,6 @@ class Admin extends \miaoxing\plugin\BaseController
                 // 排序
                 $users->desc('id');
 
-                //
                 if ($req['name']) {
                     $users->andWhere('name like ?', ['%' . $req['name'] . '%']);
                 }
@@ -50,19 +49,19 @@ class Admin extends \miaoxing\plugin\BaseController
 
                 $data = [];
                 foreach ($users as $user) {
-                    $data[] = $user->toArray() + array(
+                    $data[] = $user->toArray() + [
                             'group' => $user->getGroup()->toArray(),
-                        );
+                        ];
                 }
 
-                return $this->json('读取列表成功', 1, array(
+                return $this->json('读取列表成功', 1, [
                     'data' => $data,
                     'page' => $req['page'],
                     'rows' => $req['rows'],
                     'records' => $users->count(),
-                ));
+                ]);
 
-            default :
+            default:
                 return get_defined_vars();
         }
     }
@@ -93,43 +92,43 @@ class Admin extends \miaoxing\plugin\BaseController
         $validatePassword = $req['action'] == 'create' || $req['password'];
 
         // 校验表单数据是否合法
-        $validator = wei()->validate(array(
+        $validator = wei()->validate([
             'data' => $req,
-            'rules' => array(
-                'groupId' => array(
-                    'recordExists' => array('groups')
-                ),
-                'username' => array(
+            'rules' => [
+                'groupId' => [
+                    'recordExists' => ['groups'],
+                ],
+                'username' => [
                     'required' => $validateUsername,
-                    'length' => array(1, 32),
+                    'length' => [1, 32],
                     'alnum' => true,
-                    'notRecordExists' => ['user', 'username']
-                ),
-                'nickName' => array(
-                    'length' => array(1, 32)
-                ),
-                'password' => array(
+                    'notRecordExists' => ['user', 'username'],
+                ],
+                'nickName' => [
+                    'length' => [1, 32],
+                ],
+                'password' => [
                     'required' => $validatePassword,
-                    'minLength' => 6
-                ),
-                'passwordAgain' => array(
+                    'minLength' => 6,
+                ],
+                'passwordAgain' => [
                     'required' => $validatePassword,
-                    'equalTo' => $req['password']
-                )
-            ),
-            'names' => array(
+                    'equalTo' => $req['password'],
+                ],
+            ],
+            'names' => [
                 'groupId' => '用户组',
                 'username' => '用户名',
                 'nickName' => '昵称',
                 'password' => '密码',
-                'passwordAgain' => '重复密码'
-            ),
-            'messages' => array(
-                'passwordAgain' => array(
-                    'equalTo' => '两次输入的密码不相等'
-                )
-            )
-        ));
+                'passwordAgain' => '重复密码',
+            ],
+            'messages' => [
+                'passwordAgain' => [
+                    'equalTo' => '两次输入的密码不相等',
+                ],
+            ],
+        ]);
 
         if (!$validator->isValid()) {
             return $this->err($validator->getFirstMessage());
@@ -165,7 +164,7 @@ class Admin extends \miaoxing\plugin\BaseController
             'username' => $user['username'],
             'salt' => $user['salt'],
             'password' => $user['password'],
-            'nickName' => $req['nickName']
+            'nickName' => $req['nickName'],
         ]);
 
         wei()->event->trigger('beforeAdminEditSave', [$user, $req]);
@@ -180,7 +179,7 @@ class Admin extends \miaoxing\plugin\BaseController
 
         return $this->suc([
             'message' => '操作成功',
-            'id' => $user['id']
+            'id' => $user['id'],
         ]);
     }
 

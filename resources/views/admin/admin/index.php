@@ -165,7 +165,7 @@
   <a href="<%= $.url('admin/admin/edit', {id: id}) %>">
     编辑
   </a>
-  <?php if ($plugin->isInstalled('can')) : // TODO 独立的列表来分配角色 ?>
+  <?php if ($plugin->isInstalled('can')) : // TODO 独立的列表来分配角色?>
     <a href="<%= $.url('admin/users/%s/roles/assign', id) %>">
       分配角色
     </a>

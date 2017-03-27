@@ -1281,16 +1281,6 @@ div.ColVis_collectionBackground {
   padding-top: 10%;
 }
 
-/* jQuery AppendGrid */
-.appendGrid .btn {
-  margin: 0 2px;
-}
-
-.appendGrid .first {
-  vertical-align: middle;
-  text-align: center;
-}
-
 /* 表单底部的操作按钮 */
 .table-bottom-actions {
   padding: 15px 0;

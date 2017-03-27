@@ -6,16 +6,15 @@
   'comps/jquery-migrate/jquery-migrate-1.2.1.js',
   'comps/bootstrap/dist/js/bootstrap.min.js',
   'comps/jasny-bootstrap/dist/js/jasny-bootstrap.min.js',
-  'plugins/admin/js/admin.js',
-  'assets/tips.js',
-  // 核心类库
-  'assets/app.js',
+  // 核心类
+  'plugins/app/js/app.js',
   // 配置和初始模块
-  'assets/require.js',
-  'assets/requireModules.js',
-  'assets/popup.js',
-  'assets/ajaxTips.js',
-  'assets/apps/admin/popup.js',
+  'plugins/app/js/tips.js',
+  'plugins/app/js/require-config.js',
+  'plugins/admin/js/require-config.js',
+  'plugins/admin/js/ajax-tips.js',
+  'plugins/admin/js/popup.js',
+  'plugins/admin/js/admin.js',
 ]) ?>"></script>
 <script>window.requirejs || document.write('<script src="<?= $asset->fallback($mainJs) ?>"><\/script>')</script>
 <script>

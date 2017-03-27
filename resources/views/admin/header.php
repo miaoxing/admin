@@ -15,7 +15,7 @@
     'plugins/admin/css/utilities.css',
     'plugins/admin/css/components.css',
     'plugins/admin/css/theme.css',
-    'assets/tips.css',
+    'plugins/app/css/tips.css',
   ]) ?>"/>
   <?= $block->get('css') ?>
   <?php $event->trigger('afterStyle') ?>

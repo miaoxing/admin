@@ -44,14 +44,6 @@
             </div>
           </div>
 
-          <div class="clearfix">
-            <div class="col-md-offset-1">
-              <button class="btn btn-primary btn-sm" type="submit">
-                查询
-              </button>
-            </div>
-          </div>
-
         </div>
       </form>
 
@@ -87,7 +79,7 @@
 <?= $block('js') ?>
 <script>
   require(['dataTable', 'jquery-deparam', 'form'], function () {
-    $('.js-user-form').loadParams().submit(function () {
+    $('.js-user-form').loadParams().update(function () {
       recordTable.reload($(this).serialize(), false);
     });
 

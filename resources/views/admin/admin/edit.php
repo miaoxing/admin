@@ -4,7 +4,7 @@
   <a class="btn btn-default pull-right" href="<?= $url('admin/admin/index') ?>">返回列表</a>
 
   <h1>
-    用户管理
+    管理员管理
     <small>
       <i class="fa fa-angle-double-right"></i>
       <?= $user->isNew() ? '添加' : '编辑' ?>用户

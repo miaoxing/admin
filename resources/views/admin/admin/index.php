@@ -8,7 +8,7 @@
   <a class="btn pull-right btn-success" href="<?= $url('admin/admin/new') ?>">添加管理员</a>
 
   <h1>
-    用户管理
+    管理员管理
     <small>
       <i class="fa fa-angle-double-right"></i>
       用户列表

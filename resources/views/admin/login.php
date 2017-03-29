@@ -29,6 +29,21 @@ $view->layout('admin:admin/layout-light.php')
         <input type="password" class="form-control" id="password" name="password" placeholder="请输入密码">
       </div>
 
+      <?php if (wei()->setting('user.enableLoginCaptcha')) : ?>
+      <div class="form-group">
+        <label for="captcha">
+          验证码
+        </label>
+        <div class="input-group">
+          <input type="text" class="form-control" id="captcha" name="captcha" placeholder="请输入验证码"
+            data-rule-required="true">
+            <span class="input-group-addon p-a-0">
+              <img class="js-captcha" src="<?= $url('captcha') ?>">
+            </span>
+        </div>
+      </div>
+      <?php endif ?>
+
       <div class="form-group">
         <div class="error-message text-danger text-center">
           <?= $e($req['message']) ?>
@@ -36,7 +51,7 @@ $view->layout('admin:admin/layout-light.php')
       </div>
 
       <div class="form-group">
-        <div class="error-message">
+        <div class="text-primary">
           <a href="<?= $url('registration/forget') ?>">忘记密码</a>
         </div>
       </div>
@@ -61,6 +76,14 @@ $view->layout('admin:admin/layout-light.php')
 <script>
   require(['plugins/user/js/users', 'jquery-form'], function (user) {
     user.loginAction();
+
+    var $captcha = $('.js-captcha');
+    $captcha.click(changeCaptcha);
+
+    var src = $captcha.attr('src');
+    function changeCaptcha () {
+      $captcha.attr('src', src + '?t=' + new Date());
+    }
   });
 </script>
 <?= $block->end() ?>

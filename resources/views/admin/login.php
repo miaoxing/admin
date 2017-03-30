@@ -19,14 +19,15 @@ $view->layout('admin:admin/layout-light.php')
           帐号
         </label>
         <input name="username" type="text" value="<?= $e->attr($req['username']) ?>" class="form-control"
-          placeholder="用户名/邮箱" />
+          placeholder="用户名/邮箱" required />
       </div>
 
       <div class="form-group">
         <label for="password">
           密码
         </label>
-        <input type="password" class="form-control" id="password" name="password" placeholder="请输入密码">
+        <input type="password" class="form-control" id="password" name="password" placeholder="请输入密码"
+          data-rule-required="true">
       </div>
 
       <?php if (wei()->setting('user.enableLoginCaptcha')) : ?>

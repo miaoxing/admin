@@ -65,6 +65,9 @@ require.config({
     'jquery-validation-zh': {
       deps: ['jquery-validation']
     },
+    'plugins/app/libs/jquery-validation-bootstrap-tooltip/jquery-validate.bootstrap-tooltip.min': {
+      deps: ['jquery-validation']
+    },
     'jqueryui-timepicker-addon': {
       deps: ['jquery-ui-datepicker-zh-CN', 'jquery-ui-slider']
     },

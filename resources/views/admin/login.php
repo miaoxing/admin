@@ -19,7 +19,7 @@ $view->layout('admin:admin/layout-light.php')
           帐号
         </label>
         <input name="username" type="text" value="<?= $e->attr($req['username']) ?>" class="form-control"
-          placeholder="用户名/邮箱" required />
+          placeholder="用户名/邮箱" required/>
       </div>
 
       <div class="form-group">
@@ -31,18 +31,19 @@ $view->layout('admin:admin/layout-light.php')
       </div>
 
       <?php if (wei()->setting('user.enableLoginCaptcha')) : ?>
-      <div class="form-group">
-        <label for="captcha">
-          验证码
-        </label>
-        <div class="input-group">
-          <input type="text" class="form-control" id="captcha" name="captcha" placeholder="请输入验证码"
-            data-rule-required="true">
+        <div class="form-group">
+          <label for="captcha">
+            验证码
+          </label>
+
+          <div class="input-group">
+            <input type="text" class="form-control" id="captcha" name="captcha" placeholder="请输入验证码"
+              data-rule-required="true">
             <span class="input-group-addon p-a-0">
               <img class="js-captcha" src="<?= $url('captcha') ?>">
             </span>
+          </div>
         </div>
-      </div>
       <?php endif ?>
 
       <div class="form-group">
@@ -75,16 +76,44 @@ $view->layout('admin:admin/layout-light.php')
 
 <?= $block('js') ?>
 <script>
-  require(['plugins/user/js/users', 'jquery-form'], function (user) {
-    user.loginAction();
+  require(['plugins/app/js/validator', 'jquery-form'], function () {
+    var ENTER_KEY = 13;
+    var $form = $('.js-login-form');
+    $form.ajaxForm({
+      dataType: 'json',
+      beforeSubmit: function (arr, $form) {
+        return $form.valid();
+      },
+      success: function (ret) {
+        if (ret.code === 1) {
+          window.location = ($.req('next') === '' ? $.url('admin') : $.req('next'));
+        } else {
+          $('.error-message').html(ret.message);
 
-    var $captcha = $('.js-captcha');
-    $captcha.click(changeCaptcha);
+          if (typeof $captcha != 'undefined') {
+            $captcha.attr('src', src + '?t=' + new Date());
+          }
+        }
+      }
+    }).validate();
 
-    var src = $captcha.attr('src');
-    function changeCaptcha () {
-      $captcha.attr('src', src + '?t=' + new Date());
-    }
+    $form.find('input').keyup(function (e) {
+      if (e.which === ENTER_KEY) {
+        return;
+      }
+      $('.error-message').html('');
+    });
+
+    <?php if (wei()->setting('user.enableLoginCaptcha')) : ?>
+      var $captcha = $('.js-captcha');
+      $captcha.click(changeCaptcha);
+
+      var src = $captcha.attr('src');
+
+      function changeCaptcha() {
+        $captcha.attr('src', src + '?t=' + new Date());
+      }
+    <?php endif ?>
   });
 </script>
 <?= $block->end() ?>

@@ -2,11 +2,7 @@
 
 <div class="page-header">
   <h1>
-    管理员管理
-    <small>
-      <i class="fa fa-angle-double-right"></i>
-      修改资料
-    </small>
+    修改资料
   </h1>
 </div>
 <!-- /.page-header -->

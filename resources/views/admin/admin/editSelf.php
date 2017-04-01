@@ -18,21 +18,6 @@
       role="form">
 
       <div class="form-group">
-        <label class="col-lg-2 control-label" for="username">
-          <span class="text-warning">*</span>
-          用户名
-        </label>
-
-        <div class="col-lg-4">
-          <?php if ($user->isNew()) : ?>
-            <input type="text" class="form-control" name="username" id="username">
-          <?php else : ?>
-            <p class="form-control-static" id="username"></p>
-          <?php endif; ?>
-        </div>
-      </div>
-
-      <div class="form-group">
         <label class="col-lg-2 control-label" for="head-img">
           头像
         </label>

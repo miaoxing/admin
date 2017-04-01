@@ -13,6 +13,7 @@ class Admin extends \miaoxing\plugin\BaseController
         'index' => '列表',
         'new,create' => '添加',
         'edit,update' => '编辑',
+        'editSelf,updateSelf' => '编辑自己',
         'enable' => '启用/禁用',
     ];
 
@@ -78,13 +79,28 @@ class Admin extends \miaoxing\plugin\BaseController
         return get_defined_vars();
     }
 
+    public function editSelfAction()
+    {
+        $user = wei()->user()->findOrInitById(wei()->curUser['id']);
+
+        return get_defined_vars();
+    }
+
     public function createAction($req)
+    {
+        return $this->updateAction($req);
+    }
+
+    public function updateSelfAction($req)
     {
         return $this->updateAction($req);
     }
 
     public function updateAction($req)
     {
+        // 不是编辑自己的信息时不需要验证分组
+        $validateGroup = $req['action'] != 'updateSelf';
+
         // 添加用户时才校验用户名
         $validateUsername = $req['action'] == 'create';
 
@@ -96,6 +112,7 @@ class Admin extends \miaoxing\plugin\BaseController
             'data' => $req,
             'rules' => [
                 'groupId' => [
+                    'required' => $validateGroup,
                     'recordExists' => ['groups'],
                 ],
                 'username' => [
@@ -103,6 +120,9 @@ class Admin extends \miaoxing\plugin\BaseController
                     'length' => [1, 32],
                     'alnum' => true,
                     'notRecordExists' => ['user', 'username'],
+                ],
+                'headImg' => [
+                    'required' => false,
                 ],
                 'nickName' => [
                     'length' => [1, 32],
@@ -119,6 +139,7 @@ class Admin extends \miaoxing\plugin\BaseController
             'names' => [
                 'groupId' => '用户组',
                 'username' => '用户名',
+                'headImg' => '头像',
                 'nickName' => '昵称',
                 'password' => '密码',
                 'passwordAgain' => '重复密码',
@@ -150,6 +171,14 @@ class Admin extends \miaoxing\plugin\BaseController
             $user->setPlainPassword($req['password']);
         }
 
+        if ($validateGroup) {
+            $user['groupId'] = $req['groupId'];
+        }
+
+        if ($req['headImg']) {
+            $user['headImg'] = $req['headImg'];
+        }
+
         // 检查app库是否存在相同的用户
         if ($validateUsername) {
             $isAppUserExists = wei()->appUser()->where(['username' => $req['username']])->find();
@@ -172,7 +201,6 @@ class Admin extends \miaoxing\plugin\BaseController
         // 保存用户额外的信息
         $user->save([
             'admin' => true,
-            'groupId' => $req['groupId'],
             'nickName' => $req['nickName'],
             'appUserId' => $appUser['id'],
         ]);

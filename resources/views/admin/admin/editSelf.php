@@ -1,13 +1,11 @@
 <?php $view->layout() ?>
 
 <div class="page-header">
-  <a class="btn btn-default pull-right" href="<?= $url('admin/admin/index') ?>">返回列表</a>
-
   <h1>
     管理员管理
     <small>
       <i class="fa fa-angle-double-right"></i>
-      <?= $user->isNew() ? '添加' : '编辑' ?>用户
+      修改资料
     </small>
   </h1>
 </div>
@@ -16,8 +14,8 @@
 <div class="row">
   <div class="col-xs-12">
     <!-- PAGE CONTENT BEGINS -->
-    <form id="record-form" class="form-horizontal" action="<?= $url('admin/admin/' . ($user->getFormAction())) ?>"
-      method="post" role="form">
+    <form id="record-form" class="form-horizontal" action="<?= $url('admin/admin/update-self') ?>" method="post"
+      role="form">
 
       <div class="form-group">
         <label class="col-lg-2 control-label" for="username">
@@ -31,18 +29,6 @@
           <?php else : ?>
             <p class="form-control-static" id="username"></p>
           <?php endif; ?>
-        </div>
-      </div>
-
-      <div class="form-group">
-        <label class="col-lg-2 control-label" for="group-id">
-          <span class="text-warning">*</span>
-          用户组
-        </label>
-
-        <div class="col-lg-4">
-          <select id="group-id" name="groupId" class="form-control">
-          </select>
         </div>
       </div>
 
@@ -65,8 +51,6 @@
         </div>
       </div>
 
-      <?php wei()->event->trigger('adminAdminEdit', [$user]); ?>
-
       <div class="form-group">
         <label class="col-lg-2 control-label" for="nick-name">
           <span class="text-warning">*</span>
@@ -78,34 +62,6 @@
         </div>
       </div>
 
-      <div class="form-group">
-        <label class="col-lg-2 control-label" for="password">
-          <span class="text-warning">*</span>
-          密码
-        </label>
-
-        <div class="col-lg-4">
-          <input type="password" class="form-control" name="password" id="password">
-        </div>
-
-        <?php if (!$user->isNew()) : ?>
-          <label class="col-sm-6 help-text" for="password">
-            不修改密码请留空
-          </label>
-        <?php endif ?>
-      </div>
-
-      <div class="form-group">
-        <label class="col-lg-2 control-label" for="password-again">
-          <span class="text-warning">*</span>
-          重复密码
-        </label>
-
-        <div class="col-lg-4">
-          <input type="password" class="form-control" name="passwordAgain" id="password-again">
-        </div>
-      </div>
-
       <div class="clearfix form-actions form-group">
         <div class="col-lg-offset-2">
           <input type="hidden" id="id" name="id">
@@ -114,15 +70,8 @@
             <i class="fa fa-check bigger-110"></i>
             提交
           </button>
-
-          &nbsp; &nbsp; &nbsp;
-          <a class="btn btn-default" href="<?= $url('admin/admin/index') ?>">
-            <i class="fa fa-undo bigger-110"></i>
-            返回列表
-          </a>
         </div>
       </div>
-
     </form>
   </div>
   <!-- PAGE CONTENT ENDS -->
@@ -142,7 +91,7 @@
         success: function (result) {
           $.msg(result, function () {
             if (result.code > 0) {
-              window.location = $.url('admin/admin/index');
+              window.location = $.url('admin');
             }
           });
         }

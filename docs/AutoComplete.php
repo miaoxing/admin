@@ -1,6 +1,7 @@
 <?php
 
 namespace plugins\admin\docs {
+
     /**
      * @property    \Miaoxing\Admin\Service\adminNav $adminNav 后台导航
      *
@@ -13,6 +14,7 @@ namespace plugins\admin\docs {
 }
 
 namespace {
+
     /**
      * @return \plugins\admin\docs\AutoComplete
      */

@@ -1,1 +1,1 @@
-<?php require $view->getFile('admin:admin/admin/edit.php'); ?>
+<?php require $view->getFile('admin:admin/admin/edit.php');

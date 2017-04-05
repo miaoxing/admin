@@ -56,7 +56,8 @@
           <th>分组</th>
           <th>创建时间</th>
           <th>
-            <span class="js-tips-hover table-header-tips" data-content="禁用后,用户将无法登录" data-container="body" data-placement="bottom" data-trigger="hover">
+            <span class="js-tips-hover table-header-tips" data-content="禁用后,用户将无法登录" data-container="body"
+              data-placement="bottom" data-trigger="hover">
                 启用 <i class="fa fa-question-circle light-grey bigger-130"></i>
             </span>
           </th>

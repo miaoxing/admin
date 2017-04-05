@@ -4,7 +4,7 @@ use miaoxing\plugin\BaseController;
 
 /** @var BaseController $controllerInstance */
 if (!$controllerInstance->getOption('displayPageHeader')) {
-  return;
+    return;
 }
 ?>
 

@@ -1,13 +1,16 @@
-<?php require $view->getFile('admin:admin/header.php') ?>
+<?php require $view->getFile('@admin/admin/header.php') ?>
 
-<?php require $view->getFile('admin:admin/navbar.php') ?>
+<?php require $view->getFile('@admin/admin/navbar.php') ?>
 
 <div class="main-container" id="main-container">
   <div class="main-container-inner">
-    <?php require $view->getFile('admin:admin/aside.php') ?>
+    <?php require $view->getFile('@admin/admin/aside.php') ?>
     <div class="main-content">
       <div class="page-content">
+
+        <?php require $view->getFile('@admin/admin/page-header.php') ?>
         <?= $content ?>
+
       </div>
       <!-- /.page-content -->
     </div>
@@ -20,4 +23,4 @@
 </div>
 <!-- /.main-container -->
 
-<?php require $view->getFile('admin:admin/footer.php') ?>
+<?php require $view->getFile('@admin/admin/footer.php') ?>

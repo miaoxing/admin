@@ -30,7 +30,7 @@
   color: #4c8fbd
 }
 
-.breadcrumb > li + li:before {
+.breadcrumb > li + li::before {
   font-family: FontAwesome;
   font-size: 14px;
   content: "\f105";

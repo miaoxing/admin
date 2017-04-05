@@ -8,7 +8,7 @@
   border-right: 1px solid #ddd;
 }
 
-.sidebar:before {
+.sidebar::before {
   content: "";
   display: block;
   width: 190px;
@@ -32,12 +32,12 @@
     z-index: 1;
   }
 
-  .sidebar:before {
+  .sidebar::before {
     display: none;
   }
 
-  .main-content {
-    margin-left: 0 !important;
+  .sidebar + .main-content {
+    margin-left: 0;
     clear: both;
   }
 }

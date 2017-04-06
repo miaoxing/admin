@@ -15,6 +15,6 @@ class Index extends \miaoxing\plugin\BaseController
      */
     public function indexAction($req)
     {
-        header("Location:" . wei()->url->full('admin/article'));
+        return $this->response->redirect($this->url('admin/article'));
     }
 }

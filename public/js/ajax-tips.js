@@ -1,8 +1,12 @@
 (function (window, $) {
+  var DELAY_SLOW = 1000000;
+  var DELAY_NORMAL = 2000;
+  var UNAUTHORIZED = -401;
+
   $(document)
     .ajaxSend(function (event, jqXHR, ajaxOptions) {
       if (ajaxOptions.loading) {
-        ajaxOptions.$loadingEl = $.info('加载中...', 1000000);
+        ajaxOptions.$loadingEl = $.info('加载中...', DELAY_SLOW);
       }
     })
     .ajaxComplete(function (event, jqXHR, ajaxOptions) {
@@ -10,12 +14,12 @@
         ajaxOptions.$loadingEl.hide();
       }
     })
-    .ajaxSuccess(function (event, jqXHR, ajaxOptions) {
+    .ajaxSuccess(function (event, jqXHR) {
       // 未登录,跳转到登录地址
-      if (typeof jqXHR.responseJSON != 'undefined' && jqXHR.responseJSON.code == -401) {
+      if (typeof jqXHR.responseJSON !== 'undefined' && jqXHR.responseJSON.code === UNAUTHORIZED) {
         setTimeout(function () {
           window.location.href = jqXHR.responseJSON.redirect;
-        }, 2000);
+        }, DELAY_NORMAL);
       }
     })
     .ajaxError(function (event, jqXHR, ajaxOptions) {
@@ -41,7 +45,7 @@
    */
   $.ajaxSetup({
     success: function (data) {
-      if (typeof data == 'object') {
+      if (typeof data === 'object') {
         $.msg(data);
       }
     }

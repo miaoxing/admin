@@ -5,7 +5,7 @@ require.config({
     }
   },
   paths: {
-    'fileinput': 'comps/bootstrap-fileinput/js/fileinput.min',
+    fileinput: 'comps/bootstrap-fileinput/js/fileinput.min',
     'fileinput.zh': 'comps/bootstrap-fileinput/js/fileinput_locale_zh'
   }
 });
@@ -25,7 +25,12 @@ define([
     maxFileSize: 2048, // 单位是KB
     resizeImage: false,
     showCaption: false,
-    previewSettings: {image: {width: '320px', height: 'auto'}},
+    previewSettings: {
+      image: {
+        width: '320px',
+        height: 'auto'
+      }
+    },
     allowedPreviewTypes: ['image'],
     allowedFileExtensions: ['gif', 'png', 'jpg', 'jpeg', 'bmp'],
     previewFileIcon: ''
@@ -46,7 +51,7 @@ define([
     }
 
     var fileInput = $(this).fileinput(options);
-    fileInput.on('filebatchselected', function (event, files) {
+    fileInput.on('filebatchselected', function () {
       if (!options.showUpload) {
         $(this).fileinput('upload');
       }
@@ -63,5 +68,5 @@ define([
     });
 
     return fileInput;
-  }
+  };
 });

@@ -7,7 +7,7 @@ class Index extends \miaoxing\plugin\BaseController
     protected $controllerName = '后台首页';
 
     protected $actionPermissions = [
-        'index' => '首页'
+        'index' => '首页',
     ];
 
     /**

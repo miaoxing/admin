@@ -70,12 +70,10 @@ th .lbl:only-child, td .lbl:only-child {
   margin-right: 8px;
   margin-top: 0;
   opacity: .45;
-  filter: alpha(opacity=45)
 }
 
 .table-header .close:hover {
   opacity: .75;
-  filter: alpha(opacity=75)
 }
 
 .table-header-tips i {
@@ -85,7 +83,6 @@ th .lbl:only-child, td .lbl:only-child {
 /* Tooltips */
 .tooltip.in {
   opacity: 1;
-  filter: alpha(opacity=100)
 }
 
 .tooltip-inner {
@@ -201,7 +198,6 @@ th .lbl:only-child, td .lbl:only-child {
 
 .ace-thumbnails > li .tags > .label-holder {
   opacity: .92;
-  filter: alpha(opacity=92);
   display: table;
   margin: 1px 0 0 0;
   direction: ltr;
@@ -210,7 +206,6 @@ th .lbl:only-child, td .lbl:only-child {
 
 .ace-thumbnails > li .tags > .label-holder:hover {
   opacity: 1;
-  filter: alpha(opacity=100)
 }
 
 .ace-thumbnails > li > .tools {
@@ -317,7 +312,6 @@ th .lbl:only-child, td .lbl:only-child {
   color: #fff;
   background-color: rgba(0, 0, 0, .55);
   opacity: 0;
-  filter: alpha(opacity=0);
   -webkit-transition: all .2s ease;
   -o-transition: all .2s ease;
   transition: all .2s ease
@@ -341,9 +335,10 @@ th .lbl:only-child, td .lbl:only-child {
 
 .ace-thumbnails > li:hover > :first-child > .text {
   opacity: 1;
-  filter: alpha(opacity=100)
 }
 
+/* csslint ignore:start */
+/* 待下线功能,忽略 */
 /* 图片选择器 */
 .image-picker li {
   margin: 0 6px 6px 0;
@@ -410,12 +405,14 @@ th .lbl:only-child, td .lbl:only-child {
   margin-top: 6px;
   margin-left: 2px;
 }
+/* csslint ignore:end */
 
 /* todo */
 .ui-sortable-placeholder, .ui-sortable-helper, .ui-sortable-placeholder > a, .ui-sortable-helper > a {
   cursor: move !important
 }
 
+/* csslint ignore:start */
 /* DataTables */
 .dataTables_length select {
   width: 70px;
@@ -664,6 +661,7 @@ div.ColVis_collectionBackground {
   background-color: #000;
   z-index: 1100
 }
+/* csslint ignore:end */
 
 /* dataTables 自定义样式 */
 .dataTable th.sorting_disabled {
@@ -708,7 +706,7 @@ div.ColVis_collectionBackground {
   border-top: 0;
 }
 
-.table tbody tr td.dataTables_empty {
+.table tbody tr td.dataTables_empty { /* csslint allow: overqualified-elements */
   text-align: center;
   font-size: 16px;
   padding: 40px 0;
@@ -730,7 +728,7 @@ div.ColVis_collectionBackground {
   border-radius: 0
 }
 
-.select2-container[class*=input-] {
+.select2-container[class*=input-] { /* csslint allow: regex-selectors */
   max-width: none
 }
 
@@ -850,7 +848,7 @@ div.ColVis_collectionBackground {
   box-shadow: none
 }
 
-.select2-search input.select2-active {
+.select2-search input.select2-active { /* csslint allow: overqualified-elements */
   background-color: #fff;
   position: relative;
   z-index: 1
@@ -861,7 +859,6 @@ div.ColVis_collectionBackground {
   background-image: -o-linear-gradient(top, #eee 0, #fff 100%);
   background-image: linear-gradient(to bottom, #eee 0, #fff 100%);
   background-repeat: repeat-x;
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffeeeeee', endColorstr='#ffffffff', GradientType=0)
 }
 
 .select2-container-active.select2-drop-above .select2-choice {
@@ -869,7 +866,6 @@ div.ColVis_collectionBackground {
   background-image: -o-linear-gradient(top, #fff 0, #eee 100%);
   background-image: linear-gradient(to bottom, #fff 0, #eee 100%);
   background-repeat: repeat-x;
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffffff', endColorstr='#ffeeeeee', GradientType=0)
 }
 
 .form-group.has-error .select2-choice, .form-group.has-error .select2-choices {
@@ -978,7 +974,7 @@ div.ColVis_collectionBackground {
   width: 32px
 }
 
-.well .datepicker table tr td.day:hover {
+.well .datepicker table tr td.day:hover { /* csslint allow: overqualified-elements */
   background-color: #7d8893;
   color: #fff
 }
@@ -1027,14 +1023,14 @@ div.ColVis_collectionBackground {
   -moz-border-top-colors: #fff
 }
 
-.bootstrap-datetimepicker-widget [class=btn] {
+.bootstrap-datetimepicker-widget [class=btn] { /* csslint allow: unqualified-attributes */
   border-width: 0 !important;
   background-color: transparent !important;
   color: #7399b8 !important;
   text-shadow: none !important
 }
 
-.bootstrap-datetimepicker-widget [class=btn]:hover {
+.bootstrap-datetimepicker-widget [class=btn]:hover { /* csslint allow: unqualified-attributes */
   color: #1b6aaa !important
 }
 
@@ -1140,7 +1136,7 @@ div.ColVis_collectionBackground {
   background-color: #eee
 }
 
-.ui-datepicker td > a.ui-state-highlight {
+.ui-datepicker td > a.ui-state-highlight { /* csslint allow: overqualified-elements */
   background-color: #d5e5ef
 }
 
@@ -1149,7 +1145,7 @@ div.ColVis_collectionBackground {
   color: #fff
 }
 
-.ui-datepicker td > a.ui-priority-secondary {
+.ui-datepicker td > a.ui-priority-secondary { /* csslint allow: overqualified-elements */
   color: #888
 }
 
@@ -1171,7 +1167,6 @@ div.ColVis_collectionBackground {
 .ui-widget-overlay {
   background: rgba(0, 0, 0, .25);
   opacity: 1 !important;
-  filter: alpha(opacity=100) !important;
   z-index: 1039 !important
 }
 

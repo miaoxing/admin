@@ -3,13 +3,13 @@ require.config({
     'fileinput.zh': {
       deps: ['fileinput']
     },
-    'theme': {
+    theme: {
       deps: ['fileinput.zh']
     }
   },
   paths: {
     fileinput: 'comps/bootstrap-fileinput/js/fileinput.min',
-    'theme': 'comps/bootstrap-fileinput/themes/explorer/theme',
+    theme: 'comps/bootstrap-fileinput/themes/explorer/theme',
     'fileinput.zh': 'comps/bootstrap-fileinput/js/locales/zh'
   }
 });
@@ -64,7 +64,12 @@ define([
       $(this).data('key', key);
       if ($(this).val() !== '') {
         initialPreview.push($(this).val());
-        initialPreviewConfig.push({width: '100px', url: $.url('admin/files/delete'), key: key});
+        initialPreviewConfig.push({
+          width: '100px',
+          url: $.url('admin/files/delete'),
+          key: key
+        });
+
         key++;
       }
     });
@@ -76,8 +81,6 @@ define([
 
     var fileInput = $(this).fileinput(options);
     fileInput.on('fileselect', function () {
-      //console.log('fileselect');
-
       $imageUrlContainer.each(function() {
         if($(this).data('ruleRequired') === true) {
           $(this).val('');
@@ -87,8 +90,6 @@ define([
       });
 
     }).on('filedeleted', function (outData, key, extraData) {
-      //console.log('filedeleted');
-
       $imageUrlContainer.each(function() {
         if ($(this).data('key') === key) {
           if ($(this).data('ruleRequired') === true) {
@@ -100,14 +101,10 @@ define([
       });
 
     }).on('filepredelete', function () {
-      //console.log('filepredelete');
 
     }).on('fileremoved', function () {
-      //console.log('fileremoved');
 
     }).on('filecleared', function () {
-      //console.log('filecleared');
-
       $imageUrlContainer.each(function () {
         if ($(this).data('ruleRequired') === true) {
           $(this).val('');
@@ -117,8 +114,6 @@ define([
       });
 
     }).on('filesuccessremove', function (outData, id) {
-      //console.log('filesuccessremove');
-
       if ($imageUrlContainer.length > 0 && $imageUrlContainer.data('ruleRequired') === true) {
         $imageUrlContainer.val('');
       } else {
@@ -126,11 +121,8 @@ define([
       }
 
     }).on('filepreupload', function () {
-      //console.log('filepreupload');
 
     }).on('fileuploaded', function (outData, data, id) {
-      //console.log('fileuploaded');
-
       if ($imageUrlContainer.length > 0 && $imageUrlContainer.data('ruleRequired') === true) {
         $imageUrlContainer.val(data.response.url);
         $imageUrlContainer.data('id', id);

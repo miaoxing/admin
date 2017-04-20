@@ -28,6 +28,7 @@ define([
     language: 'zh',
     theme: 'explorer',
     showUpload: false,
+    autoReplace: true,
     uploadUrl: $.url('admin/files/image-upload'),
     overwriteInitial: true,
     maxFileCount: 1,
@@ -35,8 +36,11 @@ define([
     initialPreviewAsData: true,
     allowedPreviewTypes: ['image'],
     allowedFileExtensions: ['gif', 'png', 'jpg', 'jpeg', 'bmp'],
-    dropZoneTitle:'拖拽文件到这里',
-    data:[]
+    dropZoneTitle: '拖拽文件到这里',
+    fileActionSettings: {
+      showDrag: false
+    },
+    data: []
   };
 
   $.fn.imageUploadInput = function (options) {
@@ -49,7 +53,7 @@ define([
     var initialPreviewConfig = [];
 
     for (var i in options.data) {
-      if (i === 0) {
+      if (i === '0') {
         $container.find('.js-image-url').val(options.data[i]);
       } else {
         $container.append('<input type="hidden" name="'
@@ -59,14 +63,14 @@ define([
     }
 
     var key = 0;
-    var $imageUrlContainer = $container.find('.js-image-url');
-    $imageUrlContainer.each(function () {
+    $container.find('.js-image-url').each(function () {
       $(this).data('key', key);
       if ($(this).val() !== '') {
         initialPreview.push($(this).val());
         initialPreviewConfig.push({
+          caption: '已上传',
           width: '100px',
-          url: $.url('admin/files/delete'),
+          url: $.url('admin/files/delete', {url: $(this).val()}),
           key: key
         });
 
@@ -80,17 +84,37 @@ define([
     }, options);
 
     var fileInput = $(this).fileinput(options);
-    fileInput.on('fileselect', function () {
-      $imageUrlContainer.each(function() {
+    var isFirst = true;
+    fileInput.on('fileselect', function (event, numFiles, label) {
+      var len = $container.find('.js-image-url').length;
+      if (!isFirst && options.maxFileCount !== 0 && len >= options.maxFileCount) {
+        $.msg({code: -1, message: '超过上传数量'});
+        $container.find('.kv-preview-thumb:last').find('.kv-file-upload').attr('disabled', "true");
+        $container.find('.kv-preview-thumb:last').find('.kv-file-remove').attr('disabled', "true");
+
+        return;
+      }
+
+      $container.find('.js-image-url').each(function () {
         if ($(this).data('ruleRequired') === true) {
           $(this).val('');
         } else {
-          $(this).remove();
+          // 首次并且最大上传数量=1时覆盖初始值
+          if (isFirst || options.maxFileCount == 1) {
+            $(this).remove();
+          }
         }
       });
 
-    }).on('filedeleted', function (outData, key) {
-      $imageUrlContainer.each(function() {
+      if (isFirst) {
+        isFirst = false;
+      }
+
+      // 自动上传
+      $container.find('.kv-preview-thumb:last').find('.kv-file-upload').click();
+
+    }).on('filedeleted', function (event, key) {
+      $container.find('.js-image-url').each(function () {
         if ($(this).data('key') === key) {
           if ($(this).data('ruleRequired') === true) {
             $(this).val('');
@@ -100,14 +124,8 @@ define([
         }
       });
 
-    }).on('filepredelete', function () {
-
-
-    }).on('fileremoved', function () {
-
-
     }).on('filecleared', function () {
-      $imageUrlContainer.each(function () {
+      $container.find('.js-image-url').each(function () {
         if ($(this).data('ruleRequired') === true) {
           $(this).val('');
         } else {
@@ -115,26 +133,33 @@ define([
         }
       });
 
-    }).on('filesuccessremove', function (outData, id) {
+    }).on('fileremoved', function (event, id) {
+      var $imageUrlContainer = $container.find('.js-image-url');
       if ($imageUrlContainer.length > 0 && $imageUrlContainer.data('ruleRequired') === true) {
         $imageUrlContainer.val('');
       } else {
-        $('#' + id).remove();
+        $('input#' + id).remove();
       }
 
-    }).on('filepreupload', function () {
+    }).on('filesuccessremove', function (event, id) {
+      var $imageUrlContainer = $container.find('.js-image-url');
+      if ($imageUrlContainer.length > 0 && $imageUrlContainer.data('ruleRequired') === true) {
+        $imageUrlContainer.val('');
+      } else {
+        $('input#' + id).remove();
+      }
 
-
-    }).on('fileuploaded', function (outData, data, id) {
+    }).on('fileuploaded', function (event, data, previewId) {
+      var $imageUrlContainer = $container.find('.js-image-url');
       if ($imageUrlContainer.length > 0 && $imageUrlContainer.data('ruleRequired') === true) {
         $imageUrlContainer.val(data.response.url);
-        $imageUrlContainer.data('id', id);
+        $imageUrlContainer.data('id', previewId);
 
       } else {
         var html = '<input type="hidden" name="'
           + inputName + '" class="js-image-url" value="'
           + data.response.url + '"'
-          + 'id="' + id + '"/>';
+          + 'id="' + previewId + '"/>';
         $container.append(html);
       }
 

@@ -2,66 +2,145 @@ require.config({
   shim: {
     'fileinput.zh': {
       deps: ['fileinput']
+    },
+    'theme': {
+      deps: ['fileinput.zh']
     }
   },
   paths: {
-    fileinput: 'comps/bootstrap-fileinput/js/fileinput.min',
-    'fileinput.zh': 'comps/bootstrap-fileinput/js/fileinput_locale_zh'
+    fileinput: 'comps/bootstrap-fileinput/js/fileinput',
+    theme: 'comps/bootstrap-fileinput/themes/explorer/theme',
+    'fileinput.zh': 'comps/bootstrap-fileinput/js/locales/zh'
   }
 });
 
 define([
   'css!comps/bootstrap-fileinput/css/fileinput.min',
+  'css!comps/bootstrap-fileinput/themes/explorer/theme',
+  'comps/bootstrap-fileinput/js/plugins/canvas-to-blob.min',
+  'comps/bootstrap-fileinput/js/plugins/sortable.min',
+  'comps/bootstrap-fileinput/js/plugins/purify.min',
   'fileinput',
-  'fileinput.zh'
+  'fileinput.zh',
+  'theme'
 ], function () {
   var defaults = {
     language: 'zh',
+    theme: 'explorer',
     showUpload: false,
     uploadUrl: $.url('admin/files/image-upload'),
-    uploadAsync: true,
-    dropZoneEnabled: false,
+    overwriteInitial: true,
     maxFileCount: 1,
-    maxFileSize: 2048, // 单位是KB
-    resizeImage: false,
-    showCaption: false,
-    previewSettings: {
-      image: {
-        width: '320px',
-        height: 'auto'
-      }
-    },
+    maxFileSize: 2048, // 单位是kb
+    initialPreviewAsData: true,
     allowedPreviewTypes: ['image'],
     allowedFileExtensions: ['gif', 'png', 'jpg', 'jpeg', 'bmp'],
-    previewFileIcon: ''
+    dropZoneTitle:'拖拽文件到这里',
+    data:[]
   };
 
   $.fn.imageUploadInput = function (options) {
     options = $.extend(defaults, options);
 
-    var imageUrl = $(this).closest('.js-upload-container').find('.js-image-url');
-    var imageUrlStr = imageUrl.val();
+    // 预览图片的设置
+    var $container = $(this).closest('.js-upload-container');
+    var inputName = $container.find('.js-image-url').attr('name');
+    var initialPreview = [];
+    var initialPreviewConfig = [];
 
-    if (imageUrlStr) {
-      options = $.extend({
-        initialPreview: [
-          '<img src="' + imageUrlStr + '" class="file-preview-image">'
-        ]
-      }, options); // 预览图片的设置
+    for(var i in options.data) {
+      if (i == 0) {
+        $container.find('.js-image-url').val(options.data[i]);
+      } else {
+        $container.append('<input type="hidden" name="'
+        + inputName + '" class="js-image-url" value="'
+        + options.data[i] + '"/>');
+      }
     }
 
+    var key = 0;
+    var $imageUrlContainer = $container.find('.js-image-url');
+    $imageUrlContainer.each(function () {
+      $(this).data('key', key);
+      if ($(this).val() != '') {
+        initialPreview.push($(this).val());
+        initialPreviewConfig.push({width: '100px', url: $.url('admin/files/delete'), key: key});
+        key++;
+      }
+    });
+
+    options = $.extend({
+      initialPreview: initialPreview,
+      initialPreviewConfig: initialPreviewConfig
+    }, options);
+
     var fileInput = $(this).fileinput(options);
-    fileInput.on('filebatchselected', function () {
-      if (!options.showUpload) {
-        $(this).fileinput('upload');
+    fileInput.on('fileselect', function (numFiles, label) {
+      console.log('fileselect');
+
+      $imageUrlContainer.each(function() {
+        if($(this).data('ruleRequired') === true) {
+          $(this).val('');
+        } else {
+          $(this).remove();
+        }
+      });
+
+    }).on('filedeleted', function (outData, key, extraData) {
+      console.log('filedeleted');
+
+      $imageUrlContainer.each(function() {
+        if($(this).data('key') == key) {
+          if($(this).data('ruleRequired') === true) {
+            $(this).val('');
+          } else {
+            $(this).remove();
+          }
+        }
+      });
+
+    }).on('filepredelete', function (outData, key, extraData) {
+      console.log('filepredelete');
+
+    }).on('fileremoved', function (id, index) {
+      console.log('fileremoved');
+
+    }).on('filecleared', function () {
+      console.log('filecleared');
+
+      $imageUrlContainer.each(function () {
+        if($(this).data('ruleRequired') === true) {
+          $(this).val('');
+        } else {
+          $(this).remove();
+        }
+      });
+
+    }).on('filesuccessremove', function (outData, id) {
+      console.log('filesuccessremove');
+
+      if ($imageUrlContainer.length > 0 && $imageUrlContainer.data('ruleRequired') === true) {
+        $imageUrlContainer.val('');
+      } else {
+        $('#' + id).remove();
       }
 
-    }).on('fileclear', function () {
-      imageUrl.val('');
+    }).on('filepreupload', function (outData, previewId, i) {
+      console.log('filepreupload');
 
-    }).on('fileuploaded', function (event, data) {
-      if (data.response) {
-        imageUrl.val(data.response.url);
+    }).on('fileuploaded', function (outData, data, id) {
+      console.log('fileuploaded');
+
+      if ($imageUrlContainer.length > 0 && $imageUrlContainer.data('ruleRequired') === true) {
+        $imageUrlContainer.val(data.response.url);
+        $imageUrlContainer.data('id', id);
+
+      } else {
+        var html = '<input type="hidden" name="'
+          + inputName + '" class="js-image-url" value="'
+          + data.response.url + '"'
+          + 'id="' + id + '"/>';
+        $container.append(html);
       }
 
       $.msg(data.response);

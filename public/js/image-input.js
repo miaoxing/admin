@@ -82,14 +82,14 @@ define([
     var fileInput = $(this).fileinput(options);
     fileInput.on('fileselect', function () {
       $imageUrlContainer.each(function() {
-        if($(this).data('ruleRequired') === true) {
+        if ($(this).data('ruleRequired') === true) {
           $(this).val('');
         } else {
           $(this).remove();
         }
       });
 
-    }).on('filedeleted', function (outData, key, extraData) {
+    }).on('filedeleted', function (outData, key) {
       $imageUrlContainer.each(function() {
         if ($(this).data('key') === key) {
           if ($(this).data('ruleRequired') === true) {
@@ -102,7 +102,9 @@ define([
 
     }).on('filepredelete', function () {
 
+
     }).on('fileremoved', function () {
+
 
     }).on('filecleared', function () {
       $imageUrlContainer.each(function () {
@@ -121,6 +123,7 @@ define([
       }
 
     }).on('filepreupload', function () {
+
 
     }).on('fileuploaded', function (outData, data, id) {
       if ($imageUrlContainer.length > 0 && $imageUrlContainer.data('ruleRequired') === true) {

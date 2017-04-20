@@ -8,8 +8,8 @@ require.config({
     }
   },
   paths: {
-    fileinput: 'comps/bootstrap-fileinput/js/fileinput',
-    theme: 'comps/bootstrap-fileinput/themes/explorer/theme',
+    fileinput: 'comps/bootstrap-fileinput/js/fileinput.min',
+    'theme': 'comps/bootstrap-fileinput/themes/explorer/theme',
     'fileinput.zh': 'comps/bootstrap-fileinput/js/locales/zh'
   }
 });
@@ -48,8 +48,8 @@ define([
     var initialPreview = [];
     var initialPreviewConfig = [];
 
-    for(var i in options.data) {
-      if (i == 0) {
+    for (var i in options.data) {
+      if (i === 0) {
         $container.find('.js-image-url').val(options.data[i]);
       } else {
         $container.append('<input type="hidden" name="'
@@ -62,7 +62,7 @@ define([
     var $imageUrlContainer = $container.find('.js-image-url');
     $imageUrlContainer.each(function () {
       $(this).data('key', key);
-      if ($(this).val() != '') {
+      if ($(this).val() !== '') {
         initialPreview.push($(this).val());
         initialPreviewConfig.push({width: '100px', url: $.url('admin/files/delete'), key: key});
         key++;
@@ -75,8 +75,8 @@ define([
     }, options);
 
     var fileInput = $(this).fileinput(options);
-    fileInput.on('fileselect', function (numFiles, label) {
-      console.log('fileselect');
+    fileInput.on('fileselect', function () {
+      //console.log('fileselect');
 
       $imageUrlContainer.each(function() {
         if($(this).data('ruleRequired') === true) {
@@ -87,11 +87,11 @@ define([
       });
 
     }).on('filedeleted', function (outData, key, extraData) {
-      console.log('filedeleted');
+      //console.log('filedeleted');
 
       $imageUrlContainer.each(function() {
-        if($(this).data('key') == key) {
-          if($(this).data('ruleRequired') === true) {
+        if ($(this).data('key') === key) {
+          if ($(this).data('ruleRequired') === true) {
             $(this).val('');
           } else {
             $(this).remove();
@@ -99,17 +99,17 @@ define([
         }
       });
 
-    }).on('filepredelete', function (outData, key, extraData) {
-      console.log('filepredelete');
+    }).on('filepredelete', function () {
+      //console.log('filepredelete');
 
-    }).on('fileremoved', function (id, index) {
-      console.log('fileremoved');
+    }).on('fileremoved', function () {
+      //console.log('fileremoved');
 
     }).on('filecleared', function () {
-      console.log('filecleared');
+      //console.log('filecleared');
 
       $imageUrlContainer.each(function () {
-        if($(this).data('ruleRequired') === true) {
+        if ($(this).data('ruleRequired') === true) {
           $(this).val('');
         } else {
           $(this).remove();
@@ -117,7 +117,7 @@ define([
       });
 
     }).on('filesuccessremove', function (outData, id) {
-      console.log('filesuccessremove');
+      //console.log('filesuccessremove');
 
       if ($imageUrlContainer.length > 0 && $imageUrlContainer.data('ruleRequired') === true) {
         $imageUrlContainer.val('');
@@ -125,11 +125,11 @@ define([
         $('#' + id).remove();
       }
 
-    }).on('filepreupload', function (outData, previewId, i) {
-      console.log('filepreupload');
+    }).on('filepreupload', function () {
+      //console.log('filepreupload');
 
     }).on('fileuploaded', function (outData, data, id) {
-      console.log('fileuploaded');
+      //console.log('fileuploaded');
 
       if ($imageUrlContainer.length > 0 && $imageUrlContainer.data('ruleRequired') === true) {
         $imageUrlContainer.val(data.response.url);

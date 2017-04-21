@@ -46,57 +46,61 @@ define([
   $.fn.imageUploadInput = function (options) {
     options = $.extend(defaults, options);
 
-    // 预览图片的设置
     var $container = $(this).closest('.js-upload-container');
     var inputName = $container.find('.js-image-url').attr('name');
-    var initialPreview = [];
-    var initialPreviewConfig = [];
 
-    for (var i in options.data) {
-      if (i === '0') {
-        $container.find('.js-image-url').val(options.data[i]);
-      } else {
-        $container.append('<input type="hidden" name="'
-        + inputName + '" class="js-image-url" value="'
-        + options.data[i] + '"/>');
+    var init = function() {
+      var initialPreview = [];
+      var initialPreviewConfig = [];
+
+      // 预览图片的设置
+      for (var i in options.data) {
+        if (i === '0') {
+          $container.find('.js-image-url').val(options.data[i]);
+        } else {
+          $container.append('<input type="hidden" name="'
+          + inputName + '" class="js-image-url" value="'
+          + options.data[i] + '"/>');
+        }
       }
-    }
 
-    var key = 0;
-    $container.find('.js-image-url').each(function () {
-      $(this).data('key', key);
-      if ($(this).val() !== '') {
-        initialPreview.push($(this).val());
-        initialPreviewConfig.push({
-          caption: '已上传',
-          width: '100px',
-          url: $.url('admin/files/delete', {url: $(this).val()}),
-          key: key
-        });
+      var key = 0;
+      $container.find('.js-image-url').each(function () {
+        $(this).data('key', key);
+        if ($(this).val() !== '') {
+          initialPreview.push($(this).val());
+          initialPreviewConfig.push({
+            caption: '已上传',
+            width: '100px',
+            url: $.url('admin/files/delete', {url: $(this).val()}),
+            key: key
+          });
 
-        key++;
-      }
-    });
+          key++;
+        }
+      });
 
-    options = $.extend({
-      initialPreview: initialPreview,
-      initialPreviewConfig: initialPreviewConfig
-    }, options);
+      options = $.extend({
+        initialPreview: initialPreview,
+        initialPreviewConfig: initialPreviewConfig
+      }, options);
+    };
 
-    var fileInput = $(this).fileinput(options);
     var reset = function () {
       if ($container.find('.js-image-url').length === 0) {
         // 最后增加无值的input
         $container.append('<input type="hidden" name="' + inputName + '" class="js-image-url"/>');
-        // 重置状态
-        isFirst = true;
       }
     };
 
+    init();
+
+    var fileInput = $(this).fileinput(options);
     var isFirst = true;
     fileInput.on('fileselect', function () {
-      var len = $container.find('.js-image-url').length;
-      if (len === 1 && $container.find('.js-image-url').val() == '') {
+      var $imageUrlContainer = $container.find('.js-image-url');
+      var len = $imageUrlContainer.length;
+      if (len === 1 && $imageUrlContainer.val() === '') {
         len = 0;
       }
 
@@ -152,28 +156,23 @@ define([
 
     }).on('fileremoved', function (event, id) {
       var $imageUrlContainer = $container.find('.js-image-url');
-      if ($imageUrlContainer.length > 0 && $imageUrlContainer.data('ruleRequired') === true) {
+      if ($imageUrlContainer.length === 1 && $imageUrlContainer.val() !== '') {
         $imageUrlContainer.val('');
       } else {
         $('input#' + id).remove();
       }
-
-      reset();
 
     }).on('filesuccessremove', function (event, id) {
       var $imageUrlContainer = $container.find('.js-image-url');
-      if ($imageUrlContainer.length > 0 && $imageUrlContainer.data('ruleRequired') === true) {
+      if ($imageUrlContainer.length === 1 && $imageUrlContainer.val() !== '') {
         $imageUrlContainer.val('');
       } else {
         $('input#' + id).remove();
       }
 
-      reset();
-
     }).on('fileuploaded', function (event, data, previewId) {
       var $imageUrlContainer = $container.find('.js-image-url');
-      if (($imageUrlContainer.length === 1 && $imageUrlContainer.val() === '')||
-        ($imageUrlContainer.length > 0 && $imageUrlContainer.data('ruleRequired') === true)) {
+      if ($imageUrlContainer.length === 1 && $imageUrlContainer.val() === '') {
         $imageUrlContainer.val(data.response.url);
         $imageUrlContainer.attr('id', previewId);
 

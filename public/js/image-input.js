@@ -85,12 +85,15 @@ define([
 
     var fileInput = $(this).fileinput(options);
     var isFirst = true;
-    fileInput.on('fileselect', function (event, numFiles, label) {
+    fileInput.on('fileselect', function () {
       var len = $container.find('.js-image-url').length;
       if (!isFirst && options.maxFileCount !== 0 && len >= options.maxFileCount) {
-        $.msg({code: -1, message: '超过上传数量'});
-        $container.find('.kv-preview-thumb:last').find('.kv-file-upload').attr('disabled', "true");
-        $container.find('.kv-preview-thumb:last').find('.kv-file-remove').attr('disabled', "true");
+        $.msg({
+          code: -1,
+          message: '超过上传数量'
+        });
+        $container.find('.kv-preview-thumb:last').find('.kv-file-upload').attr('disabled', 'true');
+        $container.find('.kv-preview-thumb:last').find('.kv-file-remove').attr('disabled', 'true');
 
         return;
       }
@@ -98,11 +101,8 @@ define([
       $container.find('.js-image-url').each(function () {
         if ($(this).data('ruleRequired') === true) {
           $(this).val('');
-        } else {
-          // 首次并且最大上传数量=1时覆盖初始值
-          if (isFirst || options.maxFileCount == 1) {
-            $(this).remove();
-          }
+        } else if (isFirst || options.maxFileCount === 1) { // 首次并且最大上传数量=1时覆盖初始值
+          $(this).remove();
         }
       });
 

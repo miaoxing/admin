@@ -28,7 +28,7 @@ define([
     language: 'zh',
     theme: 'explorer',
     showUpload: false,
-    autoRepalce: true,
+    autoReplace: true,
     uploadUrl: $.url('admin/files/image-upload'),
     overwriteInitial: true,
     maxFileCount: 1,

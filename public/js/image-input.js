@@ -30,7 +30,7 @@ define([
     showUpload: false,
     autoReplace: true,
     uploadUrl: $.url('admin/files/image-upload'),
-    overwriteInitial: true,
+    overwriteInitial: false,
     maxFileCount: 1,
     maxFileSize: 2048, // 单位是kb
     initialPreviewAsData: true,
@@ -98,14 +98,6 @@ define([
         return;
       }
 
-      $container.find('.js-image-url').each(function () {
-        if ($(this).data('ruleRequired') === true) {
-          $(this).val('');
-        } else if (isFirst || options.maxFileCount === 1) { // 首次并且最大上传数量=1时覆盖初始值
-          $(this).remove();
-        }
-      });
-
       if (isFirst) {
         isFirst = false;
       }
@@ -125,13 +117,23 @@ define([
       });
 
     }).on('filecleared', function () {
+      var ruleRequired = false;
       $container.find('.js-image-url').each(function () {
         if ($(this).data('ruleRequired') === true) {
           $(this).val('');
+          ruleRequired = true;
         } else {
           $(this).remove();
         }
       });
+
+      if (!ruleRequired) {
+        // 最后增加无值的input
+        $container.append('<input type="hidden" name="' + inputName + '" class="js-image-url"/>');
+      }
+
+      // 重置状态
+      isFirst = true;
 
     }).on('fileremoved', function (event, id) {
       var $imageUrlContainer = $container.find('.js-image-url');

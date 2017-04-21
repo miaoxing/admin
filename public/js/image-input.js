@@ -28,165 +28,146 @@ define([
     language: 'zh',
     theme: 'explorer',
     showUpload: false,
-    autoReplace: true,
     uploadUrl: $.url('admin/files/image-upload'),
-    overwriteInitial: true,
+    autoReplace: false,
     maxFileCount: 1,
     maxFileSize: 2048, // 单位是kb
-    initialPreviewAsData: true,
     allowedPreviewTypes: ['image'],
     allowedFileExtensions: ['gif', 'png', 'jpg', 'jpeg', 'bmp'],
     dropZoneTitle: '拖拽文件到这里',
     fileActionSettings: {
       showDrag: false
     },
-    data: []
+    // 选择新文件时,保留已有的文件
+    overwriteInitial: false,
+    // 计算文件数量时,把初始的也算进去
+    validateInitialCount: true,
+    // 预览
+    initialPreviewAsData: true
   };
 
   $.fn.imageUploadInput = function (options) {
-    options = $.extend(defaults, options);
+    options = $.extend({}, defaults, options);
 
+    var $input = $(this);
     var $container = $(this).closest('.js-upload-container');
-    var inputName = $container.find('.js-image-url').attr('name');
+    var $urlInput = $container.find('.js-image-url');
+    options.name = $urlInput.attr('name');
 
-    var init = function() {
-      var initialPreview = [];
-      var initialPreviewConfig = [];
+    if (options.maxFileCount === 1) {
+      options.data = [$urlInput.val()];
+    }
 
-      // 预览图片的设置
-      for (var i in options.data) {
-        if (i === '0') {
-          $container.find('.js-image-url').val(options.data[i]);
-        } else {
-          $container.append('<input type="hidden" name="'
-          + inputName + '" class="js-image-url" value="'
-          + options.data[i] + '"/>');
-        }
-      }
-
-      var key = 0;
-      $container.find('.js-image-url').each(function () {
-        $(this).data('key', key);
-        if ($(this).val() !== '') {
-          initialPreview.push($(this).val());
-          initialPreviewConfig.push({
-            caption: '已上传',
-            width: '100px',
-            url: $.url('admin/files/delete', {url: $(this).val()}),
-            key: key
-          });
-
-          key++;
-        }
+    // 将data转换为initialPreview和initialPreviewConfig
+    var initialPreviewConfig = [];
+    $.each(options.data, function (i, row) {
+      initialPreviewConfig.push({
+        caption: '已上传',
+        width: '100px',
+        key: row,
+        url: $.url('admin/files/delete', {url: row})
       });
+      addImage(row);
+    });
+    options.initialPreview = options.data;
+    options.initialPreviewConfig = initialPreviewConfig;
 
-      options = $.extend({
-        initialPreview: initialPreview,
-        initialPreviewConfig: initialPreviewConfig
-      }, options);
-    };
-
-    var reset = function () {
-      if ($container.find('.js-image-url').length === 0) {
-        // 最后增加无值的input
-        $container.append('<input type="hidden" name="' + inputName + '" class="js-image-url"/>');
+    function addImage(url, previewId) {
+      if (options.maxFileCount === 1) {
+        $urlInput.val(url);
+      } else {
+        $input.after('<input type="hidden" name="'
+          + options.name + '" class="js-image-url ' + previewId + '" value="'
+          + url + '"/>');
+        removePlaceHolder();
       }
-    };
+    }
 
-    init();
-
-    var fileInput = $(this).fileinput(options);
-    var isFirst = true;
-    fileInput.on('fileselect', function () {
-      var $imageUrlContainer = $container.find('.js-image-url');
-      var len = $imageUrlContainer.length;
-      if (len === 1 && $imageUrlContainer.val() === '') {
-        len = 0;
-      }
-
-      if (!isFirst && options.maxFileCount !== 0 && len >= options.maxFileCount) {
-        $.msg({
-          code: -1,
-          message: '超过上传数量'
-        });
-        $container.find('.kv-preview-thumb:last').find('.kv-file-upload').attr('disabled', 'true');
-        $container.find('.kv-preview-thumb:last').find('.kv-file-remove').attr('disabled', 'true');
-
+    function removeImage(key) {
+      if (options.maxFileCount === 1) {
+        $urlInput.val('');
         return;
       }
 
-      if (isFirst) {
-        $container.find('.js-image-url').each(function () {
-          if ($(this).data('ruleRequired') === true) {
-            $(this).val('');
-          } else {
-            $(this).remove();
-          }
-        });
-
-        isFirst = false;
+      // 传入的是预览的ID
+      var prefix = 'preview-';
+      if (key.substr(0, prefix.length) === prefix) {
+        $('.js-image-url.' + key).remove();
+        addPlaceHolder();
+        return;
       }
 
-      // 自动上传
-      $container.find('.kv-preview-thumb:last').find('.kv-file-upload').click();
-
-    }).on('filedeleted', function (event, key) {
-      $container.find('.js-image-url').each(function () {
-        if ($(this).data('key') === key) {
-          if ($(this).data('ruleRequired') === true) {
-            $(this).val('');
-          } else {
-            $(this).remove();
-          }
-        }
-      });
-
-      reset();
-
-    }).on('filecleared', function () {
-      $container.find('.js-image-url').each(function () {
-        if ($(this).data('ruleRequired') === true) {
-          $(this).val('');
-        } else {
+      // 传入的是图片的URL地址
+      $('.js-image-url').each(function () {
+        if ($(this).val() === key) {
           $(this).remove();
+          addPlaceHolder();
         }
       });
+    }
 
-      reset();
-
-    }).on('fileremoved', function (event, id) {
-      var $imageUrlContainer = $container.find('.js-image-url');
-      if ($imageUrlContainer.length === 1 && $imageUrlContainer.val() !== '') {
-        $imageUrlContainer.val('');
+    function removeAllImage() {
+      if (options.maxFileCount === 1) {
+        removeImage('');
       } else {
-        $('input#' + id).remove();
+        $container.find('.js-image-url').remove();
+        addPlaceHolder();
+      }
+    }
+
+    function addPlaceHolder() {
+      if ($container.find('.js-image-url').length === 0) {
+        addImage('', 'js-image-url-place-holder');
+      }
+    }
+
+    function removePlaceHolder() {
+      $container.find('.js-image-url-place-holder').remove();
+    }
+
+    // 拦截更改事件,自定控制最大数量
+    $input.on('change', function (e) {
+      if (!e.originalEvent) {
+        return;
+      }
+      if (!options.maxFileCount) {
+        return;
       }
 
-    }).on('filesuccessremove', function (event, id) {
-      var $imageUrlContainer = $container.find('.js-image-url');
-      if ($imageUrlContainer.length === 1 && $imageUrlContainer.val() !== '') {
-        $imageUrlContainer.val('');
-      } else {
-        $('input#' + id).remove();
+      // NOTICE 上传一个图片后getFilesCount就返回错误的结果,所以需要通过UI获取真实的数量
+      // var filesCount = $input.fileinput('getFilesCount');
+      var filesCount = $input.closest('.file-input').find('.file-preview-frame:visible').length;
+      if (filesCount >= options.maxFileCount) {
+        $.err('最多可上传' + options.maxFileCount + '个图片,请先移除已有的图片');
+        e.stopImmediatePropagation();
       }
-
-    }).on('fileuploaded', function (event, data, previewId) {
-      var $imageUrlContainer = $container.find('.js-image-url');
-      if ($imageUrlContainer.length === 1 && $imageUrlContainer.val() === '') {
-        $imageUrlContainer.val(data.response.url);
-        $imageUrlContainer.attr('id', previewId);
-
-      } else {
-        var html = '<input type="hidden" name="'
-          + inputName + '" class="js-image-url" value="'
-          + data.response.url + '"'
-          + 'id="' + previewId + '"/>';
-        $container.append(html);
-      }
-
-      $.msg(data.response);
     });
 
-    return fileInput;
+    $input.fileinput(options);
+
+    // 选择文件后自动上传
+    $input.on('fileselect', function() {
+      $input.closest('.file-input').find('.kv-preview-thumb:last').find('.kv-file-upload').click();
+    });
+
+    // 上传后更新表单
+    $input.on('fileuploaded', function (event, data, previewId) {
+      addImage(data.response.url, previewId);
+    });
+
+    // 向后台发送删除,更新表单
+    $input.on('filedeleted', function (event, key) {
+      removeImage(key);
+    });
+
+    // 前台移除一个记录,更新表单
+    $input.on('filesuccessremove', function (event, id) {
+      removeImage(id);
+    });
+
+    // 前台移除全部记录,更新表单
+    $input.on('filecleared', function () {
+      removeAllImage();
+    });
   };
 });

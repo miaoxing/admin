@@ -79,7 +79,7 @@ define([
     options.initialPreview = options.data;
     options.initialPreviewConfig = initialPreviewConfig;
 
-    function addImage(url, previewId) {
+    function addImage(url, previewId, placeholder) {
       if (options.maxFileCount === 1) {
         $urlInput.val(url);
       } else {
@@ -87,7 +87,10 @@ define([
         $container.append('<input type="hidden" name="'
           + options.name + '" class="js-image-url ' + previewId + '" value="'
           + url + '"/>');
-        removePlaceHolder();
+
+        if (placeholder !== true) {
+          removePlaceHolder();
+        }
       }
     }
 
@@ -114,18 +117,9 @@ define([
       });
     }
 
-    function removeAllImage() {
-      if (options.maxFileCount === 1) {
-        removeImage('');
-      } else {
-        $container.find('.js-image-url').remove();
-        addPlaceHolder();
-      }
-    }
-
     function addPlaceHolder() {
       if ($container.find('.js-image-url').length === 0) {
-        addImage('');
+        addImage('', '', true);
       }
     }
 
@@ -155,7 +149,7 @@ define([
 
     $input.fileinput(options);
 
-    // 选择文件后自动上传
+    // 选择文件后自动上传该文件
     $input.on('fileselect', function() {
       $input.closest('.file-input').find('.kv-preview-thumb:last').find('.kv-file-upload').click();
     });
@@ -173,11 +167,6 @@ define([
     // 前台移除一个记录,更新表单
     $input.on('filesuccessremove', function (event, id) {
       removeImage(id);
-    });
-
-    // 前台移除全部记录,更新表单
-    $input.on('filecleared', function () {
-      removeAllImage();
     });
   };
 });

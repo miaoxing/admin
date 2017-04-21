@@ -43,7 +43,9 @@ define([
     // 计算文件数量时,把初始的也算进去
     validateInitialCount: true,
     // 预览
-    initialPreviewAsData: true
+    initialPreviewAsData: true,
+    showRemove: false,
+    showClose: false
   };
 
   $.fn.imageUploadInput = function (options) {
@@ -55,7 +57,12 @@ define([
     options.name = $urlInput.attr('name');
 
     if (options.maxFileCount === 1) {
-      options.data = [$urlInput.val()];
+      var value = $urlInput.val();
+      if (value) {
+        options.data = [value];
+      } else {
+        options.data = [];
+      }
     }
 
     // 将data转换为initialPreview和initialPreviewConfig
@@ -76,7 +83,8 @@ define([
       if (options.maxFileCount === 1) {
         $urlInput.val(url);
       } else {
-        $input.after('<input type="hidden" name="'
+        previewId || (previewId = '');
+        $container.append('<input type="hidden" name="'
           + options.name + '" class="js-image-url ' + previewId + '" value="'
           + url + '"/>');
         removePlaceHolder();
@@ -117,12 +125,14 @@ define([
 
     function addPlaceHolder() {
       if ($container.find('.js-image-url').length === 0) {
-        addImage('', 'js-image-url-place-holder');
+        addImage('');
       }
     }
 
     function removePlaceHolder() {
-      $container.find('.js-image-url-place-holder').remove();
+      $container.find('.js-image-url').filter(function() {
+        return !this.value;
+      }).remove();
     }
 
     // 拦截更改事件,自定控制最大数量

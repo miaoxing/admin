@@ -28,9 +28,9 @@ define([
     language: 'zh',
     theme: 'explorer',
     showUpload: false,
-    autoReplace: true,
+    autoRepalce: true,
     uploadUrl: $.url('admin/files/image-upload'),
-    overwriteInitial: false,
+    overwriteInitial: true,
     maxFileCount: 1,
     maxFileSize: 2048, // 单位是kb
     initialPreviewAsData: true,
@@ -84,9 +84,22 @@ define([
     }, options);
 
     var fileInput = $(this).fileinput(options);
+    var reset = function () {
+      if ($container.find('.js-image-url').length === 0) {
+        // 最后增加无值的input
+        $container.append('<input type="hidden" name="' + inputName + '" class="js-image-url"/>');
+        // 重置状态
+        isFirst = true;
+      }
+    };
+
     var isFirst = true;
     fileInput.on('fileselect', function () {
       var len = $container.find('.js-image-url').length;
+      if (len === 1 && $container.find('.js-image-url').val() == '') {
+        len = 0;
+      }
+
       if (!isFirst && options.maxFileCount !== 0 && len >= options.maxFileCount) {
         $.msg({
           code: -1,
@@ -99,6 +112,14 @@ define([
       }
 
       if (isFirst) {
+        $container.find('.js-image-url').each(function () {
+          if ($(this).data('ruleRequired') === true) {
+            $(this).val('');
+          } else {
+            $(this).remove();
+          }
+        });
+
         isFirst = false;
       }
 
@@ -116,24 +137,18 @@ define([
         }
       });
 
+      reset();
+
     }).on('filecleared', function () {
-      var ruleRequired = false;
       $container.find('.js-image-url').each(function () {
         if ($(this).data('ruleRequired') === true) {
           $(this).val('');
-          ruleRequired = true;
         } else {
           $(this).remove();
         }
       });
 
-      if (!ruleRequired) {
-        // 最后增加无值的input
-        $container.append('<input type="hidden" name="' + inputName + '" class="js-image-url"/>');
-      }
-
-      // 重置状态
-      isFirst = true;
+      reset();
 
     }).on('fileremoved', function (event, id) {
       var $imageUrlContainer = $container.find('.js-image-url');
@@ -143,6 +158,8 @@ define([
         $('input#' + id).remove();
       }
 
+      reset();
+
     }).on('filesuccessremove', function (event, id) {
       var $imageUrlContainer = $container.find('.js-image-url');
       if ($imageUrlContainer.length > 0 && $imageUrlContainer.data('ruleRequired') === true) {
@@ -151,11 +168,14 @@ define([
         $('input#' + id).remove();
       }
 
+      reset();
+
     }).on('fileuploaded', function (event, data, previewId) {
       var $imageUrlContainer = $container.find('.js-image-url');
-      if ($imageUrlContainer.length > 0 && $imageUrlContainer.data('ruleRequired') === true) {
+      if (($imageUrlContainer.length === 1 && $imageUrlContainer.val() === '')||
+        ($imageUrlContainer.length > 0 && $imageUrlContainer.data('ruleRequired') === true)) {
         $imageUrlContainer.val(data.response.url);
-        $imageUrlContainer.data('id', previewId);
+        $imageUrlContainer.attr('id', previewId);
 
       } else {
         var html = '<input type="hidden" name="'

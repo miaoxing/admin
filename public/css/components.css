@@ -1313,6 +1313,47 @@ div.ColVis_collectionBackground {
   width: 110px;
 }
 
+/* 滑动插件 */
+.ui-slider {
+  background-color: #d5d5d5;
+}
+
+.ui-slider-horizontal {
+  height: 9px;
+}
+
+.ui-slider-vertical {
+  width: 9px;
+}
+
+.ui-slider .ui-slider-handle {
+  border-radius: 0;
+  width: 1.45em;
+  height: 1.45em;
+  background-color: #f8f8f8;
+  border: 1px solid;
+}
+
+.ui-slider .ui-slider-handle:hover {
+  background-color: #fff;
+}
+
+.ui-slider .ui-slider-handle:hover, .ui-slider .ui-slider-handle:focus, .ui-slider .ui-slider-handle:active {
+  outline: 0;
+  -webkit-box-shadow: 1px 1px 1px 0 rgba(0, 0, 0, .3);
+  box-shadow: 1px 1px 1px 0 rgba(0, 0, 0, .3)
+}
+
+.ui-slider-horizontal .ui-slider-handle {
+  margin-left: -.725em;
+  top: -.4em
+}
+
+.ui-slider-vertical .ui-slider-handle {
+  left: -.35em;
+  margin-bottom: -.65em
+}
+
 .well {
   -webkit-box-shadow: none;
   box-shadow: none;

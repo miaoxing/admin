@@ -34,8 +34,8 @@ class Admin extends \miaoxing\plugin\BaseController
                 // 排序
                 $users->desc('id');
 
-                if ($req['name']) {
-                    $users->andWhere('name like ?', ['%' . $req['name'] . '%']);
+                if ($req['username']) {
+                    $users->andWhere('username like ?', ['%' . $req['username'] . '%']);
                 }
 
                 if ($req['nickName']) {

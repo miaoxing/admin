@@ -25,10 +25,10 @@
         <div class="well form-well m-b">
 
           <div class="form-group form-group-sm">
-            <label class="col-md-1 control-label" for="name">用户名：</label>
+            <label class="col-md-1 control-label" for="username">用户名：</label>
 
             <div class="col-md-3">
-              <input type="text" class="form-control" id="name" name="name">
+              <input type="text" class="form-control" id="username" name="username">
             </div>
 
             <label class="col-md-1 control-label" for="nick-name">昵称：</label>

@@ -173,10 +173,8 @@ https://github.com/twbs/bootstrap/issues/14990 */
   table-layout: fixed; }
 
 .record-table th, .record-table td {
-  white-space: nowrap;
   text-align: center;
-  overflow: hidden;
-  text-overflow: ellipsis; }
+  overflow: hidden; }
 
 .record-table td.text-left {
   text-align: left; }

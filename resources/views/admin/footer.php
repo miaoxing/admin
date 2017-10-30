@@ -20,6 +20,7 @@
 <script>
   $.extend($, <?= json_encode($app->getConfig()) ?>);
   $.tips.defaults.valign = 'top';
+  var wei = <?= json_encode($js) ?>;
 </script>
 <?php $event->trigger('inlineScript') ?>
 <?= $block->get('html') ?>

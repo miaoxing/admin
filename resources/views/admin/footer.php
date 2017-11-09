@@ -17,6 +17,8 @@
   'plugins/admin/js/admin.js',
 ]) ?>"></script>
 <script>window.requirejs || document.write('<script src="<?= $asset->fallback($mainJs) ?>"><\/script>')</script>
+<script src="<?= $wei->wpAsset('manifest.js') ?>"></script>
+<script src="<?= $wei->wpAsset('react.js') ?>"></script>
 <script>
   $.extend($, <?= json_encode($app->getConfig()) ?>);
   $.tips.defaults.valign = 'top';

@@ -17,6 +17,7 @@
     'plugins/admin/css/theme.css',
     'plugins/app/css/tips.css',
   ]) ?>"/>
+  <link rel="stylesheet" href="<?= $wei->wpAsset('common.css') ?>" />
   <?= $block->get('css') ?>
   <?php $event->trigger('afterStyle') ?>
   <?php $event->trigger('appendHead') ?>

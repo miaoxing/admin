@@ -7,10 +7,9 @@
     <?php require $view->getFile('@admin/admin/aside.php') ?>
     <div class="main-content">
       <div class="page-content">
-
         <?php require $view->getFile('@admin/admin/page-header.php') ?>
         <?= $content ?>
-
+        <div id="root"></div>
       </div>
       <!-- /.page-content -->
     </div>

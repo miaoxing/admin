@@ -38,3 +38,9 @@
   color: #428bca;
   background: #fff;
 }
+
+/* 表单项换行时，上下留出空白 */
+.filter-item-wrapper > .control-label,
+.filter-item-wrapper > div {
+  margin-bottom: 10px;
+}

@@ -27,14 +27,11 @@ class AdminIndex extends React.Component {
         columns: [
           {
             title: '用户名',
-            data: 'name'
+            data: 'username'
           },
           {
             title: '昵称',
-            data: 'nickName',
-            render: function (data, type, full) {
-              return data || full.username;
-            }
+            data: 'nickName'
           },
           {
             title: '邮箱',

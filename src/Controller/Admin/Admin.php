@@ -63,6 +63,9 @@ class Admin extends \miaoxing\plugin\BaseController
                 ]);
 
             default:
+
+                $this->js['isInstalledCan'] = $this->plugin->isInstalled('can');
+
                 return get_defined_vars();
         }
     }

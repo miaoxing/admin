@@ -79,7 +79,17 @@ class Admin extends \miaoxing\plugin\BaseController
     {
         $user = wei()->user()->findOrInitById($req['id']);
 
-        return get_defined_vars();
+        // TODO 实现toArray hidden
+        $userData = $user->toArray();
+        unset($userData['password']);
+        unset($userData['salt']);
+
+        $this->js += [
+            'user' => $userData,
+            'groups' => wei()->group()->notDeleted()->asc('name')->fetchAll(),
+        ];
+
+        return [];
     }
 
     public function editSelfAction()
@@ -128,6 +138,7 @@ class Admin extends \miaoxing\plugin\BaseController
                     'required' => false,
                 ],
                 'nickName' => [
+                    'required' => false,
                     'length' => [1, 32],
                 ],
                 'password' => [
@@ -178,7 +189,7 @@ class Admin extends \miaoxing\plugin\BaseController
             $user['groupId'] = $req['groupId'];
         }
 
-        if ($req['headImg']) {
+        if (isset($req['headImg'])) {
             $user['headImg'] = $req['headImg'];
         }
 

@@ -10,7 +10,7 @@
 <div class="row">
   <div class="col-xs-12">
     <!-- PAGE CONTENT BEGINS -->
-    <form id="record-form" class="form-horizontal" action="<?= $url('admin/admin/update-self') ?>" method="post"
+    <form id="record-form" class="form-horizontal" action="<?= $url('admin/admins/update-self') ?>" method="post"
       role="form">
 
       <div class="form-group">

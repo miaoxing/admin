@@ -21,7 +21,7 @@ class AdminIndex extends React.Component {
         searchEl: '.js-admin-form',
         searchEvent: 'update',
         ajax: {
-          url: $.queryUrl2('admin/admin.json')
+          url: $.queryUrl2('admin/admins.json')
         },
         order: [],
         columns: [
@@ -64,7 +64,7 @@ class AdminIndex extends React.Component {
             data: 'id',
             createdCell: (td, val) => {
               ReactDOM.render(<span>
-                <a href={$.url('admin/admin/%s/edit', val)}>编辑</a>
+                <a href={$.url('admin/admins/%s/edit', val)}>编辑</a>
                 {' '}
                 {wei.isInstalledCan && <a href={$.url('admin/users/%s/roles/assign', val)}>分配角色</a>}
               </span>, td);
@@ -81,7 +81,7 @@ class AdminIndex extends React.Component {
         var data = {};
         data['id'] = $this.data('id');
         data[$this.attr('name')] = +!$this.data('value');
-        $.post($.url('admin/admin/enable'), data, function (result) {
+        $.post($.url('admin/admins/enable'), data, function (result) {
           $.msg(result);
           $table.reload();
         }, 'json');
@@ -93,7 +93,7 @@ class AdminIndex extends React.Component {
     return (
       <Page>
         <PageHeader>
-          <Button bsStyle="success" href={$.url('admin/admin/new')}>添加管理员</Button>
+          <Button bsStyle="success" href={$.url('admin/admins/new')}>添加管理员</Button>
         </PageHeader>
         <SearchForm className="js-admin-form">
           <SearchItem label="用户名" name="username" />

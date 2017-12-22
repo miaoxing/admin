@@ -26,7 +26,7 @@
           <ul class="dropdown-menu">
             <?php if (wei()->setting('admin.navBarEnableUpdateUserInfo')) : ?>
               <li>
-                <a href="<?= $url('admin/admin/edit-self') ?>">
+                <a href="<?= $url('admin/admins/edit-self') ?>">
                   <i class="fa fa-user"></i>
                   修改资料
                 </a>

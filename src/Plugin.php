@@ -28,7 +28,7 @@ class Plugin extends \miaoxing\plugin\BasePlugin
 
         $navs[] = [
             'parentId' => 'user-admin',
-            'url' => 'admin/admin/index',
+            'url' => 'admin/admins',
             'name' => '管理员管理',
             'sort' => 1000,
         ];

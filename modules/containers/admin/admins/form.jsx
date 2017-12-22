@@ -14,13 +14,13 @@ class AdminForm extends React.Component {
       $('.js-admin-form')
         .populate(wei.user)
         .ajaxForm({
-          url: $.url('admin/admin/' + (wei.user.id ? 'update' : 'create')),
+          url: $.url('admin/admins/' + (wei.user.id ? 'update' : 'create')),
           dataType: 'json',
           beforeSubmit: (arr, $form) => $form.valid(),
           success: (ret) => {
             $.msg(ret, () => {
               if (ret.code === 1) {
-                window.location = $.url('admin/admin');
+                window.location = $.url('admin/admins');
               }
             });
           }
@@ -33,7 +33,7 @@ class AdminForm extends React.Component {
     return (
       <Page>
         <PageHeader>
-          <Button href={$.url('admin/admin')}>返回列表</Button>
+          <Button href={$.url('admin/admins')}>返回列表</Button>
         </PageHeader>
         <Form horizontal className="js-admin-form" method="post">
           <FormItem label="用户名" name="username" required={!wei.user.id}
@@ -55,7 +55,7 @@ class AdminForm extends React.Component {
 
           <input type="hidden" id="id" name="id"/>
 
-          <FormAction url={$.url('admin/admin')}/>
+          <FormAction url={$.url('admin/admins')}/>
         </Form>
       </Page>
     )

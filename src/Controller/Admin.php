@@ -18,7 +18,7 @@ class Admin extends \miaoxing\plugin\BaseController
     {
         parent::__construct($options);
 
-        $this->middleware(CheckRedirectUrl::className(), ['only' => 'login']);
+        $this->middleware(CheckRedirectUrl::class, ['only' => 'login']);
     }
 
     public function indexAction()

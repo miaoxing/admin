@@ -2,6 +2,9 @@
 
 namespace Miaoxing\Admin\Service;
 
+/**
+ * 后台导航
+ */
 class AdminNav extends \miaoxing\plugin\BaseService
 {
     protected $categories = [];

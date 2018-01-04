@@ -2,7 +2,7 @@
 
 namespace Miaoxing\Admin\Service;
 
-use miaoxing\plugin\BaseService;
+use Miaoxing\Plugin\BaseService;
 
 /**
  * Csv格式数据导出服务

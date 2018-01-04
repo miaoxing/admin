@@ -5,7 +5,7 @@ namespace Miaoxing\Admin\Service;
 /**
  * 后台管理日志
  */
-class AdminLog extends \miaoxing\plugin\BaseModel
+class AdminLog extends \Miaoxing\Plugin\BaseModel
 {
     /**
      * {@inheritdoc}

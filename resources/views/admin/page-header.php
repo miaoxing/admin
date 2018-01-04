@@ -1,6 +1,6 @@
 <?php
 
-use miaoxing\plugin\BaseController;
+use Miaoxing\Plugin\BaseController;
 
 /** @var BaseController $controllerInstance */
 if (!$controllerInstance->getOption('displayPageHeader')) {

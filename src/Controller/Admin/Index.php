@@ -2,7 +2,7 @@
 
 namespace Miaoxing\Admin\Controller\Admin;
 
-class Index extends \miaoxing\plugin\BaseController
+class Index extends \Miaoxing\Plugin\BaseController
 {
     protected $controllerName = '后台首页';
 

@@ -4,7 +4,7 @@ namespace Miaoxing\Admin\Controller;
 
 use Miaoxing\Plugin\Middleware\CheckRedirectUrl;
 
-class Admin extends \miaoxing\plugin\BaseController
+class Admin extends \Miaoxing\Plugin\BaseController
 {
     protected $guestPages = [
         'admin/login'

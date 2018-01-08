@@ -7,11 +7,11 @@ use Miaoxing\Plugin\Middleware\CheckRedirectUrl;
 class Admin extends \Miaoxing\Plugin\BaseController
 {
     protected $guestPages = [
-        'admin/login'
+        'admin/login',
     ];
 
     protected $adminGuestPages = [
-        'admin/index'
+        'admin/index',
     ];
 
     public function __construct(array $options)
@@ -24,6 +24,7 @@ class Admin extends \Miaoxing\Plugin\BaseController
     public function indexAction()
     {
         $url = wei()->adminNav->getIndexUrl();
+
         return $this->response->redirect($this->url($url));
     }
 

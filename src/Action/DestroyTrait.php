@@ -2,17 +2,19 @@
 
 namespace Miaoxing\Admin\Action;
 
-use Miaoxing\Plugin\BaseModelV2;
+use Miaoxing\Admin\Service\Crud;
 use Wei\RetTrait;
 
+/**
+ * @property Crud $crud
+ */
 trait DestroyTrait
 {
     use RetTrait;
-    use GetModelNameTrait;
 
     public function destroyAction($req)
     {
-        $model = $this->initModel()->findOneById($req['id']);
+        $model = $this->crud->createModel($this)->findOneById($req['id']);
 
         $model->destroy();
 

@@ -25,6 +25,7 @@
 </script>
 <?php $event->trigger('script') ?>
 <?= $block->get('js') ?>
-<?php $event->trigger('afterScript') ?>
+
+<?php $event->trigger('bodyEnd') ?>
 </body>
 </html>

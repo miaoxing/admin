@@ -17,6 +17,7 @@
     'plugins/admin/css/theme.css',
     'plugins/app/css/tips.css',
   ]) ?>"/>
+  <?php $event->trigger('style') ?>
   <?= $block->get('css') ?>
   <?php $event->trigger('appendHead') ?>
 </head>

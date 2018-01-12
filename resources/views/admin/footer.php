@@ -1,6 +1,5 @@
 <?= $block->get('html') ?>
 
-<?php $event->trigger('beforeScript') ?>
 <script src="<?= $mainJs = $asset([
   // 通用类库
   'comps/requirejs/require.min.js',

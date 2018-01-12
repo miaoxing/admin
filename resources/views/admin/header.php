@@ -19,6 +19,5 @@
   ]) ?>"/>
   <?php $event->trigger('style') ?>
   <?= $block->get('css') ?>
-  <?php $event->trigger('appendHead') ?>
 </head>
 <body>

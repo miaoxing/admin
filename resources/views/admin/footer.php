@@ -22,9 +22,9 @@
   $.tips.defaults.valign = 'top';
   var wei = <?= json_encode($js) ?>;
 </script>
-<?php $event->trigger('inlineScript') ?>
 <?= $block->get('html') ?>
 <?php $event->trigger('beforePageScript') ?>
+<?php $event->trigger('script') ?>
 <?= $block->get('js') ?>
 <?php $event->trigger('afterScript') ?>
 </body>

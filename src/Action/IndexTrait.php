@@ -24,12 +24,7 @@ trait IndexTrait
 
             $models->findAll();
 
-            return $this->suc([
-                'data' => $models,
-                'page' => (int) $req['page'],
-                'rows' => (int) $req['rows'],
-                'records' => $models->count(),
-            ]);
+            return $models->res();
         }
 
         return get_defined_vars();

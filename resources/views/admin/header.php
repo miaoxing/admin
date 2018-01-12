@@ -18,7 +18,6 @@
     'plugins/app/css/tips.css',
   ]) ?>"/>
   <?= $block->get('css') ?>
-  <?php $event->trigger('afterStyle') ?>
   <?php $event->trigger('appendHead') ?>
 </head>
 <body>

@@ -1,3 +1,5 @@
+<?= $block->get('html') ?>
+
 <?php $event->trigger('beforeScript') ?>
 <script src="<?= $mainJs = $asset([
   // 通用类库
@@ -22,7 +24,6 @@
   $.tips.defaults.valign = 'top';
   var wei = <?= json_encode($js) ?>;
 </script>
-<?= $block->get('html') ?>
 <?php $event->trigger('script') ?>
 <?= $block->get('js') ?>
 <?php $event->trigger('afterScript') ?>

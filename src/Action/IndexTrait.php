@@ -23,7 +23,7 @@ trait IndexTrait
 
             $models->findAll();
 
-            return $models->res();
+            return $models->toRet();
         }
 
         return get_defined_vars();

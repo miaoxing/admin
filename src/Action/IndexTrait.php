@@ -15,9 +15,8 @@ trait IndexTrait
     {
         if ($req->json()) {
             $models = $this->crud->createModel($this)
-                ->limit($req['rows'])
-                ->page($req['page'])
                 ->setRequest($req)
+                ->paginate()
                 ->sort();
 
             $this->beforeIndexFind($req, $models);

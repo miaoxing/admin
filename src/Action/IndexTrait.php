@@ -17,7 +17,7 @@ trait IndexTrait
             $models = $this->crud->createModel($this)
                 ->limit($req['rows'])
                 ->page($req['page'])
-                ->setQueryParams($req)
+                ->setRequest($req)
                 ->sort();
 
             $this->beforeIndexFind($req, $models);

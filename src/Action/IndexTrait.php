@@ -2,12 +2,12 @@
 
 namespace Miaoxing\Admin\Action;
 
-use Miaoxing\Admin\Service\Crud;
+use Miaoxing\Plugin\Service\Convention;
 use Miaoxing\Plugin\BaseModelV2;
 use Miaoxing\Plugin\Service\Request;
 
 /**
- * @property Crud $crud
+ * @property Convention $convention
  */
 trait IndexTrait
 {
@@ -15,7 +15,7 @@ trait IndexTrait
     {
         if ($req->json()) {
             // 1. 构建查询
-            $models = $this->crud->createModel($this)
+            $models = $this->convention->createModel($this)
                 ->setRequest($req)
                 ->paginate()
                 ->sort();

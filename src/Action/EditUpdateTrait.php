@@ -2,27 +2,27 @@
 
 namespace Miaoxing\Admin\Action;
 
-use Miaoxing\Admin\Service\Crud;
+use Miaoxing\Plugin\Service\Convention;
 use Miaoxing\Plugin\BaseModelV2;
 use Miaoxing\Plugin\Service\Request;
 
 /**
- * @property Crud $crud
+ * @property Convention $convention
  */
 trait EditUpdateTrait
 {
     public function editAction($req)
     {
-        $model = $this->crud->getModelName($this);
+        $model = $this->convention->getModelName($this);
 
-        $$model = $this->crud->createModel($this)->findId($req['id']);
+        $$model = $this->convention->createModel($this)->findId($req['id']);
 
         return get_defined_vars();
     }
 
     public function updateAction($req)
     {
-        $model = $this->crud->createModel($this)->findId($req['id']);
+        $model = $this->convention->createModel($this)->findId($req['id']);
 
         $ret = $this->beforeSave($req, $model);
         if ($ret['code'] !== 1) {

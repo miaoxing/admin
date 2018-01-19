@@ -2,16 +2,16 @@
 
 namespace Miaoxing\Admin\Action;
 
-use Miaoxing\Admin\Service\Crud;
+use Miaoxing\Plugin\Service\Convention;
 
 /**
- * @property Crud $crud
+ * @property Convention $convention
  */
 trait ShowTrait
 {
     public function showAction($req)
     {
-        $model = $this->crud->createModel($this)->findOneById($req['id']);
+        $model = $this->convention->createModel($this)->findOneById($req['id']);
 
         return $model->toRet();
     }

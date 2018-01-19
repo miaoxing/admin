@@ -2,11 +2,11 @@
 
 namespace Miaoxing\Admin\Action;
 
-use Miaoxing\Admin\Service\Crud;
+use Miaoxing\Plugin\Service\Convention;
 use Wei\RetTrait;
 
 /**
- * @property Crud $crud
+ * @property Convention $convention
  */
 trait DestroyTrait
 {
@@ -14,7 +14,7 @@ trait DestroyTrait
 
     public function destroyAction($req)
     {
-        $model = $this->crud->createModel($this)->findOneById($req['id']);
+        $model = $this->convention->createModel($this)->findOneById($req['id']);
 
         $model->destroy();
 

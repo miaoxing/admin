@@ -3,14 +3,14 @@
 namespace Miaoxing\Admin\Service;
 
 use Miaoxing\Plugin\BaseService;
-use Miaoxing\Plugin\Constant;
+use Miaoxing\Plugin\ConstTrait;
 
 /**
  * 是否常量服务
  */
 class YesNoConst extends BaseService
 {
-    use Constant;
+    use ConstTrait;
 
     const YES_NO_YES = 1;
 
@@ -27,6 +27,6 @@ class YesNoConst extends BaseService
 
     public function getLabel($id)
     {
-        return $this->getConstantLabel('yes_no', $id);
+        return $this->getConstLabel('yes_no', $id);
     }
 }

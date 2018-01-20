@@ -3,14 +3,14 @@
 namespace Miaoxing\Admin\Service;
 
 use Miaoxing\Plugin\BaseService;
-use Miaoxing\Plugin\Constant;
+use Miaoxing\Plugin\ConstTrait;
 
 /**
  * 性别常量服务
  */
 class SexConst extends BaseService
 {
-    use Constant;
+    use ConstTrait;
 
     const SEX_MALE = 1;
 
@@ -27,6 +27,6 @@ class SexConst extends BaseService
 
     public function getLabel($id)
     {
-        return $this->getConstantLabel('sex', $id);
+        return $this->getConstLabel('sex', $id);
     }
 }

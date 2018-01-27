@@ -74,7 +74,7 @@ $view->layout('admin:admin/layout-light.php')
   </div>
 </div>
 
-<?= $block('js') ?>
+<?= $block->js() ?>
 <script>
   require(['plugins/app/js/validator', 'jquery-form'], function () {
     var ENTER_KEY = 13;

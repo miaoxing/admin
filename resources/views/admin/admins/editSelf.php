@@ -59,7 +59,7 @@
 </div><!-- /.col -->
 <!-- /.row -->
 
-<?= $block('js') ?>
+<?= $block->js() ?>
 <script>
   require(['form', 'plugins/admin/js/image-input'], function (form) {
     var groupJson = <?= json_encode(wei()->group()->notDeleted()->asc('name')->fetchAll()) ?>;

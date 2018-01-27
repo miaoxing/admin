@@ -1,5 +1,5 @@
 <?php if ($loginBg = $setting('admin.loginBg')) : ?>
-  <?= $block('css') ?>
+  <?= $block->css() ?>
   <!-- htmllint tag-bans="false" -->
   <style>
     .main-container-light:before {

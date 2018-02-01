@@ -2,11 +2,15 @@
   "name": "miaoxing/admin",
   "description": "Miaoxing Admin Plugin",
   "keywords": [
-    "miaoxing", "admin"
+    "miaoxing",
+    "admin"
   ],
   "license": "MIT",
   "require": {
     "miaoxing/app": "dev-master@dev"
+  },
+  "require-dev": {
+    "miaoxing/coding-standards": "0.9.6"
   },
   "autoload": {
     "psr-4": {

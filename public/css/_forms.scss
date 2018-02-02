@@ -39,13 +39,12 @@
   color: #fff;
   font-size: 12px;
   font-weight: 700;
-  cursor: default;
   margin-left: 4px;
   border-radius: 100%;
-  border-color: #fff;
   border: 2px solid #fff;
   -webkit-box-shadow: 0 1px 0 1px rgba(0, 0, 0, .2);
-  box-shadow: 0 1px 0 1px rgba(0, 0, 0, .2)
+  box-shadow: 0 1px 0 1px rgba(0, 0, 0, .2);
+  cursor: pointer;
 }
 
 .help-button:hover {
@@ -134,7 +133,7 @@ input:-ms-input-placeholder, .form-control:-ms-input-placeholder {
 }
 
 textarea.form-control {
-  padding: 5px 9px
+  padding: 5px 4px;
 }
 
 select {
@@ -143,7 +142,8 @@ select {
 }
 
 select.form-control {
-  padding: 4px 6px
+  padding: 4px 6px;
+  height: 34px;
 }
 
 select[multiple], select.form-control[multiple] {
@@ -528,20 +528,8 @@ input.form-control {
   line-height: 1.428571429;
 }
 
-textarea.form-control {
-  padding: 5px 4px
-}
-
-select.form-control {
-  height: 34px;
-}
-
 select.form-control.input-sm {
   height: 32px;
-}
-
-.help-button {
-  cursor: pointer;
 }
 
 .help-button-sm {

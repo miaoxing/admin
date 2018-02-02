@@ -140,9 +140,7 @@ table.table-center > tbody > tr > td.text-right {
   border-bottom: 1px solid #ddd; }
 
 .table-media .media-heading {
-  margin-bottom: 10px; }
-
-.table-media .media-heading {
+  margin-bottom: 10px;
   font-size: 14px; }
 
 .table-media .media-object {
@@ -241,13 +239,12 @@ https://github.com/twbs/bootstrap/issues/14990 */
   color: #fff;
   font-size: 12px;
   font-weight: 700;
-  cursor: default;
   margin-left: 4px;
   border-radius: 100%;
-  border-color: #fff;
   border: 2px solid #fff;
   -webkit-box-shadow: 0 1px 0 1px rgba(0, 0, 0, 0.2);
-  box-shadow: 0 1px 0 1px rgba(0, 0, 0, 0.2); }
+  box-shadow: 0 1px 0 1px rgba(0, 0, 0, 0.2);
+  cursor: pointer; }
 
 .help-button:hover {
   background-color: #65bcda;
@@ -321,14 +318,15 @@ input:-ms-input-placeholder, .form-control:-ms-input-placeholder {
   outline: 0; }
 
 textarea.form-control {
-  padding: 5px 9px; }
+  padding: 5px 4px; }
 
 select {
   padding: 3px 4px;
   height: 30px; }
 
 select.form-control {
-  padding: 4px 6px; }
+  padding: 4px 6px;
+  height: 34px; }
 
 select[multiple], select.form-control[multiple] {
   height: auto; }
@@ -646,17 +644,8 @@ input[readonly]:focus, input[readonly="readonly"]:focus {
 input.form-control {
   line-height: 1.428571429; }
 
-textarea.form-control {
-  padding: 5px 4px; }
-
-select.form-control {
-  height: 34px; }
-
 select.form-control.input-sm {
   height: 32px; }
-
-.help-button {
-  cursor: pointer; }
 
 .help-button-sm {
   height: 18px;
@@ -982,9 +971,6 @@ select.form-control.input-sm {
 
 /* stylelint-disable declaration-no-important */
 /* Dropdowns */
-.dropdown-menu > li > a {
-  padding: 3px 22px; }
-
 .dropdown-menu {
   border-radius: 0;
   -webkit-box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
@@ -992,9 +978,7 @@ select.form-control.input-sm {
 
 .dropdown-menu > li > a {
   font-size: 13px;
-  padding-left: 11px;
-  padding-right: 11px;
-  padding-bottom: 4px;
+  padding: 3px 11px 4px;
   margin-bottom: 1px;
   margin-top: 1px; }
 
@@ -1113,10 +1097,14 @@ select.form-control.input-sm {
   top: auto; }
 
 .btn-group > .btn > .caret {
-  border-bottom-width: 0; }
+  margin-top: 15px;
+  margin-left: 1px;
+  border-width: 5px;
+  border-top-color: #fff; }
 
 .btn-group > .btn.btn-sm > .caret {
-  border-bottom-width: 0; }
+  margin-top: 10px;
+  border-width: 4px; }
 
 .btn-group:first-child {
   margin-left: 0; }
@@ -1126,16 +1114,6 @@ select.form-control.input-sm {
 
 .btn-group > .btn:first-child {
   margin: 0 1px 0 0; }
-
-.btn-group > .btn > .caret {
-  margin-top: 15px;
-  margin-left: 1px;
-  border-width: 5px;
-  border-top-color: #fff; }
-
-.btn-group > .btn.btn-sm > .caret {
-  margin-top: 10px;
-  border-width: 4px; }
 
 .btn-group > .btn.btn-lg > .caret {
   margin-top: 18px;
@@ -1695,7 +1673,7 @@ select.form-control.input-sm {
 .modal-header .close {
   font-size: 32px; }
 
-/* csslint ignore:start */
+/* stylelint-disable no-duplicate-selectors,declaration-block-no-shorthand-property-overrides,declaration-no-important */
 /* DataTables */
 .dataTables_length select {
   width: 70px;
@@ -1895,7 +1873,6 @@ div.ColVis_collectionBackground {
   background-color: #000;
   z-index: 1100; }
 
-/* csslint ignore:end */
 /* dataTables 自定义样式 */
 .dataTable th.sorting_disabled {
   color: #707070 !important; }
@@ -1953,7 +1930,5 @@ div.dataTables_wrapper div.dataTables_processing.panel {
   margin-top: -26px;
   text-align: center;
   padding: 1em 0; }
-
-/* csslint ignore:end */
 
 /*# sourceMappingURL=theme.css.map */

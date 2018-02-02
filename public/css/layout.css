@@ -83,9 +83,8 @@ body {
   height: 62px;
   line-height: 85px;
   font-size: 17px;
-  background-color: #cfd1d8;
   color: #fff;
-  background: url("../images/header.png") 0 -84px no-repeat;
+  background: #cfd1d8 url("../images/header.png") no-repeat 0 -84px;
 }
 
 /* 编辑器区域 */

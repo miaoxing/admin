@@ -14,7 +14,7 @@ trait NewCreateTrait
     public function newAction($req)
     {
         $vars = $this->editAction($req);
-        $name = $this->app->getDefaultTemplate(null,'edit');
+        $name = $this->app->getDefaultTemplate(null, 'edit');
 
         return $this->view->render($name, $vars);
     }

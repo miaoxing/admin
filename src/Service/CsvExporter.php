@@ -15,18 +15,18 @@ class CsvExporter extends BaseService
     {
         $res = $this->response;
 
-        $res->setHeader(array(
+        $res->setHeader([
             'Content-Encoding' => 'UTF-8',
             'Content-type' => 'text/csv; charset=UTF-8',
-            'Content-Disposition' => 'attachment;filename=' . $fileName . '.csv'
-        ));
+            'Content-Disposition' => 'attachment;filename=' . $fileName . '.csv',
+        ]);
         $res->sendHeader();
 
         // 输出,同时转为GBK编码
         $handle = fopen('php://output', 'w');
         foreach ($data as $row) {
             foreach ($row as &$value) {
-                if (!is_null($value) && !is_numeric($value)) {
+                if ($value !== null && !is_numeric($value)) {
                     $value = iconv('UTF-8', 'GBK', $value);
                 }
             }

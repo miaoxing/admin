@@ -214,12 +214,12 @@ th .lbl:only-child, td .lbl:only-child {
   bottom: 0;
   left: -30px;
   width: 24px;
-  background-color: rgba(0, 0, 0, .55);
+  background-color: rgba(0, 0, 0, 0.3);
   text-align: center;
   vertical-align: middle;
   -webkit-transition: all .2s ease;
   -o-transition: all .2s ease;
-  transition: all .2s ease
+  transition: all .2s ease;
 }
 
 .ace-thumbnails > li > .tools.tools-right {
@@ -383,10 +383,6 @@ th .lbl:only-child, td .lbl:only-child {
   color: #ccc;
 }
 
-.ace-thumbnails > li > .tools {
-  background-color: rgba(0, 0, 0, 0.3);
-}
-
 .image-picker-xs li {
   padding: 1px;
   border-radius: 3px;
@@ -405,6 +401,7 @@ th .lbl:only-child, td .lbl:only-child {
   margin-top: 6px;
   margin-left: 2px;
 }
+
 /* csslint ignore:end */
 
 /* todo */

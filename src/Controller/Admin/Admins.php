@@ -63,7 +63,6 @@ class Admins extends \Miaoxing\Plugin\BaseController
                 ]);
 
             default:
-
                 $this->js['isInstalledCan'] = $this->plugin->isInstalled('can');
 
                 return get_defined_vars();
@@ -112,13 +111,13 @@ class Admins extends \Miaoxing\Plugin\BaseController
     public function updateAction($req)
     {
         // 不是编辑自己的信息时不需要验证分组
-        $validateGroup = $req['action'] != 'updateSelf';
+        $validateGroup = $req['action'] !== 'updateSelf';
 
         // 添加用户时才校验用户名
-        $validateUsername = $req['action'] == 'create';
+        $validateUsername = $req['action'] === 'create';
 
         // 添加用户,编辑用户时,提交了密码,才检验密码是否合法
-        $validatePassword = $req['action'] == 'create' || $req['password'];
+        $validatePassword = $req['action'] === 'create' || $req['password'];
 
         // 校验表单数据是否合法
         $validator = wei()->validate([
@@ -170,7 +169,7 @@ class Admins extends \Miaoxing\Plugin\BaseController
         }
 
         // 添加用户时,创建新的用户对象,创建用户时,根据编号获取用户对象
-        if ($req['action'] == 'create') {
+        if ('create' == $req['action']) {
             $user = wei()->user();
         } else {
             $user = wei()->user()->findOneById($req['id']);

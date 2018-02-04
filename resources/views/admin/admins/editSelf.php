@@ -20,8 +20,8 @@
 
         <div class="col-lg-4">
           <div class="input-group js-upload-container">
-            <input type="file" class="js-image-upload"/>
-            <input type="hidden" id="head-img" class="js-image-url" name="headImg"/>
+            <input type="file" class="js-image-upload">
+            <input type="hidden" id="head-img" class="js-image-url" name="headImg">
           </div>
         </div>
 

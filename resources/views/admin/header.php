@@ -1,10 +1,11 @@
 <!DOCTYPE html>
+<!-- htmllint tag-close="false" -->
 <html lang="en">
 <head>
   <?php $event->trigger('head') ?>
-  <meta charset="utf-8"/>
+  <meta charset="utf-8">
   <title><?= $setting('admin.title', '管理系统') ?></title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="renderer" content="webkit">
   <link rel="stylesheet" href="<?= $asset([
     'comps/bootstrap/dist/css/bootstrap.min.css',
@@ -16,8 +17,9 @@
     'plugins/admin/css/components.css',
     'plugins/admin/css/theme.css',
     'plugins/app/css/tips.css',
-  ]) ?>"/>
+  ]) ?>">
   <?php $event->trigger('style') ?>
   <?= $block->get('css') ?>
 </head>
 <body>
+<!-- htmllint tag-close="$previous" -->

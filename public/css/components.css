@@ -337,16 +337,14 @@ th .lbl:only-child, td .lbl:only-child {
   opacity: 1;
 }
 
-/* csslint ignore:start */
-/* 待下线功能,忽略 */
 /* 图片选择器 */
 .image-picker li {
   margin: 0 6px 6px 0;
   border: 1px solid #b5b5b5;
   padding: 4px;
   border-radius: 4px;
-  width: 108px;
-  height: 108px;
+  width: 110px;
+  height: 110px;
 }
 
 .image-picker li.selected {
@@ -401,8 +399,6 @@ th .lbl:only-child, td .lbl:only-child {
   margin-top: 6px;
   margin-left: 2px;
 }
-
-/* csslint ignore:end */
 
 /* todo */
 .ui-sortable-placeholder, .ui-sortable-helper, .ui-sortable-placeholder > a, .ui-sortable-helper > a {

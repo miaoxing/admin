@@ -25,7 +25,8 @@ define([
     images: [], // 支持数组和对象两种数据源
     imageKey: 'image', // 如果images是对象,对应图片地址的键名
     max: 0, // 最多添加几张图片,0表示不限制
-    detectMultiple: true // 是否根据表单名称识别出是单个还是多个
+    detectMultiple: true, // 是否根据表单名称识别出是单个还是多个
+    validateEvent: 'focusout'
   };
 
   /**
@@ -178,12 +179,12 @@ define([
       this.$selectBtn.show();
     }
 
-    // 如果没有图片则保留原来的输入框名称
-    // 以便提交/校验逻辑正常
     if (this.getNum()) {
-      this.$el.removeAttr('name');
+      // 如果有图片则移除原输入框的名称,设置任意值,触发验证事件,以便移除提示语
+      this.$el.removeAttr('name').val('1').trigger(this.options.validateEvent);
     } else {
-      this.$el.attr('name', this.options.name);
+      // 如果没有图片则保留原来的输入框名称,以便提交/校验逻辑正常
+      this.$el.attr('name', this.options.name).val('');
     }
   };
 

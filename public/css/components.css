@@ -338,7 +338,7 @@ th .lbl:only-child, td .lbl:only-child {
 }
 
 /* 图片选择器 */
-.image-picker li {
+.image-picker > li {
   margin: 0 6px 6px 0;
   border: 1px solid #b5b5b5;
   padding: 4px;
@@ -347,57 +347,28 @@ th .lbl:only-child, td .lbl:only-child {
   height: 110px;
 }
 
-.image-picker li.selected {
-  border-color: #44b549;
+.image-picker > .image-picker-select {
+  border: 1px dashed rgb(170, 170, 170);
+}
+
+.image-picker > .image-picker-select:hover {
+  border-color: rgb(245, 153, 66);
+}
+
+.image-picker-select:hover .image-picker-icon {
+  color: rgb(245, 153, 66);
+}
+
+.image-picker-icon {
+  font-size: 56px;
+  color: #ccc;
+  text-align: center;
+  margin-top: 22px; /* (100 - 56) / 2 */
 }
 
 .image-picker img {
   max-width: 100px;
   max-height: 100px;
-}
-
-.image-picker .select-image {
-  border: 1px dashed rgb(170, 170, 170);
-  cursor: pointer;
-}
-
-.image-picker .select-image:hover {
-  border-color: rgb(245, 153, 66);
-}
-
-.image-picker .select-image:hover h5,
-.image-picker .select-image:hover i {
-  color: rgb(245, 153, 66);
-}
-
-.image-picker .select-image h5 {
-  color: #ccc;
-  font-size: 18px;
-  font-weight: bold;
-}
-
-.image-picker .select-image i {
-  font-size: 56px;
-  color: #ccc;
-}
-
-.image-picker-xs li {
-  padding: 1px;
-  border-radius: 3px;
-  width: 60px;
-  height: 60px;
-}
-
-.image-picker-xs img {
-  max-width: 60px;
-  max-height: 60px;
-}
-
-.image-picker-xs .select-image h5 {
-  letter-spacing: 3px;
-  line-height: 22px;
-  margin-top: 6px;
-  margin-left: 2px;
 }
 
 /* todo */

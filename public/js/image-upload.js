@@ -57,10 +57,9 @@ define([
     const multiple = this.options.max !== 1;
 
     // 构造UI
-    const layoutTpl = '<ul class="js-file-container ace-thumbnails image-picker">' +
-      ' <li class="js-select-image select-image text-center fileinput-button">' +
-      '   <h5>选择图片</h5>' +
-      '   <i class="fa fa-picture-o"></i>' +
+    const layoutTpl = '<ul class="ace-thumbnails image-picker">' +
+      ' <li class="js-image-picker-select image-picker-select fileinput-button">' +
+      '   <i class="image-picker-icon fa fa-picture-o"></i>' +
       '   <input type="file" name="_file" ' + (multiple ? 'multiple' : '') + '>' +
       '  </li>' +
       '</ul>';
@@ -92,10 +91,10 @@ define([
     this.$el.css({
       position: 'absolute',
       opacity: 0,
-      width: this.$container.width()
+      width: this.$container.find('li').width()
     });
 
-    this.$selectBtn = this.$container.find('.js-select-image');
+    this.$selectBtn = this.$container.find('.js-image-picker-select');
     this.$file = this.$container.find('input');
 
     // 渲染已有的图片

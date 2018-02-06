@@ -9,7 +9,7 @@ define([
   'css!comps/blueimp-file-upload/css/jquery.fileupload',
   'comps/blueimp-file-upload/js/jquery.fileupload'
 ], function (template) {
-  let ImageUpload = function (el, options) {
+  const ImageUpload = function (el, options) {
     this.$el = $(el);
 
     this.initOptions(options);
@@ -35,7 +35,7 @@ define([
    * @param options
    */
   ImageUpload.prototype.initOptions = function (options) {
-    this.options = options = $.extend({}, this.defaults, options);
+    this.options = options = $.extend(true, {}, this.defaults, options);
 
     // 如果传入null,则转换为空数组
     options.images = options.images || [];

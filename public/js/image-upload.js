@@ -56,8 +56,6 @@ define([
   ImageUpload.prototype.render = function () {
     const multiple = this.options.max !== 1;
 
-    this.$el.hide();
-
     // 构造UI
     const layoutTpl = '<ul class="js-file-container ace-thumbnails image-picker fileinput-button">' +
       ' <li class="js-select-image select-image text-center">' +
@@ -89,6 +87,13 @@ define([
 
     this.$container = $(layoutTpl);
     this.$container.insertAfter(this.$el);
+
+    // 保留在原来的位置,图片容器后面,不隐藏,以便表单校验
+    this.$el.css({
+      position: 'absolute',
+      opacity: 0,
+      width: this.$container.width()
+    });
 
     this.$selectBtn = this.$container.find('.js-select-image');
     this.$file = this.$container.find('input');

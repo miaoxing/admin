@@ -13,7 +13,8 @@ define([
     name: null, // 表单名称,留空自动识别
     images: [], // 支持数组和对象两种数据源
     imageKey: 'image', // 如果images是对象,对应图片地址的键名
-    max: 0 // 最多添加几张图片,0表示不限制
+    max: 0, // 最多添加几张图片,0表示不限制
+    detectMultiple: true // 是否根据表单名称识别出是单个还是多个
   };
 
   $.fn.imageUpload = function (options) {
@@ -24,16 +25,19 @@ define([
     options = $.extend({}, defaults, options);
     options.images = options.images || [];
 
-    // 单个输入框直接使用输入框的值
-    const multiple = options.max !== 1;
-    if (!multiple && options.images.length === 0 && $el.val()) {
-      options.images.push($el.val());
-    }
-
-    // 自动识别表单的名称
+    // 留空使用输入框的名称
     if (!options.name) {
       options.name = $el.attr('name');
       $el.removeAttr('name');
+    }
+
+    // 单个输入框直接使用输入框的值
+    const multiple = isMultiple();
+    if (!multiple) {
+      options.max = 1;
+    }
+    if (!multiple && options.images.length === 0 && $el.val()) {
+      options.images.push($el.val());
     }
 
     // 构造UI
@@ -81,6 +85,23 @@ define([
 
       checkImageNum();
     };
+
+    function isMultiple() {
+      switch (options.max) {
+        case 0:
+          if (options.detectMultiple) {
+            return options.name.substr(-'[]'.length) === '[]';
+          } else {
+            return true;
+          }
+
+        case 1:
+          return false;
+
+        default:
+          return true;
+      }
+    }
 
     function isReachMax() {
       return options.max && $container.find('li').length - 1 >= options.max;

@@ -40,10 +40,7 @@ define([
     options.images = options.images || [];
 
     // 留空使用输入框的名称
-    if (!options.name) {
-      options.name = this.$el.attr('name');
-      this.$el.removeAttr('name');
-    }
+    options.name = options.name || this.$el.attr('name');
 
     // 单个输入框直接使用输入框的值
     const multiple = this.isMultiple();
@@ -52,6 +49,7 @@ define([
     }
     if (!multiple && options.images.length === 0 && this.$el.val()) {
       options.images.push(this.$el.val());
+      this.$el.val('');
     }
   };
 
@@ -153,10 +151,17 @@ define([
   };
 
   /**
+   * 获取已有的图片数量
+   */
+  ImageUpload.prototype.getNum = function () {
+    return this.$container.find('li').length - 1;
+  };
+
+  /**
    * 判断是否达到最大上传数量
    */
   ImageUpload.prototype.isReachMax = function () {
-    return this.options.max && this.$container.find('li').length - 1 >= this.options.max;
+    return this.options.max && this.getNum() >= this.options.max;
   };
 
   /**
@@ -167,6 +172,14 @@ define([
       this.$selectBtn.hide();
     } else {
       this.$selectBtn.show();
+    }
+
+    // 如果没有图片则保留原来的输入框名称
+    // 以便提交/校验逻辑正常
+    if (this.getNum()) {
+      this.$el.removeAttr('name');
+    } else {
+      this.$el.attr('name', this.options.name);
     }
   };
 

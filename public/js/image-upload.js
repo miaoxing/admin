@@ -57,8 +57,8 @@ define([
     const multiple = this.options.max !== 1;
 
     // 构造UI
-    const layoutTpl = '<ul class="js-file-container ace-thumbnails image-picker fileinput-button">' +
-      ' <li class="js-select-image select-image text-center">' +
+    const layoutTpl = '<ul class="js-file-container ace-thumbnails image-picker">' +
+      ' <li class="js-select-image select-image text-center fileinput-button">' +
       '   <h5>选择图片</h5>' +
       '   <i class="fa fa-picture-o"></i>' +
       '   <input type="file" name="_file" ' + (multiple ? 'multiple' : '') + '>' +

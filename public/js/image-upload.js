@@ -9,7 +9,7 @@ define([
   'css!comps/blueimp-file-upload/css/jquery.fileupload',
   'comps/blueimp-file-upload/js/jquery.fileupload'
 ], function (template) {
-  const ImageUpload = function (el, options) {
+  var ImageUpload = function (el, options) {
     this.$el = $(el);
 
     this.initOptions(options);
@@ -45,7 +45,7 @@ define([
     options.name = options.name || this.$el.attr('name');
 
     // 单个输入框直接使用输入框的值
-    const multiple = this.isMultiple();
+    var multiple = this.isMultiple();
     if (!multiple) {
       options.max = 1;
     }
@@ -56,12 +56,12 @@ define([
   };
 
   ImageUpload.prototype.render = function () {
-    const multiple = this.options.max !== 1;
-    const disabled = this.$el.prop('disabled');
-    const style = 'style="height: ' + this.options.size + 'px;min-width: ' + this.options.size + 'px;"';
+    var multiple = this.options.max !== 1;
+    var disabled = this.$el.prop('disabled');
+    var style = 'style="height: ' + this.options.size + 'px;min-width: ' + this.options.size + 'px;"';
 
     // 构造UI
-    const layoutTpl = '<ul class="ace-thumbnails image-picker' + (disabled ? ' disabled' : '') + '">'
+    var layoutTpl = '<ul class="ace-thumbnails image-picker' + (disabled ? ' disabled' : '') + '">'
       + ' <li class="js-image-picker-select image-picker-select fileinput-button" ' + style + '>'
       + '   <i class="image-picker-icon fa fa-picture-o"></i>'
       + '   <input type="file" name="_file" ' + (multiple ? 'multiple' : '') + '>'
@@ -103,18 +103,25 @@ define([
     this.$file = this.$container.find('input');
 
     // 渲染已有的图片
-    const that = this;
+    var that = this;
     $.each(this.options.images, function (i, image) {
       that.addImage(image);
     });
 
     // 初始化上传功能
+    var $loadingEl;
+    var DELAY_SLOW = 1000000;
     this.$file.fileupload({
       url: $.url('admin/files/image-upload'),
       dataType: 'json',
+      loading: true,
       acceptFileTypes: /([./])(gif|jpe?g|png)$/i,
       maxFileSize: 999000,
       maxNumberOfFiles: this.options.max
+    }).on('fileuploadstart', function () {
+      $loadingEl = $.info('加载中...', DELAY_SLOW);
+    }).on('fileuploadstop', function () {
+      $loadingEl.hide();
     }).on('fileuploaddone', function (e, data) {
       if (that.isReachMax()) {
         // 超过最大数量则不显示
@@ -129,11 +136,11 @@ define([
    * 增加一张图片
    */
   ImageUpload.prototype.addImage = function (image) {
-    const data = {
+    var data = {
       src: $.type(image) === 'string' ? image : image[this.options.imageKey],
       name: $.isFunction(this.options.name) ? this.options.name() : this.options.name
     };
-    const item = $(template.compile(this.tpl)(data));
+    var item = $(template.compile(this.tpl)(data));
     item.insertBefore(this.$selectBtn);
 
     this.checkImageNum();
@@ -196,11 +203,11 @@ define([
    * 初始化各类事件
    */
   ImageUpload.prototype.initEvents = function () {
-    const that = this;
+    var that = this;
 
     // 点击删除按钮,移除整个图片
     this.$container.on('click', '.fa-times', function () {
-      const item = $(this).parents('li:first');
+      var item = $(this).parents('li:first');
       item.fadeOut(function () {
         item.remove();
         that.checkImageNum();
@@ -210,19 +217,19 @@ define([
 
     // 左移图片
     this.$container.on('click', '.fa-chevron-left', function () {
-      const item = $(this).parents('li:first');
+      var item = $(this).parents('li:first');
       item.insertBefore(item.prev());
     });
 
     // 右移图片
     this.$container.on('click', '.fa-chevron-right', function () {
-      const item = $(this).parents('li:first');
+      var item = $(this).parents('li:first');
       item.insertAfter(item.next());
     });
   };
 
   $.fn.imageUpload = function (options) {
-    const imageUpload = new ImageUpload(this, options);
+    var imageUpload = new ImageUpload(this, options);
     this.data('image-upload', imageUpload);
     return this;
   };

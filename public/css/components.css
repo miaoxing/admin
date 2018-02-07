@@ -255,6 +255,10 @@ th .lbl:only-child, td .lbl:only-child {
   bottom: 0
 }
 
+.ace-thumbnails.disabled > li:hover > .tools.tools-bottom {
+  bottom: -30px;
+}
+
 .ace-thumbnails > li:hover > .tools.tools-top {
   bottom: auto;
   top: 0
@@ -340,11 +344,16 @@ th .lbl:only-child, td .lbl:only-child {
 /* 图片选择器 */
 .image-picker > li {
   margin: 0 6px 6px 0;
-  border: 1px solid #b5b5b5;
+  border: 1px solid #d5d5d5;
   padding: 4px;
   border-radius: 4px;
   width: 110px;
   height: 110px;
+}
+
+.image-picker.disabled > li {
+  background: #eee;
+  cursor: not-allowed;
 }
 
 .image-picker > .image-picker-select {

@@ -56,9 +56,10 @@ define([
 
   ImageUpload.prototype.render = function () {
     const multiple = this.options.max !== 1;
+    const disabled = this.$el.prop('disabled');
 
     // 构造UI
-    const layoutTpl = '<ul class="ace-thumbnails image-picker">' +
+    const layoutTpl = '<ul class="ace-thumbnails image-picker' + (disabled ? ' disabled' : '') + '">' +
       ' <li class="js-image-picker-select image-picker-select fileinput-button">' +
       '   <i class="image-picker-icon fa fa-picture-o"></i>' +
       '   <input type="file" name="_file" ' + (multiple ? 'multiple' : '') + '>' +

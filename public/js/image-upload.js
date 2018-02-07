@@ -182,10 +182,10 @@ define([
 
     if (this.getNum()) {
       // 如果有图片则移除原输入框的名称,设置任意值,触发验证事件,以便移除提示语
-      this.$el.removeAttr('name').val('1').trigger(this.options.validateEvent);
+      this.$el.removeAttr('name').val('1').prop('readonly', false).trigger(this.options.validateEvent);
     } else {
       // 如果没有图片则保留原来的输入框名称,以便提交/校验逻辑正常
-      this.$el.attr('name', this.options.name).val('');
+      this.$el.attr('name', this.options.name).val('').prop('readonly', true);
     }
   };
 

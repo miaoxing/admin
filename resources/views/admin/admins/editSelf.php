@@ -19,10 +19,7 @@
         </label>
 
         <div class="col-lg-4">
-          <div class="input-group js-upload-container">
-            <input type="file" class="js-image-upload">
-            <input type="hidden" id="head-img" class="js-image-url" name="headImg">
-          </div>
+          <input class="js-head-img" type="text" id="head-img" name="headImg">
         </div>
 
         <div class="col-lg-4">
@@ -61,7 +58,7 @@
 
 <?= $block->js() ?>
 <script>
-  require(['form', 'plugins/admin/js/image-input'], function (form) {
+  require(['form', 'plugins/admin/js/image-upload'], function (form) {
     var groupJson = <?= json_encode(wei()->group()->notDeleted()->asc('name')->fetchAll()) ?>;
     form.toOptions($('#group-id'), groupJson, 'id', 'name');
 
@@ -78,9 +75,7 @@
         }
       });
 
-    $('.js-image-upload').each(function () {
-      $(this).imageUploadInput();
-    });
+    $('.js-head-img').imageUpload();
   });
 </script>
 <?= $block->end() ?>

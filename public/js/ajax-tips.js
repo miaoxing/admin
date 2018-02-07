@@ -37,17 +37,4 @@
         response: jqXHR.responseText
       });
     });
-
-  /**
-   * Ajax返回信息自动提示
-   *
-   * @todo 增加选项,如autoMsg=false
-   */
-  $.ajaxSetup({
-    success: function (data) {
-      if (typeof data === 'object') {
-        $.msg(data);
-      }
-    }
-  });
 }(window, $));

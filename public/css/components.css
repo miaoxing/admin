@@ -171,43 +171,6 @@ th .lbl:only-child, td .lbl:only-child {
   border: 2px solid #333
 }
 
-.ace-thumbnails > li > :first-child {
-  display: block;
-  position: relative
-}
-
-.ace-thumbnails > li > :first-child:focus {
-  outline: 0
-}
-
-.ace-thumbnails > li .tags {
-  display: inline-block;
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  overflow: visible;
-  direction: rtl;
-  padding: 0;
-  margin: 0;
-  height: auto;
-  width: auto;
-  background-color: transparent;
-  border-width: 0;
-  vertical-align: inherit
-}
-
-.ace-thumbnails > li .tags > .label-holder {
-  opacity: .92;
-  display: table;
-  margin: 1px 0 0 0;
-  direction: ltr;
-  text-align: left
-}
-
-.ace-thumbnails > li .tags > .label-holder:hover {
-  opacity: 1;
-}
-
 .ace-thumbnails > li > .tools {
   position: absolute;
   top: 0;
@@ -343,12 +306,12 @@ th .lbl:only-child, td .lbl:only-child {
 
 /* 图片选择器 */
 .image-picker > li {
+  position: relative;
   margin: 0 6px 6px 0;
   border: 1px solid #d5d5d5;
   padding: 4px;
   border-radius: 4px;
-  width: 110px;
-  height: 110px;
+  text-align: center;
 }
 
 .image-picker.disabled > li {
@@ -371,13 +334,15 @@ th .lbl:only-child, td .lbl:only-child {
 .image-picker-icon {
   font-size: 56px;
   color: #ccc;
-  text-align: center;
-  margin-top: 22px; /* (100 - 56) / 2 */
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  position: absolute;
+  top: 50%;
+  left: 50%;
 }
 
 .image-picker img {
-  max-width: 100px;
-  max-height: 100px;
+  height: 100%;
 }
 
 /* todo */

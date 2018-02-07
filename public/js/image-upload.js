@@ -26,7 +26,8 @@ define([
     imageKey: 'image', // 如果images是对象,对应图片地址的键名
     max: 0, // 最多添加几张图片,0表示不限制
     detectMultiple: true, // 是否根据表单名称识别出是单个还是多个
-    validateEvent: 'focusout'
+    validateEvent: 'focusout',
+    size: 100 // 展示的图片大小
   };
 
   /**
@@ -57,18 +58,17 @@ define([
   ImageUpload.prototype.render = function () {
     const multiple = this.options.max !== 1;
     const disabled = this.$el.prop('disabled');
+    const style = 'style="height: ' + this.options.size + 'px;min-width: ' + this.options.size + 'px;"';
 
     // 构造UI
     const layoutTpl = '<ul class="ace-thumbnails image-picker' + (disabled ? ' disabled' : '') + '">'
-      + ' <li class="js-image-picker-select image-picker-select fileinput-button">'
+      + ' <li class="js-image-picker-select image-picker-select fileinput-button" ' + style + '>'
       + '   <i class="image-picker-icon fa fa-picture-o"></i>'
       + '   <input type="file" name="_file" ' + (multiple ? 'multiple' : '') + '>'
       + ' </li>';
 
-    this.tpl = '<li>'
-      + '<a>'
+    this.tpl = '<li ' + style + '>'
       + '  <img src="<%= src %>">'
-      + '</a>'
       + '<div class="tools tools-bottom">'
       + '<a href="<%= src %>" target="_blank" title="新窗口打开">'
       + '  <i class="fa fa-search-plus"></i>'

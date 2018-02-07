@@ -59,18 +59,20 @@ define([
     const disabled = this.$el.prop('disabled');
 
     // 构造UI
-    const layoutTpl = '<ul class="ace-thumbnails image-picker' + (disabled ? ' disabled' : '') + '">' +
-      ' <li class="js-image-picker-select image-picker-select fileinput-button">' +
-      '   <i class="image-picker-icon fa fa-picture-o"></i>' +
-      '   <input type="file" name="_file" ' + (multiple ? 'multiple' : '') + '>' +
-      '  </li>' +
-      '</ul>';
+    const layoutTpl = '<ul class="ace-thumbnails image-picker' + (disabled ? ' disabled' : '') + '">'
+      + ' <li class="js-image-picker-select image-picker-select fileinput-button">'
+      + '   <i class="image-picker-icon fa fa-picture-o"></i>'
+      + '   <input type="file" name="_file" ' + (multiple ? 'multiple' : '') + '>'
+      + ' </li>';
 
     this.tpl = '<li>'
-      + '<a href="<%= src %>" target="_blank">'
+      + '<a>'
       + '  <img src="<%= src %>">'
       + '</a>'
-      + '<div class="tools tools-bottom">';
+      + '<div class="tools tools-bottom">'
+      + '<a href="<%= src %>" target="_blank" title="新窗口打开">'
+      + '  <i class="fa fa-search-plus"></i>'
+      + '</a>';
     if (multiple) {
       this.tpl += '  <a href="javascript:;" title="左移">'
         + '    <i class="fa fa-chevron-left"></i>'
@@ -81,10 +83,11 @@ define([
     }
     this.tpl += '  <a href="javascript:;" title="删除图片">'
       + '    <i class="fa fa-times"></i>'
-      + '  </a>'
-      + '</div>'
-      + '<input type="hidden" name="<%= name %>" value="<%= src %>">'
-      + '</li>';
+      + '   </a>'
+      + '  </div>'
+      + '  <input type="hidden" name="<%= name %>" value="<%= src %>">'
+      + ' </li>'
+      + '</ul>';
 
     this.$container = $(layoutTpl);
     this.$container.insertAfter(this.$el);

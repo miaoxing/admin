@@ -2,7 +2,7 @@
  * Requirejs常用模块配置
  *
  * @todo jquery-ui升级新版,原生支持amd
- * @todo ueditor,jquery-validation等想办法简化
+ * @todo jquery-validation等想办法简化
  */
 require.config({
   paths: {
@@ -33,9 +33,6 @@ require.config({
     moment: 'comps/moment/min/moment.min',
     loadJSON: 'comps/jquery.loadJSON/index',
     template: 'comps/artTemplate/template.min',
-    ueditor: 'comps/ueditor/lang/zh-cn/zh-cn',
-    'ueditor.all': 'comps/ueditor/ueditor.all.min',
-    'ueditor.config': 'plugins/ueditor/js/ueditor',
     validator: 'assets/validator',
     // 插件
     linkTo: 'plugins/link-to/js/link-to'
@@ -73,12 +70,6 @@ require.config({
     },
     'jqueryui-timepicker-addon-zh-CN': {
       deps: ['jqueryui-timepicker-addon']
-    },
-    ueditor: {
-      deps: ['ueditor.all']
-    },
-    'ueditor.all': {
-      deps: ['ueditor.config']
     }
   }
 });

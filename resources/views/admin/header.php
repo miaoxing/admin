@@ -18,7 +18,7 @@
     'plugins/admin/css/theme.css',
     'plugins/app/css/tips.css',
   ]) ?>">
-  <?= $wei->layout->renderHead() ?>
+  <?= $wei->page->renderHead() ?>
 </head>
 <body>
 <!-- htmllint tag-close="$previous" -->

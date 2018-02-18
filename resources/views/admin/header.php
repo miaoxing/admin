@@ -18,8 +18,7 @@
     'plugins/admin/css/theme.css',
     'plugins/app/css/tips.css',
   ]) ?>">
-  <?php $event->trigger('style') ?>
-  <?= $block->get('css') ?>
+  <?= $wei->layout->renderHead() ?>
 </head>
 <body>
 <!-- htmllint tag-close="$previous" -->

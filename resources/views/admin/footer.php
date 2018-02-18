@@ -23,9 +23,6 @@
   $.tips.defaults.valign = 'top';
   var wei = <?= json_encode($js) ?>;
 </script>
-<?php $event->trigger('script') ?>
-<?= $block->get('js') ?>
-
-<?php $event->trigger('bodyEnd') ?>
+<?= $wei->layout->renderFooter() ?>
 </body>
 </html>

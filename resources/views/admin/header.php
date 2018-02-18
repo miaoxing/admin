@@ -2,7 +2,6 @@
 <!-- htmllint tag-close="false" -->
 <html lang="en">
 <head>
-  <?php $event->trigger('head') ?>
   <meta charset="utf-8">
   <title><?= $setting('admin.title', '管理系统') ?></title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">

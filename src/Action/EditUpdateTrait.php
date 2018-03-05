@@ -16,6 +16,7 @@ trait EditUpdateTrait
         $model = $this->convention->getModelName($this);
 
         $$model = $this->convention->createModel($this)->findId($req['id']);
+        $this->js[$model] = $$model;
 
         return get_defined_vars();
     }

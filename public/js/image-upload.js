@@ -21,6 +21,7 @@ define([
    * 默认配置
    */
   ImageUpload.prototype.defaults = {
+    url: $.url('admin/files/image-upload'),
     name: null, // 表单名称,留空自动识别
     images: [], // 支持数组和对象两种数据源
     imageKey: 'image', // 如果images是对象,对应图片地址的键名
@@ -112,7 +113,7 @@ define([
     var $loadingEl;
     var DELAY_SLOW = 1000000;
     this.$file.fileupload({
-      url: $.url('admin/files/image-upload'),
+      url: this.options.url,
       dataType: 'json',
       loading: true,
       acceptFileTypes: /([./])(gif|jpe?g|png)$/i,

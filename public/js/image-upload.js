@@ -124,6 +124,11 @@ define([
     }).on('fileuploadstop', function () {
       $loadingEl.hide();
     }).on('fileuploaddone', function (e, data) {
+      if (data.result.code !== 1) {
+        $.msg(data.result);
+        return;
+      }
+
       if (that.isReachMax()) {
         // 超过最大数量则不显示
         e.preventDefault();

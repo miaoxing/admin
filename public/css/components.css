@@ -192,11 +192,11 @@ th .lbl:only-child, td .lbl:only-child {
 
 .ace-thumbnails > li > .tools.tools-bottom {
   width: auto;
-  height: 28px;
+  height: 24px;
   left: 0;
   right: 0;
   top: auto;
-  bottom: -30px
+  bottom: -26px
 }
 
 .ace-thumbnails > li > .tools.tools-top {
@@ -255,7 +255,7 @@ th .lbl:only-child, td .lbl:only-child {
 .ace-thumbnails > li > .tools > a, .ace-thumbnails > li > :first-child .inner a {
   display: inline-block;
   color: #fff;
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 400;
   padding: 0 4px
 }

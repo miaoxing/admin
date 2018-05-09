@@ -34,7 +34,13 @@ trait IndexTrait
             return $models->toRet(['data' => $data]);
         }
 
+        $this->beforeViewRender();
         return get_defined_vars();
+    }
+
+    protected function beforeViewRender()
+    {
+        // do nothing.
     }
 
     /**

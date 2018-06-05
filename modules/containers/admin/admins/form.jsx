@@ -1,6 +1,7 @@
 import React from 'react';
-import {Button} from 'react-bootstrap';
+import {Button, Checkbox} from 'react-bootstrap';
 import {Page, PageHeader, FormItem, Form, FormAction, Options, ImageUpload} from 'components';
+import Select from 'react-select';
 
 const loader = Promise.all([
   import('jquery-populate'),
@@ -38,6 +39,22 @@ class AdminForm extends React.Component {
         <Form horizontal className="js-admin-form" method="post">
           <FormItem label="用户名" name="username" required={!wei.user.id}
             control={wei.user.id && <p className="form-control-static">{wei.user.username}</p>} />
+
+          <FormItem label="角色" name="dd" control={
+            <Select
+              defaultValue={}
+              isMulti
+              name="colors"
+              options={colourOptions}
+              className="basic-multi-select"
+              classNamePrefix="select"
+            />
+          }/>
+
+
+          {/*<span>*/}
+              {/*{wei.roles.map(role => <Checkbox key={role.id} inline value={role.id} name="roles[]">{role.name}</Checkbox>)}*/}
+            {/*</span>*/}
 
           <FormItem label="用户组" name="groupId">
             <Options data={wei.groups} labelKey="name" valueKey="id" placeholder="未分组"/>

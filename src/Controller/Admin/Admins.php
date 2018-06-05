@@ -63,8 +63,6 @@ class Admins extends \Miaoxing\Plugin\BaseController
                 ]);
 
             default:
-                $this->js['isInstalledCan'] = $this->plugin->isInstalled('can');
-
                 return get_defined_vars();
         }
     }
@@ -112,9 +110,6 @@ class Admins extends \Miaoxing\Plugin\BaseController
 
     public function updateAction($req)
     {
-        // 不是编辑自己的信息时不需要验证分组
-        $validateGroup = $req['action'] !== 'updateSelf';
-
         // 添加用户时才校验用户名
         $validateUsername = $req['action'] === 'create';
 
@@ -125,22 +120,11 @@ class Admins extends \Miaoxing\Plugin\BaseController
         $validator = wei()->validate([
             'data' => $req,
             'rules' => [
-                'groupId' => [
-                    'required' => $validateGroup,
-                    'recordExists' => ['groups'],
-                ],
                 'username' => [
                     'required' => $validateUsername,
                     'length' => [1, 32],
                     'alnum' => true,
                     'notRecordExists' => ['user', 'username'],
-                ],
-                'headImg' => [
-                    'required' => false,
-                ],
-                'nickName' => [
-                    'required' => false,
-                    'length' => [1, 32],
                 ],
                 'password' => [
                     'required' => $validatePassword,
@@ -150,14 +134,25 @@ class Admins extends \Miaoxing\Plugin\BaseController
                     'required' => $validatePassword,
                     'equalTo' => $req['password'],
                 ],
+                'groupId' => [
+                    'required' => false,
+                    'recordExists' => ['groups'],
+                ],
+                'headImg' => [
+                    'required' => false,
+                ],
+                'nickName' => [
+                    'required' => false,
+                    'length' => [1, 32],
+                ],
             ],
             'names' => [
-                'groupId' => '用户组',
                 'username' => '用户名',
-                'headImg' => '头像',
-                'nickName' => '昵称',
                 'password' => '密码',
                 'passwordAgain' => '重复密码',
+                'groupId' => '用户组',
+                'headImg' => '头像',
+                'nickName' => '昵称',
             ],
             'messages' => [
                 'passwordAgain' => [
@@ -184,10 +179,6 @@ class Admins extends \Miaoxing\Plugin\BaseController
 
         if ($validatePassword) {
             $user->setPlainPassword($req['password']);
-        }
-
-        if ($validateGroup) {
-            $user['groupId'] = $req['groupId'];
         }
 
         if (isset($req['headImg'])) {
@@ -217,6 +208,7 @@ class Admins extends \Miaoxing\Plugin\BaseController
         $user->save([
             'admin' => true,
             'nickName' => $req['nickName'],
+            'groupId' => $req['groupId'],
             'appUserId' => $appUser['id'],
         ]);
 

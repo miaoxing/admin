@@ -65,8 +65,6 @@ class AdminIndex extends React.Component {
             createdCell: (td, val) => {
               ReactDOM.render(<span>
                 <a href={$.url('admin/admins/%s/edit', val)}>编辑</a>
-                {' '}
-                {wei.isInstalledCan && <a href={$.url('admin/users/%s/roles/assign', val)}>分配角色</a>}
               </span>, td);
             }
           }

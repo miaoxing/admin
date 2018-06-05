@@ -78,9 +78,6 @@ class Admins extends \Miaoxing\Plugin\BaseController
     {
         $user = wei()->user()->findOrInitById($req['id']);
 
-        $this->js['roles'] = wei()->role()->curApp()->findAll();
-        $this->js['roleIds'] = wei()->can->getUserRoles($user)->getAll('roleId');
-
         // TODO 实现toArray hidden
         $userData = $user->toArray();
         unset($userData['password']);
@@ -90,6 +87,8 @@ class Admins extends \Miaoxing\Plugin\BaseController
             'user' => $userData,
             'groups' => wei()->group()->notDeleted()->asc('name')->fetchAll(),
         ];
+
+        wei()->event->trigger('beforeAdminAdminsEdit', [&$this->js, $user]);
 
         return [];
     }
@@ -212,10 +211,7 @@ class Admins extends \Miaoxing\Plugin\BaseController
             'nickName' => $req['nickName'],
         ]);
 
-        wei()->event->trigger('beforeAdminEditSave', [$user, $req]);
-        if (isset($req['roleIds'])) {
-            wei()->role->assign($user, (array) $req['roleIds']);
-        }
+        wei()->event->trigger('beforeAdminAdminsSave', [$user, $req]);
 
         // 保存用户额外的信息
         $user->save([

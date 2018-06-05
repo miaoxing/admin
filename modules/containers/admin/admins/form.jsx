@@ -31,14 +31,6 @@ class AdminForm extends React.Component {
   }
 
   render() {
-    let roleOptions = [];
-    wei.roles.map(role => roleOptions.push({label: role.name, value: role.id}));
-
-    let defaultValue = [];
-    roleOptions.map(role => {
-      wei.roleIds.indexOf(role.value) !== -1 && defaultValue.push(role);
-    });
-
     return (
       <Page>
         <PageHeader>
@@ -49,7 +41,8 @@ class AdminForm extends React.Component {
             control={wei.user.id && <p className="form-control-static">{wei.user.username}</p>} />
 
           <FormItem label="角色" name="roleIds" control={
-            <Select isMulti name="roleIds[]" options={roleOptions} defaultValue={defaultValue} placeholder="请选择"/>
+            <Select isMulti name="roleIds[]" options={wei.roleOptions} defaultValue={wei.roleDefaultValue}
+              placeholder="请选择"/>
           }/>
 
           <FormItem label="用户组" name="groupId">

@@ -19,7 +19,7 @@ $view->layout('admin:admin/layout-light.php')
           帐号
         </label>
         <input name="username" type="text" value="<?= $e->attr($req['username']) ?>" class="form-control"
-          placeholder="用户名/邮箱" required/>
+          placeholder="请输入用户名" required/>
       </div>
 
       <div class="form-group">

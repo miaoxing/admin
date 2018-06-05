@@ -34,10 +34,6 @@ class AdminIndex extends React.Component {
             data: 'nickName'
           },
           {
-            title: '邮箱',
-            data: 'email'
-          },
-          {
             title: '分组',
             data: 'group.name'
           },
@@ -97,8 +93,6 @@ class AdminIndex extends React.Component {
           <SearchItem label="用户名" name="username" />
 
           <SearchItem label="昵称" name="nickName" />
-
-          <SearchItem label="邮箱" name="email" />
         </SearchForm>
         <DataTable className="js-admin-table" />
       </Page>

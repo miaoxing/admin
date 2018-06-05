@@ -81,9 +81,11 @@ class Admins extends \Miaoxing\Plugin\BaseController
         unset($userData['password']);
         unset($userData['salt']);
 
+        $groups = wei()->group()->notDeleted()->desc('id')->findAll();
+        $groups->withUngroup();
         $this->js += [
             'user' => $userData,
-            'groups' => wei()->group()->notDeleted()->asc('name')->fetchAll(),
+            'groups' => $groups,
         ];
 
         wei()->event->trigger('beforeAdminAdminsEdit', [&$this->js, $user]);

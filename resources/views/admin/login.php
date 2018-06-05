@@ -52,12 +52,6 @@ $view->layout('admin:admin/layout-light.php')
         </div>
       </div>
 
-      <div class="form-group">
-        <div class="text-primary">
-          <a href="<?= $url('registration/forget') ?>">忘记密码</a>
-        </div>
-      </div>
-
       <div class="clearfix form-group m-t-md">
         <button class="btn btn-primary btn-block btn-lg" type="submit">
           登录

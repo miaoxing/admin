@@ -212,6 +212,8 @@ class Admins extends \Miaoxing\Plugin\BaseController
             'appUserId' => $appUser['id'],
         ]);
 
+        wei()->event->trigger('afterAdminAdminsSave', [$user, $req]);
+
         return $this->suc([
             'message' => '操作成功',
             'id' => $user['id'],

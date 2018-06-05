@@ -39,8 +39,8 @@ class AdminForm extends React.Component {
           <FormItem label="用户名" name="username" required={!wei.user.id}
             control={wei.user.id && <p className="form-control-static">{wei.user.username}</p>} />
 
-          <FormItem label="用户组" name="groupId" required>
-            <Options data={wei.groups} labelKey="name" valueKey="id"/>
+          <FormItem label="用户组" name="groupId">
+            <Options data={wei.groups} labelKey="name" valueKey="id" placeholder="未分组"/>
           </FormItem>
 
           <FormItem label="头像" name="headImg" control={<ImageUpload name="headImg"/>}

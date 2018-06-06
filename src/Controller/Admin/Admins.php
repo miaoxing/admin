@@ -38,6 +38,10 @@ class Admins extends \Miaoxing\Plugin\BaseController
                     $users->andWhere('username like ?', ['%' . $req['username'] . '%']);
                 }
 
+                if ($req['name']) {
+                    $users->andWhere('name like ?', ['%' . $req['name'] . '%']);
+                }
+
                 if ($req['nickName']) {
                     $users->andWhere('nickName like ?', ['%' . $req['nickName'] . '%']);
                 }
@@ -200,6 +204,7 @@ class Admins extends \Miaoxing\Plugin\BaseController
             'username' => $user['username'],
             'salt' => $user['salt'],
             'password' => $user['password'],
+            'name' => $req['name'],
             'nickName' => $req['nickName'],
         ]);
 
@@ -208,6 +213,7 @@ class Admins extends \Miaoxing\Plugin\BaseController
         // 保存用户额外的信息
         $user->save([
             'admin' => true,
+            'name' => $req['name'],
             'nickName' => $req['nickName'],
             'groupId' => $req['groupId'],
             'appUserId' => $appUser['id'],

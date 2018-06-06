@@ -30,6 +30,10 @@ class AdminIndex extends React.Component {
             data: 'username'
           },
           {
+            title: '姓名',
+            data: 'name'
+          },
+          {
             title: '昵称',
             data: 'nickName'
           },
@@ -91,6 +95,8 @@ class AdminIndex extends React.Component {
         </PageHeader>
         <SearchForm className="js-admin-form">
           <SearchItem label="用户名" name="username" />
+
+          <SearchItem label="姓名" name="name" />
 
           <SearchItem label="昵称" name="nickName" />
         </SearchForm>

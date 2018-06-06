@@ -50,6 +50,8 @@ class AdminForm extends React.Component {
               placeholder="请选择"/>
           }/>}
 
+          <FormItem label="姓名" name="name"/>
+
           <FormItem label="昵称" name="nickName"/>
 
           <FormItem label="用户组" name="groupId">

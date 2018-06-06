@@ -137,8 +137,7 @@ class Admins extends \Miaoxing\Plugin\BaseController
                     'equalTo' => $req['password'],
                 ],
                 'groupId' => [
-                    'required' => false,
-                    'recordExists' => ['groups'],
+                    'required' => false
                 ],
                 'headImg' => [
                     'required' => false,

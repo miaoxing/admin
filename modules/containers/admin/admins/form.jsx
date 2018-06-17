@@ -55,7 +55,7 @@ class AdminForm extends React.Component {
           <FormItem label="昵称" name="nickName"/>
 
           <FormItem label="用户组" name="groupId">
-            <Options data={wei.groups} labelKey="name" valueKey="id" placeholder={false}/>
+            <Options data={wei.groups} labelKey="name" valueKey="id" placeholder=""/>
           </FormItem>
 
           <FormItem label="头像" name="headImg" control={<ImageUpload name="headImg"/>}

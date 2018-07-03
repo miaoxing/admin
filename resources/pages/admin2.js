@@ -1,10 +1,12 @@
 import App from 'vendor/miaoxing/app/modules/app';
 
-console.log('abc')
-
 const app = new App({
   importPage(plugin, controller, action) {
-    return import('vendor/miaoxing/pas/resources/pages/admin/pas-departments/Index.js')
+    return import(
+      /* webpackChunkName: "[request]" */
+      /* webpackInclude: /resources\/pages\/admin/ */
+      `vendor/miaoxing/pas/resources/pages/admin/${controller}/${action}.js`
+      )
     // return import(
     //   /* webpackChunkName: "[request]" */
     //   /* webpackInclude: /resources\/pages/\/admin/ */

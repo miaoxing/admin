@@ -9,9 +9,6 @@ module.exports = WebpackConfig.build({
     // 初始化通用的模块
     entries['admin'] = [];
 
-    // https://github.com/gaearon/react-hot-loader
-    entries['admin'].push('react-hot-loader/patch');
-
     entries['admin'].push('vendor/miaoxing/app/modules/admin.js');
 
     return entries;

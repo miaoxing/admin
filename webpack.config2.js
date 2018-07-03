@@ -5,7 +5,7 @@ module.exports = WebpackConfig.build({
   name: 'admin2',
   getEntries() {
     return {
-      [this.name] : `${this.rootDir}/vendor/miaoxing/admin/resources/pages/admin.js`
+      [this.name] : `${this.rootDir}/vendor/miaoxing/admin/resources/pages/index.js`
     }
   }
 });

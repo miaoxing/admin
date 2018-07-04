@@ -14,9 +14,12 @@ trait NewCreateTrait
     public function newAction($req)
     {
         $vars = $this->editAction($req);
-        $name = $this->app->getDefaultTemplate(null, 'edit');
+        $file = $this->app->getDefaultTemplate(null, 'edit');
+        if ($this->view->resolveFile($file)) {
+            return $this->view->render($file, $vars);
+        }
 
-        return $this->view->render($name, $vars);
+        return $vars;
     }
 
     public function createAction($req)

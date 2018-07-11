@@ -11,9 +11,16 @@
           <a class="sidebar-link" href="<?= $url($nav['url']) ?>">
             <?= $nav['name'] ?>
             <?php if ($nav['badge']) : ?>
+              <?php // deprecated ?>
               <?php $count = $event->trigger('adminShowSideBarBadge', $nav['badge']); ?>
               <?php if ($count[0] > 0) : ?>
                 <span class="badge"><?= $count[0] ?></span>
+              <?php endif; ?>
+            <?php endif; ?>
+            <?php if ($nav['badge']) : ?>
+              <?php $count = $event->until('adminShowSideBar' . ucfirst($nav['badge']) .'Badge'); ?>
+              <?php if ($count > 0) : ?>
+                <span class="badge"><?= $count ?></span>
               <?php endif; ?>
             <?php endif; ?>
           </a>

@@ -24,7 +24,9 @@ class Admins extends \Miaoxing\Plugin\BaseController
     {
         switch ($req['_format']) {
             case 'json':
-                $users = wei()->user()->where(['admin' => true]);
+                $users = wei()->user();
+
+                $users->where(['admin' => true]);
 
                 $users->andWhere("username != 'miaostar'");
 
@@ -33,6 +35,10 @@ class Admins extends \Miaoxing\Plugin\BaseController
 
                 // 排序
                 $users->desc('id');
+
+                if (wei()->isPresent($req['groupId'])) {
+                    $users->andWhere(['groupId' => $req['groupId']]);
+                }
 
                 if ($req['username']) {
                     $users->andWhere('username like ?', ['%' . $req['username'] . '%']);
@@ -67,6 +73,10 @@ class Admins extends \Miaoxing\Plugin\BaseController
                 ]);
 
             default:
+                $groups = wei()->group()->notDeleted()->desc('id')->findAll();
+                $groups->withUngroup();
+                $this->js['groups'] = $groups;
+
                 return get_defined_vars();
         }
     }

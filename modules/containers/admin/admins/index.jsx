@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import {Button} from 'react-bootstrap';
-import {Page, PageHeader, DataTable, SearchForm, SearchItem} from 'components';
+import {Page, PageHeader, DataTable, SearchForm, SearchItem, Options} from 'components';
 import rp from 'require-promise';
 import 'jquery-update-event';
 
@@ -14,9 +14,6 @@ const loader = Promise.all([
 class AdminIndex extends React.Component {
   componentDidMount() {
     loader.then(() => {
-      // FIXME
-      template.helper('$', $);
-
       var $table = $('.js-admin-table').dataTable({
         searchEl: '.js-admin-form',
         searchEvent: 'update',
@@ -99,6 +96,10 @@ class AdminIndex extends React.Component {
           <SearchItem label="姓名" name="name" />
 
           <SearchItem label="昵称" name="nickName" />
+
+          <SearchItem label="分组" name="groupId">
+            <Options data={wei.groups} labelKey="name" valueKey="id" placeholder="全部"/>
+          </SearchItem>
         </SearchForm>
         <DataTable className="js-admin-table" />
       </Page>

@@ -15,8 +15,12 @@ trait IndexTrait
     {
         if ($req->json()) {
             // 1. 构建查询
-            $models = $this->convention->createModel($this)
-                ->setRequest($req)
+            if (method_exists($this, 'createModel')) {
+                $models = $this->createModel();
+            } else {
+                $models = $this->convention->createModel($this);
+            }
+            $models->setRequest($req)
                 ->paginate()
                 ->sort();
 

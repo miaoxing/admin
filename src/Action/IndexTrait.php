@@ -35,7 +35,7 @@ trait IndexTrait
                 $data[] = array_merge($model->toArray(), $this->buildIndexData($model));
             }
 
-            return $models->toRet(['data' => $data]);
+            return $this->buildIndexRet($models->toRet(['data' => $data]), $req, $models);
         }
 
         $this->beforeViewRender();
@@ -72,5 +72,10 @@ trait IndexTrait
     protected function buildIndexData(BaseModelV2 $model)
     {
         return [];
+    }
+
+    protected function buildIndexRet($ret, Request $req, BaseModelV2 $models)
+    {
+        return $ret;
     }
 }

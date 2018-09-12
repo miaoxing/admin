@@ -13,7 +13,7 @@ trait IndexTrait
 {
     public function indexAction(Request $req)
     {
-        if ($req->json()) {
+        if ($req->json() || $req->csv()) {
             // 1. 构建查询
             if (method_exists($this, 'createModel')) {
                 $models = $this->createModel();

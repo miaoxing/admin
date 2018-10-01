@@ -10,7 +10,7 @@
   <link rel="stylesheet" href="<?= $asset([
     'comps/bootstrap/dist/css/bootstrap.min.css',
     'comps/jasny-bootstrap/dist/css/jasny-bootstrap.min.css',
-    'comps/font-awesome-mx/css/font-awesome.min.css',
+    'comps/font-awesome/css/font-awesome.min.css',
     'comps/jquery-ui-custom/jquery-ui-1.10.3.full.min.css',
     'plugins/admin/css/layout.css',
     'plugins/admin/css/utilities.css',

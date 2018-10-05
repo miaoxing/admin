@@ -9,7 +9,7 @@
         aria-expanded="false">
         <i class="fa fa-bars"></i>
       </button>
-      <?php require $view->getFile('admin:admin/logo.php') ?>
+      <?php require $view->getFile('@admin/admin/logo.php') ?>
     </div>
     <div class="collapse navbar-collapse">
       <ul class="nav navbar-nav">

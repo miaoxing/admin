@@ -10,7 +10,7 @@
   <?= $block->end() ?>
 <?php endif ?>
 
-<?php require $view->getFile('admin:admin/header.php') ?>
+<?php require $view->getFile('@admin/admin/header.php') ?>
 
 <div class="alert alert-warning text-center no-border bigger-120 p-x-0 visible-xs-block">
   为了确保您更好的使用体验，请在电脑端登录
@@ -24,7 +24,7 @@
           <?php if ($logoUrl = $setting('app.logo')) : ?>
             <img class="page-logo" src="<?= $logoUrl ?>">
           <?php else : ?>
-            <?php require $view->getFile('admin:admin/logo.php') ?>
+            <?php require $view->getFile('@admin/admin/logo.php') ?>
           <?php endif ?>
         </div>
 
@@ -41,4 +41,4 @@
 </div>
 <!-- /.main-container -->
 
-<?php require $view->getFile('admin:admin/footer.php') ?>
+<?php require $view->getFile('@admin/admin/footer.php') ?>

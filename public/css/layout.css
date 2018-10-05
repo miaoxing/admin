@@ -14,6 +14,10 @@ body {
   color: #393939;
 }
 
+a {
+  cursor: pointer; /* without href */
+}
+
 /* Main Container */
 .main-container::before {
   display: block;

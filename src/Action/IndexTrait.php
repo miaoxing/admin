@@ -2,8 +2,8 @@
 
 namespace Miaoxing\Admin\Action;
 
-use Miaoxing\Plugin\Service\Convention;
 use Miaoxing\Plugin\BaseModelV2;
+use Miaoxing\Plugin\Service\Convention;
 use Miaoxing\Plugin\Service\Request;
 
 /**
@@ -21,10 +21,13 @@ trait IndexTrait
                 $models = $this->convention->createModel($this);
             }
             $models->setRequest($req)
-                ->paginate()
-                ->sort();
+                ->paginate();
 
             $this->beforeIndexFind($req, $models);
+            if (!$models->getSqlPart('orderBy')) {
+                $models->sort();
+            }
+
             $models->findAll();
             $this->afterIndexFind($req, $models);
 

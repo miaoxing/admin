@@ -1,6 +1,6 @@
 import React from 'react';
-import {Button, Checkbox} from 'react-bootstrap';
-import {Page, PageHeader, FormItem, Form, FormAction, Options, ImageUpload} from 'components';
+import {Button, Form} from 'react-bootstrap';
+import {FormAction, FormItem, ImageUpload, Options, Page, PageHeader} from 'components';
 import Select from 'react-select';
 
 const loader = Promise.all([

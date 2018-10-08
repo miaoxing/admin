@@ -126,6 +126,7 @@ class Admins extends \Miaoxing\Plugin\BaseController
 
     public function updateAction($req)
     {
+        var_dump($_POST);die;
         // 添加用户时才校验用户名
         $validateUsername = $req['action'] === 'create';
 

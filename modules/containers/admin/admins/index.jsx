@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import {Button} from 'react-bootstrap';
-import {Page, PageHeader, DataTable, SearchForm, SearchItem, Options} from 'components';
+import {DataTable, Options, Page, PageHeader, SearchForm2, SearchItem} from 'components';
 import rp from 'require-promise';
 import 'jquery-update-event';
 
@@ -90,7 +90,7 @@ class AdminIndex extends React.Component {
         <PageHeader>
           <Button bsStyle="success" href={$.url('admin/admins/new')}>添加管理员</Button>
         </PageHeader>
-        <SearchForm className="js-admin-form">
+        <SearchForm2 className="js-admin-form">
           <SearchItem label="用户名" name="username" />
 
           <SearchItem label="姓名" name="name" />
@@ -100,7 +100,7 @@ class AdminIndex extends React.Component {
           <SearchItem label="分组" name="groupId">
             <Options data={wei.groups} labelKey="name" valueKey="id" placeholder="全部"/>
           </SearchItem>
-        </SearchForm>
+        </SearchForm2>
         <DataTable className="js-admin-table" />
       </Page>
     )

@@ -1,6 +1,6 @@
 import React from 'react'
 import {hot} from 'react-hot-loader';
-import App from 'vendor/miaoxing/app/modules/app';
+import App from "components/App";
 
 // NOTE: react-hot-reload和ReactDom.render需在不同的文件中
 class AppContainer extends React.Component {

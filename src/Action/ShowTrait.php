@@ -17,7 +17,12 @@ trait ShowTrait
             return [];
         }
 
-        $model = $this->convention->createModel($this)->findOneById($req['id']);
+        if (method_exists($this, 'createModel')) {
+            $model = $this->createModel();
+        } else {
+            $model = $this->convention->createModel($this);
+        }
+        $model = $model->findOneById($req['id']);
 
         return $model->toRet([
             'data' => array_merge($model->toArray(), $this->buildShowData($model)),

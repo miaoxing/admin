@@ -61,7 +61,7 @@ class AdminNav extends \Miaoxing\Plugin\BaseService
             $this->curSubCategories = $categories[$key]['navs'];
         }
 
-        return $this->view->render('admin:admin/nav.php', get_defined_vars());
+        return $this->view->render('@admin/admin/nav.php', get_defined_vars());
     }
 
     /**
@@ -99,7 +99,7 @@ class AdminNav extends \Miaoxing\Plugin\BaseService
             }
         }
 
-        return $this->view->render('admin:admin/sidebar.php', [
+        return $this->view->render('@admin/admin/sidebar.php', [
             'curSubCategories' => $this->curSubCategories,
         ]);
     }

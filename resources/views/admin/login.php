@@ -80,7 +80,7 @@ $view->layout('@admin/admin/layout-light.php')
       },
       success: function (ret) {
         if (ret.code === 1) {
-          window.location = ($.req('next') === '' ? $.url('admin') : $.req('next'));
+          window.location = $.req('next') || $.url('admin');
         } else {
           $('.error-message').html(ret.message);
 

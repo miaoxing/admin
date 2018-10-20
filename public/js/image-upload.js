@@ -28,7 +28,8 @@ define([
     max: 0, // 最多添加几张图片,0表示不限制
     detectMultiple: true, // 是否根据表单名称识别出是单个还是多个
     validateEvent: 'focusout',
-    size: 100 // 展示的图片大小
+    size: 100, // 展示的图片大小
+    onChange: null
   };
 
   /**
@@ -68,7 +69,7 @@ define([
       + '   <input type="file" name="_file" ' + (multiple ? 'multiple' : '') + '>'
       + ' </li>';
 
-    this.tpl = '<li ' + style + '>'
+    this.tpl = '<li class="js-image-item" ' + style + '>'
       + '  <img src="<%= src %>">'
       + '<div class="tools tools-bottom">'
       + '<a href="<%= src %>" target="_blank" title="新窗口打开">'
@@ -134,6 +135,7 @@ define([
         e.preventDefault();
       } else {
         that.addImage(data.result.url);
+        that.triggerChange();
       }
     });
   };
@@ -150,6 +152,17 @@ define([
     item.insertBefore(this.$selectBtn);
 
     this.checkImageNum();
+  };
+
+  /**
+   * 批量设置图片
+   */
+  ImageUpload.prototype.setImages = function (images) {
+    var that = this;
+    this.$container.find('.js-image-item').remove();
+    $.each(images, function (i, image) {
+      that.addImage(image);
+    });
   };
 
   /**
@@ -218,6 +231,7 @@ define([
         item.remove();
         that.checkImageNum();
         that.$container.parents('form').trigger('update');
+        that.triggerChange();
       });
     });
 
@@ -225,13 +239,19 @@ define([
     this.$container.on('click', '.fa-chevron-left', function () {
       var item = $(this).parents('li:first');
       item.insertBefore(item.prev());
+      that.triggerChange();
     });
 
     // 右移图片
     this.$container.on('click', '.fa-chevron-right', function () {
       var item = $(this).parents('li:first');
       item.insertAfter(item.next());
+      that.triggerChange();
     });
+  };
+
+  ImageUpload.prototype.triggerChange = function () {
+    this.options.onChange && this.options.onChange();
   };
 
   $.fn.imageUpload = function (options) {

@@ -22,11 +22,22 @@ trait ShowTrait
         } else {
             $model = $this->convention->createModel($this);
         }
+
+        $this->beforeShowFind($req, $model);
         $model = $model->findOneById($req['id']);
 
         return $model->toRet([
             'data' => array_merge($model->toArray(), $this->buildShowData($model)),
         ]);
+    }
+
+    /**
+     * @param Request $req
+     * @param BaseModelV2 $model
+     */
+    protected function beforeShowFind(Request $req, BaseModelV2 $model)
+    {
+        // do nothing.
     }
 
     /**

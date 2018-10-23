@@ -172,7 +172,7 @@ define([
     switch (this.options.max) {
       case 0:
         if (this.options.detectMultiple) {
-          return this.options.name.substr(-'[]'.length) === '[]';
+          return this.options.name && this.options.name.substr(-'[]'.length) === '[]';
         } else {
           return true;
         }

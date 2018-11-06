@@ -19,6 +19,12 @@
     'plugins/app/css/tips.css',
   ]) ?>">
   <?= $wei->page->renderHead() ?>
+  <style>
+    .table td {
+      word-wrap: break-word;
+      overflow-wrap: break-word;
+    }
+  </style>
 </head>
 <body>
 <!-- htmllint tag-close="$previous" -->

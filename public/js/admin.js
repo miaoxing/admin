@@ -8,7 +8,7 @@ $(function () {
     return window.innerHeight || document.documentElement.clientHeight;
   };
 
-  var b = $('.btn-scroll-up');
+  var b = $('.js-btn-scroll-up');
   if (b.length > 0) {
     var c = !1;
     $(window).on('scroll', function () {

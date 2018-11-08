@@ -35,7 +35,7 @@
     <!-- /.main-content -->
   </div>
   <!-- /.main-container-inner -->
-  <a href="#" id="btn-scroll-up" class="btn-scroll-up btn btn-sm btn-inverse">
+  <a href="#" class="js-btn-scroll-up btn-scroll-up btn btn-sm btn-inverse">
     <i class="fa fa-angle-double-up"></i>
   </a>
 </div>

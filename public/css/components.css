@@ -16,6 +16,8 @@
 /* Tables */
 .table {
   border-top: 1px solid #ddd;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
 }
 
 th, td, .table-bordered {

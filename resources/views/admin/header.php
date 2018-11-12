@@ -13,12 +13,6 @@ wei()->wpAsset->addRevFile('dist2/admin-v1-assets-hash.json');
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
   <link rel="stylesheet" href="<?= $this->wpAsset('admin-v1.css') ?>"/>
   <?= $wei->page->renderHead() ?>
-  <style>
-    .table td {
-      word-wrap: break-word;
-      overflow-wrap: break-word;
-    }
-  </style>
 </head>
 <body>
 <!-- htmllint tag-close="$previous" -->

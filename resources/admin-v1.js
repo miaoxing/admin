@@ -22,3 +22,5 @@ import 'vendor/miaoxing/admin/public/css/utilities.css';
 import 'vendor/miaoxing/admin/public/css/components.css';
 import 'vendor/miaoxing/admin/public/css/theme.scss';
 import 'vendor/miaoxing/app/public/css/tips.css';
+
+$.tips.defaults.valign = 'top';

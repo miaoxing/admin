@@ -6,7 +6,6 @@
 <script src="<?= $this->wpAsset('admin-v1.js') ?>"></script>
 <script>
   $.extend($, <?= json_encode($app->getConfig()) ?>);
-  $.tips.defaults.valign = 'top';
   var wei = <?= json_encode($js) ?>;
 </script>
 <?= $wei->page->renderFooter() ?>

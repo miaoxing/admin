@@ -1,6 +1,5 @@
 <?= $block->get('html') ?>
 
-<script src="<?= $this->wpAsset('admin-v1-manifest.js') ?>"></script>
 <script src="<?= $this->wpAsset('admin-v1.js') ?>"></script>
 <script>
   $.extend($, <?= json_encode($app->getConfig()) ?>);

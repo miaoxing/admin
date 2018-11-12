@@ -1,7 +1,5 @@
 <?= $block->get('html') ?>
 
-<script src="<?= $asset('comps/requirejs/require.min.js') ?>"></script>
-<script src="<?= $asset('comps/jquery-legacy/jquery.min.js') ?>"></script>
 <script src="<?= $this->wpAsset('admin-v1-manifest.js') ?>"></script>
 <script src="<?= $this->wpAsset('admin-v1.js') ?>"></script>
 <script>

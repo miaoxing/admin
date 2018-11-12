@@ -1,6 +1,5 @@
 import 'comps/requirejs/require';
 import 'script-loader!comps/jquery-legacy/jquery.min';
-
 import 'comps/jquery-migrate/jquery-migrate-1.2.1';
 import 'comps/bootstrap/dist/js/bootstrap.min';
 import 'comps/jasny-bootstrap/dist/js/jasny-bootstrap.min';

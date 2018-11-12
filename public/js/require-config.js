@@ -4,7 +4,7 @@
  * @todo jquery-ui升级新版,原生支持amd
  * @todo jquery-validation等想办法简化
  */
-require.config({
+window.requirejs.config({
   paths: {
     bootbox: 'assets/bootbox',
     daterangepicker: 'assets/daterangepicker',

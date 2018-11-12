@@ -1,3 +1,7 @@
+<?php
+
+wei()->wpAsset->addRevFile('dist2/admin-v1-assets-hash.json');
+?>
 <!DOCTYPE html>
 <!-- htmllint tag-close="false" -->
 <html lang="en">
@@ -7,17 +11,7 @@
   <meta name="renderer" content="webkit">
   <title><?= $setting('admin.title', '管理系统') ?></title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-  <link rel="stylesheet" href="<?= $asset([
-    'comps/bootstrap/dist/css/bootstrap.min.css',
-    'comps/jasny-bootstrap/dist/css/jasny-bootstrap.min.css',
-    'comps/font-awesome/css/font-awesome.min.css',
-    'comps/jquery-ui-custom/jquery-ui-1.10.3.full.min.css',
-    'plugins/admin/css/layout.css',
-    'plugins/admin/css/utilities.css',
-    'plugins/admin/css/components.css',
-    'plugins/admin/css/theme.css',
-    'plugins/app/css/tips.css',
-  ]) ?>">
+  <link rel="stylesheet" href="<?= $this->wpAsset('admin-v1.css') ?>"/>
   <?= $wei->page->renderHead() ?>
   <style>
     .table td {

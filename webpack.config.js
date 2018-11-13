@@ -1,3 +1,4 @@
+// TODO deprecated
 const path = require('path');
 const WebpackConfig = require('../app/modules/webpack-config');
 

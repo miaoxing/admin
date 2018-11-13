@@ -3,9 +3,7 @@ import 'script-loader!comps/jquery-legacy/jquery.min';
 import 'comps/jquery-migrate/jquery-migrate-1.2.1';
 import 'comps/bootstrap/dist/js/bootstrap.min';
 import 'comps/jasny-bootstrap/dist/js/jasny-bootstrap.min';
-// 核心类
 import 'vendor/miaoxing/app/public/js/app';
-// 配置和初始模块
 import 'vendor/miaoxing/app/public/js/tips';
 import 'vendor/miaoxing/app/public/js/require-config';
 import 'vendor/miaoxing/admin/public/js/require-config';

@@ -1,5 +1,3 @@
-import $ from 'jquery';
-
 /* eslint-disable */
 /* 忽略外部文件 */
 $(function () {

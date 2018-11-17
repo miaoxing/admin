@@ -47,8 +47,7 @@
   font-size: 12px
 }
 
-/* Deprecate .btn-white */
-.btn-default, .btn-white {
+.btn-default {
   @include button-variant($btn-default-color, $btn-default-bg, $btn-default-border);
 }
 

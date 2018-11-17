@@ -34,3 +34,7 @@ html {
 .navbar-light .navbar-nav .active > .nav-link {
   color: $primary;
 }
+
+.nav-link.dropdown-toggle::after {
+  font-size: 13px;
+}

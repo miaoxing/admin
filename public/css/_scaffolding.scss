@@ -6,6 +6,11 @@ a:hover, a:focus, a:active {
   text-decoration: none
 }
 
+/* 兼容bs4 */
+.small, small {
+  font-size: 80%;
+}
+
 ul, ol {
   margin: 0 0 10px 25px;
   padding: 0

@@ -1,6 +1,10 @@
-$theme-colors: (
-  "primary": blue,
-  "danger": orange
-);
+$blue: #0c86de;
+$green: #5cb85c;
+$yellow: #f28c48;
+$red: #dd5a43;
 
 @import '../../../../../node_modules/bootstrap/scss/bootstrap.scss';
+
+html {
+  font-size: 14px;
+}

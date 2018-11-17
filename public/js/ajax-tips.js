@@ -1,3 +1,5 @@
+import $ from 'jquery';
+
 (function (window, $) {
   var DELAY_SLOW = 1000000;
   var DELAY_NORMAL = 2000;

@@ -19,7 +19,7 @@ wei()->wpAsset->addRevFile('dist2/admin-v3-assets-hash.json');
 <?php require $view->getFile('@admin/admin/browser-update.php') ?>
 
 
-<?php require $view->getFile('@admin/admin/navbar.php') ?>
+<?php require $view->getFile('@admin/admin/navbar-v3.php') ?>
 
 <div class="main-container" id="main-container">
   <div class="main-container-inner">

@@ -1,4 +1,5 @@
 import jQuery from "jquery";
+import 'bootstrap/dist/js/bootstrap.bundle.min';
 import 'vendor/miaoxing/app/public/js/app';
 import 'vendor/miaoxing/app/public/js/tips';
 import 'vendor/miaoxing/admin/public/js/ajax-tips';

@@ -18,3 +18,19 @@ html {
 .btn-secondary, .btn-default {
   @include button-variant($white, $border-color);
 }
+
+/* 兼容旧版 */
+.navbar-brand {
+  padding: 10px 0 10px 15px;
+  font-size: inherit;
+  margin-right: 0;
+}
+
+.navbar-light .navbar-nav .nav-link {
+  padding: 10px 15px 15px 15px;
+  color: #333;
+}
+
+.navbar-light .navbar-nav .active > .nav-link {
+  color: $primary;
+}

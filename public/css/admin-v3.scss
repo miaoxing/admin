@@ -2,9 +2,15 @@ $blue: #0c86de;
 $green: #5cb85c;
 $yellow: #f28c48;
 $red: #dd5a43;
+$secondary: #fff;
 
 @import '../../../../../node_modules/bootstrap/scss/bootstrap.scss';
 
 html {
   font-size: 14px;
+}
+
+/* .btn-default 用于兼容已有的类 */
+.btn-secondary, .btn-default {
+  @include button-variant($white, $border-color);
 }

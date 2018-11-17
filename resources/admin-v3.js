@@ -6,7 +6,6 @@ import 'vendor/miaoxing/admin/public/js/ajax-tips';
 // import 'vendor/miaoxing/admin/public/js/popup';
 import 'font-awesome/css/font-awesome.min.css';
 import 'vendor/miaoxing/admin/public/css/layout.css';
-import 'vendor/miaoxing/admin/public/css/utilities.css';
 import 'vendor/miaoxing/admin/public/css/components.css';
 import 'vendor/miaoxing/app/public/css/tips.css';
 import 'vendor/miaoxing/admin/public/css/theme-v3.scss';

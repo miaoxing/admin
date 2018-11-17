@@ -4,6 +4,10 @@ $yellow: #f28c48;
 $red: #dd5a43;
 $secondary: #fff;
 
+$border-radius:               0;
+$border-radius-lg:            0;
+$border-radius-sm:            0;
+
 @import '../../../../../node_modules/bootstrap/scss/bootstrap.scss';
 
 html {

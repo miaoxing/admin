@@ -1,6 +1,5 @@
 // Core variables and mixins
 @import "variables";
-
 @import "../../../../../node_modules/bootstrap-sass/assets/stylesheets/bootstrap/variables";
 @import "../../../../../node_modules/bootstrap-sass/assets/stylesheets/bootstrap/mixins";
 
@@ -25,7 +24,17 @@
 }
 
 @import "scaffolding";
-@import "tables";
+
+// Table
+.table-center {
+  text-align: center;
+}
+
+.table-center > thead > tr > th,
+.table-center > tbody > tr > td,
+.table-center > tfoot > tr > td {
+  vertical-align: middle;
+}
 
 // Components
 @import "dropdowns";

@@ -19,6 +19,10 @@
   border-right: 1px solid #ddd;
 }
 
+.sidebar > dl {
+  margin-bottom: 14px; /* 同bs4 */
+}
+
 @media (min-width: 767px) {
   .sidebar.collapse {
     display: block;

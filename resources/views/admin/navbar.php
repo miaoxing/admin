@@ -1,5 +1,4 @@
 <nav class="navbar navbar-default">
-  <div class="container-fluid">
     <div class="navbar-header">
       <button type="button" class="navbar-toggle collapsed pull-left" data-toggle="collapse" data-target=".sidebar"
         aria-expanded="false">
@@ -52,5 +51,4 @@
 
       <img class="nav-user-photo" src="<?= $e($curUser->getHeadImg()) ?>" alt="<?= $e($curUser->getNickName()) ?>" />
     </div>
-  </div>
 </nav>

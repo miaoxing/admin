@@ -1,3 +1,16 @@
+<style>
+    .nav-link .dropdown-toggle::after{
+        display: inline-block;
+        width: 0;
+        height: 0;
+        margin-left: 2px;
+        vertical-align: middle;
+        border-top: 4px dashed;
+        border-top: 4px solid\9;
+        border-right: 4px solid transparent;
+        border-left: 4px solid transparent;
+    }
+</style>
 <nav class="navbar navbar-expand-lg navbar-light p-0">
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-toggler"
             aria-controls="navbar-toggler" aria-expanded="false" aria-label="Toggle navigation">

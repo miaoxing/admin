@@ -16,7 +16,7 @@
                         data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <small><?= $e($curUser->getNickName()) ?> - 设置</small>
                 </a>
-                <div class="dropdown-menu" aria-labelledby="navbar-dropdown-menu-link">
+                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbar-dropdown-menu-link">
                     <?php if (wei()->setting('admin.navBarEnableUpdateUserInfo')) : ?>
                         <a class="dropdown-item" href="<?= $url('admin/admins/edit-self') ?>">
                             <i class="fa fa-user"></i>

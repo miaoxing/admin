@@ -7,9 +7,10 @@ import 'vendor/miaoxing/admin/public/js/ajax-tips';
 import 'font-awesome/css/font-awesome.min.css';
 import 'vendor/miaoxing/admin/public/css/layout.css';
 import 'vendor/miaoxing/admin/public/css/components.css';
-import 'vendor/miaoxing/app/public/css/tips.css';
 import 'vendor/miaoxing/admin/public/css/theme-v3.scss';
 import 'vendor/miaoxing/admin/public/css/admin-v3.scss';
+import 'vendor/miaoxing/app/public/css/tips.css';
 
 window.$ = window.jQuery = jQuery;
 $.tips.defaults.valign = 'top';
+$.tips.defaults.baseClass = 'badge';

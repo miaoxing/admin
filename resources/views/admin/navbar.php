@@ -1,3 +1,12 @@
+<style>
+  .navbar .navbar-toggle.collapsed {
+    border-color: rgba(0, 0, 0, 0.1);
+    border-radius: 0;
+  }
+  .navbar-toggle .fa {
+    color: #333;
+  }
+</style>
 <nav class="navbar navbar-default">
     <div class="navbar-header">
       <button type="button" class="navbar-toggle collapsed pull-left" data-toggle="collapse" data-target=".sidebar"

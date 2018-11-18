@@ -1,10 +1,27 @@
+<style>
+  .navbar-toggler {
+    padding: 7px 10px;
+    width: 40px;
+    height: 35px;
+    font-size: 22px;
+    margin-left: 15px;
+  }
+  .navbar-toggler.ml-auto {
+    margin-right: 15px;
+  }
+</style>
+
 <nav class="navbar navbar-expand-lg navbar-light p-0">
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-toggler"
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".sidebar"
     aria-controls="navbar-toggler" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
+    <i class="fa fa-caret-down"></i>
+  </button>
+  <?php require $view->getFile('@admin/admin/logo.php') ?>
+  <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#navbar-toggler"
+    aria-controls="navbar-toggler" aria-expanded="false" aria-label="Toggle navigation">
+    <i class="fa fa-bars"></i>
   </button>
   <div class="collapse navbar-collapse" id="navbar-toggler">
-    <?php require $view->getFile('@admin/admin/logo.php') ?>
     <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
       <?= $wei->adminNav->renderNav() ?>
     </ul>

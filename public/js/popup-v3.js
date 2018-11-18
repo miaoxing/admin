@@ -16,7 +16,3 @@ $.confirm = (message, fn) => {
     result && fn();
   });
 };
-
-$.modalHideAll = () => {
-  $('.modal').modal('hide');
-};

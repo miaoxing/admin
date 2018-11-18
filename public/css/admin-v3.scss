@@ -8,6 +8,10 @@ $border-radius: 0;
 $border-radius-lg: 0;
 $border-radius-sm: 0;
 
+$navbar-light-hover-color: $blue;
+$navbar-light-active-color: $blue;
+$navbar-light-color: #333;
+
 @import '../../../../../node_modules/bootstrap/scss/bootstrap.scss';
 
 html {
@@ -28,11 +32,6 @@ html {
 
 .navbar-light .navbar-nav .nav-link {
   padding: 10px 15px 15px 15px;
-  color: #333;
-}
-
-.navbar-light .navbar-nav .active > .nav-link {
-  color: $primary;
 }
 
 .nav-link.dropdown-toggle::after {

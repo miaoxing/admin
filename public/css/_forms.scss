@@ -71,47 +71,6 @@ label.inline {
   margin-bottom: 3px
 }
 
-textarea, input[type=text], input[type=password], input[type=datetime], input[type=datetime-local], input[type=date], input[type=month], input[type=time], input[type=week], input[type=number], input[type=email], input[type=url], input[type=search], input[type=tel], input[type=color] {
-  border-radius: 0 !important;
-  color: #858585;
-  background-color: #fff;
-  border: 1px solid #d5d5d5;
-  padding: 5px 4px 6px;
-  font-size: 14px;
-  font-family: inherit;
-  -webkit-transition-duration: .1s;
-  transition-duration: .1s
-}
-
-textarea:hover, input[type=text]:hover, input[type=password]:hover, input[type=datetime]:hover, input[type=datetime-local]:hover, input[type=date]:hover, input[type=month]:hover, input[type=time]:hover, input[type=week]:hover, input[type=number]:hover, input[type=email]:hover, input[type=url]:hover, input[type=search]:hover, input[type=tel]:hover, input[type=color]:hover {
-  border-color: #b5b5b5
-}
-
-textarea:focus, input[type=text]:focus, input[type=password]:focus, input[type=datetime]:focus, input[type=datetime-local]:focus, input[type=date]:focus, input[type=month]:focus, input[type=time]:focus, input[type=week]:focus, input[type=number]:focus, input[type=email]:focus, input[type=url]:focus, input[type=search]:focus, input[type=tel]:focus, input[type=color]:focus {
-  color: #696969;
-  border-color: #f59942;
-  background-color: #fff;
-  outline: 0
-}
-
-input::-webkit-input-placeholder, .form-control::-webkit-input-placeholder {
-  color: silver
-}
-
-input:-moz-placeholder, .form-control:-moz-placeholder {
-  color: silver;
-  opacity: 1
-}
-
-input::-moz-placeholder, .form-control::-moz-placeholder {
-  color: silver;
-  opacity: 1
-}
-
-input:-ms-input-placeholder, .form-control:-ms-input-placeholder {
-  color: silver
-}
-
 .form-control, select {
   border-radius: 0;
   -webkit-box-shadow: none;
@@ -121,11 +80,8 @@ input:-ms-input-placeholder, .form-control:-ms-input-placeholder {
   border: 1px solid #d5d5d5
 }
 
-.form-control:focus, select:focus {
-  color: #696969;
-  border-color: #f59942;
-  background-color: #fff;
-  outline: 0
+.form-group-sm .form-control {
+  border-radius: 0;
 }
 
 textarea.form-control {
@@ -510,9 +466,10 @@ input[type=radio].ace.input-lg + .lbl::before {
   background-color: #eee !important
 }
 
-/* 表单样式美化 */
+/* 表单样式美化 兼容bs4 */
 .form-control:focus {
-  box-shadow: 0 0 0 2px rgba(245, 153, 66, 0.3);
+  border-color: #72c0f7;
+  box-shadow: 0 0 0 0.2rem rgba(12, 134, 222, 0.25);
 }
 
 input[readonly]:focus, input[readonly="readonly"]:focus {
@@ -521,6 +478,7 @@ input[readonly]:focus, input[readonly="readonly"]:focus {
 }
 
 input.form-control {
+  border-radius: 0;
   line-height: 1.428571429;
 }
 

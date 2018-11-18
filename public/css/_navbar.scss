@@ -107,7 +107,8 @@
 }
 
 /* 兼容bs3 */
-.show > .nav-link.dropdown-toggle:focus,
-.show > .nav-link.dropdown-toggle:hover {
+.navbar-light .navbar-nav .show > .nav-link.dropdown-toggle:focus,
+.navbar-light .navbar-nav .show > .nav-link.dropdown-toggle:hover {
   background-color: #e7e7e7;
+  color: #555;
 }

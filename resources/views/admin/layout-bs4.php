@@ -18,7 +18,6 @@ wei()->wpAsset->addRevFile('dist2/admin-bs4-assets-hash.json');
 <!-- htmllint tag-close="$previous" -->
 <?php require $view->getFile('@admin/admin/browser-update.php') ?>
 
-
 <?php require $view->getFile('@admin/admin/navbar-bs4.php') ?>
 
 <div class="main-container" id="main-container">

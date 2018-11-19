@@ -1,6 +1,6 @@
 <?php
 
-wei()->wpAsset->addRevFile('dist2/admin-v3-assets-hash.json');
+wei()->wpAsset->addRevFile('dist2/admin-bs4-assets-hash.json');
 ?>
 <!DOCTYPE html>
 <!-- htmllint tag-close="false" -->
@@ -11,7 +11,7 @@ wei()->wpAsset->addRevFile('dist2/admin-v3-assets-hash.json');
     <meta name="renderer" content="webkit">
     <title><?= $setting('admin.title', '管理系统') ?></title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-    <link rel="stylesheet" href="<?= $this->wpAsset('admin-v3.css') ?>"/>
+    <link rel="stylesheet" href="<?= $this->wpAsset('admin-bs4.css') ?>"/>
     <?= $wei->page->renderHead() ?>
 </head>
 <body>
@@ -19,7 +19,7 @@ wei()->wpAsset->addRevFile('dist2/admin-v3-assets-hash.json');
 <?php require $view->getFile('@admin/admin/browser-update.php') ?>
 
 
-<?php require $view->getFile('@admin/admin/navbar-v3.php') ?>
+<?php require $view->getFile('@admin/admin/navbar-bs4.php') ?>
 
 <div class="main-container" id="main-container">
   <div class="main-container-inner">
@@ -39,7 +39,7 @@ wei()->wpAsset->addRevFile('dist2/admin-v3-assets-hash.json');
 
 <?= $block->get('html') ?>
 
-<script src="<?= $this->wpAsset('admin-v3.js') ?>"></script>
+<script src="<?= $this->wpAsset('admin-bs4.js') ?>"></script>
 <script>
   $.extend($, <?= json_encode($app->getConfig()) ?>);
   var wei = <?= json_encode($js) ?>;

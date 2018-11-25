@@ -102,6 +102,17 @@ class AdminIndex extends React.Component {
           </SearchItem>
         </SearchForm>
         <DataTable className="js-admin-table" />
+
+        <script id="checkbox-col-tpl" type="text/html">
+          {`
+          <label>
+            <input class="js-toggle-status ace toggle-status" name="<%= name %>" data-id="<%= id %>"
+              data-value="<%= value %>" type="checkbox"
+            <% if (value == 1) {%> checked <%} %> >
+            <span class="lbl"></span>
+          </label>
+          `}
+        </script>
       </Page>
     )
   }

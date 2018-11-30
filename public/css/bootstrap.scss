@@ -15,6 +15,9 @@ $navbar-light-color: #333;
 
 @import '../../../../../node_modules/bootstrap/scss/bootstrap.scss';
 
+// 附加自定义的样式
+@import 'comps/react-bootstrap-message/scss/react-bootstrap-message';
+
 html {
   font-size: 14px;
 }

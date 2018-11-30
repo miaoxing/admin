@@ -1,0 +1,33 @@
+.modal-prompt {
+  .modal-dialog {
+    width: 400px;
+  }
+
+  .modal-body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 8rem;
+    padding: 1.5rem;
+    font-size: 16px;
+  }
+
+  .modal-content {
+    border-radius: 4px;
+    border: none;
+  }
+
+  .modal-footer {
+    background: none;
+    border-top: 0;
+    padding: 0 1.25rem 1.25rem 0;
+  }
+
+  .modal-footer > :not(:last-child) {
+    margin-right: .625rem;
+  }
+
+  .modal-footer > :not(:first-child) {
+    margin-left: .625rem;
+  }
+}

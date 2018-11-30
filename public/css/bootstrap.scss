@@ -17,6 +17,7 @@ $navbar-light-color: #333;
 
 // 附加自定义的样式
 @import 'comps/react-bootstrap-message/scss/react-bootstrap-message';
+@import '../../resources/scss/_modal';
 
 html {
   font-size: 14px;

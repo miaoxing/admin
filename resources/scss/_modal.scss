@@ -13,17 +13,24 @@
 }
 
 .modal-prompt {
-  .modal-dialog {
-    width: 400px;
+  @media (min-width: 576px) {
+    .modal-dialog {
+      width: 400px;
+    }
+  }
+
+  .modal-header {
+    border-bottom: 0;
+    padding: 1.25rem;
   }
 
   .modal-body {
     display: flex;
     align-items: center;
     justify-content: center;
-    min-height: 8rem;
-    padding: 1.5rem;
-    font-size: 16px;
+    min-height: 3rem;
+    padding: 0 1.25rem;
+    font-size: 1.14285rem; // 16px
   }
 
   .modal-content {
@@ -34,7 +41,7 @@
   .modal-footer {
     background: none;
     border-top: 0;
-    padding: 0 1.25rem 1.25rem 0;
+    padding: 1.25rem;
   }
 
   .modal-footer > :not(:last-child) {

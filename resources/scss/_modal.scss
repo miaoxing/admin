@@ -1,3 +1,17 @@
+// 实现缩放动画效果
+.modal-zoom {
+  transform: scale(0.8);
+  transition: all .15s linear;
+}
+
+.modal-zoom.show {
+  transform: scale(1);
+}
+
+.modal.modal-zoom .modal-dialog {
+  transform: translate(0, 0);
+}
+
 .modal-prompt {
   .modal-dialog {
     width: 400px;

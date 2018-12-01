@@ -6,13 +6,13 @@ wei()->wpAsset->addRevFile('dist2/admin-bs4-assets-hash.json');
 <!-- htmllint tag-close="false" -->
 <html lang="en">
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <meta name="renderer" content="webkit">
-    <title><?= $setting('admin.title', '管理系统') ?></title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-    <link rel="stylesheet" href="<?= $this->wpAsset('admin-bs4.css') ?>"/>
-    <?= $wei->page->renderHead() ?>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="renderer" content="webkit">
+  <title><?= $setting('admin.title', '管理系统') ?></title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <link rel="stylesheet" href="<?= $this->wpAsset('admin-bs4.css') ?>"/>
+  <?= $wei->page->renderHead() ?>
 </head>
 <body>
 <!-- htmllint tag-close="$previous" -->
@@ -37,12 +37,10 @@ wei()->wpAsset->addRevFile('dist2/admin-bs4-assets-hash.json');
 <!-- /.main-container -->
 
 <?= $block->get('html') ?>
-
-<script src="<?= $this->wpAsset('admin-bs4.js') ?>"></script>
 <script>
-  $.extend($, <?= json_encode($app->getConfig()) ?>);
   var wei = <?= json_encode($js) ?>;
 </script>
+<script src="<?= $this->wpAsset('admin-bs4.js') ?>"></script>
 <?= $wei->page->renderFooter() ?>
 </body>
 </html>

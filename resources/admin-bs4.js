@@ -1,8 +1,9 @@
 import jQuery from "jquery";
+// 头部导航所需js
+import 'bootstrap/js/dist/dropdown';
+import 'bootstrap/js/dist/collapse';
 import 'vendor/miaoxing/app/public/js/app';
 import 'font-awesome/css/font-awesome.min.css';
-import 'vendor/miaoxing/admin/public/css/layout.css';
-import 'vendor/miaoxing/admin/public/css/theme-bs4.scss';
-import 'vendor/miaoxing/admin/public/css/bootstrap.scss';
+import './scss/bs4/admin.scss';
 
 window.$ = window.jQuery = jQuery;

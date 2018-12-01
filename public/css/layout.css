@@ -64,98 +64,6 @@ a {
   max-width: 100%
 }
 
-/* 预览区域 */
-.preview-content {
-  width: 320px;
-  min-height: 568px;
-  float: left;
-  position: relative;
-}
-
-.preview-content::before {
-  content: "";
-  display: block;
-  width: 320px;
-  position: fixed;
-  bottom: 0;
-  top: 0;
-  z-index: -1;
-}
-
-.preview-header {
-  text-align: center;
-  height: 62px;
-  line-height: 85px;
-  font-size: 17px;
-  color: #fff;
-  background: #cfd1d8 url("../images/header.png") no-repeat 0 -84px;
-}
-
-/* 编辑器区域 */
-.editor-content {
-  margin-left: 320px;
-  margin-right: 0;
-  margin-top: 0;
-  min-height: 100%;
-  padding: 0;
-}
-
-.editor-popover.popover {
-  display: block;
-  max-width: none;
-  box-shadow: none;
-  color: #393939;
-  background: #f5f5f5;
-  border: 1px solid #d5d5d5;
-  padding-top: 20px;
-  position: relative;
-  z-index: 1;
-}
-
-.editor-popover.popover.right > .arrow {
-  border-right-color: #d5d5d5;
-}
-
-.editor-popover.popover.right > .arrow::after {
-  border-right-color: #f5f5f5;
-}
-
-/* 表单按钮区域 */
-.page-body .form-actions {
-  background: none;
-  text-align: center;
-}
-
-/* Footer */
-.footer {
-  padding-top: 75px;
-  height: 0;
-  width: 0
-}
-
-.footer .footer-inner {
-  text-align: center;
-  position: absolute;
-  z-index: auto;
-  left: 0;
-  right: 0;
-  bottom: 0
-}
-
-.sidebar ~ .footer .footer-inner {
-  left: 190px
-}
-
-.footer .footer-inner .footer-content {
-  position: absolute;
-  left: 12px;
-  right: 12px;
-  bottom: 4px;
-  padding: 8px;
-  line-height: 36px;
-  border-top: 3px double #e5e5e5
-}
-
 @media only screen and (max-width: 991px) {
   body {
     overflow-x: hidden
@@ -183,16 +91,6 @@ a {
 
   .main-content .breadcrumbs .breadcrumb > li + li::before {
     content: "/"
-  }
-
-  .footer {
-    width: 100%;
-    height: auto;
-    position: relative
-  }
-
-  .footer .footer-inner, .footer .footer-inner .footer-content {
-    width: 100%
   }
 
   .btn-scroll-up {

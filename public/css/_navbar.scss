@@ -38,7 +38,7 @@
 
 .navbar .navbar-toggle.collapsed {
   background-color: rgba(255, 255, 255, 0.2);
-  border: 1px solid $brand-primary;
+  border: 1px solid $link-color;
 }
 
 .navbar .navbar-toggle.collapsed:focus {
@@ -51,7 +51,7 @@
 }
 
 .navbar-toggle .fa {
-  color: $brand-primary;
+  color: $link-color;
   font-size: 22px;
 }
 
@@ -74,7 +74,7 @@
   padding-top: 12px;
   height: 45px;
   font-size: 16px;
-  color: $gray-dark;
+  color: #333;
 }
 
 .navbar .navbar-nav > li > a:hover,

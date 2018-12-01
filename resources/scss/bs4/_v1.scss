@@ -1,0 +1,14 @@
+// 覆盖当前的样式来兼容旧版
+.navbar-brand {
+  padding: 10px 0 10px 15px;
+  font-size: inherit;
+  margin-right: 0;
+}
+
+.navbar-light .navbar-nav .nav-link {
+  padding: 10px 15px 15px 15px;
+}
+
+.nav-link.dropdown-toggle::after {
+  font-size: 13px;
+}

@@ -7,7 +7,7 @@ module.exports = WebpackConfig.build({
   externals: {},
   getEntries() {
     return {
-      [this.name] : `${this.rootDir}/vendor/miaoxing/admin/resources/pages/admin-bs4`
+      [this.name] : `${this.rootDir}/vendor/miaoxing/admin/resources/pages/index-bs4`
     }
   }
 });

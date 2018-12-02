@@ -1,3 +1,7 @@
+<?php
+
+$wei->page->addPluginAssets('admin-bs4');
+?>
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>

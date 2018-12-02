@@ -4,7 +4,7 @@ wei()->wpAsset->addRevFile('dist2/admin-v1-assets-hash.json');
 ?>
 <!DOCTYPE html>
 <!-- htmllint tag-close="false" -->
-<html lang="en">
+<html lang="zh-CN">
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">

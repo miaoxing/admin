@@ -1,16 +1,3 @@
-<style>
-  .navbar-toggler {
-    padding: 7px 10px;
-    width: 40px;
-    height: 35px;
-    font-size: 22px;
-    margin-left: 15px;
-  }
-  .navbar-toggler.ml-auto {
-    margin-right: 15px;
-  }
-</style>
-
 <nav class="navbar navbar-expand-lg navbar-light p-0">
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".sidebar"
     aria-controls="navbar-toggler" aria-expanded="false" aria-label="Toggle navigation">

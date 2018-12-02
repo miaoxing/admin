@@ -12,3 +12,15 @@
 .nav-link.dropdown-toggle::after {
   font-size: 13px;
 }
+
+.navbar-toggler {
+  padding: 7px 10px;
+  width: 40px;
+  height: 35px;
+  font-size: 22px;
+  margin-left: 15px;
+}
+
+.navbar-toggler.ml-auto {
+  margin-right: 15px;
+}

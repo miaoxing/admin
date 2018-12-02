@@ -1,6 +1,6 @@
 <?php
 
-$wei->page->addPluginAssets('admin', true);
+$wei->page->addPluginAssets('admin');
 ?>
 <!DOCTYPE html>
 <!-- htmllint tag-close="false" -->

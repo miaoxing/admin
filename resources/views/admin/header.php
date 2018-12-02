@@ -1,6 +1,6 @@
 <?php
 
-wei()->wpAsset->addRevFile('dist2/admin-v1-assets-hash.json');
+$wei->page->addPluginAssets('admin', true);
 ?>
 <!DOCTYPE html>
 <!-- htmllint tag-close="false" -->
@@ -11,7 +11,6 @@ wei()->wpAsset->addRevFile('dist2/admin-v1-assets-hash.json');
   <meta name="renderer" content="webkit">
   <title><?= $setting('admin.title', '管理系统') ?></title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-  <link rel="stylesheet" href="<?= $this->wpAsset('admin-v1.css') ?>"/>
   <?= $wei->page->renderHead() ?>
 </head>
 <body>

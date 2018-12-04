@@ -91,6 +91,21 @@
   line-height: 2
 }
 
+.nav-link {
+  position: relative;
+}
+
+.badge-num {
+  position: absolute;
+  right: 0;
+  top: 0;
+  border-radius: 10px;
+  padding: 3px 7px;
+  background: #f5222d;
+  color: #fff;
+  font-weight: normal;
+}
+
 /* 兼容bs4 */
 .navbar .caret {
   display: inline-block;

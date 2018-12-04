@@ -14,13 +14,13 @@
               <?php // deprecated ?>
               <?php $count = $event->trigger('adminShowSideBarBadge', $nav['badge']); ?>
               <?php if ($count[0] > 0) : ?>
-                <span class="badge"><?= $count[0] ?></span>
+                <span class="badge badge-num"><?= $count[0] ?></span>
               <?php endif; ?>
             <?php endif; ?>
             <?php if ($nav['badge']) : ?>
               <?php $count = $event->until('adminShowSideBar' . ucfirst($nav['badge']) .'Badge'); ?>
               <?php if ($count > 0) : ?>
-                <span class="badge"><?= $count ?></span>
+                <span class="badge badge-num"><?= $count ?></span>
               <?php endif; ?>
             <?php endif; ?>
           </a>

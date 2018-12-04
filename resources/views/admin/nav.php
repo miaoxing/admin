@@ -3,7 +3,7 @@
     <a class="nav-link" href="<?= $url($category['url']) ?>">
       <?= $category['name'] ?>
       <?php if ($category['badge']) { ?>
-        <span class="js-badge-<?= str_replace('/', '-', $category['url']) ?> badge"></span>
+        <span class="js-badge-<?= str_replace('/', '-', $category['url']) ?> badge badge-num"></span>
       <?php } ?>
     </a>
   </li>

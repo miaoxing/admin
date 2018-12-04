@@ -2,6 +2,7 @@
   .nav-link {
     position: relative;
   }
+
   .nav-link > .badge {
     position: absolute;
     right: 0;
@@ -16,7 +17,9 @@
   <li class="nav-item <?= $category['active'] ? 'active' : '' ?>">
     <a class="nav-link" href="<?= $url($category['url']) ?>">
       <?= $category['name'] ?>
-      <span class="badge">1</span>
+      <?php if ($category['badge']) { ?>
+        <span class="js-badge-<?= str_replace('/', '-', $category['url']) ?> badge"></span>
+      <?php } ?>
     </a>
   </li>
 <?php endforeach ?>

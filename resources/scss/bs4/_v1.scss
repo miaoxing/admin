@@ -1,26 +1,5 @@
 // 覆盖当前的样式来兼容旧版
-.navbar-brand {
-  padding: 10px 0 10px 15px;
-  font-size: inherit;
-  margin-right: 0;
-}
 
-.navbar-light .navbar-nav .nav-link {
-  padding: 10px 15px 15px 15px;
-}
-
-.nav-link.dropdown-toggle::after {
-  font-size: 13px;
-}
-
-.navbar-toggler {
-  padding: 7px 10px;
-  width: 40px;
-  height: 35px;
-  font-size: 22px;
-  margin-left: 15px;
-}
-
-.navbar-toggler.ml-auto {
-  margin-right: 15px;
+.nav .dropdown-toggle::after {
+  display: none; // 解决显示两个三角形
 }

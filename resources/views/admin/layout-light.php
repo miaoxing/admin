@@ -29,6 +29,7 @@
         </div>
 
         <?= $content ?>
+        <div id="root"></div>
       </div>
       <!-- /.page-content -->
     </div>

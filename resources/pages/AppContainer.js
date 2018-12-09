@@ -1,26 +1,18 @@
 import React from 'react'
 import {hot} from 'react-hot-loader';
 import App from "components/App";
+import pages from 'data/cache/admin-pages';
 
-// NOTE: react-hot-reload和ReactDom.render需在不同的文件中
 class AppContainer extends React.Component {
-  // WARNING: import需早于require.context,才能提前解析出webpackChunkName,否则webpackChunkName无效
   importPage(plugin, controller, action) {
-    return import(
-      /* webpackChunkName: "[request]" */
-      /* webpackInclude: /resources\/pages\/admin/ */
-      `vendor/miaoxing/${plugin}/resources/pages/admin/${controller}/${action}.js`
-      );
-  }
-
-  getPages() {
-    return require.context('vendor/miaoxing', true, /^\.\/.*\/resources\/pages\/admin\/(.+?)\/(.+?)\.js$/, 'lazy');
+    console.log('dd', plugin,  controller, action);
+    return pages[`/${plugin}/resources/pages/${controller}/${action}.js`]();
   }
 
   render() {
     return <App
       importPage={this.importPage}
-      pages={this.getPages()}
+      pages={pages}
     />
   }
 }

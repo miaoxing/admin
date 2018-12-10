@@ -99,14 +99,18 @@
   position: absolute;
   right: 0;
   top: 0;
-  border-radius: 10px;
-  padding: 3px 7px;
   background: #f5222d;
   color: #fff;
-  font-weight: normal;
+
+  // 兼容bs4
+  &#{&} {
+    border-radius: 10px;
+    padding: 3px 7px;
+    font-weight: normal;
+  }
 }
 
-/* 兼容bs4 */
+// 兼容bs4
 .navbar .caret {
   display: inline-block;
   width: 0;
@@ -121,7 +125,7 @@
   font-size: 13px;
 }
 
-/* 兼容bs3 */
+// 兼容bs3
 .navbar-light .navbar-nav .show > .nav-link.dropdown-toggle:focus,
 .navbar-light .navbar-nav .show > .nav-link.dropdown-toggle:hover {
   background-color: #e7e7e7;

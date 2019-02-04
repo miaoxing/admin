@@ -14,15 +14,8 @@
 
 .table-center {
   text-align: center;
-}
 
-.table-center > thead > tr > th {
-  text-align: center;
+  th, td {
+    vertical-align: middle;
+  }
 }
-
-.table-center > thead > tr > th,
-.table-center > tbody > tr > td,
-.table-center > tfoot > tr > td {
-  vertical-align: middle;
-}
-

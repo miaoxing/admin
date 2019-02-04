@@ -1,6 +1,7 @@
 .table {
   word-wrap: break-word;
   overflow-wrap: break-word;
+  white-space: nowrap;
 }
 
 .table > thead > tr {

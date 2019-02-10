@@ -25,7 +25,7 @@
 //@import '~bootstrap/scss/jumbotron';
 @import '~bootstrap/scss/alert';
 //@import '~bootstrap/scss/progress';
-//@import '~bootstrap/scss/media';
+@import '~bootstrap/scss/media';
 @import '~bootstrap/scss/list-group';
 @import '~bootstrap/scss/close';
 //@import '~bootstrap/scss/modal';
@@ -65,3 +65,9 @@
 @import 'utilities';
 @import 'components';
 @import "sidebar";
+
+// Bootstrap 3 兼容
+
+.media-left {
+  @extend .mr-2;
+}

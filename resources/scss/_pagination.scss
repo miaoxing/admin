@@ -1,12 +1,12 @@
 /* stylelint-disable declaration-no-important */
 
 /* Paginations */
-.pagination > li > span, .pager > li > span {
+.pagination > li > span {
   border-width: 1px;
   border-radius: 0 !important
 }
 
-.pagination > li > a, .pager > li > a {
+.pagination > li > a {
   border-width: 1px;
   border-color: #d4dfe3;
   border-radius: 0 !important;
@@ -17,24 +17,26 @@
   z-index: auto
 }
 
-.pagination > li > a:hover, .pager > li > a:hover {
+.pagination > li > a:hover {
   color: $link-color;
   background-color: #eaeff2;
   border-color: #c1d1d7;
   z-index: 1
 }
 
-.pagination > li > a:focus, .pager > li > a:focus {
+.pagination > li > a:focus {
   background-color: #eaeef2
 }
 
-.pagination > li.disabled > a, .pager > li.disabled > a, .pagination > li.disabled > a:hover, .pager > li.disabled > a:hover {
+.pagination > li.disabled > a,
+.pagination > li.disabled > a:hover {
   background-color: #f9f9f9;
   border-color: #d9d9d9;
   z-index: auto
 }
 
-.pagination > li.active > a, .pagination > li.active > a:hover {
+.pagination > li.active > a,
+.pagination > li.active > a:hover {
   background-color: $link-color;
   border-color: $link-color;
   color: #fff;

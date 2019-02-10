@@ -20,11 +20,7 @@ import 'comps/bootstrap/dist/css/bootstrap.min.css';
 import 'comps/jasny-bootstrap/dist/css/jasny-bootstrap.min.css';
 import 'font-awesome/css/font-awesome.min.css';
 import 'comps/jquery-ui-custom/jquery-ui-1.10.3.full.min.css';
-import 'vendor/miaoxing/admin/public/css/layout.css';
-import 'vendor/miaoxing/admin/public/css/utilities.css';
-import 'vendor/miaoxing/admin/public/css/components.css';
-import 'vendor/miaoxing/admin/public/css/theme.scss';
-import 'vendor/miaoxing/app/resources/scss/_tips.scss';
+import 'vendor/miaoxing/admin/resources/scss/index.scss';
 
 $.tips.defaults.valign = 'top';
 

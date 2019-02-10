@@ -2,3 +2,7 @@
 .btn-secondary {
   @include button-variant($white, $border-color);
 }
+
+.btn-default {
+  @extend .btn-secondary;
+}

@@ -10,7 +10,7 @@
 //@import '~bootstrap/scss/grid';
 //@import '~bootstrap/scss/tables';
 //@import '~bootstrap/scss/forms';
-//@import '~bootstrap/scss/buttons';
+@import '~bootstrap/scss/buttons';
 ////@import '~bootstrap/scss/transitions'; 和bs3的.collapse冲突
 //@import '~bootstrap/scss/dropdown';
 //@import '~bootstrap/scss/button-group';
@@ -50,7 +50,7 @@
 //@import "~bootstrap/scss/utilities/visibility";
 ////@import '~bootstrap/scss/print';
 @import 'bs4/type';
-//@import 'buttons';
+@import 'bs4/buttons';
 //@import 'tables';
 //@import 'forms';
 //@import 'modal';

@@ -23,5 +23,6 @@ import 'comps/jquery-ui-custom/jquery-ui-1.10.3.full.min.css';
 import '../scss/index.scss';
 
 $.tips.defaults.valign = 'top';
+$.tips.defaults.baseClass = 'badge';
 
 ReactDOM.render(<AppContainer/>, document.getElementById('root'));

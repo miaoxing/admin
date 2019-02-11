@@ -16,7 +16,7 @@
 //@import '~bootstrap/scss/button-group';
 //@import '~bootstrap/scss/input-group';
 //@import '~bootstrap/scss/custom-forms';
-//@import '~bootstrap/scss/nav';
+@import '~bootstrap/scss/nav';
 ////@import '~bootstrap/scss/navbar'; 和bs3冲突，先只使用bs3
 //@import '~bootstrap/scss/card';
 //@import '~bootstrap/scss/breadcrumb';
@@ -61,6 +61,8 @@
 @import 'vendor/miaoxing/app/resources/scss/_bs3-utilities.scss';
 @import 'vendor/miaoxing/app/resources/scss/_tips.scss';
 
+@import "navs";
+@import "dropdowns";
 @import "datatables";
 @import 'layout';
 @import 'utilities';

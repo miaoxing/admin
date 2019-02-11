@@ -10,7 +10,8 @@
   margin: 0 8px;
 }
 
-.input-group-lg > .form-control, .input-group-lg > .input-group-addon, .input-group-lg > .input-group-btn > .btn {
+.input-group-lg > .form-control,
+.input-group-lg > .input-group-btn > .btn {
   border-radius: 0
 }
 
@@ -357,26 +358,6 @@ input[type=radio].ace.input-lg + .lbl::before {
   line-height: 22px;
   min-width: 24px;
   top: auto
-}
-
-.input-group .input-group-addon {
-  border-radius: 0 !important
-}
-
-.form-group.has-success .input-group .input-group-addon {
-  border-color: #9cc573
-}
-
-.form-group.has-error .input-group .input-group-addon {
-  border-color: #f2a696
-}
-
-.form-group.has-warning .input-group .input-group-addon {
-  border-color: #e3c94c
-}
-
-.form-group.has-info .input-group .input-group-addon {
-  border-color: #72aec2
 }
 
 .input-group > .btn {

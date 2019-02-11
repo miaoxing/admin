@@ -352,12 +352,7 @@ th .lbl:only-child, td .lbl:only-child {
   cursor: move !important
 }
 
-/* csslint ignore:start */
 /* Datepickers */
-.input-group.date .input-group-addon {
-  cursor: pointer
-}
-
 .datepicker td, .daterangepicker td, .datepicker th, .daterangepicker th {
   border-radius: 0 !important;
   font-size: 13px
@@ -767,11 +762,6 @@ th .lbl:only-child, td .lbl:only-child {
 .hasDatepicker {
   position: relative;
   z-index: 50;
-}
-
-/* 支持addon在中间的情况 */
-.input-group-addon:not(:last-child) {
-  border-right: 0;
 }
 
 /*input.select2-input:focus {*/

@@ -7,7 +7,7 @@
 @import '~bootstrap/scss/type';
 @import '~bootstrap/scss/images';
 //@import '~bootstrap/scss/code';
-//@import '~bootstrap/scss/grid';
+@import '~bootstrap/scss/grid';
 @import '~bootstrap/scss/tables';
 //@import '~bootstrap/scss/forms';
 @import '~bootstrap/scss/buttons';
@@ -72,4 +72,9 @@
 
 .media-left {
   @extend .mr-2;
+}
+
+.form-horizontal .form-group {
+  display: flex;
+  flex-wrap: wrap;
 }

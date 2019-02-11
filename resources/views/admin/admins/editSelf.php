@@ -8,7 +8,7 @@
 <!-- /.page-header -->
 
 <div class="row">
-  <div class="col-xs-12">
+  <div class="col-12">
     <!-- PAGE CONTENT BEGINS -->
     <form id="record-form" class="form-horizontal" action="<?= $url('admin/admins/update-self') ?>" method="post"
       role="form">
@@ -41,7 +41,7 @@
       </div>
 
       <div class="clearfix form-actions form-group">
-        <div class="col-lg-offset-2">
+        <div class="offset-lg-2">
           <input type="hidden" id="id" name="id">
 
           <button class="btn btn-primary" type="submit">

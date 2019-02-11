@@ -10,7 +10,7 @@ $view->layout('@admin/admin/layout-light.php')
 </div>
 
 <div class="row">
-  <div class="col-xs-12">
+  <div class="col-12">
 
     <form class="js-login-form m-b-md" role="form" method="post" action="<?= $url('users/login') ?>">
 

@@ -1,18 +1,12 @@
 /* Modals */
-.modal-content {
-  border-radius: 0;
-  @include box-shadow(none);
-}
-
-.modal-footer {
-  padding-top: 12px;
-  padding-bottom: 14px;
-  border-top-color: #e4e9ee;
-  -webkit-box-shadow: none;
-  box-shadow: none;
-  background-color: #eff3f8
+.modal-header {
+  align-items: center;
 }
 
 .modal-header .close {
-  font-size: 32px
+  font-size: 2rem;
+}
+
+.modal-footer {
+  background-color: #eff3f8
 }

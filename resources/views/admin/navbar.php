@@ -29,31 +29,24 @@
           <a href="javascript:" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
             aria-expanded="false">
             <small><?= $e($curUser->getNickName()) ?> - 设置</small>
-            <span class="caret"></span>
           </a>
-          <ul class="dropdown-menu">
+          <div class="dropdown-menu dropdown-menu-right">
             <?php if (wei()->setting('admin.navBarEnableUpdateUserInfo')) : ?>
-              <li>
-                <a href="<?= $url('admin/admins/edit-self') ?>">
-                  <i class="fa fa-user"></i>
-                  修改资料
-                </a>
-              </li>
+              <a class="dropdown-item" href="<?= $url('admin/admins/edit-self') ?>">
+                <i class="fa fa-user"></i>
+                修改资料
+              </a>
             <?php endif ?>
 
-            <li>
-              <a href="<?= $url('admin/password') ?>">
-                <i class="fa fa-lock"></i>
-                修改密码
-              </a>
-            </li>
+            <a class="dropdown-item" href="<?= $url('admin/password') ?>">
+              <i class="fa fa-lock"></i>
+              修改密码
+            </a>
 
-            <li>
-              <a href="<?= $url('users/logout') ?>">
-                <i class="fa fa-power-off"></i>
-                退出
-              </a>
-            </li>
+            <a class="dropdown-item" href="<?= $url('users/logout') ?>">
+              <i class="fa fa-power-off"></i>
+              退出
+            </a>
           </ul>
         </li>
       </ul>

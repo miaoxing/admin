@@ -11,8 +11,8 @@
 @import '~bootstrap/scss/tables';
 //@import '~bootstrap/scss/forms';
 @import '~bootstrap/scss/buttons';
-////@import '~bootstrap/scss/transitions'; 和bs3的.collapse冲突
-//@import '~bootstrap/scss/dropdown';
+@import '~bootstrap/scss/transitions';
+@import '~bootstrap/scss/dropdown';
 //@import '~bootstrap/scss/button-group';
 @import '~bootstrap/scss/input-group';
 //@import '~bootstrap/scss/custom-forms';
@@ -28,9 +28,9 @@
 @import '~bootstrap/scss/media';
 @import '~bootstrap/scss/list-group';
 @import '~bootstrap/scss/close';
-//@import '~bootstrap/scss/modal';
-//@import '~bootstrap/scss/tooltip';
-//@import '~bootstrap/scss/popover';
+@import '~bootstrap/scss/modal';
+@import '~bootstrap/scss/tooltip';
+@import '~bootstrap/scss/popover';
 //@import '~bootstrap/scss/carousel';
 ////@import "~bootstrap/scss/utilities";
 //@import "~bootstrap/scss/utilities/align";
@@ -62,13 +62,13 @@
 @import 'vendor/miaoxing/app/resources/scss/_tips.scss';
 
 @import "navs";
-@import "dropdowns";
 @import "datatables";
 @import 'layout';
 @import 'utilities';
 @import 'components';
 @import "sidebar";
 @import "buttons";
+@import "modals";
 
 // Bootstrap 3 兼容
 

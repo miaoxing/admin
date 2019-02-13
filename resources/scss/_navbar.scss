@@ -5,31 +5,17 @@
 }
 
 .navbar-brand {
-  width: 160px;
+  width: 160px; // 显示位置同 sidebar
 }
 
 .navbar-nav .nav-link {
   font-size: 16px;
+  padding: $navbar-nav-link-padding-x;
 }
 
 .navbar-avatar {
   border-radius: 100%;
-  width: 38px;
-  max-height: 38px;
+  width: 40px;
+  max-height: 40px;
   margin-right: .5rem;
-}
-
-.badge-num {
-  position: absolute;
-  right: 0;
-  top: 0;
-  background: #f5222d;
-  color: #fff;
-
-  // 兼容bs4
-  &#{&} {
-    border-radius: 10px;
-    padding: 3px 7px;
-    font-weight: normal;
-  }
 }

@@ -1,4 +1,7 @@
+// 自定义变量
 @import 'variables';
+
+// Bootstrap 4 Sass
 @import '~bootstrap/scss/functions';
 @import '~bootstrap/scss/variables';
 @import '~bootstrap/scss/mixins';
@@ -49,35 +52,26 @@
 @import "~bootstrap/scss/utilities/text";
 //@import "~bootstrap/scss/utilities/visibility";
 ////@import '~bootstrap/scss/print';
-@import 'bs4/type';
-@import 'bs4/buttons';
-@import "tables";
-@import 'bs4/tables';
-//@import 'bs4/forms';
-//@import 'bs4/modal';
-//@import 'comps/react-bootstrap-message/scss/react-bootstrap-message';
-//@import 'bs4/v1';
 
-@import 'vendor/miaoxing/app/resources/scss/_bs3-utilities.scss';
-@import 'vendor/miaoxing/app/resources/scss/_tips.scss';
-
-@import "navs";
-@import "datatables";
-@import 'layout';
-@import 'utilities';
-@import 'components';
-@import "navbar";
-@import "sidebar";
+// 自定义 Sass
+@import 'type';
+@import "badge";
 @import "buttons";
+@import "tables";
+@import 'forms';
+@import "navs";
+@import "navbar";
 @import "modals";
+@import 'utilities';
+
+@import "sidebar";
+@import 'layout';
+
+@import 'components';
+@import "datatables";
+@import 'vendor/miaoxing/app/resources/scss/_tips.scss';
+//@import 'comps/react-bootstrap-message/scss/react-bootstrap-message';
 
 // Bootstrap 3 兼容
-
-.media-left {
-  @extend .mr-2;
-}
-
-.form-horizontal .form-group {
-  display: flex;
-  flex-wrap: wrap;
-}
+@import 'vendor/miaoxing/app/resources/scss/_bs3-utilities.scss';
+@import "bs3-compat";

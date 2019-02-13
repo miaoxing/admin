@@ -1,3 +1,12 @@
+// 淡化次要按钮
+.btn-secondary {
+  @include button-variant($white, $border-color);
+}
+
+.btn-default {
+  @extend .btn-secondary;
+}
+
 /* Scroll up button */
 .btn-scroll-up {
   border-width: 0;

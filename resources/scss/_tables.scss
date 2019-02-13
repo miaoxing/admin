@@ -1,21 +1,6 @@
-table.table-center > thead > tr > th,
-table.table-center > tbody > tr > td,
-table.table-center > tfoot > tr > td {
-  vertical-align: middle;
-  text-align: center;
-}
-
 table.record-table > tbody > tr > td,
 table.record-table > tfoot > tr > td {
   vertical-align: middle;
-}
-
-table.table-center > tbody > tr > td.text-left {
-  text-align: left;
-}
-
-table.table-center > tbody > tr > td.text-right {
-  text-align: right;
 }
 
 .table-headless > thead > tr > th {
@@ -116,4 +101,21 @@ https://github.com/twbs/bootstrap/issues/14990 */
 
 .message-media .media-actions i:hover {
   color: #4f99c6
+}
+
+.table-responsive > .table {
+  white-space: nowrap;
+}
+
+.table > thead > tr {
+  color: #707070;
+  background: #f6f6f6;
+}
+
+.table-center {
+  text-align: center;
+
+  th, td {
+    vertical-align: middle;
+  }
 }

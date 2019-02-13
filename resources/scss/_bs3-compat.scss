@@ -1,0 +1,8 @@
+.media-left {
+  @extend .mr-2;
+}
+
+.form-horizontal .form-group {
+  display: flex;
+  flex-wrap: wrap;
+}

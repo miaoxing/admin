@@ -1,16 +1,7 @@
 .well {
-  border-radius: 0
-}
-
-.well h1, .well h2, .well h3, .well h4, .well h5, .well h6 {
-  margin-top: 0
-}
-
-.well h1, .well h2, .well h3 {
-  line-height: 36px
-}
-
-.form-well {
-  margin: 1px 0;
-  padding: 16px 16px
+  padding: 1rem;
+  margin-bottom: 1rem;
+  background-color: $gray-100;
+  border: 1px solid $border-color;
+  border-radius: $border-radius;
 }

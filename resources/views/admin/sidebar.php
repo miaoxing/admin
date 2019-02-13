@@ -11,7 +11,7 @@
           <a class="sidebar-link" href="<?= $url($nav['url']) ?>">
             <?= $nav['name'] ?>
             <?php if ($nav['badge']) : ?>
-              <span class="js-badge-<?= str_replace('/', '-', $nav['url']) ?> badge badge-num"></span>
+              <span class="js-badge-<?= str_replace('/', '-', $nav['url']) ?> badge badge-pill badge-danger"></span>
             <?php endif; ?>
           </a>
         </dd>

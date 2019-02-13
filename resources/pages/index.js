@@ -10,7 +10,7 @@ import 'bootstrap/js/dist/dropdown';
 import 'bootstrap/js/dist/modal';
 import 'bootstrap/js/dist/popover';
 import 'bootstrap/js/dist/tooltip';
-// import 'comps/bootstrap/dist/js/bootstrap.min';
+import 'bootstrap/js/dist/collapse';
 import 'comps/jasny-bootstrap/dist/js/jasny-bootstrap.min';
 import 'vendor/miaoxing/app/public/js/app';
 import 'vendor/miaoxing/app/public/js/tips';

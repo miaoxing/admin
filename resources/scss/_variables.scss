@@ -25,9 +25,12 @@ $table-hover-bg: #f5f5f5;
 
 // Navbar
 
+$navbar-padding-y: .3rem; /* navbar高约50px */
 $navbar-light-hover-color: $blue;
 $navbar-light-active-color: $blue;
 $navbar-light-color: #333;
+$navbar-nav-link-padding-x: .875rem;
+$navbar-nav-link-padding-y: .875rem;
 
 // Bootstrap 3
 

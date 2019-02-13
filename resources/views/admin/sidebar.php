@@ -1,4 +1,4 @@
-<aside class="sidebar" id="sidebar">
+<aside class="sidebar collapse d-md-block" id="sidebar">
   <?php foreach ($curSubCategories as $subCategory) : ?>
     <dl>
       <dt class="sidebar-header">

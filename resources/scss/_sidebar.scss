@@ -1,4 +1,5 @@
-/* Sidebar */
+// Sidebar
+
 .sidebar {
   width: 190px;
   height: 100%;
@@ -6,47 +7,42 @@
   float: left;
   position: relative;
   border-right: 1px solid #ddd;
-}
 
-.sidebar::before {
-  content: "";
-  display: block;
-  width: 190px;
-  position: fixed;
-  bottom: 0;
-  top: 0;
-  z-index: -1;
-  border-right: 1px solid #ddd;
-}
-
-.sidebar > dl {
-  margin-bottom: 14px; /* 同bs4 */
-}
-
-@media (min-width: 767px) {
-  .sidebar.collapse {
+  &::before {
+    content: "";
     display: block;
+    width: 190px;
+    position: fixed;
+    bottom: 0;
+    top: 0;
+    z-index: -1;
+    border-right: 1px solid #ddd;
+  }
+
+  &.collapsing,
+  &.show {
+    position: absolute;
+    z-index: 1;
+
+    &::before {
+      display: none;
+    }
+  }
+
+  // 动画显示不完整，先隐藏掉
+  &.collapsing {
+    visibility: hidden;
+  }
+
+  &.show {
+    visibility: visible;
   }
 }
 
 @media (max-width: 767px) {
-  .sidebar {
-    display: none;
-    position: absolute;
-    z-index: 1;
-  }
-
-  .sidebar::before {
-    display: none;
-  }
-
   .sidebar + .main-content {
     margin-left: 0;
     clear: both;
-  }
-
-  .sidebar.show {
-    display: block;
   }
 }
 

@@ -17,7 +17,7 @@
 @import '~bootstrap/scss/input-group';
 //@import '~bootstrap/scss/custom-forms';
 @import '~bootstrap/scss/nav';
-////@import '~bootstrap/scss/navbar'; 和bs3冲突，先只使用bs3
+@import '~bootstrap/scss/navbar';
 //@import '~bootstrap/scss/card';
 //@import '~bootstrap/scss/breadcrumb';
 //@import '~bootstrap/scss/pagination';
@@ -66,6 +66,7 @@
 @import 'layout';
 @import 'utilities';
 @import 'components';
+@import "navbar";
 @import "sidebar";
 @import "buttons";
 @import "modals";

@@ -12,7 +12,7 @@
 
 <?php require $view->getFile('@admin/admin/header.php') ?>
 
-<div class="alert alert-warning text-center no-border bigger-120 p-x-0 visible-xs-block">
+<div class="alert alert-warning text-center px-0 bigger-120 d-block d-sm-none">
   为了确保您更好的使用体验，请在电脑端登录
 </div>
 

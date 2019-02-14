@@ -6,3 +6,11 @@
   display: flex;
   flex-wrap: wrap;
 }
+
+.control-label {
+  @extend .col-form-label;
+}
+
+.input-sm {
+  @extend .form-control-sm;
+}

@@ -1,24 +1,5 @@
 /* stylelint-disable declaration-no-important */
 
-/* Form */
-.form-control-inline .form-control-static {
-  display: inline-block;
-}
-
-.form-control-inline input {
-  display: inline-block;
-  margin: 0 8px;
-}
-
-.input-group-lg > .form-control,
-.input-group-lg > .input-group-btn > .btn {
-  border-radius: 0
-}
-
-.form-group > label[class*="col-"] {
-  padding-top: 7px;
-}
-
 /* Forms */
 .form-actions {
   display: block;
@@ -53,143 +34,10 @@
   text-shadow: none
 }
 
-label {
-  font-weight: 400;
-  font-size: 14px
-}
-
-.form-group > label[class*=col-] {
-  margin-bottom: 4px
-}
-
 td > label, th > label {
   margin-bottom: 0;
   line-height: inherit;
   vertical-align: middle
-}
-
-label.inline {
-  margin-bottom: 3px
-}
-
-textarea, input[type=text], input[type=password], input[type=datetime], input[type=datetime-local], input[type=date], input[type=month], input[type=time], input[type=week], input[type=number], input[type=email], input[type=url], input[type=search], input[type=tel], input[type=color] {
-  border-radius: 0 !important;
-  color: #858585;
-  background-color: #fff;
-  border: 1px solid #d5d5d5;
-  padding: 5px 4px 6px;
-  font-size: 14px;
-  font-family: inherit;
-  -webkit-transition-duration: .1s;
-  transition-duration: .1s
-}
-
-.form-control, select {
-  border-radius: 0;
-  -webkit-box-shadow: none;
-  box-shadow: none;
-  color: #858585;
-  background-color: #fff;
-  border: 1px solid #d5d5d5
-}
-
-.form-group-sm .form-control {
-  border-radius: 0;
-}
-
-textarea.form-control {
-  padding: 5px 4px;
-}
-
-select {
-  padding: 3px 4px;
-  height: 30px
-}
-
-select.form-control {
-  padding: 4px 6px;
-  height: 34px;
-}
-
-select[multiple], select.form-control[multiple] {
-  height: auto
-}
-
-select.input-sm {
-  border-radius: 0;
-  padding: 2px 3px
-}
-
-input.block {
-  display: block;
-  margin-bottom: 9px
-}
-
-select option, select.form-control option {
-  padding: 3px 4px 5px
-}
-
-select option:active, select.form-control option:active, select option:hover, select.form-control option:hover, select option:focus, select.form-control option:focus {
-  background-color: #eee;
-  color: #444
-}
-
-select option.no-option, select.form-control option.no-option {
-  padding: 1px 0
-}
-
-input[disabled] {
-  color: #848484 !important;
-  background-color: #eee !important
-}
-
-input[disabled]:hover {
-  border-color: #d5d5d5 !important
-}
-
-input[readonly] {
-  color: #939192;
-  background: #f5f5f5 !important;
-  cursor: default
-}
-
-input[readonly]:hover {
-  border-color: #c3c3c3
-}
-
-input[readonly]:focus {
-  -webkit-box-shadow: none;
-  box-shadow: none;
-  border-color: #aaa;
-  background-color: #f9f9f9
-}
-
-.input-icon {
-  position: relative
-}
-
-span.input-icon {
-  display: inline-block
-}
-
-.input-icon > input {
-  padding-left: 24px;
-  padding-right: 6px
-}
-
-.input-icon.input-icon-right > input {
-  padding-left: 6px;
-  padding-right: 24px
-}
-
-.form-inline .radio [type=radio] + label, .form-inline .checkbox [type=checkbox] + label {
-  float: left;
-  margin-left: -20px
-}
-
-.form-inline .form-inline .radio [type=radio] + label, .form-inline .form-inline .checkbox [type=checkbox] + label {
-  margin-left: 0;
-  margin-right: 3px
 }
 
 .input-mini,
@@ -198,35 +46,9 @@ span.input-icon {
   max-width: 100%
 }
 
-.input-small,
-.form-inline .input-small {
-  width: 90px;
-  max-width: 100%
-}
-
-.input-medium,
-.input-md,
-.form-inline .input-medium,
-.form-inline .input-md {
-  width: 150px;
-  max-width: 100%
-}
-
 .input-large,
 .form-inline .input-large {
   width: 210px;
-  max-width: 100%
-}
-
-.input-xlarge,
-.form-inline .input-xlarge {
-  width: 270px;
-  max-width: 100%
-}
-
-.input-xxlarge,
-.form-inline .input-xxlarge {
-  width: 530px;
   max-width: 100%
 }
 
@@ -299,16 +121,6 @@ input[type=checkbox].ace:active + .lbl::before, input[type=radio].ace:active + .
   box-shadow: 0 1px 2px rgba(0, 0, 0, .05), inset 0 1px 3px rgba(0, 0, 0, .1)
 }
 
-input[type=checkbox].ace.ace-checkbox-2 + .lbl::before, input[type=radio].ace.ace-checkbox-2 + .lbl::before {
-  box-shadow: none
-}
-
-input[type=checkbox].ace.ace-checkbox-2:checked + .lbl::before, input[type=radio].ace.ace-checkbox-2:checked + .lbl::before {
-  background-color: #f9a021;
-  border-color: #f9a021;
-  color: #fff
-}
-
 input[type=checkbox].ace:disabled + .lbl::before, input[type=radio].ace:disabled + .lbl::before, input[type=checkbox].ace[disabled] + .lbl::before, input[type=radio].ace[disabled] + .lbl::before, input[type=checkbox].ace.disabled + .lbl::before, input[type=radio].ace.disabled + .lbl::before {
   background-color: #ddd !important;
   border-color: #ccc !important;
@@ -334,147 +146,9 @@ input[type=radio].ace:checked + .lbl::before {
   content: "\f111"
 }
 
-.input-group > .btn {
-  line-height: 20px;
-  padding: 0 6px;
-  border-radius: 0 !important
-}
-
-.input-group > .btn.btn-sm {
-  line-height: 22px
-}
-
-.input-group > .btn + .btn {
-  margin-left: 1px
-}
-
-.input-group > .btn-group > .btn {
-  line-height: 23px
-}
-
-.input-group > .btn-group > .btn.btn-sm {
-  line-height: 26px
-}
-
-.input-group > .btn > .caret, .input-group > .btn-group > .btn > .caret, .input-group > .btn.btn-sm > .caret, .input-group > .btn-group > .btn.btn-sm > .caret {
-  margin-top: 10px
-}
-
-.input-group.input-group-compact {
-  width: 1px
-}
-
-.form-group select, .form-group textarea, .form-group input[type=text], .form-group input[type=password], .form-group input[type=datetime], .form-group input[type=datetime-local], .form-group input[type=date], .form-group input[type=month], .form-group input[type=time], .form-group input[type=week], .form-group input[type=number], .form-group input[type=email], .form-group input[type=url], .form-group input[type=search], .form-group input[type=tel], .form-group input[type=color] {
-  background: #fff
-}
-
-.form-group.has-success input, .form-group.has-success select, .form-group.has-success textarea {
-  border-color: #9cc573;
-  color: #8bad4c;
-  -webkit-box-shadow: none;
-  box-shadow: none
-}
-
-.form-group.has-success input:focus, .form-group.has-success select:focus, .form-group.has-success textarea:focus {
-  -webkit-box-shadow: 0 0 0 2px rgba(130, 188, 58, .3);
-  box-shadow: 0 0 0 2px rgba(130, 188, 58, .3);
-  color: #6f8a3c;
-  border-color: #779c52;
-  background-color: #f4f9f0
-}
-
-.form-group.has-info input, .form-group.has-info select, .form-group.has-info textarea {
-  border-color: #72aec2;
-  color: #4b89aa;
-  -webkit-box-shadow: none;
-  box-shadow: none
-}
-
-.form-group.has-info input:focus, .form-group.has-info select:focus, .form-group.has-info textarea:focus {
-  -webkit-box-shadow: 0 0 0 2px rgba(58, 120, 188, .3);
-  box-shadow: 0 0 0 2px rgba(58, 120, 188, .3);
-  color: #3b6c87;
-  border-color: #488ea5;
-  background-color: #f1f7f9
-}
-
-.form-group.has-error input, .form-group.has-error select, .form-group.has-error textarea {
-  border-color: #f2a696;
-  color: #d68273;
-  -webkit-box-shadow: none;
-  box-shadow: none
-}
-
-.form-group.has-error input:focus, .form-group.has-error select:focus, .form-group.has-error textarea:focus {
-  -webkit-box-shadow: 0 0 0 2px rgba(219, 137, 120, .3);
-  box-shadow: 0 0 0 2px rgba(219, 137, 120, .3);
-  color: #ca5f4c;
-  border-color: #d77b68;
-  background-color: #fef9f8
-}
-
-.form-group.has-warning input, .form-group.has-warning select, .form-group.has-warning textarea {
-  border-color: #e3c94c;
-  color: #d3bd50;
-  -webkit-box-shadow: none;
-  box-shadow: none
-}
-
-.form-group.has-warning input:focus, .form-group.has-warning select:focus, .form-group.has-warning textarea:focus {
-  -webkit-box-shadow: 0 0 0 2px rgba(216, 188, 65, .3);
-  box-shadow: 0 0 0 2px rgba(216, 188, 65, .3);
-  color: #c0a830;
-  border-color: #d5b630;
-  background-color: #fdfbf3
-}
-
-.form-group input[disabled], .form-group input:disabled {
-  color: #848484 !important;
-  background-color: #eee !important
-}
-
-/* 表单样式美化 兼容bs4 */
-.form-control:focus {
-  border-color: #72c0f7;
-  box-shadow: 0 0 0 0.2rem rgba(12, 134, 222, 0.25);
-}
-
-input[readonly]:focus, input[readonly="readonly"]:focus {
-  box-shadow: none !important;
-  border-color: #c3c3c3;
-}
-
-input.form-control {
-  border-radius: 0;
-  line-height: 1.428571429;
-}
-
-select.form-control.input-sm {
-  height: 32px;
-}
-
-.help-button-sm {
-  height: 18px;
-  width: 18px;
-  line-height: 16px;
-}
-
-.help-button-xs {
-  height: 16px;
-  width: 16px;
-  line-height: 14px;
-}
-
 .help-text {
   padding-top: 4px;
   margin-bottom: 4px;
   padding-left: 0;
   color: rgb(133, 133, 133);
-}
-
-.form-actions {
-  background-color: #f5f5f5;
-  margin-bottom: 20px;
-  margin-top: 20px;
-  padding: 20px 0 20px;
 }

@@ -1,13 +1,15 @@
-/* 废弃,使用文字代替 */
-.action-buttons i {
-  margin: 0 3px;
-  display: inline-block;
+html {
+  font-size: 14px;
+  min-height: 100%;
+  position: relative;
 }
 
-.ui-menu {
-  margin: 0;
+body {
+  font-variant: tabular-nums;
+  background-color: #e4e6e9;
+  min-height: 100%;
 }
 
-.ui-menu li {
-  list-style: none;
+a {
+  cursor: pointer; /* without href */
 }

@@ -1,55 +1,5 @@
 /* stylelint-disable declaration-no-important */
 
-.img-max {
-  width: 100%;
-}
-
-.text-lg {
-  font-size: 18px;
-}
-
-/* Tables */
-.table {
-  border-top: 1px solid #ddd;
-  word-wrap: break-word;
-  overflow-wrap: break-word;
-}
-
-.table > thead > tr {
-  color: #707070;
-  font-weight: 400;
-  background: #f6f6f6;
-}
-
-.table > thead > tr > th {
-  font-weight: 700;
-  border-bottom-width: 1px;
-}
-
-.table > thead > tr > th:first-child {
-  border-left-color: #f1f1f1
-}
-
-.table.table-bordered > thead > tr > th {
-  vertical-align: middle
-}
-
-.table.table-bordered > thead > tr > th:first-child {
-  border-left-color: #ddd
-}
-
-th .lbl, td .lbl {
-  margin-bottom: 0
-}
-
-th .lbl:only-child, td .lbl:only-child {
-  vertical-align: top
-}
-
-.table-header-tips i {
-  vertical-align: bottom;
-}
-
 /* Popovers */
 .popover {
   padding: 0;
@@ -560,6 +510,14 @@ th .lbl:only-child, td .lbl:only-child {
   color: #999
 }
 
+.ui-menu {
+  margin: 0;
+}
+
+.ui-menu li {
+  list-style: none;
+}
+
 .ui-autocomplete {
   background-color: #fff;
   border: 1px solid rgba(0, 0, 0, .2);
@@ -660,4 +618,10 @@ th .lbl:only-child, td .lbl:only-child {
 .hasDatepicker {
   position: relative;
   z-index: 50;
+}
+
+// Deprecated
+.action-buttons i {
+  margin: 0 3px;
+  display: inline-block;
 }

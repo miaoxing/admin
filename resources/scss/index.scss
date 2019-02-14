@@ -66,13 +66,14 @@
 @import "modals";
 @import 'utilities';
 
-@import "sidebar";
-@import 'layout';
-@import 'components';
 @import 'vendor/miaoxing/app/resources/scss/_tips.scss';
 //@import 'comps/react-bootstrap-message/scss/react-bootstrap-message';
 
+@import 'layout';
+@import "sidebar";
+
 // Deprecated
+@import 'components';
 @import "checkbox-radio";
 @import "datatables";
 

@@ -37,6 +37,10 @@
   &.show {
     visibility: visible;
   }
+
+  &+ .main-content {
+    margin-left: 190px
+  }
 }
 
 @media (max-width: 767px) {

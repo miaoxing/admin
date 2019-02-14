@@ -119,3 +119,45 @@ https://github.com/twbs/bootstrap/issues/14990 */
     vertical-align: middle;
   }
 }
+
+/* Tables */
+.table {
+  border-top: 1px solid #ddd;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+.table > thead > tr {
+  color: #707070;
+  font-weight: 400;
+  background: #f6f6f6;
+}
+
+.table > thead > tr > th {
+  font-weight: 700;
+  border-bottom-width: 1px;
+}
+
+.table > thead > tr > th:first-child {
+  border-left-color: #f1f1f1
+}
+
+.table.table-bordered > thead > tr > th {
+  vertical-align: middle
+}
+
+.table.table-bordered > thead > tr > th:first-child {
+  border-left-color: #ddd
+}
+
+th .lbl, td .lbl {
+  margin-bottom: 0
+}
+
+th .lbl:only-child, td .lbl:only-child {
+  vertical-align: top
+}
+
+.table-header-tips i {
+  vertical-align: bottom;
+}

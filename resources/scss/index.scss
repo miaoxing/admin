@@ -73,9 +73,9 @@
 @import "sidebar";
 
 // Deprecated
-@import 'components';
 @import "checkbox-radio";
 @import "datatables";
+@import 'components';
 
 // Bootstrap 3 兼容
 @import "vendor/miaoxing/app/resources/scss/_bs3-utilities.scss";

@@ -1,20 +1,5 @@
 /* stylelint-disable declaration-no-important */
 
-/* Popovers */
-.popover {
-  padding: 0;
-  border-color: #ccc;
-  border-width: 1px;
-  box-shadow: none;
-  color: #4d6883
-}
-
-.popover-title {
-  background-color: #eff3f8;
-  color: #555;
-  border-bottom: 1px solid #dde6f0;
-}
-
 /* Thumbnails */
 .ace-thumbnails {
   list-style: none;
@@ -205,14 +190,8 @@
   height: 100%;
 }
 
-/* todo */
-.ui-sortable-placeholder, .ui-sortable-helper, .ui-sortable-placeholder > a, .ui-sortable-helper > a {
-  cursor: move !important
-}
-
 /* Datepickers */
 .datepicker td, .daterangepicker td, .datepicker th, .daterangepicker th {
-  border-radius: 0 !important;
   font-size: 13px
 }
 
@@ -533,19 +512,6 @@
   font-weight: bolder;
   border: 1px solid #dae6ed;
   border-width: 1px 0
-}
-
-.multiselect-container > li > a {
-  padding: 0
-}
-
-.multiselect-container > li > a > label {
-  padding: 7px 10px 7px 20px
-}
-
-.draggable-placeholder {
-  border: 2px dashed #d9d9d9 !important;
-  background-color: #f7f7f7 !important
 }
 
 /* 表单底部的操作按钮 */

@@ -68,12 +68,14 @@
 
 @import "sidebar";
 @import 'layout';
-
 @import 'components';
-@import "datatables";
 @import 'vendor/miaoxing/app/resources/scss/_tips.scss';
 //@import 'comps/react-bootstrap-message/scss/react-bootstrap-message';
 
+// Deprecated
+@import "checkbox-radio";
+@import "datatables";
+
 // Bootstrap 3 兼容
-@import 'vendor/miaoxing/app/resources/scss/_bs3-utilities.scss';
+@import "vendor/miaoxing/app/resources/scss/_bs3-utilities.scss";
 @import "bs3-compat";

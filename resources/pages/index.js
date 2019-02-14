@@ -20,7 +20,6 @@ import 'vendor/miaoxing/admin/public/js/ajax-tips';
 import 'vendor/miaoxing/admin/public/js/popup';
 import 'vendor/miaoxing/admin/public/js/admin';
 
-import '../scss/bs3.scss';
 import 'comps/jasny-bootstrap/dist/css/jasny-bootstrap.min.css';
 import 'font-awesome/css/font-awesome.min.css';
 import 'comps/jquery-ui-custom/jquery-ui-1.10.3.full.min.css';

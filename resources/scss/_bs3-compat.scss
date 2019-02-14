@@ -9,6 +9,7 @@
 
 .control-label {
   @extend .col-form-label;
+  @extend .text-sm-right;
 }
 
 .input-sm {

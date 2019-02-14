@@ -19,3 +19,13 @@
 .form-control-static {
   @extend .form-control-plaintext;
 }
+
+.radio-inline,
+.checkbox-inline {
+  @extend .col-form-label;
+}
+
+.radio-inline + .radio-inline,
+.checkbox-inline + .checkbox-inline {
+  margin-left: 10px; // space out consecutive inline controls
+}

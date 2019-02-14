@@ -8,20 +8,11 @@
   font-size: 18px;
 }
 
-/* Form */
-.form-control-static {
-  font-size: 14px;
-}
-
 /* Tables */
 .table {
   border-top: 1px solid #ddd;
   word-wrap: break-word;
   overflow-wrap: break-word;
-}
-
-th, td, .table-bordered {
-  border-radius: 0 !important;
 }
 
 .table > thead > tr {
@@ -47,10 +38,6 @@ th, td, .table-bordered {
   border-left-color: #ddd
 }
 
-th.center, td.center {
-  text-align: center
-}
-
 th .lbl, td .lbl {
   margin-bottom: 0
 }
@@ -65,7 +52,6 @@ th .lbl:only-child, td .lbl:only-child {
 
 /* Popovers */
 .popover {
-  border-radius: 0;
   padding: 0;
   border-color: #ccc;
   border-width: 1px;
@@ -74,30 +60,9 @@ th .lbl:only-child, td .lbl:only-child {
 }
 
 .popover-title {
-  border-radius: 0;
   background-color: #eff3f8;
   color: #555;
   border-bottom: 1px solid #dde6f0;
-}
-
-.popover.bottom > .arrow::after {
-  top: 1px;
-  margin-left: -10px;
-  border-bottom-color: #eff3f8;
-  -moz-border-bottom-colors: #eff3f8;
-  border-top-width: 0
-}
-
-.popover.left > .arrow::after {
-  -moz-border-left-colors: #fff
-}
-
-.popover.right > .arrow::after {
-  -moz-border-right-colors: #fff
-}
-
-.popover.top > .arrow::after {
-  -moz-border-top-colors: #fff
 }
 
 /* Thumbnails */
@@ -691,17 +656,8 @@ th .lbl:only-child, td .lbl:only-child {
   margin-bottom: -.65em
 }
 
-.well {
-  -webkit-box-shadow: none;
-  box-shadow: none;
-}
-
 /* 统一解决jQuery UI Datepicker被Bootstrap input-group, Ueditor挡住的问题 */
 .hasDatepicker {
   position: relative;
   z-index: 50;
 }
-
-/*input.select2-input:focus {*/
-  /*box-shadow: none !important;*/
-/*}*/

@@ -11,6 +11,7 @@ import 'bootstrap/js/dist/modal';
 import 'bootstrap/js/dist/popover';
 import 'bootstrap/js/dist/tooltip';
 import 'bootstrap/js/dist/collapse';
+import 'bootstrap/js/dist/tab';
 import 'comps/jasny-bootstrap/dist/js/jasny-bootstrap.min';
 import 'vendor/miaoxing/app/public/js/app';
 import 'vendor/miaoxing/app/public/js/tips';

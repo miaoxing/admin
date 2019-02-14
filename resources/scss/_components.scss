@@ -591,3 +591,30 @@
   margin: 0 3px;
   display: inline-block;
 }
+
+.product-media .media-heading,
+.user-media .media-heading {
+  margin-bottom: 10px;
+}
+
+.user-media .media-heading,
+.user-media .media-heading a {
+  color: inherit;
+  font-size: 16px;
+}
+
+.user-media .media-object {
+  width: 48px;
+  height: 48px;
+}
+
+.product-media .media-heading {
+  font-size: 14px;
+}
+
+/* 内部无表单的情况下不设置宽度,避免某一列table被撑开
+https://github.com/twbs/bootstrap/issues/14990 */
+.user-media .media-body,
+.product-media .media-body {
+  width: auto;
+}

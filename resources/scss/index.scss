@@ -21,7 +21,7 @@
 @import '~bootstrap/scss/custom-forms';
 @import '~bootstrap/scss/nav';
 @import '~bootstrap/scss/navbar';
-//@import '~bootstrap/scss/card';
+@import '~bootstrap/scss/card';
 //@import '~bootstrap/scss/breadcrumb';
 @import '~bootstrap/scss/pagination';
 @import '~bootstrap/scss/badge';
@@ -58,7 +58,6 @@
 @import 'type';
 @import "badge";
 @import "buttons";
-@import "tables";
 @import "wells";
 @import 'forms';
 @import "navs";
@@ -66,17 +65,19 @@
 @import "modals";
 @import 'utilities';
 
-@import 'vendor/miaoxing/app/resources/scss/_tips.scss';
+@import "vendor/miaoxing/app/resources/scss/tables";
+@import 'vendor/miaoxing/app/resources/scss/tips';
 //@import 'comps/react-bootstrap-message/scss/react-bootstrap-message';
 
 @import 'layout';
 @import "sidebar";
 
 // Deprecated
+@import "tables";
 @import "checkbox-radio";
 @import "datatables";
 @import 'components';
 
 // Bootstrap 3 兼容
-@import "vendor/miaoxing/app/resources/scss/_bs3-utilities.scss";
+@import "vendor/miaoxing/app/resources/scss/bs3-utilities";
 @import "bs3-compat";

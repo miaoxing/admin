@@ -43,9 +43,9 @@ class AdminIndex extends React.Component {
             data: 'createTime'
           },
           {
-            title: `<span class="js-tips-hover table-header-tips" data-content="禁用后,用户将无法登录" 
+            title: `<span class="js-tips-hover" data-content="禁用后,用户将无法登录" 
               data-container="body" data-placement="bottom" data-trigger="hover">
-                启用 <i class="fa fa-question-circle light-grey bigger-130"></i>
+                启用 <i class="fa fa-question-circle"></i>
             </span>`,
             data: 'enable',
             render: function (data, type, full) {

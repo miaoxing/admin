@@ -20,6 +20,10 @@
   @extend .form-control-plaintext;
 }
 
+.form-inline .form-group {
+  margin-right: .5rem;
+}
+
 .radio-inline,
 .checkbox-inline {
   @extend .col-form-label;

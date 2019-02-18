@@ -133,36 +133,25 @@
   border: 1px solid #c5d0dc
 }
 
-/* Tab underline */
+// Tab underline
+
 .tab-underline {
-  background-color: #fff;
-  border-bottom: 1px solid #eee;
-}
+  border-bottom: 1px solid $border-color;
 
-.tab-underline > li {
-  float: left;
-  margin-bottom: -1px;
-}
+  .nav-item {
+    margin-bottom: -1px;
+  }
 
-.tab-underline > li:hover {
-  border-bottom: 3px solid #aaa;
-}
+  .nav-link {
+    color: #777;
 
-.tab-underline > li.active {
-  border-bottom: 3px $link-color solid;
+    &:hover {
+      border-bottom: 3px solid #aaa;
+    }
 
-}
-
-.tab-underline > li > a {
-  color: #777;
-  font-size: 14px;
-}
-
-.tab-underline > li.active > a {
-  color: $link-color;
-}
-
-.tab-underline > li > a:hover,
-.tab-underline > li > a:focus {
-  background: transparent;
+    &.active {
+      color: $link-color;
+      border-bottom: 3px $link-color solid;
+    }
+  }
 }

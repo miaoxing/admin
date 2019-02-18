@@ -309,7 +309,7 @@ div.ColVis_collectionBackground {
   position: relative;
 }
 
-div.dataTables_wrapper div.dataTables_processing {
+.dataTables_wrapper .dataTables_processing.card {
   position: absolute;
   top: 50%;
   left: 50%;

@@ -3,8 +3,7 @@
 }
 
 .form-horizontal .form-group {
-  display: flex;
-  flex-wrap: wrap;
+  @extend .row;
 }
 
 .control-label {

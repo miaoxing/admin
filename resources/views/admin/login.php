@@ -12,7 +12,7 @@ $view->layout('@admin/admin/layout-light.php')
 <div class="row">
   <div class="col-12">
 
-    <form class="js-login-form m-b-md" role="form" method="post" action="<?= $url('users/login') ?>">
+    <form class="js-login-form mb-4" role="form" method="post" action="<?= $url('users/login') ?>">
 
       <div class="form-group">
         <label for="email">
@@ -54,7 +54,7 @@ $view->layout('@admin/admin/layout-light.php')
         </div>
       </div>
 
-      <div class="clearfix form-group m-t-md">
+      <div class="clearfix form-group mt-4">
         <button class="btn btn-primary btn-block btn-lg" type="submit">
           登录
         </button>
@@ -62,7 +62,7 @@ $view->layout('@admin/admin/layout-light.php')
     </form>
     <?php if ($setting('admin.enableRegister')) : ?>
       <hr>
-      <div class="m-t text-center">
+      <div class="mt-3 text-center">
         没有账号，点击<a href="<?= $url('registration/register') ?>">注册</a>
 
       </div>

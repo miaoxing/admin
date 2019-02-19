@@ -20,7 +20,7 @@
   <div class="main-container-inner">
     <div class="main-content">
       <div class="page-content page-content-light">
-        <div class="text-center m-a-md logo-container">
+        <div class="text-center m-4 logo-container">
           <?php if ($logoUrl = $setting('app.logo')) : ?>
             <img class="page-logo" src="<?= $logoUrl ?>">
           <?php else : ?>

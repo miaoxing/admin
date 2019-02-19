@@ -88,7 +88,7 @@ class AdminIndex extends React.Component {
     return (
       <Page>
         <PageHeader>
-          <Button bsStyle="success" href={$.url('admin/admins/new')}>添加管理员</Button>
+          <Button variant="success" href={$.url('admin/admins/new')}>添加管理员</Button>
         </PageHeader>
         <SearchForm className="js-admin-form">
           <SearchItem label="用户名" name="username" />

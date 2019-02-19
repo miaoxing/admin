@@ -16,13 +16,11 @@ window.requirejs.config({
     highcharts: 'assets/highcharts',
     jquery: 'comps/jquery-legacy/jquery.min',
     'jquery-deparam': 'comps/jquery-deparam/jquery-deparam.min',
-    'jquery-ui-autocomplete': 'comps/jquery-ui/ui/minified/jquery.ui.autocomplete.min',
     'jquery-ui-core': 'comps/jquery-ui/ui/minified/jquery.ui.core.min',
     'jquery-ui-datepicker': 'comps/jquery-ui/ui/minified/jquery.ui.datepicker.min',
     'jquery-ui-datepicker-zh-CN': 'comps/jquery-ui/ui/minified/i18n/jquery.ui.datepicker-zh-CN.min',
     'jquery-ui-menu': 'comps/jquery-ui/ui/minified/jquery.ui.menu.min',
     'jquery-ui-mouse': 'comps/jquery-ui/ui/minified/jquery.ui.mouse.min',
-    'jquery-ui-position': 'comps/jquery-ui/ui/minified/jquery.ui.position.min',
     'jquery-ui-slider': 'comps/jquery-ui/ui/minified/jquery.ui.slider.min',
     'jquery-ui-widget': 'comps/jquery-ui/ui/minified/jquery.ui.widget.min',
     'jquery-validation': 'comps/jquery-validation/jquery.validate',
@@ -40,17 +38,11 @@ window.requirejs.config({
     'datatables.bootstrap': {
       deps: ['datatables']
     },
-    'jquery-ui-autocomplete': {
-      deps: ['jquery-ui-menu', 'jquery-ui-core', 'jquery-ui-position', 'jquery-ui-widget']
-    },
     'jquery-ui-datepicker': {
       deps: ['jquery-ui-core']
     },
     'jquery-ui-datepicker-zh-CN': {
       deps: ['jquery-ui-datepicker']
-    },
-    'jquery-ui-menu': {
-      deps: ['jquery-ui-core', 'jquery-ui-position', 'jquery-ui-widget']
     },
     'jquery-ui-mouse': {
       deps: ['jquery-ui-widget']

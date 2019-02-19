@@ -15,7 +15,6 @@ window.requirejs.config({
     formUpdate: 'assets/formUpdate',
     highcharts: 'assets/highcharts',
     jquery: 'comps/jquery-legacy/jquery.min',
-    'jquery-bbq': 'comps/jquery-bbq/jquery.ba-bbq',
     'jquery-deparam': 'comps/jquery-deparam/jquery-deparam.min',
     'jquery-ui-autocomplete': 'comps/jquery-ui/ui/minified/jquery.ui.autocomplete.min',
     'jquery-ui-core': 'comps/jquery-ui/ui/minified/jquery.ui.core.min',

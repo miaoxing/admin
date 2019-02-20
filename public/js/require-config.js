@@ -1,15 +1,10 @@
 /**
  * Requirejs常用模块配置
- *
- * @todo jquery-validation等想办法简化
  */
 window.requirejs.config({
   paths: {
     bootbox: 'assets/bootbox',
     daterangepicker: 'assets/daterangepicker',
-    dataTable: 'assets/dataTable',
-    datatables: 'comps/jquery.dataTables/jquery.dataTables',
-    'datatables.bootstrap': 'assets/js/jquery.dataTables.bootstrap',
     form: 'assets/form',
     formUpdate: 'assets/formUpdate',
     highcharts: 'assets/highcharts',
@@ -23,9 +18,6 @@ window.requirejs.config({
     linkTo: 'plugins/link-to/js/link-to'
   },
   shim: {
-    'datatables.bootstrap': {
-      deps: ['datatables']
-    },
     'jquery-validation-zh': {
       deps: ['jquery-validation']
     },

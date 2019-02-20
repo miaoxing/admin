@@ -19,14 +19,11 @@ window.requirejs.config({
     'jquery-ui-core': 'comps/jquery-ui/ui/minified/jquery.ui.core.min',
     'jquery-ui-datepicker': 'comps/jquery-ui/ui/minified/jquery.ui.datepicker.min',
     'jquery-ui-datepicker-zh-CN': 'comps/jquery-ui/ui/minified/i18n/jquery.ui.datepicker-zh-CN.min',
-    'jquery-ui-menu': 'comps/jquery-ui/ui/minified/jquery.ui.menu.min',
     'jquery-ui-mouse': 'comps/jquery-ui/ui/minified/jquery.ui.mouse.min',
     'jquery-ui-slider': 'comps/jquery-ui/ui/minified/jquery.ui.slider.min',
     'jquery-ui-widget': 'comps/jquery-ui/ui/minified/jquery.ui.widget.min',
     'jquery-validation': 'comps/jquery-validation/jquery.validate',
     'jquery-validation-zh': 'comps/jquery-validation/localization/messages_zh',
-    'jqueryui-timepicker-addon': 'comps/jqueryui-timepicker-addon/dist/jquery-ui-timepicker-addon.min',
-    'jqueryui-timepicker-addon-zh-CN': 'comps/jqueryui-timepicker-addon/dist/i18n/jquery-ui-timepicker-zh-CN',
     moment: 'comps/moment/min/moment.min',
     loadJSON: 'comps/jquery.loadJSON/index',
     template: 'comps/artTemplate/template.min',
@@ -56,11 +53,5 @@ window.requirejs.config({
     'plugins/app/libs/jquery-validation-bootstrap-tooltip/jquery-validate.bootstrap-tooltip.min': {
       deps: ['jquery-validation']
     },
-    'jqueryui-timepicker-addon': {
-      deps: ['jquery-ui-datepicker-zh-CN', 'jquery-ui-slider']
-    },
-    'jqueryui-timepicker-addon-zh-CN': {
-      deps: ['jqueryui-timepicker-addon']
-    }
   }
 });

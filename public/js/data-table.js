@@ -1,8 +1,7 @@
 define([
   'plugins/admin/libs/jquery.dataTables/jquery.dataTables',
   'template',
-  'jquery-deparam',
-  'comps/jquery-unparam/jquery-unparam.min'
+  'jquery-unparam',
 ], function () {
   //http://datatables.net/plug-ins/pagination#bootstrap
   // Start Bootstrap

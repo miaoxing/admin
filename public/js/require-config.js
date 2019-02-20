@@ -1,6 +1,5 @@
 window.requirejs.config({
   paths: {
-    daterangepicker: 'assets/daterangepicker',
     form: 'assets/form',
     formUpdate: 'assets/formUpdate',
     jquery: 'comps/jquery-legacy/jquery.min',

@@ -8,7 +8,6 @@ window.requirejs.config({
     jquery: 'comps/jquery-legacy/jquery.min',
     'jquery-deparam': 'comps/jquery-deparam/jquery-deparam.min',
     loadJSON: 'comps/jquery.loadJSON/index',
-    template: 'comps/artTemplate/template.min',
-    linkTo: 'plugins/link-to/js/link-to'
+    template: 'comps/artTemplate/template.min'
   }
 });

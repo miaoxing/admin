@@ -1,6 +1,5 @@
 window.requirejs.config({
   paths: {
-    bootbox: 'assets/bootbox',
     daterangepicker: 'assets/daterangepicker',
     form: 'assets/form',
     formUpdate: 'assets/formUpdate',

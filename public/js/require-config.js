@@ -1,7 +1,6 @@
 /**
  * Requirejs常用模块配置
  *
- * @todo jquery-ui升级新版,原生支持amd
  * @todo jquery-validation等想办法简化
  */
 window.requirejs.config({
@@ -18,7 +17,6 @@ window.requirejs.config({
     'jquery-deparam': 'comps/jquery-deparam/jquery-deparam.min',
     'jquery-validation': 'comps/jquery-validation/jquery.validate',
     'jquery-validation-zh': 'comps/jquery-validation/localization/messages_zh',
-    moment: 'comps/moment/min/moment.min',
     loadJSON: 'comps/jquery.loadJSON/index',
     template: 'comps/artTemplate/template.min',
     validator: 'assets/validator',

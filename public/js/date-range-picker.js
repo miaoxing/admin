@@ -2,7 +2,7 @@ define([
   'comps/moment/min/moment.min',
   'plugins/admin/libs/bootstrap-daterangepicker/daterangepicker',
   'css!plugins/admin/libs/bootstrap-daterangepicker/daterangepicker-bs3'
-], function (moment) {
+], function () {
   var now = moment();
   var defaults = {
     startDate: moment().subtract(29, 'days'),

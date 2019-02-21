@@ -1,6 +1,6 @@
 require.config({
   paths: {
-    'jquery-ui/ui/widget': 'comps/jquery-ui/ui/jquery.ui.widget'
+    'jquery-ui/ui/widget': 'plugins/admin/libs/jquery-ui/ui/minified/jquery.ui.widget.min'
   }
 });
 

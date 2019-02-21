@@ -1,5 +1,5 @@
 define([
-  'comps/moment/min/moment.min',
+  'plugins/admin/libs/moment/min/moment.min',
   'plugins/admin/libs/bootstrap-daterangepicker/daterangepicker',
   'css!plugins/admin/libs/bootstrap-daterangepicker/daterangepicker-bs3'
 ], function () {

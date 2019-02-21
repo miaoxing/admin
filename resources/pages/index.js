@@ -12,7 +12,6 @@ import 'bootstrap/js/dist/popover';
 import 'bootstrap/js/dist/tooltip';
 import 'bootstrap/js/dist/collapse';
 import 'bootstrap/js/dist/tab';
-import 'comps/jasny-bootstrap/dist/js/jasny-bootstrap.min';
 import 'vendor/miaoxing/app/public/js/app';
 import 'vendor/miaoxing/app/public/js/tips';
 import 'vendor/miaoxing/app/public/js/require-config';
@@ -21,7 +20,6 @@ import 'vendor/miaoxing/admin/public/js/ajax-tips';
 import 'vendor/miaoxing/admin/public/js/popup';
 import 'vendor/miaoxing/admin/public/js/admin';
 
-import 'comps/jasny-bootstrap/dist/css/jasny-bootstrap.min.css';
 import 'font-awesome/css/font-awesome.min.css';
 import '../scss/index.scss';
 

@@ -20,6 +20,7 @@ require.config({
 
 define([
   'jqueryui-timepicker-addon-zh-CN',
+  'css!comps/jquery-ui-custom/jquery-ui-1.10.3.full.min.css',
   'css!plugins/admin/libs/jqueryui-timepicker-addon/dist/jquery-ui-timepicker-addon.min'
 ], function () {
   $.fn.rangeDateTimePicker = function (options) {

@@ -3,7 +3,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import AppContainer from './AppContainer';
 
-import 'comps/requirejs/require';
+import 'vendor/miaoxing/app/resources/modules/requirejs-custom/require';
 import 'script-loader!comps/jquery-legacy/jquery.min';
 import 'comps/jquery-migrate/jquery-migrate-1.2.1';
 import 'bootstrap/js/dist/dropdown';

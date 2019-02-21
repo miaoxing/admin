@@ -4,7 +4,7 @@ import ReactDOM from 'react-dom';
 import AppContainer from './AppContainer';
 
 import 'vendor/miaoxing/app/resources/modules/requirejs-custom/require';
-import 'script-loader!comps/jquery-legacy/jquery.min';
+import 'script-loader!comps/jquery/jquery.min';
 import 'comps/jquery-migrate/jquery-migrate-1.2.1';
 import 'bootstrap/js/dist/dropdown';
 import 'bootstrap/js/dist/modal';

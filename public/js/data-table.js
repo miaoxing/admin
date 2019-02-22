@@ -1,7 +1,6 @@
 define([
   'plugins/admin/libs/jquery.dataTables/jquery.dataTables',
-  'template',
-  'jquery-unparam',
+  'template'
 ], function () {
   //http://datatables.net/plug-ins/pagination#bootstrap
   // Start Bootstrap
@@ -107,70 +106,6 @@ define([
   });
   // End Bootstrap
 
-  // 附加参数到指定的URL中
-  $.updateUrl = function (url, params) {
-    // 1. 合并URL中的参数和外部参数
-    var data = {};
-    var queries = $.getParams(url);
-    params = $.extend(queries, params);
-    $.each(params, function (key, val) {
-      val && (data[key] = val);
-    });
-
-    // 2. 将参数附加到原来的路径
-    var index = url.indexOf('?');
-    if (index != -1) {
-      url = url.substr(0, index);
-    }
-    return $.appendUrl(url, data);
-  };
-
-  // 获取URL中的查询字符串
-  $.getParams = function (url) {
-    var a = document.createElement('a');
-    a.href = url;
-    return a.search.length > 0 ? $.unparam(a.search.substring(1)) : {};
-  };
-
-  // 创建一个DataTable,当数据更新时,请求参数会更新到地址栏中
-  $.fn.statefulDataTable = function (options) {
-    var page = $.req('page');
-    var rows = $.req('rows');
-    options.displayLength = rows || $.fn.dataTable.defaults.lengthMenu[0];
-    options.displayStart = page < 1 ? 0 : (page - 1) * options.displayLength;
-
-    var first = true;
-    var origFnPreDrawCallback = options.fnPreDrawCallback;
-    options.fnPreDrawCallback = function (settings) {
-      if (origFnPreDrawCallback) {
-        origFnPreDrawCallback.apply(this, arguments);
-      }
-
-      // 1. 首次加载不更改地址
-      if (first) {
-        first = false;
-        return;
-      }
-
-      // 2. 获取分页和每页显示数量
-      var params = $.getParams(settings.ajax.url);
-      // URL中可能有老的参数,需要先计算出页面数和行数,覆盖原来的参数
-      params.page = Math.ceil(settings._iDisplayStart / settings._iDisplayLength) + 1;
-      if (params.page == 1) {
-        delete params.page;
-      }
-      params.rows = settings._iDisplayLength;
-      if (params.rows == $.fn.dataTable.defaults.lengthMenu[0]) {
-        delete params.rows;
-      }
-
-      // 附加参数到原来的地址
-      var url = $.updateUrl(window.location.pathname, params);
-      history.replaceState({}, document.title, url);
-    };
-    return $(this).dataTable(options);
-  };
-
   // Reload dataTables with extra parameters
   $.extend(true, $.fn.dataTable.defaults, {
     dom: "t<'row'<'col-sm-4'ir><'col-sm-8'pl>>",
@@ -253,30 +188,6 @@ define([
     }
     // TODO 这里要过滤重复的参数
     setting.ajax.url = $.appendUrl(setting.ajax.origUrl, param);
-    this.fnFilter();
-
-    if (reset == undefined || reset == true) {
-      setting.ajax.url = setting.ajax.origUrl;
-    }
-  };
-
-  // 传入数组/对象参数搜索DataTable
-  $.fn.dataTableExt.oApi.search = function (setting, params, reset) {
-    // 记录原始的URL,每次搜索使用原始URL,避免参数不断叠加
-    if (typeof setting.ajax.origUrl == 'undefined') {
-      setting.ajax.origUrl = setting.ajax.url;
-    }
-
-    // 支持通过serializeArray传入的数据
-    if ($.isArray(params)) {
-      var result = {};
-      $.each(params, function () {
-        result[this.name] = this.value;
-      });
-      params = result;
-    }
-
-    setting.ajax.url = $.updateUrl(setting.ajax.origUrl, params);
     this.fnFilter();
 
     if (reset == undefined || reset == true) {

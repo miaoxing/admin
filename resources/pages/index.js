@@ -13,7 +13,7 @@ import 'bootstrap/js/dist/tooltip';
 import 'bootstrap/js/dist/collapse';
 import 'bootstrap/js/dist/tab';
 import 'vendor/miaoxing/app/resources/modules/bootstrap-tips/bootstrap-tips';
-import 'vendor/miaoxing/app/resources/modules/app';
+import 'vendor/miaoxing/app/resources/modules/wei';
 import 'vendor/miaoxing/app/resources/modules/require-config';
 import '../modules/ajax-tips';
 import '../modules/popup';

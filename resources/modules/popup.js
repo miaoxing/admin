@@ -1,9 +1,9 @@
-import {alert, confirm} from 'bootprompt';
+import modal from 'modal';
 import $ from 'jquery';
 
-$.alert = alert;
+$.alert = modal.alert;
 $.confirm = function (message, fn) {
-  confirm(message, function (result) {
+  modal(message, function (result) {
     result && fn();
   });
 };

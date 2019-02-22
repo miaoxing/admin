@@ -5,7 +5,7 @@ import AppContainer from './AppContainer';
 
 import 'vendor/miaoxing/app/resources/modules/requirejs-custom/require';
 import 'script-loader!comps/jquery/jquery.min';
-import 'comps/jquery-migrate/jquery-migrate-1.2.1';
+import 'jquery-migrate';
 import 'bootstrap/js/dist/dropdown';
 import 'bootstrap/js/dist/modal';
 import 'bootstrap/js/dist/popover';

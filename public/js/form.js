@@ -1,6 +1,6 @@
 define([
   'plugins/app/libs/jquery-form/jquery.form',
-  'comps/jquery.loadJSON/index',
+  'plugins/app/libs/jquery.loadJSON/index',
   'plugins/admin/js/form-update',
   'plugins/app/libs/jquery-unparam/jquery-unparam.min'
 ], function () {

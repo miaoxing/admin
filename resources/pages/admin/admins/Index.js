@@ -6,7 +6,7 @@ import rp from 'require-promise';
 import 'jquery-update-event';
 
 const loader = Promise.all([
-  rp(plugins/app/libs/artTemplate/template.min),
+  rp('plugins/app/libs/artTemplate/template.min'),
   import('query-url'),
   import('datatables-net-mx')
 ]);

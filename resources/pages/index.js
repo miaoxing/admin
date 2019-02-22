@@ -12,12 +12,12 @@ import 'bootstrap/js/dist/popover';
 import 'bootstrap/js/dist/tooltip';
 import 'bootstrap/js/dist/collapse';
 import 'bootstrap/js/dist/tab';
-import 'vendor/miaoxing/app/public/js/tips';
-import 'vendor/miaoxing/app/public/js/app';
-import 'vendor/miaoxing/app/public/js/require-config';
-import 'vendor/miaoxing/admin/public/js/ajax-tips';
-import 'vendor/miaoxing/admin/public/js/popup';
-import 'vendor/miaoxing/admin/public/js/admin';
+import 'vendor/miaoxing/app/resources/modules/tips';
+import 'vendor/miaoxing/app/resources/modules/app';
+import 'vendor/miaoxing/app/resources/modules/require-config';
+import '../modules/ajax-tips';
+import '../modules/popup';
+import '../modules/admin';
 
 import 'font-awesome/css/font-awesome.min.css';
 import '../scss/index.scss';

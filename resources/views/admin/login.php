@@ -72,7 +72,7 @@ $view->layout('@admin/admin/layout-light.php')
 
 <?= $block->js() ?>
 <script>
-  require(['plugins/app/js/validator', 'jquery-form'], function () {
+  require(['plugins/app/js/validator', 'plugins/app/libs/jquery-form/jquery.form'], function () {
     var ENTER_KEY = 13;
     var $form = $('.js-login-form');
     $form.ajaxForm({

@@ -6,7 +6,7 @@ import rp from 'require-promise';
 
 const loader = Promise.all([
   import('jquery-populate'),
-  import('jquery-form'),
+  import('plugins/app/libs/jquery-form/jquery.form'),
   rp('plugins/app/js/validation')
 ]);
 

@@ -23,6 +23,4 @@ import 'font-awesome/css/font-awesome.min.css';
 import '../scss/index.scss';
 
 $.tips.defaults.valign = 'top';
-$.tips.defaults.baseClass = 'badge';
-
 ReactDOM.render(<AppContainer/>, document.getElementById('root'));

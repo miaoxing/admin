@@ -1,15 +1,9 @@
-(function (root, $) {
-  $.alert = function (message, callback) {
-    requirejs(['plugins/app/libs/bootbox/bootbox'], function (bootbox) {
-      bootbox.alert(message, callback);
-    });
-  };
+import {alert, confirm} from 'bootprompt';
+import $ from 'jquery';
 
-  $.confirm = function (message, fn) {
-    requirejs(['plugins/app/libs/bootbox/bootbox'], function (bootbox) {
-      bootbox.confirm(message, function (result) {
-        result && fn();
-      });
-    });
-  };
-}(window, jQuery));
+$.alert = alert;
+$.confirm = function (message, fn) {
+  confirm(message, function (result) {
+    result && fn();
+  });
+};

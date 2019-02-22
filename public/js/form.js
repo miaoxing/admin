@@ -1,4 +1,9 @@
-define(['jquery-form', 'comps/jquery.loadJSON/index', 'plugins/admin/js/form-update'], function () {
+define([
+  'plugins/app/libs/jquery-form/jquery.form',
+  'comps/jquery.loadJSON/index',
+  'plugins/admin/js/form-update',
+  'plugins/app/libs/jquery-unparam/jquery-unparam.min'
+], function () {
   // require jquery-unparam
   $.fn.loadParams = function () {
     return this.loadJSON($.unparam(location.search.substring(1)));

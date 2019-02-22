@@ -1,6 +1,6 @@
 define([
   'plugins/admin/libs/jquery.dataTables/jquery.dataTables',
-  'template'
+  'plugins/app/libs/artTemplate/template.min'
 ], function () {
   //http://datatables.net/plug-ins/pagination#bootstrap
   // Start Bootstrap

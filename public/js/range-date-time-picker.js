@@ -1,7 +1,7 @@
 require.config({
   paths: {
-    'jquery-ui': 'plugins/admin/libs/jquery-ui/ui/minified/jquery-ui.min',
-    'jqueryui-timepicker-addon-datepicker-zh-CN': 'plugins/admin/libs/jquery-ui/ui/minified/i18n/jquery.ui.datepicker-zh-CN.min',
+    'jquery-ui': 'plugins/admin/libs/jquery-ui-custom/jquery-ui.min',
+    'jqueryui-timepicker-addon-datepicker-zh-CN': 'plugins/admin/libs/jquery-ui-custom/i18n/jquery.ui.datepicker-zh-CN.min',
     'jqueryui-timepicker-addon': 'plugins/admin/libs/jqueryui-timepicker-addon/dist/jquery-ui-timepicker-addon.min',
     'jqueryui-timepicker-addon-zh-CN': 'plugins/admin/libs/jqueryui-timepicker-addon/dist/i18n/jquery-ui-timepicker-zh-CN',
   },

@@ -35,7 +35,7 @@ class AdminForm extends React.Component {
     return (
       <Page>
         <PageHeader>
-          <Button href={$.url('admin/admins')}>返回列表</Button>
+          <Button variant="secondary" href={$.url('admin/admins')}>返回列表</Button>
         </PageHeader>
         <Form className="js-admin-form" method="post">
           <FormItem label="用户名" name="username" required={!wei.user.id}

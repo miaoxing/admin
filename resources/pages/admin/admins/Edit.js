@@ -39,7 +39,7 @@ class AdminForm extends React.Component {
         </PageHeader>
         <Form className="js-admin-form" method="post">
           <FormItem label="用户名" name="username" required={!wei.user.id}
-            control={wei.user.id && <p className="form-control-static">{wei.user.username}</p>}/>
+            control={wei.user.id && <p className="form-control-plaintext">{wei.user.username}</p>}/>
 
           <FormItem label="密码" name="password" type="password" required={!wei.user.id}
             help={wei.user.id && '不修改密码请留空'}/>

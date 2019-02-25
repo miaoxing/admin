@@ -1,6 +1,8 @@
 // Tab underline
 
 .tab-underline {
+  border-bottom: 1px solid $border-color;
+
   .nav-item {
     margin-bottom: -1px;
   }

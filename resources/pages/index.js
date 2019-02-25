@@ -16,7 +16,8 @@ import 'vendor/miaoxing/app/resources/modules/bootstrap-tips/bootstrap-tips';
 import 'vendor/miaoxing/app/resources/modules/wei';
 import 'vendor/miaoxing/app/resources/modules/require-config';
 import 'vendor/miaoxing/app/resources/modules/bootstrap-popup';
-import '../modules/ajax-tips';
+import 'vendor/miaoxing/app/resources/modules/jquery-ajax-tips';
+import '../modules/loading';
 import '../modules/admin';
 
 import 'font-awesome/css/font-awesome.min.css';

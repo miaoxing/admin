@@ -9,7 +9,7 @@ if (!$controllerInstance->getOption('displayPageHeader')) {
 ?>
 
 <div class="page-header">
-  <div class="pull-right">
+  <div class="float-right">
     <?= $block->get('header-actions') ?>
   </div>
   <h1>

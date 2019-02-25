@@ -142,7 +142,7 @@
             this.ranges = {};
 
             this.opens = 'right';
-            if (this.element.hasClass('pull-right'))
+            if (this.element.hasClass('float-right'))
                 this.opens = 'left';
 
             this.buttonClasses = ['btn', 'btn-small btn-sm'];
@@ -868,7 +868,7 @@
             this.rightCalendar.calendar = this.buildCalendar(this.rightCalendar.month.month(), this.rightCalendar.month.year(), this.rightCalendar.month.hour(), this.rightCalendar.month.minute(), 'right');
             this.container.find('.calendar.left').empty().html(this.renderCalendar(this.leftCalendar.calendar, this.startDate, this.minDate, this.maxDate, 'left'));
             this.container.find('.calendar.right').empty().html(this.renderCalendar(this.rightCalendar.calendar, this.endDate, this.singleDatePicker ? this.minDate : this.startDate, this.maxDate, 'right'));
-            
+
             this.container.find('.ranges li').removeClass('active');
             var customRange = true;
             var i = 0;

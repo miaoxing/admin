@@ -28,7 +28,7 @@
                   <div class="control-group">
                     <div class="controls">
                      <div class="input-prepend input-group">
-                       <span class="add-on input-group-addon"><i class="glyphicon glyphicon-calendar fa fa-calendar"></i></span><input type="text" style="width: 200px" name="reservation" id="reservation" class="form-control" value="03/18/2013 - 03/23/2013" /> 
+                       <span class="add-on input-group-addon"><i class="glyphicon glyphicon-calendar fa fa-calendar"></i></span><input type="text" style="width: 200px" name="reservation" id="reservation" class="form-control" value="03/18/2013 - 03/23/2013" />
                      </div>
                     </div>
                   </div>
@@ -54,7 +54,7 @@
                   <div class="control-group">
                     <div class="controls">
                      <div class="input-prepend input-group">
-                       <span class="add-on input-group-addon"><i class="glyphicon glyphicon-calendar fa fa-calendar"></i></span><input type="text" style="width: 200px" name="birthday" id="birthday" class="form-control" value="03/18/2013" /> 
+                       <span class="add-on input-group-addon"><i class="glyphicon glyphicon-calendar fa fa-calendar"></i></span><input type="text" style="width: 200px" name="birthday" id="birthday" class="form-control" value="03/18/2013" />
                      </div>
                     </div>
                   </div>
@@ -100,7 +100,7 @@
                });
                </script>
 
-            </div>            
+            </div>
 
             <h4>Options Usage</h4>
 
@@ -112,7 +112,7 @@
 
               <button id="destroy" class="btn btn-primary">Remove DateRangePicker</button>
 
-               <div id="reportrange" class="pull-right" style="background: #fff; cursor: pointer; padding: 5px 10px; border: 1px solid #ccc">
+               <div id="reportrange" class="float-right" style="background: #fff; cursor: pointer; padding: 5px 10px; border: 1px solid #ccc">
                   <i class="glyphicon glyphicon-calendar fa fa-calendar"></i>
                   <span></span> <b class="caret"></b>
                </div>
@@ -183,12 +183,12 @@
 
                   $('#reportrange').on('show.daterangepicker', function() { console.log("show event fired"); });
                   $('#reportrange').on('hide.daterangepicker', function() { console.log("hide event fired"); });
-                  $('#reportrange').on('apply.daterangepicker', function(ev, picker) { 
-                    console.log("apply event fired, start/end dates are " 
-                      + picker.startDate.format('MMMM D, YYYY') 
-                      + " to " 
+                  $('#reportrange').on('apply.daterangepicker', function(ev, picker) {
+                    console.log("apply event fired, start/end dates are "
+                      + picker.startDate.format('MMMM D, YYYY')
+                      + " to "
                       + picker.endDate.format('MMMM D, YYYY')
-                    ); 
+                    );
                   });
                   $('#reportrange').on('cancel.daterangepicker', function(ev, picker) { console.log("cancel event fired"); });
 

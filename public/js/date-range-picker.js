@@ -26,7 +26,7 @@ define([
       '本季度': [moment().startOf('quarter'), moment().endOf('quarter')]
     },
     opens: 'right',
-    buttonClasses: ['btn btn-default'],
+    buttonClasses: ['btn btn-secondary'],
     applyClass: 'btn-small btn-primary',
     cancelClass: 'btn-small',
     format: 'YYYY.MM.DD',

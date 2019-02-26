@@ -13,7 +13,7 @@ import 'bootstrap/js/dist/tooltip';
 import 'bootstrap/js/dist/collapse';
 import 'bootstrap/js/dist/tab';
 
-import 'vendor/miaoxing/app/resources/modules/bootstrap-tips/bootstrap-tips';
+import 'vendor/miaoxing/app/resources/modules/bootstrap-tips';
 import 'vendor/miaoxing/app/resources/modules/bootstrap-popup';
 import 'vendor/miaoxing/app/resources/modules/loading';
 
@@ -26,5 +26,4 @@ import '../modules/admin';
 import 'font-awesome/css/font-awesome.min.css';
 import '../scss/index.scss';
 
-$.tips.defaults.valign = 'top';
 ReactDOM.render(<AppContainer/>, document.getElementById('root'));

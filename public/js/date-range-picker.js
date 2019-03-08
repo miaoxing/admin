@@ -1,8 +1,14 @@
+require.config({
+  paths: {
+    'moment': 'plugins/admin/libs/moment/min/moment.min'
+  }
+});
+
 define([
-  'plugins/admin/libs/moment/min/moment.min',
+  'moment',
   'plugins/admin/libs/bootstrap-daterangepicker/daterangepicker',
   'css!plugins/admin/libs/bootstrap-daterangepicker/daterangepicker-bs3'
-], function () {
+], function (moment) {
   var now = moment();
   var defaults = {
     startDate: moment().subtract(29, 'days'),

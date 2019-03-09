@@ -212,7 +212,7 @@ define([
   $.fn.dataTableExt.oApi.deletable = function (setting, linkSelector, message) {
     var $table = this;
     linkSelector = linkSelector || '.delete-record';
-    message = message || '删除后将无法还原,确认删除?';
+    message = message || '删除后将无法还原,确定删除?';
     $table.on('click', linkSelector, function () {
       var $link = $(this);
       $.confirm(message, function (result) {

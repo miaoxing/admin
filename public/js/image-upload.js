@@ -120,10 +120,6 @@ define([
       acceptFileTypes: /([./])(gif|jpe?g|png)$/i,
       maxFileSize: 999000,
       maxNumberOfFiles: this.options.max
-    }).on('fileuploadstart', function () {
-      $loadingEl = $.info('加载中...', DELAY_SLOW);
-    }).on('fileuploadstop', function () {
-      $loadingEl.hide();
     }).on('fileuploaddone', function (e, data) {
       if (data.result.code !== 1) {
         $.msg(data.result);

@@ -23,7 +23,11 @@
 }
 
 .radio input,
-.checkbox input{
+.checkbox input {
   top: -1px;
   position: relative;
+}
+
+legend {
+  border-bottom: 1px solid $border-color;
 }

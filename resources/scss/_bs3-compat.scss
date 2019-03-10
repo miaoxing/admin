@@ -1,5 +1,5 @@
 .form-horizontal .form-group {
-  @extend .row;
+  @include make-row();
 
   &.display-none {
     display: none;

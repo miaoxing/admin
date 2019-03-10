@@ -319,3 +319,10 @@ div.ColVis_collectionBackground {
   text-align: center;
   padding: 1em 0;
 }
+
+// 两者合并在一起
+.dataTables_wrapper + .well {
+  border-top: 0;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}

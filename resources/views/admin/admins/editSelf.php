@@ -58,7 +58,7 @@
 
 <?= $block->js() ?>
 <script>
-  require(['form', 'plugins/admin/js/image-upload'], function (form) {
+  require(['plugins/admin/js/form', 'plugins/admin/js/image-upload'], function (form) {
     var groupJson = <?= json_encode(wei()->group()->notDeleted()->asc('name')->fetchAll()) ?>;
     form.toOptions($('#group-id'), groupJson, 'id', 'name');
 

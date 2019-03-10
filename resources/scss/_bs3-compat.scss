@@ -1,5 +1,9 @@
 .form-horizontal .form-group {
   @extend .row;
+
+  &.display-none {
+    display: none;
+  }
 }
 
 .control-label {

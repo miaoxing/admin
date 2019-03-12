@@ -2,8 +2,12 @@
 
 .nav-underline {
   flex-wrap: nowrap;
-  overflow-x: scroll;
   border-bottom: 1px solid $border-color;
+
+  @media (max-width: 767px) {
+    overflow-y: hidden;
+    overflow-x: scroll;
+  }
 
   .nav-item {
     margin-bottom: -1px;

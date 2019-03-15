@@ -14,7 +14,7 @@ import 'bootstrap/js/dist/collapse';
 import 'bootstrap/js/dist/tab';
 
 import 'vendor/miaoxing/app/resources/modules/bootstrap-tips';
-import 'vendor/miaoxing/app/resources/modules/bootstrap-popup';
+import '../modules/bootstrap-popup';
 import 'vendor/miaoxing/app/resources/modules/loading';
 
 import 'vendor/miaoxing/app/resources/modules/wei';

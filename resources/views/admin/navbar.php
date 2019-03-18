@@ -14,8 +14,8 @@
     </ul>
 
     <div class="dropdown">
-      <a class="dropdown-toggle d-flex align-items-center" role="button" data-toggle="dropdown" aria-haspopup="true"
-        aria-expanded="false">
+      <a class="dropdown-toggle d-flex align-items-center text-body" href="javascript:;" role="button"
+        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
         <img class="navbar-avatar" src="<?= $e($curUser->getHeadImg()) ?>" alt="<?= $e($curUser->getNickName()) ?>"/>
         <small><?= $e($curUser->getNickName()) ?></small>
       </a>

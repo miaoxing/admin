@@ -43,3 +43,9 @@
   width: 210px;
   max-width: 100%
 }
+
+// Form check 和 label 对齐
+.col-form-label + [class*="col-"] > .custom-control {
+  padding-top: calc(#{$input-padding-y} + #{$input-border-width});
+  padding-bottom: calc(#{$input-padding-y} + #{$input-border-width});
+}

@@ -1,5 +1,7 @@
 // 自定义变量
 @import 'variables';
+@import "vendor/miaoxing/app/resources/scss/mixins";
+@import "vendor/miaoxing/app/resources/modules/bootstrap-mobile/scss/mixins/hairline";
 
 // Bootstrap 4 Sass
 @import '~bootstrap/scss/functions';

@@ -1,121 +1,80 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import {Button} from 'react-bootstrap';
-import {DataTable, Options, Page, PageHeader, SearchForm, SearchItem} from 'components';
-import rp from 'require-promise';
-import 'jquery-update-event';
+import app from 'app';
+import {Button, FormCheck, OverlayTrigger, Popover} from 'react-bootstrap';
+import Page from 'components/Page';
+import PageHeader from 'components/PageHeader';
+import SearchForm from 'components/SearchForm';
+import SearchItem from 'components/SearchItem';
+import Options from 'components/Options';
+import Table from 'components/Table';
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import {faChevronRight, faQuestionCircle} from '@fortawesome/free-solid-svg-icons';
+import TableStatusCheckbox from 'components/TableStatusCheckbox';
 
-const loader = Promise.all([
-  rp('plugins/app/libs/artTemplate/template.min'),
-  import('query-url'),
-  import('datatables-net-mx')
-]);
-
-class AdminIndex extends React.Component {
-  componentDidMount() {
-    loader.then(() => {
-      var $table = $('.js-admin-table').dataTable({
-        searchEl: '.js-admin-form',
-        searchEvent: 'update',
-        ajax: {
-          url: $.queryUrl2('admin/admins.json')
-        },
-        order: [],
-        columns: [
-          {
-            title: '用户名',
-            data: 'username'
-          },
-          {
-            title: '姓名',
-            data: 'name'
-          },
-          {
-            title: '昵称',
-            data: 'nickName'
-          },
-          {
-            title: '分组',
-            data: 'group.name'
-          },
-          {
-            title: '创建时间',
-            data: 'createTime'
-          },
-          {
-            title: `<span class="js-tips-hover" data-content="禁用后,用户将无法登录" 
-              data-container="body" data-placement="bottom" data-trigger="hover">
-                启用 <i class="fa fa-question-circle"></i>
-            </span>`,
-            data: 'enable',
-            render: function (data, type, full) {
-              return template.render('checkbox-col-tpl', {
-                id: full.id,
-                name: 'enable',
-                value: data
-              });
-            }
-          },
-          {
-            title: '操作',
-            data: 'id',
-            createdCell: (td, val) => {
-              ReactDOM.render(<span>
-                <a href={$.url('admin/admins/%s/edit', val)}>编辑</a>
-              </span>, td);
-            }
-          }
-        ]
-      });
-
-      $('.js-tips-hover').popover();
-
-      // 切换状态
-      $table.on('click', '.js-toggle-status', function () {
-        const $this = $(this);
-        var data = {};
-        data['id'] = $this.data('id');
-        data[$this.attr('name')] = +!$this.data('value');
-        $.post($.url('admin/admins/enable'), data, function (result) {
-          $.msg(result);
-          $table.reload();
-        }, 'json');
-      });
-    });
-  }
-
+export default class extends React.Component {
   render() {
     return (
       <Page>
         <PageHeader>
-          <Button variant="success" href={$.url('admin/admins/new')}>添加管理员</Button>
+          <a href={app.curNewUrl()}>添加</a>
         </PageHeader>
+
         <SearchForm className="js-admin-form">
-          <SearchItem label="用户名" name="username" />
+          <SearchItem label="用户名" name="username"/>
 
-          <SearchItem label="姓名" name="name" />
+          <SearchItem label="姓名" name="name"/>
 
-          <SearchItem label="昵称" name="nickName" />
+          <SearchItem label="昵称" name="nickName"/>
 
           <SearchItem label="分组" name="groupId">
             <Options data={wei.groups} labelKey="name" valueKey="id" placeholder="全部"/>
           </SearchItem>
         </SearchForm>
-        <DataTable className="js-admin-table" />
 
-        <script id="checkbox-col-tpl" type="text/html">
-          {`
-          <label>
-            <input class="js-toggle-status ace toggle-status" name="<%= name %>" data-id="<%= id %>"
-              data-value="<%= value %>" type="checkbox"
-            <% if (value == 1) {%> checked <%} %> >
-            <span class="lbl"></span>
-          </label>
-          `}
-        </script>
+        <Table
+          columns={[
+            {
+              text: '用户名',
+              dataField: 'username'
+            },
+            {
+              text: '姓名',
+              dataField: 'name'
+            },
+            {
+              text: '昵称',
+              dataField: 'nickName'
+            },
+            {
+              text: '分组',
+              dataField: 'group.name'
+            },
+            {
+              text: '创建时间',
+              dataField: 'createTime'
+            },
+            {
+              text: '启用',
+              dataField: 'enable',
+              headerFormatter: (column) => {
+                return <OverlayTrigger trigger="hover" overlay={<Popover>禁用后,用户将无法登录</Popover>}>
+                  <span>启用 <FontAwesomeIcon icon={faQuestionCircle}/></span>
+                </OverlayTrigger>
+              },
+              formatter: (cell, row) => {
+                return <TableStatusCheckbox url={app.url('admin/admins/enable')} row={row} name="enable"/>
+              }
+            },
+            {
+              text: '操作',
+              dataField: 'id',
+              formatter: (id) => (
+                <a href={app.curEditUrl(id)}>编辑</a>
+              ),
+            }
+          ]}
+        />
       </Page>
     )
   }
 }
-
-export default AdminIndex;

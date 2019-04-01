@@ -16,7 +16,7 @@ export default class extends React.Component {
     return (
       <Page>
         <PageHeader>
-          <a href={app.curNewUrl()}>添加</a>
+          <Button variant="success" href={app.curNewUrl()}>添加</Button>
         </PageHeader>
 
         <SearchForm className="js-admin-form">

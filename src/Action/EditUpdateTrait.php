@@ -11,14 +11,18 @@ use Miaoxing\Plugin\Service\Request;
  */
 trait EditUpdateTrait
 {
-    public function editAction($req)
+    public function editAction(Request $req)
     {
         $model = $this->convention->getModelName($this);
 
         $$model = $this->convention->createModel($this)->findId($req['id']);
-        $this->js[$model] = $$model;
 
-        return get_defined_vars();
+        if ($req->json()) {
+            return $$model->toRet();
+        } else {
+            $this->js[$model] = $$model;
+            return get_defined_vars();
+        }
     }
 
     public function updateAction($req)

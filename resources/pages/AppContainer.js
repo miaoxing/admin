@@ -1,7 +1,7 @@
 import React from 'react'
 import {hot} from 'react-hot-loader';
 import App from "components/App";
-import configs from 'data/cache/admin-pages';
+import configs from 'data/configs/admin';
 import NoMatch from "components/NoMatch";
 
 class AppContainer extends React.Component {

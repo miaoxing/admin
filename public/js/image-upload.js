@@ -112,7 +112,6 @@ define([
 
     // 初始化上传功能
     var $loadingEl;
-    var DELAY_SLOW = 1000000;
     this.$file.fileupload({
       url: this.options.url,
       dataType: 'json',

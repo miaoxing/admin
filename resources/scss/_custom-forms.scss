@@ -1,3 +1,7 @@
 .custom-control-label {
   line-height: 1.428571; // 20px
 }
+
+.custom-control-no-text {
+  padding-left: $custom-control-gutter + $custom-control-indicator-size + .5rem;
+}

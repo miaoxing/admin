@@ -56,8 +56,13 @@
 //@import "~bootstrap/scss/utilities/visibility";
 //@import '~bootstrap/scss/print';
 
+<<<<<<< ours
 @import "vendor/miaoxing/app/resources/scss/modal";
 @import 'vendor/miaoxing/app/resources/modules/react-bootstrap-message/scss/react-bootstrap-message';
+=======
+@import "plugins/app/resources/scss/modal";
+@import '~react-bootstrap-message/scss/react-bootstrap-message';
+>>>>>>> theirs
 
 // 自定义 Sass
 @import "scaffolding";

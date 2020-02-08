@@ -27,14 +27,3 @@
 @import "plugins/app/resources/scss/tables";
 
 @import 'layout';
-
-// Deprecated
-@import 'utilities';
-@import "tables";
-@import "checkbox-radio";
-@import "datatables";
-@import 'components';
-
-// Bootstrap 3 兼容
-@import "plugins/app/resources/scss/bs3-utilities";
-@import "bs3-compat";

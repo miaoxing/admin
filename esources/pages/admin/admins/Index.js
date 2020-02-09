@@ -1,9 +1,7 @@
 import React from 'react';
 import app from 'app';
 import {Page, PageActions} from "@miaoxing/page";
-import SearchFormik from 'components/SearchFormik';
-import SearchItem from 'components/SearchItem';
-import Options from 'components/Options';
+import {SearchFormik, SearchItem, Options} from '@miaoxing/form';
 import TableStatusCheckbox from 'components/TableStatusCheckbox';
 import TableProvider from "components/TableProvider";
 import CEditLink from "components/CEditLink";

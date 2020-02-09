@@ -1,5 +1,6 @@
 import React from 'react';
 import app from 'app';
+<<<<<<< ours
 import {Button, FormCheck, OverlayTrigger, Popover} from 'react-bootstrap';
 import Page from 'components/Page';
 import PageHeader from 'components/PageHeader';
@@ -9,6 +10,10 @@ import Options from 'components/Options';
 import Table from 'components/Table';
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faChevronRight, faQuestionCircle} from '@fortawesome/free-solid-svg-icons';
+=======
+import {Page, PageActions} from "@miaoxing/page";
+import {SearchFormik, SearchItem, Options} from '@miaoxing/form';
+>>>>>>> theirs
 import TableStatusCheckbox from 'components/TableStatusCheckbox';
 import TableProvider from "components/TableProvider";
 

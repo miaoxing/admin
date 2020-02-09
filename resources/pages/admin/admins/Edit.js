@@ -8,8 +8,7 @@ import rp from 'require-promise';
 import axios from 'axios';
 import app from 'app';
 import {Page, PageActions} from "@miaoxing/page";
-import {Form, FormItem, FormAction} from "@miaoxing/form";
-import Options from "components/Options";
+import {Form, FormItem, FormAction, Options} from "@miaoxing/form";
 import CListBtn from "components/CListBtn";
 >>>>>>> theirs
 

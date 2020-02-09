@@ -2,11 +2,9 @@ import React from 'react';
 import Select from 'react-select';
 import axios from 'axios';
 import app from 'app';
-import Form from "components/Form";
 import {Page, PageActions} from "@miaoxing/page";
-import FormItem from "components/FormItem";
+import {Form, FormItem, FormAction} from "@miaoxing/form";
 import Options from "components/Options";
-import FormAction from "components/FormAction";
 import CListBtn from "components/CListBtn";
 
 class AdminForm extends React.Component {

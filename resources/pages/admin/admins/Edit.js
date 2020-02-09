@@ -2,7 +2,16 @@ import React from 'react';
 import {Button, Form} from 'react-bootstrap';
 import {FormAction, FormItem, ImageUpload, Options, Page, PageHeader} from 'components';
 import Select from 'react-select';
+<<<<<<< ours
 import rp from 'require-promise';
+=======
+import axios from 'axios';
+import app from 'app';
+import {Page, PageActions} from "@miaoxing/page";
+import {Form, FormItem, FormAction} from "@miaoxing/form";
+import Options from "components/Options";
+import CListBtn from "components/CListBtn";
+>>>>>>> theirs
 
 const loader = Promise.all([
   import('jquery-populate'),

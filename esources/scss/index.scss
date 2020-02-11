@@ -7,7 +7,7 @@
 // Bootstrap 4 Sass
 @import "~bootstrap/scss/bootstrap";
 
-@import "plugins/app/resources/scss/modal";
+@import "~@miaoxing/modal/index";
 @import '~react-bootstrap-message/scss/react-bootstrap-message';
 
 // 自定义 Sass

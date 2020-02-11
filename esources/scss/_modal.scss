@@ -11,11 +11,7 @@
   background-color: #eff3f8
 }
 
-<<<<<<< ours
-@import 'vendor/miaoxing/app/resources/scss/modal';
-=======
 @import '~@miaoxing/modal/index';
->>>>>>> theirs
 
 .modal-prompt {
   @media (min-width: $breakpoint-sm) {

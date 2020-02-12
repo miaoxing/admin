@@ -114,7 +114,7 @@ export default class extends React.Component {
                 </Tooltip>,
                 dataIndex: 'enable',
                 render: (cell, row) => {
-                  return <TableStatusCheckbox url={app.url('admin/admins/enable')} row={row} name="enable"/>
+                  return <TableStatusCheckbox url={app.url('admin-api/admins/enable')} row={row} name="enable"/>
                 }
               },
               {

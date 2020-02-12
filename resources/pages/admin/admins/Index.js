@@ -70,6 +70,7 @@ export default class extends React.Component {
                 dataField: 'createTime'
               },
               {
+<<<<<<< ours
                 text: '启用',
                 dataField: 'enable',
                 headerFormatter: (column) => {
@@ -79,6 +80,14 @@ export default class extends React.Component {
                 },
                 formatter: (cell, row) => {
                   return <TableStatusCheckbox url={app.url('admin/admins/enable')} row={row} name="enable"/>
+=======
+                title: <Tooltip title="禁用后，用户将无法登录">
+                  启用 <QuestionCircleOutlined className="align-middle"/>
+                </Tooltip>,
+                dataIndex: 'enable',
+                render: (cell, row) => {
+                  return <TableStatusCheckbox url={app.url('admin-api/admins/enable')} row={row} name="enable"/>
+>>>>>>> theirs
                 }
               },
               {

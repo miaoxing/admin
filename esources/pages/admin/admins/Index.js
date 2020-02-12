@@ -3,7 +3,7 @@ import app from 'app';
 import {Page, PageActions} from "@miaoxing/page";
 import {SearchFormik, SearchItem, Options} from '@miaoxing/form';
 import TableStatusCheckbox from 'components/TableStatusCheckbox';
-import TableProvider from "components/TableProvider";
+import {TableProvider} from "@miaoxing/table";
 import CEditLink from "components/CEditLink";
 import {Col, Form, Input, Row, Select, Tooltip} from "antd";
 import Table from "antdx-table";

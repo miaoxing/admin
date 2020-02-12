@@ -15,7 +15,16 @@ import {Page, PageActions} from "@miaoxing/page";
 import {SearchFormik, SearchItem, Options} from '@miaoxing/form';
 >>>>>>> theirs
 import TableStatusCheckbox from 'components/TableStatusCheckbox';
+<<<<<<< ours
 import TableProvider from "components/TableProvider";
+=======
+import {TableProvider} from "@miaoxing/table";
+import CEditLink from "components/CEditLink";
+import {Col, Form, Input, Row, Select, Tooltip} from "antd";
+import Table from "antdx-table";
+import {QuestionCircleOutlined} from '@ant-design/icons'
+import CNewBtn from "components/CNewBtn";
+>>>>>>> theirs
 
 export default class extends React.Component {
   render() {

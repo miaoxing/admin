@@ -1,0 +1,11 @@
+// Forms
+
+.form-actions {
+  margin-top: 2rem;
+}
+
+// Form check 和 label 对齐
+.col-form-label + [class*="col-"] > .custom-control {
+  padding-top: calc(#{$input-padding-y} + #{$input-border-width});
+  padding-bottom: calc(#{$input-padding-y} + #{$input-border-width});
+}

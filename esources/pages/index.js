@@ -9,8 +9,6 @@ import 'plugins/app/resources/modules/bootstrap-tips';
 import '../modules/bootstrap-popup';
 import 'plugins/app/resources/modules/loading';
 
-import 'plugins/app/resources/modules/wei';
-
 import '@fortawesome/fontawesome-free/css/all.min.css'
 import '../scss/index.scss';
 import 'antd/dist/antd.css';

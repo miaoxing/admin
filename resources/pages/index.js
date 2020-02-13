@@ -21,9 +21,13 @@ import 'vendor/miaoxing/app/resources/modules/wei';
 import 'vendor/miaoxing/app/resources/modules/require-config';
 import 'vendor/miaoxing/app/resources/modules/jquery-ajax-tips';
 
+<<<<<<< ours
 import '../modules/admin';
 
 import 'font-awesome/css/font-awesome.min.css';
+=======
+import '@fortawesome/fontawesome-free/css/all.min.css'
+>>>>>>> theirs
 import '../scss/index.scss';
 
 ReactDOM.render(<AppContainer/>, document.getElementById('root'));

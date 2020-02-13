@@ -1,0 +1,14 @@
+.btn {
+  height: 32px; // antd @btn-height-base
+  // TODO text-shadow, box-shadow
+}
+
+.ant-btn {
+  vertical-align: middle;
+}
+
+// 淡化次要按钮
+.btn-secondary {
+  @include button-variant($white, $border-color);
+}
+

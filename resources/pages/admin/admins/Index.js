@@ -13,12 +13,16 @@ import {faChevronRight, faQuestionCircle} from '@fortawesome/free-solid-svg-icon
 =======
 import {Page, PageActions} from "@miaoxing/page";
 import {SearchFormik, SearchItem, Options} from '@miaoxing/form';
+<<<<<<< ours
 >>>>>>> theirs
 import TableStatusCheckbox from 'components/TableStatusCheckbox';
 <<<<<<< ours
 import TableProvider from "components/TableProvider";
 =======
 import {TableProvider} from "@miaoxing/table";
+=======
+import {TableProvider, TableStatusCheckbox} from "@miaoxing/table";
+>>>>>>> theirs
 import CEditLink from "components/CEditLink";
 import {Col, Form, Input, Row, Select, Tooltip} from "antd";
 import Table from "antdx-table";

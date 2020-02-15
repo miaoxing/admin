@@ -1,5 +1,4 @@
-const path = require('path');
-const WebpackConfig = require('../app/resources/modules/webpack-config');
+const WebpackConfig = require('@miaoxing/webpack');
 
 module.exports = WebpackConfig.build({
   name: 'admin',

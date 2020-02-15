@@ -3,6 +3,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import AppContainer from './AppContainer';
 
+<<<<<<< ours
 import 'vendor/miaoxing/app/resources/modules/requirejs-custom/require';
 import 'script-loader!jquery';
 import 'jquery-migrate';
@@ -23,6 +24,9 @@ import 'vendor/miaoxing/app/resources/modules/jquery-ajax-tips';
 
 <<<<<<< ours
 import '../modules/admin';
+=======
+import '../modules/bootstrap';
+>>>>>>> theirs
 
 import 'font-awesome/css/font-awesome.min.css';
 =======

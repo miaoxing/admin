@@ -1,7 +1,7 @@
 import React from "react";
 import {Card, Col, ListGroup, Row} from "react-bootstrap";
 import styled from 'styled-components';
-import axios from 'axios';
+import axios from '@miaoxing/axios';
 import app from 'app';
 import color from 'color';
 import {Page} from "@miaoxing/page";

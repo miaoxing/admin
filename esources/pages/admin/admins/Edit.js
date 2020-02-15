@@ -1,6 +1,6 @@
 import React from 'react';
 import Select from 'react-select';
-import axios from 'axios';
+import axios from '@miaoxing/axios';
 import app from 'app';
 import {Page, PageActions} from "@miaoxing/page";
 import {Form, FormItem, FormAction, Options} from "@miaoxing/form";

@@ -7,12 +7,12 @@
 // Bootstrap 4 Sass
 @import "~bootstrap/scss/bootstrap";
 
+@import "~@miaoxing/bootstrap/scss";
 @import "~@miaoxing/modal/index";
 @import '~react-bootstrap-message/scss/react-bootstrap-message';
 
 // 自定义 Sass
 @import "scaffolding";
-@import 'breadcrumb';
 @import "buttons";
 @import 'forms';
 @import "search-form";

@@ -1,7 +1,6 @@
 import React from "react";
 import {Card, Col, ListGroup, Row} from "react-bootstrap";
 import styled from 'styled-components';
-import axios from '@miaoxing/axios';
 import app from 'app';
 import color from 'color';
 import {Page} from "@miaoxing/page";
@@ -37,10 +36,8 @@ export default class extends React.Component {
   }
 
   componentDidMount() {
-    axios.get(app.url('admin-api/index/index'))
-      .then(({data}) => {
-        this.setState(data);
-      });
+    $.get(app.url('admin-api/index/index'), {loading: true})
+      .then(ret => this.setState(ret));
   }
 
   render() {

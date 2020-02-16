@@ -8,6 +8,7 @@ import {Col, Form, Input, Row, Select, Tooltip} from "antd";
 import Table from "antdx-table";
 import {QuestionCircleOutlined} from '@ant-design/icons'
 import CNewBtn from "components/CNewBtn";
+import $ from '@miaoxing/app';
 
 export default class extends React.Component {
   state = {
@@ -15,7 +16,7 @@ export default class extends React.Component {
   };
 
   componentDidMount() {
-    app.get(app.url('admin-api/admins/groups'))
+    $.get(app.url('admin-api/admins/groups'), {loading: true})
       .then(ret => {
         this.setState(ret);
       });

@@ -1,10 +1,10 @@
 import React from 'react';
 import Select from 'react-select';
-import axios from '@miaoxing/axios';
 import app from 'app';
 import {Page, PageActions} from "@miaoxing/page";
 import {Form, FormItem, FormAction, Options} from "@miaoxing/form";
 import CListBtn from "components/CListBtn";
+import $ from '@miaoxing/app';
 
 class AdminForm extends React.Component {
   state = {
@@ -12,10 +12,8 @@ class AdminForm extends React.Component {
   };
 
   componentDidMount() {
-    axios.get(app.curApiUrl())
-      .then(({data}) => {
-        this.setState(data);
-      });
+    $.get(app.curApiUrl())
+      .then(ret => this.setState(ret));
   }
 
   render() {

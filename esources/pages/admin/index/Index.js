@@ -11,6 +11,7 @@ import {
   Tooltip,
   Legend,
 } from "bizcharts";
+import $ from '@miaoxing/app';
 
 const GradientCard = styled(Card)`
    background: linear-gradient(

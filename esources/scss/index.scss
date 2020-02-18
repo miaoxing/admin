@@ -3,6 +3,10 @@
 @import '~@fortawesome/fontawesome-free/css/all.min.css';
 @import "~@miaoxing/bootstrap/scss";
 
-// 自定义 Sass
-@import "scaffolding";
-@import 'layout';
+html {
+  font-size: 14px;
+}
+
+.admin-logo {
+  height: 25px;
+}

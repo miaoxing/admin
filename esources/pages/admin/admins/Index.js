@@ -1,13 +1,13 @@
 import React from 'react';
-import app from 'app';
+import app from 'plugins/app/resources/modules/app';
 import {Page, PageActions} from "@miaoxing/page";
 import {SearchFormik, SearchItem, Options} from '@miaoxing/form';
 import {TableProvider, TableStatusCheckbox} from "@miaoxing/table";
-import CEditLink from "components/CEditLink";
+import CEditLink from "plugins/app/resources/components/CEditLink";
 import {Col, Form, Input, Row, Select, Tooltip} from "antd";
 import Table from "antdx-table";
 import {QuestionCircleOutlined} from '@ant-design/icons'
-import CNewBtn from "components/CNewBtn";
+import CNewBtn from "plugins/app/resources/components/CNewBtn";
 import $ from '@miaoxing/app';
 
 export default class extends React.Component {

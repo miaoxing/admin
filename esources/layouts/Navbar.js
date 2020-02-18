@@ -1,6 +1,6 @@
 import React from "react";
 import {Navbar, NavDropdown, Dropdown} from "react-bootstrap";
-import app from "app";
+import app from 'plugins/app/resources/modules/app';
 import {Avatar} from "antd";
 
 export default class extends React.Component {

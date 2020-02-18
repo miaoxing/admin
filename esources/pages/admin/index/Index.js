@@ -1,7 +1,7 @@
 import React from "react";
 import {Card, Col, ListGroup, Row} from "react-bootstrap";
 import styled from 'styled-components';
-import app from 'app';
+import app from 'plugins/app/resources/modules/app';
 import color from 'color';
 import {Page} from "@miaoxing/page";
 import {

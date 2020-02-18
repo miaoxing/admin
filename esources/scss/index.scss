@@ -1,8 +1,9 @@
+@import "~@miaoxing/style";
 @import "~bootstrap/scss/bootstrap";
+@import "~@miaoxing/bootstrap/scss";
 
 // 自定义 Sass
 @import "scaffolding";
 @import "buttons";
 @import 'card';
-
 @import 'layout';

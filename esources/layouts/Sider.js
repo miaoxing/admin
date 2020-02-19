@@ -2,6 +2,7 @@ import React from "react";
 import {Menu, Layout} from "antd";
 import {Link} from "@miaoxing/router";
 import logo from 'plugins/admin/resources/images/logo.png';
+import {Flex, Image} from "rebass";
 
 const {Sider} = Layout;
 const {SubMenu} = Menu;
@@ -34,9 +35,9 @@ export default class extends React.Component {
         breakpoint="lg"
         collapsedWidth="0"
       >
-        <div className="d-flex align-items-center justify-content-center" style={{height: 60}}>
-          <img className="admin-logo" src={logo}/>
-        </div>
+        <Flex alignItems="center" justifyContent="center" height={60}>
+          <Image height={25} src={logo}/>
+        </Flex>
 
         {this.props.menus.length && <Menu
           theme="dark"

@@ -13,7 +13,7 @@ $wei->page->addPluginAssets('admin');
   <?= $wei->page->renderHead() ?>
 </head>
 <body>
-<?php require $view->getFile('@admin/admin/browser-update.php') ?>
+<?php require $view->getFile('@admin/layouts/_browser-update.php') ?>
 
 <?= $content ?>
 <div id="root"></div>

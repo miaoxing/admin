@@ -10,9 +10,9 @@ namespace MiaoxingDoc\Admin {
      *
      * @property    \Miaoxing\Admin\Service\CsvExporter $csvExporter Csv格式数据导出服务
      *
-     * @property    \Miaoxing\Admin\Service\SexConst $sexConst 性别常量服务
+     * @property    \Miaoxing\Services\Service\SexConst $sexConst 性别常量服务
      *
-     * @property    \Miaoxing\Admin\Service\YesNoConst $yesNoConst 是否常量服务
+     * @property    \Miaoxing\Services\Service\YesNoConst $yesNoConst 是否常量服务
      */
     class AutoComplete
     {
@@ -37,9 +37,9 @@ namespace {
     /** @var Miaoxing\Admin\Service\CsvExporter $csvExporter */
     $csvExporter = wei()->csvExporter;
 
-    /** @var Miaoxing\Admin\Service\SexConst $sexConst */
+    /** @var \Miaoxing\Services\Service\SexConst $sexConst */
     $sexConst = wei()->sexConst;
 
-    /** @var Miaoxing\Admin\Service\YesNoConst $yesNoConst */
+    /** @var \Miaoxing\Services\Service\YesNoConst $yesNoConst */
     $yesNoConst = wei()->yesNoConst;
 }

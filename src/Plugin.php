@@ -12,6 +12,13 @@ class Plugin extends \Miaoxing\Plugin\BasePlugin
 
     protected $adminNavId = 'user';
 
+    public function onControllerInit()
+    {
+        if ($this->app->isAdmin()) {
+            $this->view->setDefaultLayout('@admin/layouts/default.php');
+        }
+    }
+
     public function onAdminNavGetNavs(&$navs, &$categories, &$subCategories)
     {
         $categories['user'] = [

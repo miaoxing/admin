@@ -16,6 +16,8 @@ class Plugin extends \Miaoxing\Plugin\BasePlugin
     {
         if ($this->app->isAdmin()) {
             $this->view->setDefaultLayout('@admin/layouts/default.php');
+
+            // TODO 检查是否为管理员
         }
     }
 

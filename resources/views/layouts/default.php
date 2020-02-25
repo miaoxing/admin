@@ -17,11 +17,8 @@ $wei->page->addPluginAssets('admin');
 
 <?= $content ?>
 <div id="root"></div>
-
 <?= $block->get('html') ?>
-<script>
-  var wei = <?= json_encode($js) ?>;
-</script>
+
 <?= $wei->page->renderFooter() ?>
 </body>
 </html>

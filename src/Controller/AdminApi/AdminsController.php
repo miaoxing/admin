@@ -5,7 +5,7 @@ namespace Miaoxing\Admin\Controller\AdminApi;
 /**
  * @todo 迁移到user插件中
  */
-class Admins extends \Miaoxing\Plugin\BaseController
+class AdminsController extends \Miaoxing\Plugin\BaseController
 {
     protected $controllerName = '管理员管理';
 

@@ -13,13 +13,6 @@ class AdminLog extends \Miaoxing\Plugin\BaseModel
     protected $table = 'adminLogs';
 
     /**
-     * {@inheritdoc}
-     */
-    protected $providers = [
-        'db' => 'app.db',
-    ];
-
-    /**
      * 记录后台操作日志
      * @param $description
      * @param \Miaoxing\Plugin\Service\User $user

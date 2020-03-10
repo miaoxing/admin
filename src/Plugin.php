@@ -15,8 +15,6 @@ class Plugin extends \Miaoxing\Plugin\BasePlugin
     public function onControllerInit()
     {
         if ($this->app->isAdmin()) {
-            $this->view->setDefaultLayout('@admin/layouts/default.php');
-
             // TODO 检查是否为管理员
         }
     }
@@ -74,5 +72,15 @@ class Plugin extends \Miaoxing\Plugin\BasePlugin
         if ($user['admin']) {
             wei()->adminLog->log('用户登陆', $user);
         }
+    }
+
+    public function onBeforeStyle()
+    {
+        wei()->page->addPluginAssets('admin');
+    }
+
+    public function onBodyStart()
+    {
+        wei()->view->display('@admin/_browser-update.php');
     }
 }

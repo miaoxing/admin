@@ -4,7 +4,7 @@ namespace Miaoxing\Admin;
 
 use Miaoxing\Plugin\Service\User;
 
-class Plugin extends \Miaoxing\Plugin\BasePlugin
+class AdminPlugin extends \Miaoxing\Plugin\BasePlugin
 {
     protected $name = '后台';
 

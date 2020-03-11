@@ -30,39 +30,7 @@ class AdminNav extends \Miaoxing\Plugin\BaseService
         'active' => false,
     ];
 
-    protected $defaultIndexUrl = 'admin/article/index';
-
-    /**
-     * 渲染头部导航
-     *
-     * @return string
-     */
-    public function renderNav()
-    {
-        $adminNavId = $this->getAdminNavId();
-        $categories = $this->getCategories();
-
-        // 高亮当前页面对应的父菜单
-        foreach ($categories as $id => &$category) {
-            if (($adminNavId && $adminNavId == $id)
-                || $this->isInCategories($category)
-            ) {
-                $category['active'] = true;
-                $this->curSubCategories = $category['navs'];
-                break;
-            }
-        }
-
-        // 默认显示第一个菜单
-        if (!$this->curSubCategories && $categories) {
-            reset($categories);
-            $key = key($categories);
-            $categories[$key]['active'] = true;
-            $this->curSubCategories = $categories[$key]['navs'];
-        }
-
-        return $this->view->render('@admin/admin/nav.php', get_defined_vars());
-    }
+    protected $defaultIndexUrl = 'admin/index/index';
 
     /**
      * 获取首页地址
@@ -76,32 +44,6 @@ class AdminNav extends \Miaoxing\Plugin\BaseService
         } else {
             return $this->defaultIndexUrl;
         }
-    }
-
-    /**
-     * 渲染侧边栏导航
-     *
-     * @return string
-     */
-    public function renderSidebar()
-    {
-        if (!$this->curSubCategories) {
-            return '';
-        }
-
-        $url = ltrim(wei()->request->getPathInfo(), '/');
-
-        foreach ($this->curSubCategories as $i => $subCategory) {
-            foreach ($subCategory['navs'] as $j => $nav) {
-                if ($nav['url'] == $url) {
-                    $this->curSubCategories[$i]['navs'][$j]['active'] = true;
-                }
-            }
-        }
-
-        return $this->view->render('@admin/admin/sidebar.php', [
-            'curSubCategories' => $this->curSubCategories,
-        ]);
     }
 
     /**
@@ -180,19 +122,6 @@ class AdminNav extends \Miaoxing\Plugin\BaseService
      */
     protected function filter(array $categories)
     {
-        // 过滤空的子分类
-        foreach ($categories as $i => $category) {
-            if (!isset($category['navs']) || !$category['navs']) {
-                unset($categories[$i]);
-                continue;
-            }
-            foreach ($category['navs'] as $j => $subCategories) {
-                if (!isset($subCategories['navs']) || !$subCategories['navs']) {
-                    unset($categories[$i]['navs'][$j]);
-                }
-            }
-        }
-
         // 过滤空的父分类
         foreach ($categories as $i => $category) {
             if (!isset($category['navs']) || !$category['navs']) {
@@ -215,13 +144,8 @@ class AdminNav extends \Miaoxing\Plugin\BaseService
             // 对子分类排序
             $category['navs'] = $this->orderBy($category['navs']);
 
-            // 对导航项排序
-            foreach ($category['navs'] as &$subCategories) {
-                $subCategories['navs'] = $this->orderBy($subCategories['navs']);
-            }
-
             // 取第一个导航项的链接,作为父分类的链接
-            $category['url'] = $category['navs'][0]['navs'][0]['url'];
+            $category['url'] = $category['navs'][0]['navs'][0]['url'] ?? '';
         }
 
         // 对父分类排序

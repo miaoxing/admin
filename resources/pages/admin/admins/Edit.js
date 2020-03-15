@@ -1,61 +1,44 @@
 import React from 'react';
-import {Button, Form} from 'react-bootstrap';
-import {FormAction, FormItem, ImageUpload, Options, Page, PageHeader} from 'components';
 import Select from 'react-select';
-<<<<<<< ours
-import rp from 'require-promise';
-=======
-import axios from 'axios';
-import app from 'app';
+import app from 'plugins/app/resources/modules/app';
 import {Page, PageActions} from "@miaoxing/page";
 import {Form, FormItem, FormAction, Options} from "@miaoxing/form";
-import CListBtn from "components/CListBtn";
->>>>>>> theirs
-
-const loader = Promise.all([
-  import('jquery-populate'),
-  import('public/plugins/app/libs/jquery-form/jquery.form'),
-  rp('plugins/app/js/validation')
-]);
+import CListBtn from "plugins/app/resources/components/CListBtn";
+import $ from 'miaoxing';
 
 class AdminForm extends React.Component {
+  state = {
+    user: {}
+  };
+
   componentDidMount() {
-    loader.then(() => {
-      $('.js-admin-form')
-        .populate(wei.user)
-        .ajaxForm({
-          url: $.url('admin/admins/' + (wei.user.id ? 'update' : 'create')),
-          dataType: 'json',
-          beforeSubmit: (arr, $form) => $form.valid(),
-          success: (ret) => {
-            $.msg(ret, () => {
-              if (ret.code === 1) {
-                window.location = $.url('admin/admins');
-              }
-            });
-          }
-        })
-        .validate();
-    });
+    $.get(app.curApiUrl())
+      .then(ret => this.setState(ret));
   }
 
   render() {
+    const user = this.state.user;
+
     return (
       <Page>
-        <PageHeader>
-          <Button variant="secondary" href={$.url('admin/admins')}>返回列表</Button>
-        </PageHeader>
-        <Form className="js-admin-form" method="post">
-          <FormItem label="用户名" name="username" required={!wei.user.id}
-            control={wei.user.id && <p className="form-control-plaintext">{wei.user.username}</p>}/>
+        <PageActions>
+          <CListBtn/>
+        </PageActions>
+        <Form
+          url={app.curApiFormUrl()}
+          redirectUrl={app.curIndexUrl()}
+          initialValues={this.state.user}
+        >
+          <FormItem label="用户名" name="username" required={!user.id}
+            control={user.id && <p className="form-control-plaintext">{user.username}</p>}/>
 
-          <FormItem label="密码" name="password" type="password" required={!wei.user.id}
-            help={wei.user.id && '不修改密码请留空'}/>
+          <FormItem label="密码" name="password" type="password" required={!user.id}
+            help={user.id && '不修改密码请留空'}/>
 
-          <FormItem label="重复密码" name="passwordAgain" type="password" required={!wei.user.id}/>
+          <FormItem label="重复密码" name="passwordAgain" type="password" required={!user.id}/>
 
-          {wei.isInstalledCan && <FormItem label="角色" name="roleIds" control={
-            <Select isMulti name="roleIds[]" options={wei.roleOptions} defaultValue={wei.roleDefaultValue}
+          {this.state.isInstalledCan && <FormItem label="角色" name="roleIds" control={
+            <Select isMulti name="roleIds[]" options={this.state.roleOptions} defaultValue={this.state.roleDefaultValue}
               placeholder="请选择"/>
           }/>}
 
@@ -64,15 +47,14 @@ class AdminForm extends React.Component {
           <FormItem label="昵称" name="nickName"/>
 
           <FormItem label="用户组" name="groupId">
-            <Options data={wei.groups} labelKey="name" valueKey="id" placeholder=""/>
+            <Options data={this.state.groups} labelKey="name" valueKey="id" placeholder=""/>
           </FormItem>
 
-          <FormItem label="头像" name="headImg" control={<ImageUpload name="headImg"/>}
-            help="支持.jpg .jpeg .bmp .gif .png格式照片"/>
+          <FormItem label="头像" name="headImg" help="支持.jpg .jpeg .bmp .gif .png格式照片"/>
 
           <input type="hidden" id="id" name="id"/>
 
-          <FormAction url={$.url('admin/admins')}/>
+          <FormAction/>
         </Form>
       </Page>
     )

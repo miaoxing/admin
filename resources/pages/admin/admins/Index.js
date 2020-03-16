@@ -3,11 +3,10 @@ import app from 'plugins/app/resources/modules/app';
 import {Page, PageActions} from "@miaoxing/page";
 import {SearchFormik, SearchItem, Options} from '@miaoxing/form';
 import {TableProvider, TableStatusCheckbox} from "@miaoxing/table";
-import CEditLink from "plugins/app/resources/components/CEditLink";
+import {CEditLink, CNewBtn} from "@miaoxing/clink";
 import {Col, Form, Input, Row, Select, Tooltip} from "antd";
 import Table from "antdx-table";
 import {QuestionCircleOutlined} from '@ant-design/icons'
-import CNewBtn from "plugins/app/resources/components/CNewBtn";
 import $ from 'miaoxing';
 
 export default class extends React.Component {

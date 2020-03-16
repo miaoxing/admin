@@ -3,7 +3,7 @@ import Select from 'react-select';
 import app from 'plugins/app/resources/modules/app';
 import {Page, PageActions} from "@miaoxing/page";
 import {Form, FormItem, FormAction, Options} from "@miaoxing/form";
-import CListBtn from "plugins/app/resources/components/CListBtn";
+import {CListBtn} from "@miaoxing/clink";
 import $ from 'miaoxing';
 
 class AdminForm extends React.Component {

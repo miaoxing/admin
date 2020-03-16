@@ -6,6 +6,7 @@ import app from 'plugins/app/resources/modules/app';
 import logo from 'plugins/admin/resources/images/logo.png';
 import {createGlobalStyle} from 'styled-components';
 import '@miaoxing/icons';
+import {history} from "@miaoxing/app";
 
 const GlobalStyle = createGlobalStyle`
   body {
@@ -48,7 +49,7 @@ export default class extends React.Component {
             });
             await $.ret(ret);
             if (ret.code === 1) {
-              app.to(app.url('admin'));
+              history.push(app.url('admin'));
             }
           }}
         >

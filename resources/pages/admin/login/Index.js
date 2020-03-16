@@ -48,7 +48,7 @@ export default class extends React.Component {
             });
             await $.ret(ret);
             if (ret.code === 1) {
-              app.to('admin');
+              app.to(app.url('admin'));
             }
           }}
         >

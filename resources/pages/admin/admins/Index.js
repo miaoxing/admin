@@ -1,5 +1,4 @@
 import React from 'react';
-import app from 'plugins/app/resources/modules/app';
 import {Page, PageActions} from "@miaoxing/page";
 import {SearchFormik, SearchItem, Options} from '@miaoxing/form';
 import {TableProvider, TableStatusCheckbox} from "@miaoxing/table";
@@ -8,6 +7,7 @@ import {Col, Form, Input, Row, Select, Tooltip} from "antd";
 import Table from "antdx-table";
 import {QuestionCircleOutlined} from '@ant-design/icons'
 import $ from 'miaoxing';
+import curUrl from "@miaoxing/cur-url";
 
 export default class extends React.Component {
   state = {
@@ -15,7 +15,7 @@ export default class extends React.Component {
   };
 
   componentDidMount() {
-    $.get(app.url('admin-api/admins/groups'), {loading: true})
+    $.get(curUrl.api(), {loading: true})
       .then(ret => {
         this.setState(ret);
       });
@@ -83,7 +83,7 @@ export default class extends React.Component {
           </SearchFormik>
 
           <Table
-            url={app.curApiUrl()}
+            url={curUrl.api()}
             search={false}
             columns={[
               {
@@ -113,7 +113,7 @@ export default class extends React.Component {
                 </Tooltip>,
                 dataIndex: 'enable',
                 render: (cell, row) => {
-                  return <TableStatusCheckbox url={app.url('admin-api/admins/enable')} row={row} name="enable"/>
+                  return <TableStatusCheckbox url={curUrl.toApi('enable')} row={row} name="enable"/>
                 }
               },
               {

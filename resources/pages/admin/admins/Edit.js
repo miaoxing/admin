@@ -1,10 +1,10 @@
 import React from 'react';
 import Select from 'react-select';
-import app from 'plugins/app/resources/modules/app';
 import {Page, PageActions} from "@miaoxing/page";
 import {Form, FormItem, FormAction, Options} from "@miaoxing/form";
 import {CListBtn} from "@miaoxing/clink";
 import $ from 'miaoxing';
+import curUrl from "@miaoxing/cur-url";
 
 class AdminForm extends React.Component {
   state = {
@@ -12,7 +12,7 @@ class AdminForm extends React.Component {
   };
 
   componentDidMount() {
-    $.get(app.curApiUrl())
+    $.get(curUrl.api())
       .then(ret => this.setState(ret));
   }
 
@@ -25,8 +25,8 @@ class AdminForm extends React.Component {
           <CListBtn/>
         </PageActions>
         <Form
-          url={app.curApiFormUrl()}
-          redirectUrl={app.curIndexUrl()}
+          url={curUrl.apiForm()}
+          redirectUrl={curUrl.index()}
           initialValues={this.state.user}
         >
           <FormItem label="用户名" name="username" required={!user.id}

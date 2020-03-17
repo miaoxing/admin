@@ -1,7 +1,6 @@
 import React from "react";
 import {Card, Col, ListGroup, Row} from "react-bootstrap";
 import styled from 'styled-components';
-import app from 'plugins/app/resources/modules/app';
 import color from 'color';
 import {Page} from "@miaoxing/page";
 import {
@@ -12,6 +11,7 @@ import {
   Legend,
 } from "bizcharts";
 import $ from 'miaoxing';
+import curUrl from '@miaoxing/cur-url';
 
 const GradientCard = styled(Card)`
    background: linear-gradient(
@@ -37,7 +37,7 @@ export default class extends React.Component {
   }
 
   componentDidMount() {
-    $.get(app.url('admin-api/index/index'), {loading: true})
+    $.get(curUrl.api(), {loading: true})
       .then(ret => this.setState(ret));
   }
 

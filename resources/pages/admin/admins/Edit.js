@@ -5,6 +5,7 @@ import {Form, FormItem, FormAction, Options} from "@miaoxing/form";
 import {CListBtn} from "@miaoxing/clink";
 import $ from 'miaoxing';
 import curUrl from "@miaoxing/cur-url";
+import api from '@miaoxing/api';
 
 class AdminForm extends React.Component {
   state = {
@@ -12,8 +13,7 @@ class AdminForm extends React.Component {
   };
 
   componentDidMount() {
-    $.get(curUrl.api())
-      .then(ret => this.setState(ret));
+    api.cur().then(ret => this.setState(ret));
   }
 
   render() {

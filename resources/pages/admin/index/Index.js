@@ -10,8 +10,7 @@ import {
   Tooltip,
   Legend,
 } from "bizcharts";
-import $ from 'miaoxing';
-import curUrl from '@miaoxing/cur-url';
+import api from '@miaoxing/api';
 
 const GradientCard = styled(Card)`
    background: linear-gradient(
@@ -37,8 +36,7 @@ export default class extends React.Component {
   }
 
   componentDidMount() {
-    $.get(curUrl.api(), {loading: true})
-      .then(ret => this.setState(ret));
+    api.cur({loading: true}).then(ret => this.setState(ret));
   }
 
   render() {

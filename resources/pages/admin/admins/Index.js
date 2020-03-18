@@ -83,7 +83,6 @@ export default class extends React.Component {
           </SearchFormik>
 
           <Table
-            url={curUrl.api()}
             search={false}
             columns={[
               {

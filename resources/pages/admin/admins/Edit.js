@@ -3,8 +3,6 @@ import Select from 'react-select';
 import {Page, PageActions} from "@miaoxing/page";
 import {Form, FormItem, FormAction, Options} from "@miaoxing/form";
 import {CListBtn} from "@miaoxing/clink";
-import $ from 'miaoxing';
-import curUrl from "@miaoxing/cur-url";
 import api from '@miaoxing/api';
 
 class AdminForm extends React.Component {
@@ -25,8 +23,6 @@ class AdminForm extends React.Component {
           <CListBtn/>
         </PageActions>
         <Form
-          url={curUrl.apiForm()}
-          redirectUrl={curUrl.index()}
           initialValues={this.state.user}
         >
           <FormItem label="用户名" name="username" required={!user.id}

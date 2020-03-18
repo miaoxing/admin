@@ -7,6 +7,7 @@ import logo from 'plugins/admin/resources/images/logo.png';
 import {createGlobalStyle} from 'styled-components';
 import '@miaoxing/icons';
 import {history} from "@miaoxing/app";
+import api from '@miaoxing/api';
 
 const GlobalStyle = createGlobalStyle`
   body {
@@ -43,10 +44,7 @@ export default class extends React.Component {
         </Heading>
         <Form
           onFinish={async values => {
-            const ret = await $.post({
-              url: app.url('users/login.json'),
-              data: values,
-            });
+            const ret = await api.post('user/login', {data: values});
             await $.ret(ret);
             if (ret.code === 1) {
               history.push(app.url('admin'));

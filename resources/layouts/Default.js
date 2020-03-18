@@ -2,8 +2,7 @@ import React from "react";
 import {Layout} from "antd";
 import Navbar from './Navbar';
 import Sider from './Sider';
-import $ from "miaoxing";
-import app from "plugins/app/resources/modules/app";
+import api from '@miaoxing/api';
 
 const {Content} = Layout;
 
@@ -14,8 +13,7 @@ export default class extends React.Component {
   };
 
   componentDidMount() {
-    $.get(app.url('admin-api/admin-page'), {loading: true})
-      .then(ret => this.setState(ret));
+    api.get('admin-page', {loading: true}).then(ret => this.setState(ret));
   }
 
   render() {

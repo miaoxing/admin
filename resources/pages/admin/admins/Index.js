@@ -6,8 +6,8 @@ import {CEditLink, CNewBtn} from "@miaoxing/clink";
 import {Col, Form, Input, Row, Select, Tooltip} from "antd";
 import Table from "antdx-table";
 import {QuestionCircleOutlined} from '@ant-design/icons'
-import $ from 'miaoxing';
 import curUrl from "@miaoxing/cur-url";
+import api from '@miaoxing/api';
 
 export default class extends React.Component {
   state = {
@@ -15,7 +15,7 @@ export default class extends React.Component {
   };
 
   componentDidMount() {
-    $.get(curUrl.api(), {loading: true})
+    api.cur({loading: true})
       .then(ret => {
         this.setState(ret);
       });

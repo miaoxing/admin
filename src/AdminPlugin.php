@@ -76,11 +76,15 @@ class AdminPlugin extends \Miaoxing\Plugin\BasePlugin
 
     public function onBeforeStyle()
     {
-        wei()->page->addPluginAssets('admin');
+        if ($this->app->isAdmin()) {
+            wei()->page->addPluginAssets('admin');
+        }
     }
 
     public function onBodyStart()
     {
-        wei()->view->display('@admin/_browser-update.php');
+        if ($this->app->isAdmin()) {
+            wei()->view->display('@admin/_browser-update.php');
+        }
     }
 }

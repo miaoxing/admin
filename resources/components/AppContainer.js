@@ -7,8 +7,8 @@ import Layout from '../layouts/Default';
 import configs from 'data/configs/admin';
 
 configs.defaultLayout = Layout;
-configs.layout = {
-  '/admin/login': React.Fragment,
+configs.layouts = {
+  'login/index': React.Fragment,
 };
 
 // 指定 Antd 全局的 loading 样式

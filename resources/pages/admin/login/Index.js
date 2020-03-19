@@ -2,7 +2,7 @@ import React from "react";
 import {Button, Form, Input} from "antd";
 import {Box, Heading, Image} from 'rebass/styled-components';
 import $ from 'miaoxing';
-import app from 'plugins/app/resources/modules/app';
+import app from '@miaoxing/app';
 import logo from 'plugins/admin/resources/images/logo.png';
 import {createGlobalStyle} from 'styled-components';
 import '@miaoxing/icons';

@@ -1,3 +1,6 @@
+/**
+ * @layout false
+ */
 import React from "react";
 import {Button, Form, Input} from "antd";
 import {Box, Heading, Image} from 'rebass/styled-components';

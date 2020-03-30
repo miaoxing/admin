@@ -2,7 +2,7 @@
 
 /**
  * @property    Miaoxing\Admin\Service\AdminLog $adminLog 后台管理日志
- * @method      \Miaoxing\Admin\Service\AdminLog|\Miaoxing\Admin\Service\AdminLog[] adminLog()
+ * @method      Miaoxing\Admin\Service\AdminLog|Miaoxing\Admin\Service\AdminLog[] adminLog()
  */
 class AdminLogMixin {
 }

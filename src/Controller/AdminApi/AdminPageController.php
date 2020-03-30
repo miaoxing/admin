@@ -22,7 +22,7 @@ class AdminPageController extends BaseController
 
         return $this->suc([
             'menus' => $menus,
-            'user' => $this->curUserV2,
+            'user' => $this->curUser,
         ]);
     }
 

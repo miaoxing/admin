@@ -3,6 +3,7 @@
 namespace Miaoxing\Admin;
 
 use Miaoxing\Plugin\Service\User;
+use Miaoxing\Plugin\Service\UserModel;
 
 class AdminPlugin extends \Miaoxing\Plugin\BasePlugin
 {
@@ -67,7 +68,7 @@ class AdminPlugin extends \Miaoxing\Plugin\BasePlugin
         ];
     }
 
-    public function onUserLogin(User $user)
+    public function onUserLogin(UserModel $user)
     {
         if ($user['admin']) {
             wei()->adminLog->log('用户登陆', $user);

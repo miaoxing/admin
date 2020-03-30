@@ -33,7 +33,7 @@ export default class extends React.Component {
           className="nav-item"
         >
           <Dropdown.Toggle as="div" className="nav-link text-body">
-            <Avatar src={user.headImg} className="mr-2"/>
+            <Avatar src={user.avatar} className="mr-2"/>
             <small>{user.username}</small>
           </Dropdown.Toggle>
           <Dropdown.Menu>

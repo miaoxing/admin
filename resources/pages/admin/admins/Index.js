@@ -104,7 +104,7 @@ export default class extends React.Component {
               },
               {
                 title: '创建时间',
-                dataIndex: 'createTime'
+                dataIndex: 'createdAt'
               },
               {
                 title: <Tooltip title="禁用后，用户将无法登录">

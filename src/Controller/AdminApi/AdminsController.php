@@ -2,6 +2,8 @@
 
 namespace Miaoxing\Admin\Controller\AdminApi;
 
+use Miaoxing\User\Service\GroupModel;
+
 /**
  * @todo 迁移到user插件中
  */
@@ -21,11 +23,9 @@ class AdminsController extends \Miaoxing\Plugin\BaseController
      */
     public function indexAction($req)
     {
-        $users = wei()->user();
+        $users = wei()->userModel();
 
-        $users->where(['admin' => true]);
-
-        $users->andWhere("username != 'miaostar'");
+        $users->where('admin', true);
 
         // 分页
         $users->limit($req['rows'])->page($req['page']);
@@ -34,45 +34,40 @@ class AdminsController extends \Miaoxing\Plugin\BaseController
         $users->desc('id');
 
         if (wei()->isPresent($req['groupId'])) {
-            $users->andWhere(['groupId' => $req['groupId']]);
+            $users->where(['groupId' => $req['groupId']]);
         }
 
         if ($req['username']) {
-            $users->andWhere('username like ?', ['%' . $req['username'] . '%']);
+            $users->whereContains('username', $req['username']);
         }
 
         if ($req['name']) {
-            $users->andWhere('name like ?', ['%' . $req['name'] . '%']);
+            $users->whereContains('name', $req['name']);
         }
 
         if ($req['nickName']) {
-            $users->andWhere('nickName like ?', ['%' . $req['nickName'] . '%']);
+            $users->whereContains('nickName', $req['nickName']);
         }
 
         if ($req['email']) {
-            $users->andWhere('email like ?', ['%' . $req['email'] . '%']);
+            $users->whereContains('email', $req['email']);
         }
 
-        $users = $users->findAll();
+        $users = $users->all();
 
         $data = [];
         foreach ($users as $user) {
             $data[] = $user->toArray() + [
-                    'group' => $user->getGroup()->toArray(),
+                    'group' => $user->group,
                 ];
         }
 
-        return $this->suc([
-            'data' => $data,
-            'page' => $req['page'],
-            'rows' => $req['rows'],
-            'records' => $users->count(),
-        ]);
+        return $users->toRet(['data' => $data]);
     }
 
     public function groupsAction()
     {
-        $groups = wei()->group()->notDeleted()->desc('id')->findAll();
+        $groups = GroupModel::desc('id')->all();
         $groups->withUngroup();
         return $this->suc(['data' => $groups]);
     }

@@ -3,6 +3,7 @@
 namespace Miaoxing\Admin\Controller\AdminApi;
 
 use Miaoxing\Plugin\BaseController;
+use Miaoxing\Plugin\Service\User;
 
 class UserController extends BaseController
 {
@@ -10,6 +11,6 @@ class UserController extends BaseController
 
     public function loginAction($req)
     {
-        return $this->curUser->login($req);
+        return User::login($req);
     }
 }

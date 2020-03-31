@@ -2,6 +2,7 @@
 
 namespace Miaoxing\Admin\Controller\AdminApi;
 
+use Miaoxing\Plugin\Service\User;
 use Miaoxing\User\Service\GroupModel;
 
 /**
@@ -101,7 +102,7 @@ class AdminsController extends \Miaoxing\Plugin\BaseController
 
     public function editSelfAction()
     {
-        $user = wei()->user()->findOrInitById(wei()->curUser['id']);
+        $user = User::cur();
 
         return get_defined_vars();
     }

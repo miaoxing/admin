@@ -2,6 +2,7 @@
 
 namespace Miaoxing\Admin\Service;
 
+use Miaoxing\Plugin\Service\User;
 use Miaoxing\Plugin\Service\UserModel;
 
 /**
@@ -23,7 +24,7 @@ class AdminLog extends \Miaoxing\Plugin\BaseModel
     public function log(string $description, UserModel $user = null)
     {
         wei()->adminLog()->setAppId()->save([
-            'userId' => $user ? $user['id'] : wei()->curUser['id'],
+            'userId' => $user ? $user->id : User::id(),
             'description' => $description,
         ]);
     }

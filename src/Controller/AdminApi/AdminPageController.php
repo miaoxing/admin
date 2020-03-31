@@ -3,6 +3,7 @@
 namespace Miaoxing\Admin\Controller\AdminApi;
 
 use Miaoxing\Plugin\BaseController;
+use Miaoxing\Plugin\Service\User;
 use ReflectionClass;
 
 /**
@@ -22,7 +23,7 @@ class AdminPageController extends BaseController
 
         return $this->suc([
             'menus' => $menus,
-            'user' => $this->curUser,
+            'user' => User::cur(),
         ]);
     }
 

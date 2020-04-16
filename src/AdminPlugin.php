@@ -6,22 +6,15 @@ use Miaoxing\Plugin\Service\User;
 use Miaoxing\Plugin\Service\UserModel;
 use Miaoxing\Services\App\BaseController;
 use Miaoxing\Services\Service\Url;
+use Wei\RetTrait;
 
 class AdminPlugin extends \Miaoxing\Plugin\BasePlugin
 {
+    use RetTrait;
+
     protected $name = '后台';
 
     protected $description = '提供后台布局,头部菜单,侧边栏菜单等功能';
-
-    protected $adminNavId = 'user';
-
-    public function onControllerInit(BaseController $controller)
-    {
-        if ($this->app->isAdmin()) {
-            //$controller->middleware(AdminAuth::class);
-            // TODO 检查是否为管理员
-        }
-    }
 
     public function onAdminNavGetNavs(&$navs, &$categories, &$subCategories)
     {
@@ -92,17 +85,13 @@ class AdminPlugin extends \Miaoxing\Plugin\BasePlugin
         }
     }
 
-    public function onIsAuthed()
+    public function onCheckAuth()
     {
         if ($this->app->isAdmin() && !User::cur()->admin) {
-            return false;
-        }
-    }
-
-    public function onLoginUrl()
-    {
-        if ($this->app->isAdmin()) {
-            return Url::to('admin/login');
+            return $this->err([
+                'message' => '很抱歉，您没有权限访问当前页面',
+                'next' => Url::to('admin/login'),
+            ]);
         }
     }
 }

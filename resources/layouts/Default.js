@@ -3,6 +3,7 @@ import {Layout} from "antd";
 import Navbar from './Navbar';
 import Sider from './Sider';
 import api from '@miaoxing/api';
+import $ from 'miaoxing';
 
 const {Content} = Layout;
 
@@ -13,7 +14,12 @@ export default class extends React.Component {
   };
 
   componentDidMount() {
-    api.get('admin-page', {loading: true}).then(ret => this.setState(ret));
+    api.get('admin-page', {loading: true}).then(ret => {
+      this.setState(ret);
+      if (ret.code !== 1) {
+         $.ret(ret);
+      }
+    })
   }
 
   render() {

@@ -4,6 +4,8 @@ namespace Miaoxing\Admin;
 
 use Miaoxing\Plugin\Service\User;
 use Miaoxing\Plugin\Service\UserModel;
+use Miaoxing\Services\App\BaseController;
+use Miaoxing\Services\Service\Url;
 
 class AdminPlugin extends \Miaoxing\Plugin\BasePlugin
 {
@@ -13,9 +15,10 @@ class AdminPlugin extends \Miaoxing\Plugin\BasePlugin
 
     protected $adminNavId = 'user';
 
-    public function onControllerInit()
+    public function onControllerInit(BaseController $controller)
     {
         if ($this->app->isAdmin()) {
+            //$controller->middleware(AdminAuth::class);
             // TODO 检查是否为管理员
         }
     }
@@ -86,6 +89,20 @@ class AdminPlugin extends \Miaoxing\Plugin\BasePlugin
     {
         if ($this->app->isAdmin()) {
             wei()->view->display('@admin/_browser-update.php');
+        }
+    }
+
+    public function onIsAuthed()
+    {
+        if ($this->app->isAdmin() && !User::cur()->admin) {
+            return false;
+        }
+    }
+
+    public function onLoginUrl()
+    {
+        if ($this->app->isAdmin()) {
+            return Url::to('admin/login');
         }
     }
 }

@@ -13,4 +13,9 @@ class UserController extends BaseController
     {
         return User::login($req);
     }
+
+    public function logoutAction($req)
+    {
+        return User::logout();
+    }
 }

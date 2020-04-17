@@ -9,7 +9,6 @@ import app from '@miaoxing/app';
 import logo from 'plugins/admin/resources/images/logo.png';
 import {createGlobalStyle} from 'styled-components';
 import '@miaoxing/icons';
-import {history} from "@miaoxing/app";
 import api from '@miaoxing/api';
 
 const GlobalStyle = createGlobalStyle`
@@ -50,7 +49,8 @@ export default class extends React.Component {
             const ret = await api.post('user/login', {data: values});
             await $.ret(ret);
             if (ret.code === 1) {
-              history.push(app.url('admin'));
+              const next = app.req('next');
+              window.location = (next && next.startsWith('/')) ? next : app.url('admin');
             }
           }}
         >

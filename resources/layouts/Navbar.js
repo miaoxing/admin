@@ -1,7 +1,9 @@
 import React from "react";
 import {Navbar, NavDropdown, Dropdown} from "react-bootstrap";
-import app from '@miaoxing/app';
+import app, {history} from '@miaoxing/app';
 import {Avatar} from "antd";
+import api from '@miaoxing/api';
+import $ from 'miaoxing';
 
 export default class extends React.Component {
   static defaultProps = {
@@ -18,6 +20,14 @@ export default class extends React.Component {
 
   handleClose = () => {
     this.setState({show: false})
+  }
+
+  handleLogout = async () => {
+    const ret = await api.post('user/logout');
+    await $.ret(ret);
+    if (ret.code === 1) {
+      history.push(app.url('admin/login', {next: window.location.pathname}));
+    }
   }
 
   render() {
@@ -42,7 +52,7 @@ export default class extends React.Component {
               {' '}
               修改密码
             </NavDropdown.Item>
-            <NavDropdown.Item href={app.url('users/logout')}>
+            <NavDropdown.Item onClick={this.handleLogout}>
               <i className="fa fa-power-off"/>
               {' '}
               退出

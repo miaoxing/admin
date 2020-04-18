@@ -21,7 +21,7 @@ class AdminPageController extends BaseController
             }
         }
 
-        return $this->suc([
+        return suc([
             'menus' => $menus,
             'user' => User::cur(),
         ]);
@@ -80,6 +80,6 @@ class AdminPageController extends BaseController
             ];
         }
 
-        return $this->suc(['data' => $data]);
+        return suc(['data' => $data]);
     }
 }

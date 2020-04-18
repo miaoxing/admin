@@ -15,7 +15,7 @@ class IndexController extends BaseController
 
     public function indexAction()
     {
-        return $this->suc([
+        return suc([
             'charts' => [
                 [
                     'date' => '2020-01-01',

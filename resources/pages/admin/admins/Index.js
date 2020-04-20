@@ -1,13 +1,13 @@
 import React from 'react';
 import {Page, PageActions} from "@miaoxing/page";
-import {SearchFormik, SearchItem, Options} from '@miaoxing/form';
 import {TableProvider, TableStatusCheckbox} from "@miaoxing/table";
 import {CEditLink, CNewBtn} from "@miaoxing/clink";
-import {Col, Form, Input, Row, Select, Tooltip} from "antd";
+import {Select, Tooltip} from "antd";
 import Table from "antdx-table";
 import {QuestionCircleOutlined} from '@ant-design/icons'
 import curUrl from "@miaoxing/cur-url";
 import api from '@miaoxing/api';
+import {ASearchForm, ASearchItem} from '@miaoxing/form';
 
 export default class extends React.Component {
   state = {
@@ -29,61 +29,24 @@ export default class extends React.Component {
         </PageActions>
 
         <TableProvider>
-          <Form
-            labelCol={{span: 8}} wrapperCol={{span: 16}}
-            onFieldsChange={(changedFields, allFields) => {
-              console.log(changedFields, allFields, 'f');
-            }}
-            onValuesChange={(changedValues, allValues) => {
-              console.log(changedValues, allValues, 'x');
-              // search
-            }}
-          >
-            <Row>
-              <Col span={8}>
-                <Form.Item label="用户名" name="username">
-                  <Input/>
-                </Form.Item>
-              </Col>
+          <ASearchForm>
+            <ASearchItem label="用户名" name="username$ct"/>
 
-              <Col span={8}>
-                <Form.Item label="姓名" name="name">
-                  <Input/>
-                </Form.Item>
-              </Col>
+            <ASearchItem label="姓名" name="name$ct"/>
 
-              <Col span={8}>
-                <Form.Item label="昵称" name="nickName">
-                  <Input/>
-                </Form.Item>
-              </Col>
+            <ASearchItem label="昵称" name="nickName$ct"/>
 
-              <Col span={8}>
-                <Form.Item label="分组" name="groupId">
-                  <Select>
-                    <Select.Option value="male">male</Select.Option>
-                    <Select.Option value="female">female</Select.Option>
-                    <Select.Option value="other">other</Select.Option>
-                  </Select>
-                </Form.Item>
-              </Col>
-            </Row>
-          </Form>
-
-          <SearchFormik>
-            <SearchItem label="用户名" name="username"/>
-
-            <SearchItem label="姓名" name="name"/>
-
-            <SearchItem label="昵称" name="nickName"/>
-
-            <SearchItem label="分组" name="groupId">
-              <Options data={this.state.data} labelKey="name" valueKey="id" placeholder="全部"/>
-            </SearchItem>
-          </SearchFormik>
+            <ASearchItem label="分组" name="groupId">
+              <Select defaultValue="">
+                <Select.Option value="">全部</Select.Option>
+                {this.state.data.map(group => (
+                  <Select.Option key={group.id} value={group.id}>{group.name}</Select.Option>
+                ))}
+              </Select>
+            </ASearchItem>
+          </ASearchForm>
 
           <Table
-            search={false}
             columns={[
               {
                 title: '用户名',
@@ -108,7 +71,7 @@ export default class extends React.Component {
               },
               {
                 title: <Tooltip title="禁用后，用户将无法登录">
-                  启用 <QuestionCircleOutlined className="align-middle"/>
+                  启用 <QuestionCircleOutlined/>
                 </Tooltip>,
                 dataIndex: 'enable',
                 render: (cell, row) => {

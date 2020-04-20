@@ -1,13 +1,13 @@
 import React from 'react';
 import Select from 'react-select';
 import {Page, PageActions} from "@miaoxing/page";
-import {Form, FormItem, FormAction, Options} from "@miaoxing/form";
+import {Form, FormItem, FormAction} from "@miaoxing/form";
 import {CListBtn} from "@miaoxing/clink";
 import api from '@miaoxing/api';
 
 class AdminForm extends React.Component {
   state = {
-    user: {}
+    data: {}
   };
 
   componentDidMount() {
@@ -15,7 +15,7 @@ class AdminForm extends React.Component {
   }
 
   render() {
-    const user = this.state.user;
+    const user = this.state.data;
 
     return (
       <Page>
@@ -29,7 +29,7 @@ class AdminForm extends React.Component {
             control={user.id && <p className="form-control-plaintext">{user.username}</p>}/>
 
           <FormItem label="密码" name="password" type="password" required={!user.id}
-            help={user.id && '不修改密码请留空'}/>
+            help={!!user.id && '不修改密码请留空'}/>
 
           <FormItem label="重复密码" name="passwordAgain" type="password" required={!user.id}/>
 
@@ -41,10 +41,6 @@ class AdminForm extends React.Component {
           <FormItem label="姓名" name="name"/>
 
           <FormItem label="昵称" name="nickName"/>
-
-          <FormItem label="用户组" name="groupId">
-            <Options data={this.state.groups} labelKey="name" valueKey="id" placeholder=""/>
-          </FormItem>
 
           <FormItem label="头像" name="headImg" help="支持.jpg .jpeg .bmp .gif .png格式照片"/>
 

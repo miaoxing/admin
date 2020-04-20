@@ -2,13 +2,11 @@
 
 namespace Miaoxing\Admin\Controller\AdminApi;
 
-use Miaoxing\Plugin\Service\User;
-use Miaoxing\User\Service\GroupModel;
+use Miaoxing\Plugin\BaseController;
+use Miaoxing\Plugin\Service\UserModel;
+use Miaoxing\Services\Service\V;
 
-/**
- * @todo 迁移到user插件中
- */
-class AdminsController extends \Miaoxing\Plugin\BaseController
+class AdminsController extends BaseController
 {
     protected $controllerName = '管理员管理';
 
@@ -19,58 +17,13 @@ class AdminsController extends \Miaoxing\Plugin\BaseController
         'enable' => '启用/禁用',
     ];
 
-    /**
-     * 展示用户列表
-     */
-    public function indexAction($req)
+    public function indexAction()
     {
-        $users = wei()->userModel();
+        $users = UserModel::where('admin', true)
+            ->reqQuery()
+            ->all();
 
-        $users->where('admin', true);
-
-        // 分页
-        $users->limit($req['rows'])->page($req['page']);
-
-        // 排序
-        $users->desc('id');
-
-        if (wei()->isPresent($req['groupId'])) {
-            $users->where(['groupId' => $req['groupId']]);
-        }
-
-        if ($req['username']) {
-            $users->whereContains('username', $req['username']);
-        }
-
-        if ($req['name']) {
-            $users->whereContains('name', $req['name']);
-        }
-
-        if ($req['nickName']) {
-            $users->whereContains('nickName', $req['nickName']);
-        }
-
-        if ($req['email']) {
-            $users->whereContains('email', $req['email']);
-        }
-
-        $users = $users->all();
-
-        $data = [];
-        foreach ($users as $user) {
-            $data[] = $user->toArray() + [
-                    'group' => $user->group,
-                ];
-        }
-
-        return $users->toRet(['data' => $data]);
-    }
-
-    public function groupsAction()
-    {
-        $groups = GroupModel::desc('id')->all();
-        $groups->withUngroup();
-        return $this->suc(['data' => $groups]);
+        return $users->toRet();
     }
 
     public function newAction($req)
@@ -80,31 +33,9 @@ class AdminsController extends \Miaoxing\Plugin\BaseController
 
     public function editAction($req)
     {
-        $user = wei()->user()->findOrInitById($req['id']);
+        $user = UserModel::findOrInit($req['id']);
 
-        // TODO 实现toArray hidden
-        $userData = $user->toArray();
-        unset($userData['password']);
-        unset($userData['salt']);
-
-        $groups = wei()->group()->notDeleted()->desc('id')->findAll();
-        $groups->withUngroup();
-
-        $ret = [
-            'user' => $userData,
-            'groups' => $groups,
-        ];
-
-        wei()->event->trigger('beforeAdminAdminsEdit', [&$ret, $user]);
-
-        return $this->suc($ret);
-    }
-
-    public function editSelfAction()
-    {
-        $user = User::cur();
-
-        return get_defined_vars();
+        return $user->toRet();
     }
 
     public function createAction($req)
@@ -120,58 +51,23 @@ class AdminsController extends \Miaoxing\Plugin\BaseController
         // 添加用户,编辑用户时,提交了密码,才检验密码是否合法
         $validatePassword = $req['action'] === 'create' || $req['password'];
 
-        // 校验表单数据是否合法
-        $validator = wei()->validate([
-            'data' => $req,
-            'rules' => [
-                'username' => $validateUsername ? [
-                    'length' => [1, 32],
-                    'alnum' => true,
-                    'notRecordExists' => ['user', 'username'],
-                ] : [],
-                'password' => [
-                    'required' => $validatePassword,
-                    'minLength' => 6,
-                ],
-                'passwordAgain' => [
-                    'required' => $validatePassword,
-                    'equalTo' => $req['password'],
-                ],
-                'groupId' => [
-                    'required' => false,
-                ],
-                'headImg' => [
-                    'required' => false,
-                ],
-                'nickName' => [
-                    'required' => false,
-                    'length' => [1, 32],
-                ],
-            ],
-            'names' => [
-                'username' => '用户名',
-                'password' => '密码',
-                'passwordAgain' => '重复密码',
-                'groupId' => '用户组',
-                'headImg' => '头像',
-                'nickName' => '昵称',
-            ],
-            'messages' => [
-                'passwordAgain' => [
-                    'equalTo' => '两次输入的密码不相等',
-                ],
-            ],
-        ]);
-
-        if (!$validator->isValid()) {
-            return $this->err($validator->getFirstMessage());
-        }
+        $ret = V::key('username', '用户名')
+            ->when($validateUsername, function (V $v) {
+                $v->length(1, 21)
+                    ->alnum()
+                    ->notRecordExists('users', 'username');
+            })
+            ->key('password', '密码')->required($validatePassword)->minLength(6)
+            ->key('passwordAgain', '重复密码')->required($validatePassword)->equalTo($req['password'])->message('equalTo', '两次输入的密码不相等')
+            ->key('nickName',' 昵称')->required(false)->length(1, 32)
+            ->check($req);
+        $this->tie($ret);
 
         // 添加用户时,创建新的用户对象,创建用户时,根据编号获取用户对象
-        if ('create' == $req['action']) {
-            $user = wei()->user();
+        if ('create' === $req['action']) {
+            $user = UserModel::new();
         } else {
-            $user = wei()->user()->findOneById($req['id']);
+            $user = UserModel::findOrFail($req['id']);
         }
 
         // 只有校验过才存储到用户对象中
@@ -183,31 +79,19 @@ class AdminsController extends \Miaoxing\Plugin\BaseController
             $user->setPlainPassword($req['password']);
         }
 
-        if (isset($req['headImg'])) {
-            $user['headImg'] = $req['headImg'];
-        }
-
-        wei()->event->trigger('beforeAdminAdminsSave', [$user, $req]);
-
         // 保存用户额外的信息
         $user->save([
             'admin' => true,
             'name' => (string) $req['name'],
             'nickName' => (string) $req['nickName'],
-            'groupId' => (int) $req['groupId'],
         ]);
 
-        wei()->event->trigger('afterAdminAdminsSave', [$user, $req]);
-
-        return $this->suc([
-            'message' => '操作成功',
-            'id' => $user['id'],
-        ]);
+        return $user->toRet();
     }
 
     public function enableAction($req)
     {
-        $user = wei()->user()->findOneById($req['id']);
+        $user = UserModel::findOrFail($req['id']);
         $user->save(['enable' => $req['enable']]);
 
         return $this->suc();

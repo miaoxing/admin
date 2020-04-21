@@ -9,9 +9,15 @@ import configs from 'data/configs/admin';
 // 指定 Antd 全局的 loading 样式
 Spin.setDefaultIndicator(<Loading/>);
 
+const validateMessages = {
+  required: '该项是必填的',
+};
+
 const AppContainer = () => {
   return (
-    <ConfigProvider autoInsertSpaceInButton={false}>
+    <ConfigProvider
+      form={{validateMessages}}
+    >
       <App defaultLayout={Layout} {...configs}/>
     </ConfigProvider>
   );

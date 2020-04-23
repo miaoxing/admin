@@ -3,7 +3,7 @@ import {Page, PageActions} from "@miaoxing/page";
 import {TableProvider, TableStatusCheckbox} from "@miaoxing/table";
 import {CEditLink, CNewBtn} from "@miaoxing/clink";
 import {Select, Tooltip} from "antd";
-import Table from "antdx-table";
+import {Table} from "@miaoxing/table";
 import {QuestionCircleOutlined} from '@ant-design/icons'
 import curUrl from "@miaoxing/cur-url";
 import api from '@miaoxing/api';

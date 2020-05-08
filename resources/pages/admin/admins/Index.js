@@ -73,9 +73,9 @@ export default class extends React.Component {
                 title: <Tooltip title="禁用后，用户将无法登录">
                   启用 <QuestionCircleOutlined/>
                 </Tooltip>,
-                dataIndex: 'enable',
+                dataIndex: 'isEnabled',
                 render: (cell, row) => {
-                  return <TableStatusCheckbox url={curUrl.toApi('enable')} row={row} name="enable"/>
+                  return <TableStatusCheckbox url={curUrl.toApi('enable')} row={row} name="isEnabled"/>
                 }
               },
               {

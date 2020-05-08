@@ -66,7 +66,7 @@ class AdminPlugin extends \Miaoxing\Plugin\BasePlugin
 
     public function onUserLogin(UserModel $user)
     {
-        if ($user['admin']) {
+        if ($user->isAdmin) {
             wei()->adminLog->log('用户登陆', $user);
         }
     }
@@ -87,7 +87,7 @@ class AdminPlugin extends \Miaoxing\Plugin\BasePlugin
 
     public function onCheckAuth()
     {
-        if ($this->app->isAdmin() && !User::cur()->admin) {
+        if ($this->app->isAdmin() && !User::cur()->isAdmin) {
             return $this->err([
                 'message' => '很抱歉，您没有权限访问当前页面',
                 'next' => Url::to('admin/login'),

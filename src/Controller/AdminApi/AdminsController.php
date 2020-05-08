@@ -19,7 +19,7 @@ class AdminsController extends BaseController
 
     public function indexAction()
     {
-        $users = UserModel::where('admin', true)
+        $users = UserModel::where('is_admin', true)
             ->reqQuery()
             ->all();
 
@@ -81,7 +81,7 @@ class AdminsController extends BaseController
 
         // 保存用户额外的信息
         $user->save([
-            'admin' => true,
+            'isAdmin' => true,
             'name' => (string) $req['name'],
             'nickName' => (string) $req['nickName'],
         ]);

@@ -55,7 +55,6 @@ export default class extends React.Component {
               {
                 title: '姓名',
                 dataIndex: 'name',
-                render: text => text || '-',
               },
               {
                 title: '昵称',

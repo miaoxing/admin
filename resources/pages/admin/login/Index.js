@@ -8,7 +8,6 @@ import $ from 'miaoxing';
 import app from '@miaoxing/app';
 import logo from 'plugins/admin/resources/images/logo.png';
 import {createGlobalStyle} from 'styled-components';
-import '@miaoxing/icons';
 import api from '@miaoxing/api';
 
 const GlobalStyle = createGlobalStyle`

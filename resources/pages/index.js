@@ -37,5 +37,6 @@ import '@fortawesome/fontawesome-free/css/all.min.css'
 import '@fortawesome/fontawesome-free/css/all.min.css';
 >>>>>>> theirs
 import '../scss/index.scss';
+import '@miaoxing/icons';
 
 ReactDOM.render(<AppContainer/>, document.getElementById('root'));

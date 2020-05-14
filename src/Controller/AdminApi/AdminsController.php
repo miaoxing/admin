@@ -4,11 +4,16 @@ namespace Miaoxing\Admin\Controller\AdminApi;
 
 use Miaoxing\Admin\Service\GroupModel;
 use Miaoxing\Plugin\BaseController;
+use Miaoxing\Plugin\Service\Model;
 use Miaoxing\Plugin\Service\UserModel;
+use Miaoxing\Services\Rest\IndexTrait;
+use Miaoxing\Services\Service\Request;
 use Miaoxing\Services\Service\V;
 
 class AdminsController extends BaseController
 {
+    use IndexTrait;
+
     protected $controllerName = '管理员管理';
 
     protected $actionPermissions = [
@@ -17,24 +22,29 @@ class AdminsController extends BaseController
         'edit,update' => '编辑',
         'enable' => '启用/禁用',
     ];
+    /**
+     * @var GroupModel|GroupModel[]|array
+     */
+    protected $groups;
 
-    public function indexAction()
+    protected function createModel()
     {
-        $users = UserModel::where('is_admin', true)
-            ->reqQuery()
-            ->all();
+        return UserModel::where('isAdmin', true)
+            ->reqQuery();
+    }
 
+    protected function afterIndexFind(Request $req, UserModel $users)
+    {
         // NOTE: UserModel 里还没有 group 关联，需手动读取
         $groupIds = array_unique(array_filter($users->getAll('groupId')));
-        $groups = $groupIds ? GroupModel::findAll($groupIds)->indexBy('id') : [];
+        $this->groups = $groupIds ? GroupModel::findAll($groupIds)->indexBy('id') : [];
+    }
 
-        $data = $users->toArray(function (UserModel $user) use ($groups) {
-            return [
-                'group' => $groups[$user->groupId] ?? null,
-            ];
-        });
-
-        return $users->toRet(['data' => $data]);
+    protected function buildIndexData(UserModel $user)
+    {
+        return [
+            'group' => $this->groups[$user->groupId] ?? null,
+        ];
     }
 
     public function indexGroupsAction()

@@ -24,7 +24,7 @@ class AdminForm extends React.Component {
         <AForm>
           {({id, username}) => {
             return <>
-              {id ? <AFormItem label="用户名">{username}</AFormItem> : <AFormItem label="用户名" name="username" required/>}
+              <AFormItem label="用户名" name="username" type={id ? 'plain' : 'text'} required/>
 
               <AFormItem label="密码" name="password" required={!id} extra={!!id && '不修改密码请留空'}/>
 

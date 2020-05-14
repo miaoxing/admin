@@ -28,10 +28,11 @@ class AdminsController extends BaseController
         $groupIds = array_unique(array_filter($users->getAll('groupId')));
         $groups = $groupIds ? GroupModel::findAll($groupIds)->indexBy('id') : [];
 
-        $data = [];
-        foreach ($users as $user) {
-            $data[] = $user->toArray() + ['group' => $groups[$user->groupId] ?? null];
-        }
+        $data = $users->toArray(function (UserModel $user) use ($groups) {
+            return [
+                'group' => $groups[$user->groupId] ?? null,
+            ];
+        });
 
         return $users->toRet(['data' => $data]);
     }
@@ -79,8 +80,9 @@ class AdminsController extends BaseController
                     ->notRecordExists('users', 'username');
             })
             ->key('password', '密码')->required($validatePassword)->minLength(6)
-            ->key('passwordAgain', '重复密码')->required($validatePassword)->equalTo($req['password'])->message('equalTo', '两次输入的密码不相等')
-            ->key('nickName',' 昵称')->required(false)->length(1, 32)
+            ->key('passwordAgain', '重复密码')->required($validatePassword)->equalTo($req['password'])->message('equalTo',
+                '两次输入的密码不相等')
+            ->key('nickName', ' 昵称')->required(false)->length(1, 32)
             ->check($req);
         $this->tie($ret);
 

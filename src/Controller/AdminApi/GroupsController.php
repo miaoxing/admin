@@ -36,24 +36,14 @@ class GroupsController extends BaseController
         ]);
     }
 
-    /**
-     * @param $req
-     * @return Ret
-     * @throws RetException
-     */
-    public function updateAction($req)
+    protected function beforeUpdateFind(Request $req)
     {
-        $ret = V::key('name', '名称')->check($req);
-        $this->tie($ret);
+        return V::key('name', '名称')->check($req);
+    }
 
-        $group = GroupModel::findOrInit($req['id'])->fromArray($req);
-
-        $ret = Event::until('groupUpdate', [$group]);
-        $this->tie($ret);
-
-        $group->save($req);
-
-        return suc();
+    protected function beforeSave(Request $req, Model $model)
+    {
+        return Event::until('groupUpdate', [$model]);
     }
 
     protected function beforeDestroy(Request $req, Model $model)

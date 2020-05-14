@@ -14,8 +14,24 @@ class AdminNavMixin {
 }
 
 /**
+ * @property    Miaoxing\Admin\Service\Group $group 用户分组
+ * @method      Miaoxing\Admin\Service\Group|Miaoxing\Admin\Service\Group[] group()
+ */
+class GroupMixin {
+}
+
+/**
+ * @property    Miaoxing\Admin\Service\GroupModel $groupModel GroupModel
+ * @method      Miaoxing\Admin\Service\GroupModel|Miaoxing\Admin\Service\GroupModel[] groupModel($table = null)
+ */
+class GroupModelMixin {
+}
+
+/**
  * @mixin AdminLogMixin
  * @mixin AdminNavMixin
+ * @mixin GroupMixin
+ * @mixin GroupModelMixin
  */
 class AutoCompletion {
 }
@@ -33,3 +49,12 @@ $adminLog = wei()->adminLog;
 
 /** @var Miaoxing\Admin\Service\AdminNav $adminNav */
 $adminNav = wei()->adminNav;
+
+/** @var Miaoxing\Admin\Service\Group $group */
+$group = wei()->group;
+
+/** @var Miaoxing\Admin\Service\GroupModel $groupModel */
+$group = wei()->groupModel();
+
+/** @var Miaoxing\Admin\Service\GroupModel|Miaoxing\Admin\Service\GroupModel[] $groupModels */
+$groups = wei()->groupModel();

@@ -17,6 +17,7 @@ export default class extends React.Component {
           <AFormItem label="顺序" name="sort">
             <InputNumber className="w-100"/>
           </AFormItem>
+          <AFormItem name="id" type="hidden"/>
           <AFormAction/>
         </AForm>
       </Page>

@@ -2,10 +2,12 @@
 
 namespace Miaoxing\Admin\Controller\AdminApi;
 
+use Miaoxing\Plugin\Service\Model;
 use Miaoxing\Plugin\Service\Ret;
 use Miaoxing\Plugin\RetException;
 use Miaoxing\Plugin\Service\Plugin;
 use Miaoxing\Services\Rest\RestTrait;
+use Miaoxing\Services\Service\Request;
 use Miaoxing\Services\Service\V;
 use Wei\Event;
 use Miaoxing\Plugin\Service\UserModel;
@@ -54,19 +56,13 @@ class GroupsController extends BaseController
         return suc();
     }
 
-    public function destroyAction($req)
+    protected function beforeDestroy(Request $req, Model $model)
     {
-        $group = GroupModel::findOrFail($req['id']);
+        return Event::until('groupDestroy', [$model]);
+    }
 
-        $ret = Event::until('groupDestroy', [$group]);
-        if ($ret) {
-            return $ret;
-        }
-
-        // 本地删除
-        $group->destroy();
+    protected function afterDestroy(Request $req, Model $model)
+    {
         UserModel::where('groupId', $req['id'])->update('groupId', 0);
-
-        return suc();
     }
 }

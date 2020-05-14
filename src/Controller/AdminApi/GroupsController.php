@@ -5,16 +5,16 @@ namespace Miaoxing\Admin\Controller\AdminApi;
 use Miaoxing\Plugin\Service\Ret;
 use Miaoxing\Plugin\RetException;
 use Miaoxing\Plugin\Service\Plugin;
+use Miaoxing\Services\Rest\RestTrait;
 use Miaoxing\Services\Service\V;
 use Wei\Event;
 use Miaoxing\Plugin\Service\UserModel;
-use Miaoxing\Services\Crud\CrudTrait;
 use Miaoxing\Plugin\BaseController;
 use Miaoxing\Admin\Service\GroupModel;
 
 class GroupsController extends BaseController
 {
-    use CrudTrait;
+    use RestTrait;
 
     protected $controllerName = '分组管理';
 

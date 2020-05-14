@@ -4,7 +4,7 @@ namespace Miaoxing\Admin\Migration;
 
 use Miaoxing\Services\Migration\BaseMigration;
 
-class v20161030010000AddGroupIdToUsersTable extends BaseMigration
+class V20161030010000AddGroupIdToUsersTable2 extends BaseMigration
 {
     /**
      * {@inheritdoc}

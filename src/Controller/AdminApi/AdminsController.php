@@ -93,7 +93,7 @@ class AdminsController extends BaseController
 
         // 只有校验过才存储到用户对象中
         if ($validateUsername) {
-            $user['username'] = $req['username'];
+            $user->username = $req['username'];
         }
 
         if ($validatePassword) {
@@ -114,7 +114,8 @@ class AdminsController extends BaseController
     public function enableAction($req)
     {
         $user = UserModel::findOrFail($req['id']);
-        $user->save(['isEnabled' => $req['isEnabled']]);
+        $user->isEnabled = $req['isEnabled'];
+        $user->save();
 
         return $this->suc();
     }

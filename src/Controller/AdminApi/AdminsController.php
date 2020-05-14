@@ -72,6 +72,7 @@ class AdminsController extends BaseController
         $validatePassword = $req['action'] === 'create' || $req['password'];
 
         $ret = V::key('username', '用户名')
+            ->required($validateUsername)
             ->when($validateUsername, function (V $v) {
                 $v->length(1, 21)
                     ->alnum()

@@ -113,7 +113,7 @@ class AdminsController extends BaseController
         return $user->toRet();
     }
 
-    public function enableAction($req)
+    public function enableAction()
     {
         $user = UserModel::findOrFail(req('id'));
         $user->isEnabled = req('isEnabled');

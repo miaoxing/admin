@@ -1,53 +1,59 @@
 import React from 'react';
-import Select from 'react-select';
+import {Select} from 'antd';
 import {Page, PageActions} from "@miaoxing/page";
-import {Form, FormItem, FormAction} from "@miaoxing/form";
+import {AForm, AFormItem, AFormAction} from "@miaoxing/form";
 import {CListBtn} from "@miaoxing/clink";
 import api from '@miaoxing/api';
 
 class AdminForm extends React.Component {
   state = {
-    data: {}
+    data: [],
   };
 
   componentDidMount() {
-    api.cur().then(ret => this.setState(ret));
+    api.curPath('edit-groups').then(ret => this.setState(ret));
   }
 
   render() {
-    const user = this.state.data;
-
     return (
       <Page>
         <PageActions>
           <CListBtn/>
         </PageActions>
-        <Form
-          initialValues={this.state.user}
-        >
-          <FormItem label="用户名" name="username" required={!user.id}
-            control={user.id && <p className="form-control-plaintext">{user.username}</p>}/>
 
-          <FormItem label="密码" name="password" type="password" required={!user.id}
-            help={!!user.id && '不修改密码请留空'}/>
+        <AForm>
+          {({id, username}) => {
+            return <>
+              {id ? <AFormItem label="用户名">{username}</AFormItem> : <AFormItem label="用户名" name="username"/>}
 
-          <FormItem label="重复密码" name="passwordAgain" type="password" required={!user.id}/>
+              <AFormItem label="密码" name="password" extra={!!id && '不修改密码请留空'}/>
 
-          {this.state.isInstalledCan && <FormItem label="角色" name="roleIds" control={
-            <Select isMulti name="roleIds[]" options={this.state.roleOptions} defaultValue={this.state.roleDefaultValue}
-              placeholder="请选择"/>
-          }/>}
+              <AFormItem label="重复密码" name="passwordAgain"/>
 
-          <FormItem label="姓名" name="name"/>
+              <AFormItem label="姓名" name="name"/>
 
-          <FormItem label="昵称" name="nickName"/>
+              <AFormItem label="昵称" name="nickName"/>
 
-          <FormItem label="头像" name="headImg" help="支持.jpg .jpeg .bmp .gif .png格式照片"/>
+              <AFormItem label="分组" name="groupId">
+                <Select defaultValue={0}>
+                  <Select.Option value={0}>无</Select.Option>
+                  {this.state.data.map(group => (
+                    <Select.Option key={group.id} value={group.id}>{group.name}</Select.Option>
+                  ))}
+                </Select>
+              </AFormItem>
 
-          <input type="hidden" id="id" name="id"/>
+              <AFormItem label="头像" name="avatar"
+                extra="支持.jpg .jpeg .bmp .gif .png格式照片">
 
-          <FormAction/>
-        </Form>
+              </AFormItem>
+
+              <AFormItem name="id" type="hidden"/>
+
+              <AFormAction/>
+            </>
+          }}
+        </AForm>
       </Page>
     )
   }

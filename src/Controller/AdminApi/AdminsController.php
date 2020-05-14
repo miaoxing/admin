@@ -53,6 +53,11 @@ class AdminsController extends BaseController
         return $user->toRet();
     }
 
+    public function editGroupsAction()
+    {
+        return $this->indexGroupsAction();
+    }
+
     public function createAction($req)
     {
         return $this->updateAction($req);
@@ -99,6 +104,7 @@ class AdminsController extends BaseController
             'isAdmin' => true,
             'name' => (string) $req['name'],
             'nickName' => (string) $req['nickName'],
+            'groupId' => $req['groupId'],
         ]);
 
         return $user->toRet();

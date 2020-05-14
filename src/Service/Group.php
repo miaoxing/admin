@@ -44,19 +44,6 @@ class Group extends \Miaoxing\Plugin\BaseModel
         return $this;
     }
 
-    /**
-     * Coll: 附加未分组数据
-     */
-    public function withUngroup()
-    {
-        $group = wei()->group()->setData([
-            'id' => 0,
-            'name' => '未分组',
-        ]);
-        array_unshift($this->data, $group);
-        return $this;
-    }
-
     public function getCustomerServiceGroups()
     {
         $this->customerServiceGroups ||

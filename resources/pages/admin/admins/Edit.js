@@ -1,7 +1,6 @@
 import React from 'react';
-import {Select} from 'antd';
 import {Page, PageActions} from "@miaoxing/page";
-import {AForm, AFormItem, AFormAction} from "@miaoxing/form";
+import {AForm, AFormItem, AFormAction, ASelect} from "@miaoxing/form";
 import {CListBtn} from "@miaoxing/clink";
 import api from '@miaoxing/api';
 
@@ -22,25 +21,20 @@ class AdminForm extends React.Component {
         </PageActions>
 
         <AForm>
-          {({id, username}) => {
+          {({id}) => {
             return <>
               <AFormItem label="用户名" name="username" type={id ? 'plain' : 'text'} required/>
 
-              <AFormItem label="密码" name="password" required={!id} extra={!!id && '不修改密码请留空'}/>
+              <AFormItem label="密码" name="password" type="password" required={!id} extra={!!id && '不修改密码请留空'}/>
 
-              <AFormItem label="重复密码" name="passwordAgain" required={!id}/>
+              <AFormItem label="重复密码" name="passwordAgain" type="password" required={!id}/>
 
               <AFormItem label="姓名" name="name"/>
 
               <AFormItem label="昵称" name="nickName"/>
 
               <AFormItem label="分组" name="groupId">
-                <Select defaultValue={0}>
-                  <Select.Option value={0}>无</Select.Option>
-                  {this.state.data.map(group => (
-                    <Select.Option key={group.id} value={group.id}>{group.name}</Select.Option>
-                  ))}
-                </Select>
+                <ASelect options={this.state.data} labelKey="name" valueKey="id"/>
               </AFormItem>
 
               <AFormItem label="头像" name="avatar"

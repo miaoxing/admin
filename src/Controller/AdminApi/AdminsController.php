@@ -38,7 +38,7 @@ class AdminsController extends BaseController
 
     public function indexGroupsAction()
     {
-        return GroupModel::all()->toRet();
+        return GroupModel::all()->withUnGroup()->toRet();
     }
 
     public function newAction($req)

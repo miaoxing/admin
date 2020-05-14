@@ -114,7 +114,7 @@ class AdminsController extends BaseController
     public function enableAction($req)
     {
         $user = UserModel::findOrFail($req['id']);
-        $user->save(['enable' => $req['enable']]);
+        $user->save(['isEnabled' => $req['isEnabled']]);
 
         return $this->suc();
     }

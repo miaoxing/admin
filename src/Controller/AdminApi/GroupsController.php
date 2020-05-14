@@ -1,6 +1,6 @@
 <?php
 
-namespace Miaoxing\User\Controller\AdminApi;
+namespace Miaoxing\Admin\Controller\AdminApi;
 
 use Miaoxing\Plugin\Service\Ret;
 use Miaoxing\Plugin\RetException;

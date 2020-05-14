@@ -15,7 +15,7 @@ export default class extends React.Component {
   };
 
   componentDidMount() {
-    api.cur({loading: true})
+    api.curPath('index-groups',{loading: true})
       .then(ret => {
         this.setState(ret);
       });
@@ -62,7 +62,7 @@ export default class extends React.Component {
               },
               {
                 title: '分组',
-                dataIndex: 'group.name'
+                dataIndex: ['group', 'name']
               },
               {
                 title: '创建时间',

@@ -2,6 +2,7 @@
 
 namespace Miaoxing\Admin\Controller\AdminApi;
 
+use Miaoxing\Admin\Service\GroupModel;
 use Miaoxing\Plugin\BaseController;
 use Miaoxing\Plugin\Service\UserModel;
 use Miaoxing\Services\Service\V;
@@ -11,7 +12,7 @@ class AdminsController extends BaseController
     protected $controllerName = '管理员管理';
 
     protected $actionPermissions = [
-        'index,groups' => '列表',
+        'index,indexGroups' => '列表',
         'new,create' => '添加',
         'edit,update' => '编辑',
         'enable' => '启用/禁用',
@@ -23,7 +24,21 @@ class AdminsController extends BaseController
             ->reqQuery()
             ->all();
 
-        return $users->toRet();
+        // NOTE: UserModel 里还没有 group 关联，需手动读取
+        $groupIds = array_unique(array_filter($users->getAll('groupId')));
+        $groups = $groupIds ? GroupModel::findAll($groupIds)->indexBy('id') : [];
+
+        $data = [];
+        foreach ($users as $user) {
+            $data[] = $user->toArray() + ['group' => $groups[$user->groupId] ?? null];
+        }
+
+        return $users->toRet(['data' => $data]);
+    }
+
+    public function indexGroupsAction()
+    {
+        return GroupModel::all()->toRet();
     }
 
     public function newAction($req)

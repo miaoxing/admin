@@ -49,7 +49,7 @@ class AdminsController extends BaseController
 
     public function editAction($req)
     {
-        $user = UserModel::findOrInit($req['id']);
+        $user = UserModel::findOrInit(req('id'));
 
         return $user->toRet();
     }
@@ -59,18 +59,18 @@ class AdminsController extends BaseController
         return $this->indexGroupsAction();
     }
 
-    public function createAction($req)
+    public function createAction()
     {
-        return $this->updateAction($req);
+        return $this->updateAction();
     }
 
-    public function updateAction($req)
+    public function updateAction()
     {
         // 添加用户时才校验用户名
-        $validateUsername = $req['action'] === 'create';
+        $validateUsername = req('action') === 'create';
 
         // 添加用户,编辑用户时,提交了密码,才检验密码是否合法
-        $validatePassword = $req['action'] === 'create' || $req['password'];
+        $validatePassword = req('action') === 'create' || req('password');
 
         $ret = V::key('username', '用户名')
             ->required($validateUsername)
@@ -80,34 +80,34 @@ class AdminsController extends BaseController
                     ->notRecordExists('users', 'username');
             })
             ->key('password', '密码')->required($validatePassword)->minLength(6)
-            ->key('passwordAgain', '重复密码')->required($validatePassword)->equalTo($req['password'])->message('equalTo',
+            ->key('passwordAgain', '重复密码')->required($validatePassword)->equalTo(req('password'))->message('equalTo',
                 '两次输入的密码不相等')
             ->key('nickName', ' 昵称')->required(false)->length(1, 32)
-            ->check($req);
+            ->check(req());
         $this->tie($ret);
 
         // 添加用户时,创建新的用户对象,创建用户时,根据编号获取用户对象
-        if ('create' === $req['action']) {
+        if ('create' === req('action')) {
             $user = UserModel::new();
         } else {
-            $user = UserModel::findOrFail($req['id']);
+            $user = UserModel::findOrFail(req('id'));
         }
 
         // 只有校验过才存储到用户对象中
         if ($validateUsername) {
-            $user->username = $req['username'];
+            $user->username = req('username');
         }
 
         if ($validatePassword) {
-            $user->setPlainPassword($req['password']);
+            $user->setPlainPassword(req('password'));
         }
 
         // 保存用户额外的信息
         $user->save([
             'isAdmin' => true,
-            'name' => (string) $req['name'],
-            'nickName' => (string) $req['nickName'],
-            'groupId' => $req['groupId'],
+            'name' => (string) req('name'),
+            'nickName' => (string) req('nickName'),
+            'groupId' => req('groupId'),
         ]);
 
         return $user->toRet();
@@ -115,8 +115,8 @@ class AdminsController extends BaseController
 
     public function enableAction($req)
     {
-        $user = UserModel::findOrFail($req['id']);
-        $user->isEnabled = $req['isEnabled'];
+        $user = UserModel::findOrFail(req('id'));
+        $user->isEnabled = req('isEnabled');
         $user->save();
 
         return $this->suc();

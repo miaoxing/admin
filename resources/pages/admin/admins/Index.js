@@ -29,7 +29,11 @@ export default class extends React.Component {
         </PageActions>
 
         <TableProvider>
-          <ASearchForm>
+          <ASearchForm
+            initialValues={{
+              groupId: ''
+            }}
+          >
             <ASearchItem label="用户名" name="username$ct"/>
 
             <ASearchItem label="姓名" name="name$ct"/>
@@ -37,7 +41,7 @@ export default class extends React.Component {
             <ASearchItem label="昵称" name="nickName$ct"/>
 
             <ASearchItem label="分组" name="groupId">
-              <Select defaultValue="">
+              <Select>
                 <Select.Option value="">全部</Select.Option>
                 {this.state.data.map(group => (
                   <Select.Option key={group.id} value={group.id}>{group.name}</Select.Option>

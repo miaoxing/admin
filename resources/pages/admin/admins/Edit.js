@@ -10,7 +10,7 @@ class AdminForm extends React.Component {
   };
 
   componentDidMount() {
-    api.curPath('edit-groups').then(ret => this.setState(ret));
+    api.curPath('form-config').then(ret => this.setState(ret));
   }
 
   render() {

@@ -15,7 +15,7 @@ export default class extends React.Component {
   };
 
   componentDidMount() {
-    api.curPath('index-groups',{loading: true})
+    api.curPath('index-config',{loading: true})
       .then(ret => {
         this.setState(ret);
       });

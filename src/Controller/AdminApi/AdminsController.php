@@ -4,7 +4,6 @@ namespace Miaoxing\Admin\Controller\AdminApi;
 
 use Miaoxing\Admin\Service\GroupModel;
 use Miaoxing\Plugin\BaseController;
-use Miaoxing\Plugin\Service\Model;
 use Miaoxing\Plugin\Service\UserModel;
 use Miaoxing\Services\Rest\FormTrait;
 use Miaoxing\Services\Rest\IndexTrait;
@@ -19,9 +18,9 @@ class AdminsController extends BaseController
     protected $controllerName = '管理员管理';
 
     protected $actionPermissions = [
-        'index,indexGroups' => '列表',
-        'new,create' => '添加',
-        'edit,update' => '编辑',
+        'index,indexConfig' => '列表',
+        'new,formConfig,create' => '添加',
+        'edit,formConfig,update' => '编辑',
         'enable' => '启用/禁用',
     ];
 
@@ -55,14 +54,14 @@ class AdminsController extends BaseController
         ];
     }
 
-    public function indexGroupsAction()
+    public function indexConfigAction()
     {
         return GroupModel::all()->withUnGroup()->toRet();
     }
 
-    public function editGroupsAction()
+    public function formConfigAction()
     {
-        return $this->indexGroupsAction();
+        return $this->indexConfigAction();
     }
 
     public function updateAction()

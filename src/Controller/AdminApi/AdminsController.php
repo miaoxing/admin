@@ -88,11 +88,7 @@ class AdminsController extends BaseController
         $this->tie($ret);
 
         // 添加用户时,创建新的用户对象,创建用户时,根据编号获取用户对象
-        if ('create' === req('action')) {
-            $user = UserModel::new();
-        } else {
-            $user = UserModel::findOrFail(req('id'));
-        }
+        $user = UserModel::findFromRequest();
 
         // 只有校验过才存储到用户对象中
         if ($validateUsername) {

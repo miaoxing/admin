@@ -5,6 +5,7 @@ namespace Miaoxing\Admin\Controller\AdminApi;
 use Miaoxing\Plugin\BaseController;
 use Miaoxing\Plugin\Service\User;
 use ReflectionClass;
+use Wei\Url;
 
 /**
  * 后台页面的配置
@@ -17,7 +18,7 @@ class AdminPageController extends BaseController
 
         foreach ($menus as $i => $menu) {
             foreach ($menu['navs'] as $j => $menu2) {
-                $menus[$i]['navs'][$j]['url'] = $this->url($menu2['url']);
+                $menus[$i]['navs'][$j]['url'] = Url::to($menu2['url']);
             }
         }
 
@@ -66,17 +67,17 @@ class AdminPageController extends BaseController
         $data = [
             [
                 'name' => '首页',
-                'url' => $this->url('admin'),
+                'url' => Url::to('admin'),
             ],
             [
                 'name' => $controllerName,
-                'url' => $this->url($controller),
+                'url' => Url::to($controller),
             ],
         ];
         if ($action !== 'index') {
             $data[] = [
                 'name' => $actionName,
-                'url' => $this->url($controller . '/' . $action),
+                'url' => Url::to($controller . '/' . $action),
             ];
         }
 

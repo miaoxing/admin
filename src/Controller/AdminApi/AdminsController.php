@@ -67,16 +67,18 @@ class AdminsController extends BaseController
 
     public function updateAction()
     {
+        $user = UserModel::findFromRequest();
+
         // 添加用户时才校验用户名
-        $validateUsername = req('action') === 'create';
+        $validateUsername = $user->isNew();
 
         // 添加用户,编辑用户时,提交了密码,才检验密码是否合法
-        $validatePassword = req('action') === 'create' || req('password');
+        $validatePassword = $user->isNew() || req('password');
 
         $ret = V::key('username', '用户名')
             ->required($validateUsername)
             ->when($validateUsername, function (V $v) {
-                $v->length(1, 21)
+                $v->length(1, 32)
                     ->alnum()
                     ->notRecordExists('users', 'username');
             })
@@ -86,9 +88,6 @@ class AdminsController extends BaseController
             ->key('nickName', ' 昵称')->required(false)->length(1, 32)
             ->check(req());
         $this->tie($ret);
-
-        // 添加用户时,创建新的用户对象,创建用户时,根据编号获取用户对象
-        $user = UserModel::findFromRequest();
 
         // 只有校验过才存储到用户对象中
         if ($validateUsername) {

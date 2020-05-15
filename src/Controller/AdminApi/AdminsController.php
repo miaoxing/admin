@@ -4,16 +4,17 @@ namespace Miaoxing\Admin\Controller\AdminApi;
 
 use Miaoxing\Admin\Service\GroupModel;
 use Miaoxing\Plugin\BaseController;
+use Miaoxing\Plugin\Service\Model;
 use Miaoxing\Plugin\Service\UserModel;
+use Miaoxing\Services\Rest\FormTrait;
 use Miaoxing\Services\Rest\IndexTrait;
-use Miaoxing\Services\Rest\NewCreateTrait;
 use Miaoxing\Services\Service\Request;
 use Miaoxing\Services\Service\V;
 
 class AdminsController extends BaseController
 {
     use IndexTrait;
-    use NewCreateTrait;
+    use FormTrait;
 
     protected $controllerName = '管理员管理';
 
@@ -23,14 +24,20 @@ class AdminsController extends BaseController
         'edit,update' => '编辑',
         'enable' => '启用/禁用',
     ];
+
     /**
      * @var GroupModel|GroupModel[]|array
      */
     protected $groups;
 
-    protected function createModel()
+    public function createModel()
     {
-        return UserModel::where('isAdmin', true)
+        return UserModel::new();
+    }
+
+    protected function beforeIndexFind(Request $req, UserModel $models)
+    {
+        $models->where('isAdmin', true)
             ->reqQuery();
     }
 
@@ -51,13 +58,6 @@ class AdminsController extends BaseController
     public function indexGroupsAction()
     {
         return GroupModel::all()->withUnGroup()->toRet();
-    }
-
-    public function editAction()
-    {
-        $user = UserModel::findOrInit(req('id'));
-
-        return $user->toRet();
     }
 
     public function editGroupsAction()

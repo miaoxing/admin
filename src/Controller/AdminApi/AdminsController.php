@@ -108,10 +108,10 @@ class AdminsController extends BaseController
         return $user->toRet();
     }
 
-    public function enableAction()
+    public function enableAction(int $id, bool $isEnabled = null, $r = 'abc')
     {
-        $user = UserModel::findOrFail(req('id'));
-        $user->isEnabled = req('isEnabled');
+        $user = UserModel::findOrFail($id);
+        $user->isEnabled = $isEnabled;
         $user->save();
 
         return $this->suc();

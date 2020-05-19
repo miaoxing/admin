@@ -2,6 +2,7 @@
 
 namespace Miaoxing\Admin\Controller\AdminApi;
 
+use Miaoxing\Admin\Service\GroupModel;
 use Miaoxing\Plugin\Service\Model;
 use Miaoxing\Plugin\Service\Plugin;
 use Miaoxing\Services\Rest\RestTrait;
@@ -50,6 +51,7 @@ class GroupsController extends BaseController
 
     protected function afterDestroy(Request $req, Model $model)
     {
+        GroupModel::where('s', 'd');
         UserModel::where('groupId', $req['id'])->update('groupId', 0);
     }
 }

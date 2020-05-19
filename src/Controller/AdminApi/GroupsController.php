@@ -51,7 +51,6 @@ class GroupsController extends BaseController
 
     protected function afterDestroy(Request $req, Model $model)
     {
-        GroupModel::where('s', 'd');
         UserModel::where('groupId', $req['id'])->update('groupId', 0);
     }
 }

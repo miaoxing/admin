@@ -1,7 +1,7 @@
 import React from 'react';
 import {Page, PageActions} from "@miaoxing/a-page";
 import {Form, FormItem, FormAction, Select} from "@miaoxing/a-form";
-import {CListBtn} from "@miaoxing/clink";
+import {CListBtn} from "@miaoxing/a-clink";
 import api from '@miaoxing/api';
 
 class AdminForm extends React.Component {

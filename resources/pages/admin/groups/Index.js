@@ -1,6 +1,6 @@
 import React from "react";
 import {Table, TableProvider, CTableDeleteLink} from "@miaoxing/a-table";
-import {CEditLink, CNewBtn} from "@miaoxing/clink";
+import {CEditLink, CNewBtn} from "@miaoxing/a-clink";
 import {Button} from "react-bootstrap";
 import {Page, PageActions} from "@miaoxing/a-page";
 import {LinkActions} from "@miaoxing/actions";

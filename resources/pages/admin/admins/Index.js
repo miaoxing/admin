@@ -2,7 +2,7 @@ import React from 'react';
 import {Page, PageActions} from "@miaoxing/a-page";
 import {Table, TableProvider, TableStatusCheckbox} from "@miaoxing/a-table";
 import {SearchForm, SearchItem, Select} from '@miaoxing/a-form';
-import {CEditLink, CNewBtn} from "@miaoxing/clink";
+import {CNewBtn, CEditLink} from '@miaoxing/a-clink';
 import {Tooltip} from "antd";
 import {QuestionCircleOutlined} from '@ant-design/icons'
 import curUrl from "@miaoxing/cur-url";
@@ -14,7 +14,7 @@ export default class extends React.Component {
   };
 
   componentDidMount() {
-    api.curPath('index-config',{loading: true})
+    api.curPath('index-config', {loading: true})
       .then(ret => {
         this.setState(ret);
       });

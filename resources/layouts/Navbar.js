@@ -27,7 +27,7 @@ export default class extends React.Component {
     const {user} = this.props;
 
     return (
-      <Header className="bg-white">
+      <Header className="bg-white shadow-sm" style={{zIndex: 1}}>
         <Dropdown
           className="float-right"
           overlay={

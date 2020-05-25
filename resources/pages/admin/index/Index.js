@@ -2,7 +2,7 @@ import React from "react";
 import {Card, Col, ListGroup, Row} from "react-bootstrap";
 import styled from 'styled-components';
 import color from 'color';
-import {Page} from "@miaoxing/page";
+import {Page} from "@miaoxing/a-page";
 import {
   Chart,
   Geom,

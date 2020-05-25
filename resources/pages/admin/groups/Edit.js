@@ -1,6 +1,6 @@
 import React from 'react';
 import {CListBtn} from "@miaoxing/clink";
-import {Page, PageActions} from "@miaoxing/page";
+import {Page, PageActions} from "@miaoxing/a-page";
 import {Form, FormItem, FormAction} from '@miaoxing/a-form'
 import {InputNumber} from 'antd';
 

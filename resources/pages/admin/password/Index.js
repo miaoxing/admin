@@ -1,5 +1,5 @@
 import React from "react";
-import {Page} from '@miaoxing/page';
+import {Page} from '@miaoxing/a-page';
 import {Form, FormAction, FormItem} from '@miaoxing/a-form';
 import curUrl from '@miaoxing/cur-url';
 import {Alert} from 'react-bootstrap';

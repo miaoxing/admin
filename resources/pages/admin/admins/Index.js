@@ -1,11 +1,10 @@
 import React from 'react';
-import {Page, PageActions} from "@miaoxing/page";
-import {TableProvider, TableStatusCheckbox} from "@miaoxing/a-table";
+import {Page, PageActions} from "@miaoxing/a-page";
+import {Table, TableProvider, TableStatusCheckbox} from "@miaoxing/a-table";
+import {SearchForm, SearchItem, Select} from '@miaoxing/a-form';
 import {CEditLink, CNewBtn} from "@miaoxing/clink";
 import {Tooltip} from "antd";
-import {Table} from "@miaoxing/a-table";
 import {QuestionCircleOutlined} from '@ant-design/icons'
-import {SearchForm, SearchItem, Select} from '@miaoxing/a-form';
 import curUrl from "@miaoxing/cur-url";
 import api from '@miaoxing/api';
 

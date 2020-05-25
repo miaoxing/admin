@@ -7,7 +7,7 @@ import {Table} from "@miaoxing/table";
 import {QuestionCircleOutlined} from '@ant-design/icons'
 import curUrl from "@miaoxing/cur-url";
 import api from '@miaoxing/api';
-import {ASearchForm, ASearchItem} from '@miaoxing/form';
+import {SearchForm, SearchItem} from '@miaoxing/a-form';
 
 export default class extends React.Component {
   state = {
@@ -29,26 +29,26 @@ export default class extends React.Component {
         </PageActions>
 
         <TableProvider>
-          <ASearchForm
+          <SearchForm
             initialValues={{
               groupId: ''
             }}
           >
-            <ASearchItem label="用户名" name="username$ct"/>
+            <SearchItem label="用户名" name="username$ct"/>
 
-            <ASearchItem label="姓名" name="name$ct"/>
+            <SearchItem label="姓名" name="name$ct"/>
 
-            <ASearchItem label="昵称" name="nickName$ct"/>
+            <SearchItem label="昵称" name="nickName$ct"/>
 
-            <ASearchItem label="分组" name="groupId">
+            <SearchItem label="分组" name="groupId">
               <Select>
                 <Select.Option value="">全部</Select.Option>
                 {this.state.data.map(group => (
                   <Select.Option key={group.id} value={group.id}>{group.name}</Select.Option>
                 ))}
               </Select>
-            </ASearchItem>
-          </ASearchForm>
+            </SearchItem>
+          </SearchForm>
 
           <Table
             columns={[

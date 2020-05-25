@@ -1,6 +1,6 @@
 import React from 'react';
 import {Page, PageActions} from "@miaoxing/page";
-import {AForm, AFormItem, AFormAction, ASelect} from "@miaoxing/form";
+import {Form, FormItem, FormAction, Select} from "@miaoxing/a-form";
 import {CListBtn} from "@miaoxing/clink";
 import api from '@miaoxing/api';
 
@@ -20,34 +20,34 @@ class AdminForm extends React.Component {
           <CListBtn/>
         </PageActions>
 
-        <AForm>
+        <Form>
           {({id}) => {
             return <>
-              <AFormItem label="用户名" name="username" type={id ? 'plain' : 'text'} required/>
+              <FormItem label="用户名" name="username" type={id ? 'plain' : 'text'} required/>
 
-              <AFormItem label="密码" name="password" type="password" required={!id} extra={!!id && '不修改密码请留空'}/>
+              <FormItem label="密码" name="password" type="password" required={!id} extra={!!id && '不修改密码请留空'}/>
 
-              <AFormItem label="重复密码" name="passwordAgain" type="password" required={!id}/>
+              <FormItem label="重复密码" name="passwordAgain" type="password" required={!id}/>
 
-              <AFormItem label="姓名" name="name"/>
+              <FormItem label="姓名" name="name"/>
 
-              <AFormItem label="昵称" name="nickName"/>
+              <FormItem label="昵称" name="nickName"/>
 
-              <AFormItem label="分组" name="groupId">
-                <ASelect options={this.state.data} labelKey="name" valueKey="id"/>
-              </AFormItem>
+              <FormItem label="分组" name="groupId">
+                <Select options={this.state.data} labelKey="name" valueKey="id"/>
+              </FormItem>
 
-              <AFormItem label="头像" name="avatar"
+              <FormItem label="头像" name="avatar"
                 extra="支持.jpg .jpeg .bmp .gif .png格式照片">
 
-              </AFormItem>
+              </FormItem>
 
-              <AFormItem name="id" type="hidden"/>
+              <FormItem name="id" type="hidden"/>
 
-              <AFormAction/>
+              <FormAction/>
             </>
           }}
-        </AForm>
+        </Form>
       </Page>
     )
   }

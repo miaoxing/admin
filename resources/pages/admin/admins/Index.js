@@ -2,12 +2,12 @@ import React from 'react';
 import {Page, PageActions} from "@miaoxing/page";
 import {TableProvider, TableStatusCheckbox} from "@miaoxing/a-table";
 import {CEditLink, CNewBtn} from "@miaoxing/clink";
-import {Select, Tooltip} from "antd";
+import {Tooltip} from "antd";
 import {Table} from "@miaoxing/a-table";
 import {QuestionCircleOutlined} from '@ant-design/icons'
+import {SearchForm, SearchItem, Select} from '@miaoxing/a-form';
 import curUrl from "@miaoxing/cur-url";
 import api from '@miaoxing/api';
-import {SearchForm, SearchItem} from '@miaoxing/a-form';
 
 export default class extends React.Component {
   state = {
@@ -41,12 +41,7 @@ export default class extends React.Component {
             <SearchItem label="昵称" name="nickName$ct"/>
 
             <SearchItem label="分组" name="groupId">
-              <Select>
-                <Select.Option value="">全部</Select.Option>
-                {this.state.data.map(group => (
-                  <Select.Option key={group.id} value={group.id}>{group.name}</Select.Option>
-                ))}
-              </Select>
+              <Select options={this.state.data} labelKey="name" valueKey="id" all/>
             </SearchItem>
           </SearchForm>
 

@@ -7,6 +7,8 @@ import {Layout} from 'antd';
 import {Menu, Dropdown} from 'antd';
 import {DownOutlined} from '@ant-design/icons';
 import {Link} from '@miaoxing/router';
+import {css} from 'emotion'
+import {Box} from 'rebass';
 
 const {Header} = Layout;
 
@@ -27,9 +29,16 @@ export default class extends React.Component {
     const {user} = this.props;
 
     return (
-      <Header className="bg-white shadow-sm" style={{zIndex: 1}}>
+      <Box
+        as={Header}
+        bg="white"
+        sx={{
+          boxShadow: 'sm',
+          zIndex: 1,
+        }}
+      >
         <Dropdown
-          className="float-right"
+          className={css({float: 'right'})}
           overlay={
             <Menu>
               <Menu.Item>
@@ -54,7 +63,7 @@ export default class extends React.Component {
             <DownOutlined/>
           </a>
         </Dropdown>
-      </Header>
+      </Box>
     );
   }
 }

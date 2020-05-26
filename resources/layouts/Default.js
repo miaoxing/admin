@@ -2,10 +2,9 @@ import React from "react";
 import {Layout} from "antd";
 import Navbar from './Navbar';
 import Sider from './Sider';
+import {Box} from 'rebass';
 import api from '@miaoxing/api';
 import $ from 'miaoxing';
-
-const {Content} = Layout;
 
 export default class extends React.Component {
   state = {
@@ -17,7 +16,7 @@ export default class extends React.Component {
     api.get('admin-page', {loading: true}).then(ret => {
       this.setState(ret);
       if (ret.code !== 1) {
-         $.ret(ret);
+        $.ret(ret);
       }
     })
   }
@@ -27,12 +26,12 @@ export default class extends React.Component {
       <Sider menus={this.state.menus}/>
       <Layout>
         <Navbar user={this.state.user}/>
-        <Content className="px-4 pt-4">
+        <Box as={Layout.Content} px={4} pt={4}>
           {this.props.children}
-        </Content>
-        <footer className="text-center p-3">
+        </Box>
+        <Box as={Layout.Footer} textAlign="center">
           Miaoxing ©2020
-        </footer>
+        </Box>
       </Layout>
     </Layout>;
   }

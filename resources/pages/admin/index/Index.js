@@ -1,5 +1,5 @@
 import React from "react";
-import {Card, Col, ListGroup, Row} from "react-bootstrap";
+import {Col, Row, Card, ListGroup} from '@miaoxing/bootstrap';
 import styled from 'styled-components';
 import color from 'color';
 import {Page} from "@miaoxing/a-page";

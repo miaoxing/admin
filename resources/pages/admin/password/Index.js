@@ -1,16 +1,16 @@
 import React from "react";
 import {Page} from '@miaoxing/a-page';
 import {Form, FormAction, FormItem} from '@miaoxing/a-form';
-import curUrl from '@miaoxing/cur-url';
-import {Alert} from 'react-bootstrap';
-import app from '@miaoxing/app';
+import {Alert} from 'antd';
 import {Box} from "rebass/styled-components";
+import curUrl from '@miaoxing/cur-url';
+import app from '@miaoxing/app';
 
 export default class extends React.Component {
   render() {
     return <Page>
       <Box mb={4}>
-        <Alert variant="warning">修改完成后需重新登录，请妥善保管好密码。</Alert>
+        <Alert type="warning" message="修改完成后需重新登录，请妥善保管好密码。"/>
       </Box>
       <Form
         valuesUrl={false}

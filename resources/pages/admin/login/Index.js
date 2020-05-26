@@ -3,24 +3,24 @@
  */
 import React from "react";
 import {Button, Form, Input} from "antd";
-import {Box, Heading, Image} from 'rebass/styled-components';
+import {Box, Heading, Image} from 'rebass';
 import $ from 'miaoxing';
 import app from '@miaoxing/app';
 import logo from 'plugins/admin/resources/images/logo.png';
-import {createGlobalStyle} from 'styled-components';
 import api from '@miaoxing/api';
-
-const GlobalStyle = createGlobalStyle`
-  body {
-    background: #f5f8fa url(https://image-10001577.image.myqcloud.com/uploads/3/20190602/15594729401485.jpg);
-    background-size: cover;
-  }
-`;
+import {Global, css} from '@emotion/core'
 
 export default class extends React.Component {
   render() {
     return <>
-      <GlobalStyle/>
+      <Global
+        styles={css`
+          body {
+            background: #f5f8fa url(https://image-10001577.image.myqcloud.com/uploads/3/20190602/15594729401485.jpg);
+            background-size: cover;
+          }
+      `}
+      />
       <Box
         width={350}
         mx="auto"

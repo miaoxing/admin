@@ -1,16 +1,13 @@
 import React from "react";
 import app, {history} from '@miaoxing/app';
-import {Avatar} from "antd";
 import api from '@miaoxing/api';
 import $ from 'miaoxing';
-import {Layout} from 'antd';
-import {Menu, Dropdown} from 'antd';
+import {Layout, Avatar, Menu, Dropdown} from 'antd';
 import {DownOutlined} from '@ant-design/icons';
 import {Link} from '@miaoxing/router';
-import {css} from 'emotion'
 import {Box} from 'rebass';
-
-const {Header} = Layout;
+import {Actions} from '@miaoxing/actions';
+import {css} from 'emotion';
 
 export default class extends React.Component {
   static defaultProps = {
@@ -30,7 +27,7 @@ export default class extends React.Component {
 
     return (
       <Box
-        as={Header}
+        as={Layout.Header}
         bg="white"
         sx={{
           boxShadow: 'sm',
@@ -55,12 +52,13 @@ export default class extends React.Component {
           }
         >
           <a className="ant-dropdown-link" onClick={e => e.preventDefault()}>
-            <Avatar src={user.avatar} className="mr-2">
-              {user.username ? user.username.substr(0, 1).toUpperCase() : ''}
-            </Avatar>
-            {user.username}
-            {' '}
-            <DownOutlined/>
+            <Actions>
+              <Avatar src={user.avatar}>
+                {user.username ? user.username.substr(0, 1).toUpperCase() : ''}
+              </Avatar>
+              {user.username}
+              <DownOutlined/>
+            </Actions>
           </a>
         </Dropdown>
       </Box>

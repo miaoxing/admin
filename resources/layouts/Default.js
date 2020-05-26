@@ -22,7 +22,7 @@ export default class extends React.Component {
   }
 
   render() {
-    return <Layout style={{minHeight: '100vh'}}>
+    return <Box as={Layout} minHeight="100vh">
       <Sider menus={this.state.menus}/>
       <Layout>
         <Navbar user={this.state.user}/>
@@ -33,6 +33,6 @@ export default class extends React.Component {
           Miaoxing ©2020
         </Box>
       </Layout>
-    </Layout>;
+    </Box>;
   }
 }

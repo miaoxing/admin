@@ -35,7 +35,7 @@ export default class extends React.Component {
         }}
       >
         <Dropdown
-          className={floatRight()}
+          css={floatRight()}
           overlay={
             <Menu>
               <Menu.Item>

@@ -4,6 +4,8 @@
   "repository": "https://github.com/miaoxing/admin",
   "license": "MIT",
   "devDependencies": {
+    "@emotion/babel-preset-css-prop": "^10.0.27",
+    "@remirror/ui": "^0.7.6",
     "miaoxing-coding-standards": "^2.0.0"
   }
 }

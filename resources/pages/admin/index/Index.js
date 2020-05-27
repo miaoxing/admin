@@ -11,7 +11,7 @@ import {
 } from "bizcharts";
 import api from '@miaoxing/api';
 import {Box} from 'rebass';
-import {cls, floatRight} from '@miaoxing/css';
+import {sx, floatRight} from '@miaoxing/css';
 
 export default class extends React.Component {
   state = {
@@ -63,7 +63,7 @@ export default class extends React.Component {
         </Card.Body>
       </Card>
 
-      <Box as={Card} mt={4}>
+      <Card css={sx({mt: 4})}>
         <Card.Header>
           交易走势
         </Card.Header>
@@ -107,30 +107,30 @@ export default class extends React.Component {
             />
           </Chart>
         </Card.Body>
-      </Box>
+      </Card>
 
-      <Box as={Card} mt={4}>
+      <Card css={sx({mt: 4})}>
         <Card.Header>
           更新日志
-          <a href="#" target="_blank" className={floatRight()}>
+          <a href="#" target="_blank" css={floatRight()}>
             更多{' '}<i className="fa fa-angle-right"/>
           </a>
         </Card.Header>
         <ListGroup variant="flush">
-          <ListGroup.Item className={cls({borderBottom: 0})}>
+          <ListGroup.Item css={{borderBottom: 0}}>
             <a href="#" target="_blank">Cras justo odio</a>
             <Box display="inline" color="muted" sx={{float: 'right'}}>2020-01-01</Box>
           </ListGroup.Item>
-          <ListGroup.Item className={cls({borderBottom: 0})}>
+          <ListGroup.Item css={{borderBottom: 0}}>
             <a href="#" target="_blank">Dapibus ac facilisis in</a>
             <Box display="inline" color="muted" sx={{float: 'right'}}>2020-01-01</Box>
           </ListGroup.Item>
-          <ListGroup.Item className={cls({borderBottom: 0})}>
+          <ListGroup.Item css={{borderBottom: 0}}>
             <a href="#" target="_blank">Vestibulum at eros</a>
             <Box display="inline" color="muted" sx={{float: 'right'}}>2020-01-01</Box>
           </ListGroup.Item>
         </ListGroup>
-      </Box>
+      </Card>
     </Page>;
   }
 }

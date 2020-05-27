@@ -15,7 +15,7 @@ export default class extends React.Component {
         <Form>
           <FormItem label="名称" name="name" required/>
           <FormItem label="顺序" name="sort">
-            <InputNumber className="w-100"/>
+            <InputNumber/>
           </FormItem>
           <FormItem name="id" type="hidden"/>
           <FormAction/>

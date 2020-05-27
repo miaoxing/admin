@@ -1,6 +1,5 @@
 import React from "react";
 import {Col, Row, Card, ListGroup} from '@miaoxing/bootstrap';
-import styled from 'styled-components';
 import color from 'color';
 import {Page} from "@miaoxing/a-page";
 import {
@@ -11,23 +10,8 @@ import {
   Legend,
 } from "bizcharts";
 import api from '@miaoxing/api';
-
-const GradientCard = styled(Card)`
-   background: linear-gradient(
-    135deg,
-    ${props => props.color},
-    ${props => color(props.color).lighten(0.2).string()}
-  );
-`;
-
-const CardIcon = styled.i`
-  opacity: .15;
-  position: absolute;
-  top: 50%;
-  transform:translateY(-50%);
-  right: 2rem;
-  font-size: 5rem;
-`;
+import {Box} from 'rebass';
+import {cls, floatRight} from '@miaoxing/css';
 
 export default class extends React.Component {
   state = {
@@ -52,22 +36,34 @@ export default class extends React.Component {
           <Row>
             {this.state.stats.map(stat => (
               <Col key={stat.title} lg={3} md={6} sm={12}>
-                <GradientCard color={stat.color} text="white" className="border-0">
-                  <Card.Body className="font-weight-light">
-                    <Card.Title className="font-weight-light">{stat.title}</Card.Title>
-                    <Card.Text style={{fontSize: '3em'}} className="mb-0">
-                      {stat.value}
-                    </Card.Text>
-                    <CardIcon className={stat.icon}/>
-                  </Card.Body>
-                </GradientCard>
+                <Box
+                  as={Card}
+                  color="white"
+                  sx={{
+                    border: 0,
+                    background: `linear-gradient(135deg, ${stat.color}, ${color(stat.color).lighten(0.2).string()})`,
+                  }}
+                >
+                  <Box as={Card.Body} fontWeight="light">
+                    <Box as={Card.Title} fontWeight="light">{stat.title}</Box>
+                    <Box as={Card.Text} mb={0} fontSize="3em">{stat.value}</Box>
+                    <Box as="i" className={stat.icon} sx={{
+                      opacity: .15,
+                      position: 'absolute',
+                      top: '50%',
+                      transform: 'translateY(-50%)',
+                      right: '2rem',
+                      fontSize: '5rem',
+                    }}/>
+                  </Box>
+                </Box>
               </Col>
             ))}
           </Row>
         </Card.Body>
       </Card>
 
-      <Card className="mt-4">
+      <Box as={Card} mt={4}>
         <Card.Header>
           交易走势
         </Card.Header>
@@ -111,30 +107,30 @@ export default class extends React.Component {
             />
           </Chart>
         </Card.Body>
-      </Card>
+      </Box>
 
-      <Card className="mt-4">
+      <Box as={Card} mt={4}>
         <Card.Header>
           更新日志
-          <a href="#" target="_blank" className="float-right">
+          <a href="#" target="_blank" className={floatRight()}>
             更多{' '}<i className="fa fa-angle-right"/>
           </a>
         </Card.Header>
         <ListGroup variant="flush">
-          <ListGroup.Item className="border-bottom-0">
+          <ListGroup.Item className={cls({borderBottom: 0})}>
             <a href="#" target="_blank">Cras justo odio</a>
-            <span className="float-right text-muted">2020-01-01</span>
+            <Box display="inline" color="muted" sx={{float: 'right'}}>2020-01-01</Box>
           </ListGroup.Item>
-          <ListGroup.Item className="border-bottom-0">
+          <ListGroup.Item className={cls({borderBottom: 0})}>
             <a href="#" target="_blank">Dapibus ac facilisis in</a>
-            <span className="float-right text-muted">2020-01-01</span>
+            <Box display="inline" color="muted" sx={{float: 'right'}}>2020-01-01</Box>
           </ListGroup.Item>
-          <ListGroup.Item className="border-bottom-0">
+          <ListGroup.Item className={cls({borderBottom: 0})}>
             <a href="#" target="_blank">Vestibulum at eros</a>
-            <span className="float-right text-muted">2020-01-01</span>
+            <Box display="inline" color="muted" sx={{float: 'right'}}>2020-01-01</Box>
           </ListGroup.Item>
         </ListGroup>
-      </Card>
+      </Box>
     </Page>;
   }
 }

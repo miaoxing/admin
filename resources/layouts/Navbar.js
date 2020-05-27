@@ -7,7 +7,7 @@ import {DownOutlined} from '@ant-design/icons';
 import {Link} from '@miaoxing/router';
 import {Box} from 'rebass';
 import {Actions} from '@miaoxing/actions';
-import {css} from 'emotion';
+import {floatRight} from '@miaoxing/css';
 
 export default class extends React.Component {
   static defaultProps = {
@@ -35,7 +35,7 @@ export default class extends React.Component {
         }}
       >
         <Dropdown
-          className={css({float: 'right'})}
+          className={floatRight()}
           overlay={
             <Menu>
               <Menu.Item>

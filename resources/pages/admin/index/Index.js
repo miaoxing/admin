@@ -10,9 +10,9 @@ import {
   Legend,
 } from "bizcharts";
 import api from '@miaoxing/api';
-import {Box} from 'rebass';
+import {Box, Link} from 'rebass';
 import {sx, floatRight} from '@miaoxing/css';
-import '@miaoxing/bootstrap-antd/Breadcrumb/style';
+import '@miaoxing/bootstrap-antd/Card/style';
 
 export default class extends React.Component {
   state = {
@@ -113,9 +113,9 @@ export default class extends React.Component {
       <Card css={sx({mt: 4})}>
         <Card.Header>
           更新日志
-          <a href="#" target="_blank" css={floatRight()}>
+          <Link href="#" target="_blank" fontWeight="normal" css={floatRight()}>
             更多{' '}<i className="fa fa-angle-right"/>
-          </a>
+          </Link>
         </Card.Header>
         <ListGroup variant="flush">
           <ListGroup.Item css={{borderBottom: 0}}>

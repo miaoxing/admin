@@ -12,6 +12,7 @@ import {
 import api from '@miaoxing/api';
 import {Box} from 'rebass';
 import {sx, floatRight} from '@miaoxing/css';
+import '@miaoxing/bootstrap-antd/Breadcrumb/style';
 
 export default class extends React.Component {
   state = {

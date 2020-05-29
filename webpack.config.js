@@ -1,9 +1,12 @@
+const path = require('path');
 const WebpackConfig = require('@miaoxing/webpack');
 const {generateAntdVars, generateBootstrapVars} = require('@miaoxing/style/utils');
+
 const theme = require('./resources/modules/theme');
+const name = path.basename(__dirname);
 
 module.exports = WebpackConfig.build({
-  name: 'admin',
+  name,
   manifest: true,
   lessLoaderOptions: {
     lessOptions: {
@@ -13,12 +16,12 @@ module.exports = WebpackConfig.build({
   },
   sassLoaderOptions: {
     prependData: function () {
-      return generateBootstrapVars(theme) + '@import "plugins/admin/resources/scss/config";';
+      return generateBootstrapVars(theme) + `@import "plugins/${name}/resources/scss/config";`;
     }
   },
   getEntries() {
     return {
-      [this.name]: `${this.rootDir}/plugins/admin/resources/pages/index.js`
+      [name]: `${this.rootDir}/plugins/${name}/resources/pages/index.js`
     }
   }
 });

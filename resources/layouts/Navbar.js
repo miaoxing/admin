@@ -8,6 +8,7 @@ import {Link} from '@miaoxing/router';
 import {Box} from 'rebass';
 import {Actions} from '@miaoxing/actions';
 import {floatRight} from '@miaoxing/css';
+import {LockOutlined, LogoutOutlined} from '@ant-design/icons';
 
 export default class extends React.Component {
   static defaultProps = {
@@ -40,12 +41,12 @@ export default class extends React.Component {
             <Menu>
               <Menu.Item>
                 <Link to={app.url('admin/password')}>
-                  <i className="fa fa-lock"/>{' '}修改密码
+                  <LockOutlined/>{' '}修改密码
                 </Link>
               </Menu.Item>
               <Menu.Item>
                 <a onClick={this.handleLogout}>
-                  <i className="fa fa-power-off"/>{' '}退出
+                  <LogoutOutlined/>{' '}退出登录
                 </a>
               </Menu.Item>
             </Menu>

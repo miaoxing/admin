@@ -10,9 +10,10 @@ import {
   Legend,
 } from "bizcharts";
 import api from '@miaoxing/api';
-import {Box, Link} from 'rebass';
-import {sx, floatRight} from '@miaoxing/css';
+import {Box, Flex, Link} from 'rebass';
+import {sx} from '@miaoxing/css';
 import '@miaoxing/bootstrap-antd/Card/style';
+import {RightOutlined} from '@ant-design/icons';
 
 export default class extends React.Component {
   state = {
@@ -111,12 +112,12 @@ export default class extends React.Component {
       </Card>
 
       <Card css={sx({mt: 4})}>
-        <Card.Header>
+        <Flex as={Card.Header} justifyContent="space-between" alignItems="center">
           更新日志
-          <Link href="#" target="_blank" fontWeight="normal" css={floatRight()}>
-            更多{' '}<i className="fa fa-angle-right"/>
+          <Link href="#" target="_blank" fontWeight="normal" fontSize="1">
+            更多{' '}<RightOutlined/>
           </Link>
-        </Card.Header>
+        </Flex>
         <ListGroup variant="flush">
           <ListGroup.Item css={{borderBottom: 0}}>
             <a href="#" target="_blank">Cras justo odio</a>

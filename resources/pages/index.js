@@ -6,7 +6,6 @@ import ReactDOM from 'react-dom';
 
 import '../modules/bootstrap';
 import '../scss/index.scss';
-import '@miaoxing/icons';
 
 import AppContainer from '../components/AppContainer';
 

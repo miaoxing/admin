@@ -94,25 +94,25 @@ class IndexController extends BaseController
                     'title' => '待发货订单',
                     'value' => '328',
                     'color' => '#0c86de',
-                    'icon' => 'fa fa-shopping-cart',
+                    'icon' => 'mi-shopping-cart',
                 ],
                 [
                     'title' => '待退款订单',
                     'value' => '1231',
                     'color' => '#5cb85c',
-                    'icon' => 'fa fa-money-bill-alt',
+                    'icon' => 'mi-money',
                 ],
                 [
                     'title' => '今日新增用户数',
                     'value' => '123',
                     'color' => '#f28c48',
-                    'icon' => 'fa fa-user-plus',
+                    'icon' => 'mi-user-plus',
                 ],
                 [
                     'title' => '总用户数',
                     'value' => '2321',
                     'color' => '#fa5b50',
-                    'icon' => 'fa fa-users',
+                    'icon' => 'mi-users',
                 ]
             ]
         ]);

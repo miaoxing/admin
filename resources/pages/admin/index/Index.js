@@ -14,6 +14,7 @@ import {Box, Flex, Link} from 'rebass';
 import {sx} from '@miaoxing/css';
 import '@miaoxing/bootstrap-antd/Card/style';
 import {RightOutlined} from '@ant-design/icons';
+import Icon from '@miaoxing/icons';
 
 export default class extends React.Component {
   state = {
@@ -49,7 +50,7 @@ export default class extends React.Component {
                   <Box as={Card.Body} fontWeight="light">
                     <Box as={Card.Title} fontWeight="light">{stat.title}</Box>
                     <Box as={Card.Text} mb={0} fontSize="3em">{stat.value}</Box>
-                    <Box as="i" className={stat.icon} sx={{
+                    <Icon type={stat.icon} css={{
                       opacity: .15,
                       position: 'absolute',
                       top: '50%',

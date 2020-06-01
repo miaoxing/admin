@@ -112,6 +112,7 @@ class AdminsController extends BaseController
 
     public function uploadAction()
     {
+        sleep(10);
         $upload = wei()->upload;
         $result = $upload([
             'exts' => ['jpg', 'jpeg', 'bmp', 'png', 'gif'],

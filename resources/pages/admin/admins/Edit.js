@@ -3,6 +3,8 @@ import {Page, PageActions} from "@miaoxing/a-page";
 import {Form, FormItem, FormAction, Select} from "@miaoxing/a-form";
 import {CListBtn} from "@miaoxing/a-clink";
 import api from '@miaoxing/api';
+import Upload, {convertToFirstFile} from '@miaoxing/upload';
+import curUrl from '@miaoxing/cur-url';
 
 class AdminForm extends React.Component {
   state = {
@@ -20,7 +22,12 @@ class AdminForm extends React.Component {
           <CListBtn/>
         </PageActions>
 
-        <Form>
+        <Form
+          beforeSubmit={values => {
+            values = convertToFirstFile(values, 'avatar');
+            return values;
+          }}
+        >
           {({id}) => {
             return <>
               <FormItem label="用户名" name="username" type={id ? 'plain' : 'text'} required/>
@@ -38,8 +45,10 @@ class AdminForm extends React.Component {
               </FormItem>
 
               <FormItem label="头像" name="avatar"
-                extra="支持.jpg .jpeg .bmp .gif .png格式照片">
-
+                extra="支持.jpg .jpeg .bmp .gif .png格式照片"
+                valuePropName="fileList"
+              >
+                <Upload url={curUrl.toApi('upload')} max={1}/>
               </FormItem>
 
               <FormItem name="id" type="hidden"/>

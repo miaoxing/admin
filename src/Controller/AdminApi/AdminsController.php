@@ -3,6 +3,7 @@
 namespace Miaoxing\Admin\Controller\AdminApi;
 
 use Miaoxing\Admin\Service\GroupModel;
+use Miaoxing\File\Service\File;
 use Miaoxing\Plugin\BaseController;
 use Miaoxing\Plugin\Service\UserModel;
 use Miaoxing\Services\Rest\FormTrait;
@@ -19,8 +20,8 @@ class AdminsController extends BaseController
 
     protected $actionPermissions = [
         'index,indexConfig' => '列表',
-        'new,formConfig,create' => '添加',
-        'edit,formConfig,update' => '编辑',
+        'new,formConfig,upload,create' => '添加',
+        'edit,formConfig,upload,update' => '编辑',
         'enable' => '启用/禁用',
     ];
 
@@ -103,9 +104,26 @@ class AdminsController extends BaseController
             'name' => (string) req('name'),
             'nickName' => (string) req('nickName'),
             'groupId' => req('groupId'),
+            'avatar' => (string) req('avatar'),
         ]);
 
         return $user->toRet();
+    }
+
+    public function uploadAction()
+    {
+        $upload = wei()->upload;
+        $result = $upload([
+            'exts' => ['jpg', 'jpeg', 'bmp', 'png', 'gif'],
+        ]);
+
+        if (!$result) {
+            return err($upload->getFirstMessage());
+        }
+
+        return suc([
+            'url' => substr($upload->getFile(), strlen('public')),
+        ]);
     }
 
     public function enableAction(UserModel $user, bool $isEnabled = null)

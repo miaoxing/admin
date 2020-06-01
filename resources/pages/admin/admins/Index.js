@@ -28,18 +28,14 @@ export default class extends React.Component {
         </PageActions>
 
         <TableProvider>
-          <SearchForm
-            initialValues={{
-              groupId: ''
-            }}
-          >
+          <SearchForm>
             <SearchItem label="用户名" name="username$ct"/>
 
             <SearchItem label="姓名" name="name$ct"/>
 
             <SearchItem label="昵称" name="nickName$ct"/>
 
-            <SearchItem label="分组" name="groupId">
+            <SearchItem label="分组" name="groupId" initialValue="">
               <Select options={this.state.data} labelKey="name" valueKey="id" all/>
             </SearchItem>
           </SearchForm>

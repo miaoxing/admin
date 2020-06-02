@@ -21,7 +21,7 @@ module.exports = WebpackConfig.build({
   },
   getEntries() {
     return {
-      [name]: `${this.rootDir}/plugins/${name}/pages/index.js`
+      [name]: `${this.rootDir}/plugins/${name}/modules/app.js`
     }
   }
 });

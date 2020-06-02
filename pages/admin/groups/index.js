@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 import {Table, TableProvider, CTableDeleteLink} from "@miaoxing/a-table";
 import {CEditLink, CNewBtn} from "@miaoxing/a-clink";
 import {Button} from "react-bootstrap";
@@ -7,31 +7,28 @@ import {LinkActions} from "@miaoxing/actions";
 import $ from 'miaoxing';
 import api from '@miaoxing/api';
 
-export default class extends React.Component {
-  state = {};
+const handleClick = (tableApi) => {
+  api.post('wechat-groups/sync-form-wechat', {loading: true}).then(ret => $.ret(ret, tableApi.reload));
+};
 
-  constructor(props) {
-    super(props);
-    this.ref = React.createRef();
-  }
+export default () => {
+  const [data, setData] = useState({
+    hasWechatGroup: true,
+  });
 
-  componentDidMount() {
-    api.curPath('metadata', {loading: true}).then(ret => this.setState(ret));
-  }
+  useEffect(() => {
+    api.curPath('metadata', {loading: true}).then(ret => setData(ret));
+  }, []);
 
-  handleClick = (tableApi) => {
-    api.post('wechat-groups/sync-form-wechat', {loading: true}).then(ret => $.ret(ret, tableApi.reload));
-  };
-
-  render() {
-    return <Page>
+  return (
+    <Page>
       <TableProvider>
         {tableApi => <>
           <PageActions>
-            {this.state.hasWechatGroup && <Button variant="secondary" onClick={this.handleClick.bind(this, tableApi)}>
+            <CNewBtn/>
+            {data.hasWechatGroup && <Button variant="secondary" onClick={handleClick.bind(this, tableApi)}>
               从微信同步分组
             </Button>}
-            <CNewBtn/>
           </PageActions>
 
           <Table
@@ -48,7 +45,7 @@ export default class extends React.Component {
               {
                 title: '状态',
                 dataIndex: 'wechatId',
-                hideInTable: !this.state.hasWechatGroup,
+                hideInTable: data.hasWechatGroup,
                 render: text => text > 0 ? '已同步' : '未同步',
               },
               {
@@ -65,6 +62,6 @@ export default class extends React.Component {
           />
         </>}
       </TableProvider>
-    </Page>;
-  }
+    </Page>
+  );
 }

@@ -2,7 +2,7 @@ import {hot} from 'react-hot-loader/root';
 import React from 'react'
 import {ConfigProvider, Spin} from 'antd';
 import {Loading} from '@miaoxing/loading';
-import App from "plugins/app/resources/components/App";
+import App from "plugins/app/components/App";
 import zhCN from 'antd/es/locale/zh_CN';
 import Layout from './Layout';
 import configs from 'data/configs/admin';

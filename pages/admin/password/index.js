@@ -2,7 +2,7 @@ import React from "react";
 import {Page} from '@miaoxing/a-page';
 import {Form, FormAction, FormItem} from '@miaoxing/a-form';
 import {Alert} from 'antd';
-import {Box} from "rebass/styled-components";
+import {Box} from "rebass";
 import curUrl from '@miaoxing/cur-url';
 import app from '@miaoxing/app';
 

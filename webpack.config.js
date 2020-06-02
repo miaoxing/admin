@@ -2,7 +2,7 @@ const path = require('path');
 const WebpackConfig = require('@miaoxing/webpack');
 const {generateAntdVars, generateBootstrapVars} = require('@miaoxing/style/utils');
 
-const theme = require('./resources/modules/theme');
+const theme = require('./modules/theme');
 const name = path.basename(__dirname);
 
 module.exports = WebpackConfig.build({
@@ -16,12 +16,12 @@ module.exports = WebpackConfig.build({
   },
   sassLoaderOptions: {
     prependData: function () {
-      return generateBootstrapVars(theme) + `@import "plugins/${name}/resources/scss/config";`;
+      return generateBootstrapVars(theme) + `@import "plugins/${name}/scss/config";`;
     }
   },
   getEntries() {
     return {
-      [name]: `${this.rootDir}/plugins/${name}/resources/pages/index.js`
+      [name]: `${this.rootDir}/plugins/${name}/pages/index.js`
     }
   }
 });

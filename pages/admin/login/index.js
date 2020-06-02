@@ -6,7 +6,7 @@ import {Button, Form, Input} from "antd";
 import {Box, Heading, Image} from 'rebass';
 import $ from 'miaoxing';
 import app from '@miaoxing/app';
-import logo from 'plugins/admin/resources/images/logo.png';
+import logo from '../../../images/logo.png';
 import api from '@miaoxing/api';
 import {Global, css} from '@emotion/core'
 

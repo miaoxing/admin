@@ -3,6 +3,7 @@ import React from 'react'
 import {ConfigProvider, Spin} from 'antd';
 import {Loading} from '@miaoxing/loading';
 import App from "plugins/app/resources/components/App";
+import zhCN from 'antd/es/locale/zh_CN';
 import Layout from './Layout';
 import configs from 'data/configs/admin';
 import theme from '../modules/theme';
@@ -10,14 +11,10 @@ import theme from '../modules/theme';
 // 指定 Antd 全局的 loading 样式
 Spin.setDefaultIndicator(<Loading/>);
 
-const validateMessages = {
-  required: '该项是必填的',
-};
-
 const AppContainer = () => {
   return (
     <ConfigProvider
-      form={{validateMessages}}
+      locale={zhCN}
     >
       <App theme={theme} defaultLayout={Layout} {...configs}/>
     </ConfigProvider>

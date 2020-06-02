@@ -1,3 +1,6 @@
+/**
+ * @share new
+ */
 import React from 'react';
 import {Page, PageActions} from "@miaoxing/a-page";
 import {Form, FormItem, FormAction, Select} from "@miaoxing/a-form";

@@ -5,7 +5,7 @@ import {Loading} from '@miaoxing/loading';
 import App from "plugins/app/resources/components/App";
 import Layout from '../layouts/Default';
 import configs from 'data/configs/admin';
-import theme from '@miaoxing/style/theme-preset';
+import theme from '../modules/theme';
 
 // 指定 Antd 全局的 loading 样式
 Spin.setDefaultIndicator(<Loading/>);

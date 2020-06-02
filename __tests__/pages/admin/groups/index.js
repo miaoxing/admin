@@ -4,7 +4,7 @@ import "regenerator-runtime/runtime";
 import React from 'react';
 import {MemoryRouter} from 'react-router';
 import $ from 'miaoxing';
-import Index from '../../../../resources/pages/admin/groups/Index';
+import Index from '../../../../pages/admin/groups/index';
 import app from '@miaoxing/app';
 import {render, waitForElementToBeRemoved, fireEvent} from '@testing-library/react';
 

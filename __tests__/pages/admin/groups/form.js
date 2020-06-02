@@ -3,7 +3,7 @@ import "regenerator-runtime/runtime";
 
 import React from 'react';
 import $ from 'miaoxing';
-import Form from '../../../../resources/pages/admin/groups/New';
+import Form from '../../../../pages/admin/groups/edit';
 import app from '@miaoxing/app';
 import {render, screen, fireEvent} from '@testing-library/react';
 import '@testing-library/jest-dom/extend-expect'

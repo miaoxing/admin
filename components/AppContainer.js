@@ -3,7 +3,7 @@ import React from 'react'
 import {ConfigProvider, Spin} from 'antd';
 import {Loading} from '@miaoxing/loading';
 import App from "plugins/app/resources/components/App";
-import Layout from '../layouts/Default';
+import Layout from './Layout';
 import configs from 'data/configs/admin';
 import theme from '../modules/theme';
 

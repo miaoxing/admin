@@ -13,7 +13,7 @@ const handleClick = (tableApi) => {
 
 export default () => {
   const [data, setData] = useState({
-    hasWechatGroup: true,
+    hasWechatGroup: false,
   });
 
   useEffect(() => {

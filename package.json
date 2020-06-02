@@ -9,11 +9,5 @@
   "devDependencies": {
     "@emotion/babel-preset-css-prop": "^10.0.27",
     "miaoxing-coding-standards": "^2.0.0"
-  },
-  "jest": {
-    "moduleNameMapper": {
-      "\\.(css|less|scss)$": "<rootDir>/__mocks__/styleMock.js",
-      "\\.(gif|ttf|eot|svg)$": "<rootDir>/__mocks__/fileMock.js"
-    }
   }
 }

@@ -1,5 +1,5 @@
-import React, {useCallback, useEffect, useRef, useState} from "react";
-import {Table, TableProvider, CTableDeleteLink, withTable} from "@miaoxing/a-table";
+import React, {useCallback, useEffect, useState} from "react";
+import {Table, TableProvider, CTableDeleteLink, useTable} from "@miaoxing/a-table";
 import {CEditLink, CNewBtn} from "@miaoxing/a-clink";
 import {Button} from "react-bootstrap";
 import {Page, PageActions} from "@miaoxing/a-page";
@@ -16,9 +16,9 @@ export default () => {
     api.curPath('metadata', {loading: true}).then(ret => setData(ret));
   }, []);
 
-  const table = useRef();
+  const [table] = useTable();
   const handleClick = useCallback(() => {
-    api.post('wechat-groups/sync-form-wechat', {loading: true}).then(ret => $.ret(ret, table.current.reload));
+    api.post('wechat-groups/sync-form-wechat', {loading: true}).then(ret => $.ret(ret, table.reload));
   }, []);
 
   return (
@@ -32,7 +32,7 @@ export default () => {
         </PageActions>
 
         <Table
-          tableRef={table}
+          tableApi={table}
           columns={[
             {
               title: '名称',

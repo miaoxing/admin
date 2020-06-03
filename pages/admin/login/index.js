@@ -2,13 +2,14 @@
  * @layout false
  */
 import React from "react";
-import {Button, Form, Input} from "antd";
+import {Form, Button, Input} from "antd";
 import {Box, Heading, Image} from 'rebass';
 import $ from 'miaoxing';
 import app from '@miaoxing/app';
 import logo from '../../../images/logo.png';
 import api from '@miaoxing/api';
 import {Global, css} from '@emotion/core'
+import {FormItem} from '@miaoxing/a-form';
 
 export default class extends React.Component {
   render() {
@@ -44,6 +45,7 @@ export default class extends React.Component {
           登录
         </Heading>
         <Form
+          size="large"
           onFinish={async values => {
             const ret = await api.post('user/login', {data: values});
             await $.ret(ret);
@@ -53,25 +55,25 @@ export default class extends React.Component {
             }
           }}
         >
-          <Form.Item
+          <FormItem
             name="username"
             rules={[{required: true, message: '请输入用户名'}]}
           >
-            <Input placeholder="用户名" size="large"/>
-          </Form.Item>
+            <Input placeholder="用户名"/>
+          </FormItem>
 
-          <Form.Item
+          <FormItem
             name="password"
             rules={[{required: true, message: '请输入密码'}]}
           >
-            <Input.Password placeholder="密码" size="large"/>
-          </Form.Item>
+            <Input.Password placeholder="密码"/>
+          </FormItem>
 
-          <Form.Item>
-            <Button type="primary" htmlType="submit" size="large" block>
+          <FormItem>
+            <Button type="primary" htmlType="submit" block>
               登 录
             </Button>
-          </Form.Item>
+          </FormItem>
         </Form>
       </Box>
     </>;

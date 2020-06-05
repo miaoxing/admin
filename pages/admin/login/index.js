@@ -10,6 +10,7 @@ import logo from '../../../images/logo.png';
 import api from '@miaoxing/api';
 import {Global, css} from '@emotion/core'
 import {FormItem} from '@miaoxing/a-form';
+import nextUrl from 'next-url';
 
 export default class extends React.Component {
   render() {
@@ -50,8 +51,7 @@ export default class extends React.Component {
             const ret = await api.post('user/login', {data: values});
             await $.ret(ret);
             if (ret.code === 1) {
-              const next = app.req('next');
-              window.location = (next && next.startsWith('/')) ? next : app.url('admin');
+              window.location = nextUrl(app.url('admin'));
             }
           }}
         >

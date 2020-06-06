@@ -122,7 +122,7 @@ class AdminsController extends BaseController
         }
 
         return suc([
-            'url' => substr($upload->getFile(), strlen('public')),
+            'url' => $upload->getUrl(),
         ]);
     }
 

@@ -5,7 +5,7 @@ import {Loading} from '@miaoxing/loading';
 import App from "plugins/app/components/App";
 import zhCN from 'antd/es/locale/zh_CN';
 import Layout from './Layout';
-import configs from 'data/configs/admin';
+import configs from 'storage/configs/admin';
 import theme from '../modules/theme';
 
 // 指定 Antd 全局的 loading 样式

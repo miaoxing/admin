@@ -2,7 +2,7 @@
 
 namespace Miaoxing\Admin\Migration;
 
-use Miaoxing\Services\Migration\BaseMigration;
+use Wei\Migration\BaseMigration;
 
 class V20161030010000AddGroupIdToUsersTable extends BaseMigration
 {

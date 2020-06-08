@@ -6,7 +6,7 @@ use Miaoxing\Admin\Service\GroupModel;
 use Miaoxing\Plugin\Service\Model;
 use Miaoxing\Plugin\Service\Plugin;
 use Miaoxing\Services\Rest\RestTrait;
-use Miaoxing\Services\Service\Request;
+use Wei\Request;
 use Miaoxing\Services\Service\V;
 use Wei\Event;
 use Miaoxing\Plugin\Service\UserModel;

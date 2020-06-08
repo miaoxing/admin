@@ -9,7 +9,7 @@ use Miaoxing\Plugin\Service\UserModel;
 use Miaoxing\Services\Rest\FormTrait;
 use Miaoxing\Services\Rest\IndexTrait;
 use Wei\Request;
-use Miaoxing\Services\Service\V;
+use Wei\V;
 
 class AdminsController extends BaseController
 {

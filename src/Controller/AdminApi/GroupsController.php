@@ -7,7 +7,7 @@ use Miaoxing\Plugin\Service\Model;
 use Miaoxing\Plugin\Service\Plugin;
 use Miaoxing\Services\Rest\RestTrait;
 use Wei\Request;
-use Miaoxing\Services\Service\V;
+use Wei\V;
 use Wei\Event;
 use Miaoxing\Plugin\Service\UserModel;
 use Miaoxing\Plugin\BaseController;

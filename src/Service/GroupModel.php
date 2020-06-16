@@ -2,10 +2,10 @@
 
 namespace Miaoxing\Admin\Service;
 
+use Miaoxing\Admin\Metadata\GroupTrait;
 use Miaoxing\Plugin\Model\ReqQueryTrait;
 use Miaoxing\Plugin\Model\SoftDeleteTrait;
 use Miaoxing\Plugin\Service\Model;
-use Miaoxing\User\Metadata\GroupTrait;
 
 /**
  * GroupModel

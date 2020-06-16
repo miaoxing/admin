@@ -1,6 +1,5 @@
 module.exports = {
   transform: {
-    '^.+\\.ts?$': 'ts-jest',
     "^.+\\.jsx?$": "babel-jest"
   },
   testEnvironment: 'jsdom',
@@ -14,6 +13,10 @@ module.exports = {
       isolatedModules: true
     },
   },
+  "testPathIgnorePatterns": [
+    "/node_modules/",
+    "<rootDir>/plugins/"
+  ],
   "setupFilesAfterEnv": [
     "<rootDir>/tests/setup.js"
   ],

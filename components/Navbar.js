@@ -9,11 +9,16 @@ import {Box} from 'rebass';
 import {Actions} from '@miaoxing/actions';
 import {floatRight} from '@miaoxing/css';
 import {LockOutlined, LogoutOutlined} from '@ant-design/icons';
+import propTypes from 'prop-types';
 
 export default class extends React.Component {
   static defaultProps = {
     user: {},
   };
+
+  static propTypes = {
+    user: propTypes.object
+  }
 
   handleLogout = async () => {
     const ret = await api.post('user/logout');

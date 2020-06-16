@@ -9,6 +9,7 @@
   "devDependencies": {
     "@emotion/babel-preset-css-prop": "^10.0.27",
     "miaoxing-coding-standards": "^5.0.0-beta.6",
-    "next-url": "^1.0.0"
+    "next-url": "^1.0.0",
+    "prop-types": "^15.7.2"
   }
 }

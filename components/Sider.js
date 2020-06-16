@@ -3,6 +3,7 @@ import {Menu, Layout} from "antd";
 import {Link} from "@miaoxing/router";
 import logo from '../images/logo.png';
 import {Flex, Image} from "rebass";
+import propTypes from 'prop-types';
 
 const {Sider} = Layout;
 const {SubMenu} = Menu;
@@ -10,6 +11,10 @@ const {SubMenu} = Menu;
 export default class extends React.Component {
   static defaultProps = {
     menus: [],
+  }
+
+  static propTypes = {
+    menus: propTypes.array
   }
 
   getMenuProps() {

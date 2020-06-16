@@ -2,15 +2,14 @@
 
 namespace Miaoxing\Admin\Controller\AdminApi;
 
-use Miaoxing\Admin\Service\GroupModel;
+use Miaoxing\Plugin\BaseController;
 use Miaoxing\Plugin\Service\Model;
 use Miaoxing\Plugin\Service\Plugin;
+use Miaoxing\Plugin\Service\UserModel;
 use Miaoxing\Services\Rest\RestTrait;
+use Wei\Event;
 use Wei\Request;
 use Wei\V;
-use Wei\Event;
-use Miaoxing\Plugin\Service\UserModel;
-use Miaoxing\Plugin\BaseController;
 
 class GroupsController extends BaseController
 {

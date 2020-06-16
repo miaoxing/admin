@@ -3,7 +3,6 @@
 namespace Miaoxing\Admin\Controller\AdminApi;
 
 use Miaoxing\Admin\Service\GroupModel;
-use Miaoxing\File\Service\File;
 use Miaoxing\Plugin\BaseController;
 use Miaoxing\Plugin\Service\UserModel;
 use Miaoxing\Services\Rest\FormTrait;
@@ -35,26 +34,6 @@ class AdminsController extends BaseController
         return UserModel::new();
     }
 
-    protected function beforeIndexFind(Request $req, UserModel $models)
-    {
-        $models->where('isAdmin', true)
-            ->reqQuery();
-    }
-
-    protected function afterIndexFind(Request $req, UserModel $users)
-    {
-        // NOTE: UserModel 里还没有 group 关联，需手动读取
-        $groupIds = array_unique(array_filter($users->getAll('groupId')));
-        $this->groups = $groupIds ? GroupModel::findAll($groupIds)->indexBy('id') : [];
-    }
-
-    protected function buildIndexData(UserModel $user)
-    {
-        return [
-            'group' => $this->groups[$user->groupId] ?? null,
-        ];
-    }
-
     public function indexConfigAction()
     {
         return GroupModel::all()->withUnGroup()->toRet();
@@ -83,8 +62,10 @@ class AdminsController extends BaseController
                     ->notRecordExists('users', 'username');
             })
             ->key('password', '密码')->required($validatePassword)->minLength(6)
-            ->key('passwordAgain', '重复密码')->required($validatePassword)->equalTo(req('password'))->message('equalTo',
-                '两次输入的密码不相等')
+            ->key('passwordAgain', '重复密码')->required($validatePassword)->equalTo(req('password'))->message(
+                'equalTo',
+                '两次输入的密码不相等'
+            )
             ->key('nickName', ' 昵称')->required(false)->length(1, 32)
             ->check(req());
         $this->tie($ret);
@@ -132,5 +113,25 @@ class AdminsController extends BaseController
         $user->save();
 
         return $user->toRet();
+    }
+
+    protected function beforeIndexFind(Request $req, UserModel $models)
+    {
+        $models->where('isAdmin', true)
+            ->reqQuery();
+    }
+
+    protected function afterIndexFind(Request $req, UserModel $users)
+    {
+        // NOTE: UserModel 里还没有 group 关联，需手动读取
+        $groupIds = array_unique(array_filter($users->getAll('groupId')));
+        $this->groups = $groupIds ? GroupModel::findAll($groupIds)->indexBy('id') : [];
+    }
+
+    protected function buildIndexData(UserModel $user)
+    {
+        return [
+            'group' => $this->groups[$user->groupId] ?? null,
+        ];
     }
 }

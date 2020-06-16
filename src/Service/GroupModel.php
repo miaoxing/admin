@@ -78,9 +78,9 @@ class GroupModel extends Model
      */
     public function withUngroup()
     {
-        array_unshift($this->data, GroupModel::new([
+        array_unshift($this->data, self::new([
             'id' => 0,
-            'name' => '未分组'
+            'name' => '未分组',
         ]));
         return $this;
     }

@@ -4,7 +4,6 @@ namespace Miaoxing\Admin\Service;
 
 use Miaoxing\Plugin\ConfigTrait;
 use Miaoxing\Plugin\Model\ReqQueryTrait;
-use Miaoxing\Admin\Service\GroupModel;
 
 /**
  * 用户分组
@@ -15,6 +14,11 @@ class Group extends \Miaoxing\Plugin\BaseModel
 {
     use ReqQueryTrait;
     use ConfigTrait;
+
+    /**
+     * 是否是客服小组
+     */
+    const CUSTOMER_SERVICE = 1;
 
     protected $table = 'groups';
 
@@ -28,17 +32,12 @@ class Group extends \Miaoxing\Plugin\BaseModel
 
     protected $defaultName = '未分组';
 
-    /**
-     * 是否是客服小组
-     */
-    const CUSTOMER_SERVICE = 1;
-
     public function isReserved()
     {
-        return in_array($this['id'], [0, 1, 2]);
+        return in_array($this['id'], [0, 1, 2], true);
     }
 
-    public function unshift(Group $group)
+    public function unshift(self $group)
     {
         array_unshift($this->data, $group);
         return $this;
@@ -62,7 +61,7 @@ class Group extends \Miaoxing\Plugin\BaseModel
     public function getTree($groups = [], $deep = 0)
     {
         $deep = (int) $deep;
-        $deep--;
+        --$deep;
 
         /** @var $group Group */
         foreach ($this as $group) {
@@ -99,7 +98,7 @@ class Group extends \Miaoxing\Plugin\BaseModel
 
     public function getNameWithPrefix()
     {
-        if ($this['level'] == '0') {
+        if ('0' == $this['level']) {
             $prefix = '';
         } else {
             $prefix = '|' . str_repeat('--', $this['level']);

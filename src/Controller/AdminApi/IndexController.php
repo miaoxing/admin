@@ -2,7 +2,6 @@
 
 namespace Miaoxing\Admin\Controller\AdminApi;
 
-use Carbon\Carbon;
 use Miaoxing\Plugin\BaseController;
 
 class IndexController extends BaseController
@@ -87,7 +86,6 @@ class IndexController extends BaseController
                     'name' => '订单金额',
                     'value' => 38.34,
                 ],
-
             ],
             'stats' => [
                 [
@@ -113,8 +111,8 @@ class IndexController extends BaseController
                     'value' => '2321',
                     'color' => '#fa5b50',
                     'icon' => 'mi-users',
-                ]
-            ]
+                ],
+            ],
         ]);
     }
 }

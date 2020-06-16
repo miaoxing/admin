@@ -50,7 +50,7 @@ class AdminPageController extends BaseController
 
             foreach ($defaultProperties['actionPermissions'] as $actions => $name) {
                 $actions = explode(',', $actions);
-                if (!in_array($action, $actions)) {
+                if (!in_array($action, $actions, true)) {
                     continue;
                 }
 
@@ -74,7 +74,7 @@ class AdminPageController extends BaseController
                 'url' => Url::to($controller),
             ],
         ];
-        if ($action !== 'index') {
+        if ('index' !== $action) {
             $data[] = [
                 'name' => $actionName,
                 'url' => Url::to($controller . '/' . $action),

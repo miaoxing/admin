@@ -4,7 +4,6 @@ namespace Miaoxing\Admin;
 
 use Miaoxing\Plugin\Service\User;
 use Miaoxing\Plugin\Service\UserModel;
-use Miaoxing\Services\App\BaseController;
 use Miaoxing\Services\Service\Url;
 use Wei\RetTrait;
 

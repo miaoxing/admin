@@ -4,6 +4,9 @@ namespace MiaoxingTest\Admin\Controller\Admin;
 
 use Miaoxing\Plugin\Test\BaseControllerTestCase;
 
-class AdminsTest extends BaseControllerTestCase
+/**
+ * @internal
+ */
+final class AdminsTest extends BaseControllerTestCase
 {
 }

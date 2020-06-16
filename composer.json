@@ -11,7 +11,7 @@
     "miaoxing/app": "dev-master@dev"
   },
   "require-dev": {
-    "miaoxing/coding-standards": "^5@beta"
+    "miaoxing/coding-standards": "^4.1.1"
   },
   "autoload": {
     "psr-4": {

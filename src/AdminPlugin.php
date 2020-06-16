@@ -21,46 +21,18 @@ class AdminPlugin extends \Miaoxing\Plugin\BasePlugin
         $categories['user'] = [
             'name' => '用户',
             'sort' => 700,
+            'icon' => 'fa fa-user',
         ];
 
-        $subCategories['user-admin'] = [
+        $subCategories[] = [
             'parentId' => 'user',
-            'name' => '管理员',
-            'icon' => 'fa fa-shield',
-            'sort' => 0,
-        ];
-
-        $navs[] = [
-            'parentId' => 'user-admin',
-            'url' => 'admin/admins',
             'name' => '管理员管理',
-            'sort' => 1000,
+            'url' => 'admin/admins',
         ];
 
         $categories['marketing'] = [
             'name' => '营销',
             'sort' => 100,
-        ];
-
-        $subCategories['marketing-activities'] = [
-            'parentId' => 'marketing',
-            'name' => '活动',
-            'icon' => 'fa fa-gavel',
-            'sort' => 1000,
-        ];
-
-        $subCategories['marketing-games'] = [
-            'parentId' => 'marketing',
-            'name' => '游戏',
-            'icon' => 'fa fa-gamepad',
-            'sort' => 900,
-        ];
-
-        $subCategories['marketing-stat'] = [
-            'parentId' => 'marketing',
-            'name' => '统计',
-            'icon' => 'fa fa-bar-chart',
-            'sort' => 500,
         ];
     }
 

@@ -4,7 +4,7 @@ import {Form, FormAction, FormItem} from '@miaoxing/a-form';
 import {Alert} from 'antd';
 import {Box} from "rebass";
 import curUrl from '@miaoxing/cur-url';
-import app from '@miaoxing/app';
+import app from '@weijs/app';
 
 export default class extends React.Component {
   render() {

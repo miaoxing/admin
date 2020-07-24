@@ -5,7 +5,7 @@ import React from "react";
 import {Form, Button, Input} from "antd";
 import {Box, Heading, Image} from 'rebass';
 import $ from 'miaoxing';
-import app from '@miaoxing/app';
+import app from '@weijs/app';
 import logo from '../../../images/logo.png';
 import api from '@miaoxing/api';
 import {Global, css} from '@emotion/core'

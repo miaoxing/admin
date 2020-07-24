@@ -7,7 +7,7 @@ import {Box, Heading, Image} from 'rebass';
 import $ from 'miaoxing';
 import app from '@weijs/app';
 import logo from '../../../images/logo.png';
-import api from '@miaoxing/api';
+import http from '@miaoxing/http';
 import {Global, css} from '@emotion/core'
 import {FormItem} from '@miaoxing/a-form';
 import nextUrl from 'next-url';
@@ -48,7 +48,7 @@ export default class extends React.Component {
         <Form
           size="large"
           onFinish={async values => {
-            const ret = await api.post('user/login', {data: values});
+            const ret = await http.post('user/login', {data: values});
             await $.ret(ret);
             if (ret.code === 1) {
               window.location = nextUrl(app.url('admin'));

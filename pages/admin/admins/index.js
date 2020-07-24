@@ -6,7 +6,7 @@ import {CNewBtn, CEditLink} from '@miaoxing/a-clink';
 import {Tooltip} from "antd";
 import {QuestionCircleOutlined} from '@ant-design/icons'
 import curUrl from "@miaoxing/cur-url";
-import api from '@miaoxing/api';
+import http from '@miaoxing/http';
 
 export default class extends React.Component {
   state = {
@@ -14,7 +14,7 @@ export default class extends React.Component {
   };
 
   componentDidMount() {
-    api.curPath('index-config', {loading: true})
+    http.curPath('index-config', {loading: true})
       .then(ret => {
         this.setState(ret);
       });

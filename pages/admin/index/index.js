@@ -9,7 +9,7 @@ import {
   Tooltip,
   Legend,
 } from "bizcharts";
-import api from '@miaoxing/api';
+import http from '@miaoxing/http';
 import {Box, Flex, Link} from 'rebass';
 import {sx} from '@miaoxing/css';
 import '@miaoxing/bootstrap-antd/Card/style';
@@ -23,7 +23,7 @@ export default class extends React.Component {
   }
 
   componentDidMount() {
-    api.cur({loading: true}).then(ret => this.setState(ret));
+    http.cur({loading: true}).then(ret => this.setState(ret));
   }
 
   render() {

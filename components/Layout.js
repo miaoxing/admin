@@ -3,7 +3,7 @@ import {Layout} from "antd";
 import Navbar from './Navbar';
 import Sider from './Sider';
 import {Box} from 'rebass';
-import api from '@miaoxing/api';
+import http from '@miaoxing/http';
 import $ from 'miaoxing';
 import propTypes from 'prop-types';
 
@@ -18,7 +18,7 @@ export default class extends React.Component {
   }
 
   componentDidMount() {
-    api.get('admin-page', {loading: true}).then(ret => {
+    http.get('admin-page', {loading: true}).then(ret => {
       this.setState(ret);
       if (ret.code !== 1) {
         $.ret(ret);

@@ -1,6 +1,6 @@
 import React from "react";
 import app, {history} from '@weijs/app';
-import api from '@miaoxing/api';
+import http from '@miaoxing/http';
 import $ from 'miaoxing';
 import {Layout, Avatar, Menu, Dropdown} from 'antd';
 import {DownOutlined} from '@ant-design/icons';
@@ -21,7 +21,7 @@ export default class extends React.Component {
   }
 
   handleLogout = async () => {
-    const ret = await api.post('user/logout');
+    const ret = await http.post('user/logout');
     await $.ret(ret);
     if (ret.code === 1) {
       history.push(app.url('admin/login', {next: window.location.pathname}));

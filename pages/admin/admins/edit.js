@@ -5,7 +5,7 @@ import React from 'react';
 import {Page, PageActions} from "@miaoxing/a-page";
 import {Form, FormItem, FormAction, Select} from "@miaoxing/a-form";
 import {CListBtn} from "@miaoxing/a-clink";
-import api from '@miaoxing/api';
+import http from '@miaoxing/http';
 import Upload, {convertToFirstFile} from '@miaoxing/upload';
 import curUrl from '@miaoxing/cur-url';
 
@@ -15,7 +15,7 @@ class AdminForm extends React.Component {
   };
 
   componentDidMount() {
-    api.curPath('form-config').then(ret => this.setState(ret));
+    http.curPath('form-config').then(ret => this.setState(ret));
   }
 
   render() {

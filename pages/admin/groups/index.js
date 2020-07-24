@@ -5,7 +5,7 @@ import {Button} from "react-bootstrap";
 import {Page, PageActions} from "@miaoxing/a-page";
 import {LinkActions} from "@miaoxing/actions";
 import $ from 'miaoxing';
-import api from '@miaoxing/api';
+import http from '@miaoxing/http';
 
 export default () => {
   const [data, setData] = useState({
@@ -13,12 +13,12 @@ export default () => {
   });
 
   useEffect(() => {
-    api.curPath('metadata', {loading: true}).then(ret => setData(ret));
+    http.curPath('metadata', {loading: true}).then(ret => setData(ret));
   }, []);
 
   const [table] = useTable();
   const handleClick = useCallback(() => {
-    api.post('wechat-groups/sync-form-wechat', {loading: true}).then(ret => $.ret(ret, table.reload));
+    http.post('wechat-groups/sync-form-wechat', {loading: true}).then(ret => $.ret(ret, table.reload));
   }, []);
 
   return (

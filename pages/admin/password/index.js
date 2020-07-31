@@ -4,7 +4,7 @@ import {Form, FormAction, FormItem} from '@mxjs/a-form';
 import {Alert} from 'antd';
 import {Box} from "rebass";
 import curUrl from '@mxjs/cur-url';
-import app from '@weijs/app';
+import app from '@mxjs/app';
 
 export default class extends React.Component {
   render() {

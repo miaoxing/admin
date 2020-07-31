@@ -1,5 +1,5 @@
 import React from "react";
-import app, {history} from '@weijs/app';
+import app, {history} from '@mxjs/app';
 import http from '@mxjs/http';
 import $ from 'miaoxing';
 import {Layout, Avatar, Menu, Dropdown} from 'antd';

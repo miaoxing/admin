@@ -5,7 +5,7 @@ import React from 'react';
 import {MemoryRouter} from 'react-router';
 import $ from 'miaoxing';
 import Index from '../../../../pages/admin/groups/index';
-import app from '@weijs/app';
+import app from '@mxjs/app';
 import {render, waitForElementToBeRemoved, fireEvent} from '@testing-library/react';
 
 function createPromise() {

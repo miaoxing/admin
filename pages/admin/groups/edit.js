@@ -2,9 +2,9 @@
  * @share new
  */
 import React from 'react';
-import {CListBtn} from "@miaoxing/a-clink";
-import {Page, PageActions} from "@miaoxing/a-page";
-import {Form, FormItem, FormAction} from '@miaoxing/a-form'
+import {CListBtn} from "@mxjs/a-clink";
+import {Page, PageActions} from "@mxjs/a-page";
+import {Form, FormItem, FormAction} from '@mxjs/a-form'
 
 export default () => {
   return (

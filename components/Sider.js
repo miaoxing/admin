@@ -1,6 +1,6 @@
 import React from "react";
 import {Menu, Layout} from "antd";
-import {Link} from "@miaoxing/router";
+import {Link} from "@mxjs/router";
 import logo from '../images/logo.png';
 import {Flex, Image} from "rebass";
 import propTypes from 'prop-types';

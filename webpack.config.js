@@ -1,6 +1,6 @@
 const path = require('path');
-const WebpackConfig = require('@miaoxing/webpack');
-const {generateAntdVars, generateBootstrapVars} = require('@miaoxing/style/utils');
+const WebpackConfig = require('@mxjs/webpack');
+const {generateAntdVars, generateBootstrapVars} = require('@mxjs/style/utils');
 
 const theme = require('./modules/theme');
 const name = path.basename(__dirname);

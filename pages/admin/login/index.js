@@ -7,9 +7,9 @@ import {Box, Heading, Image} from 'rebass';
 import $ from 'miaoxing';
 import app from '@weijs/app';
 import logo from '../../../images/logo.png';
-import http from '@miaoxing/http';
+import http from '@mxjs/http';
 import {Global, css} from '@emotion/core'
-import {FormItem} from '@miaoxing/a-form';
+import {FormItem} from '@mxjs/a-form';
 import nextUrl from 'next-url';
 
 export default class extends React.Component {

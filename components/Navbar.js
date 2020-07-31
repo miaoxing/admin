@@ -1,13 +1,13 @@
 import React from "react";
 import app, {history} from '@weijs/app';
-import http from '@miaoxing/http';
+import http from '@mxjs/http';
 import $ from 'miaoxing';
 import {Layout, Avatar, Menu, Dropdown} from 'antd';
 import {DownOutlined} from '@ant-design/icons';
-import {Link} from '@miaoxing/router';
+import {Link} from '@mxjs/router';
 import {Box} from 'rebass';
-import {Actions} from '@miaoxing/actions';
-import {floatRight} from '@miaoxing/css';
+import {Actions} from '@mxjs/actions';
+import {floatRight} from '@mxjs/css';
 import {LockOutlined, LogoutOutlined} from '@ant-design/icons';
 import propTypes from 'prop-types';
 

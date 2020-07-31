@@ -2,12 +2,12 @@
  * @share new
  */
 import React from 'react';
-import {Page, PageActions} from "@miaoxing/a-page";
-import {Form, FormItem, FormAction, Select} from "@miaoxing/a-form";
-import {CListBtn} from "@miaoxing/a-clink";
-import http from '@miaoxing/http';
-import Upload, {convertToFirstFile} from '@miaoxing/upload';
-import curUrl from '@miaoxing/cur-url';
+import {Page, PageActions} from "@mxjs/a-page";
+import {Form, FormItem, FormAction, Select} from "@mxjs/a-form";
+import {CListBtn} from "@mxjs/a-clink";
+import http from '@mxjs/http';
+import Upload, {convertToFirstFile} from '@mxjs/upload';
+import curUrl from '@mxjs/cur-url';
 
 class AdminForm extends React.Component {
   state = {

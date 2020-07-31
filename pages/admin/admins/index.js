@@ -1,12 +1,12 @@
 import React from 'react';
-import {Page, PageActions} from "@miaoxing/a-page";
-import {Table, TableProvider, TableStatusCheckbox} from "@miaoxing/a-table";
-import {SearchForm, SearchItem, Select} from '@miaoxing/a-form';
-import {CNewBtn, CEditLink} from '@miaoxing/a-clink';
+import {Page, PageActions} from "@mxjs/a-page";
+import {Table, TableProvider, TableStatusCheckbox} from "@mxjs/a-table";
+import {SearchForm, SearchItem, Select} from '@mxjs/a-form';
+import {CNewBtn, CEditLink} from '@mxjs/a-clink';
 import {Tooltip} from "antd";
 import {QuestionCircleOutlined} from '@ant-design/icons'
-import curUrl from "@miaoxing/cur-url";
-import http from '@miaoxing/http';
+import curUrl from "@mxjs/cur-url";
+import http from '@mxjs/http';
 
 export default class extends React.Component {
   state = {

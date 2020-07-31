@@ -3,7 +3,7 @@ import {Layout} from "antd";
 import Navbar from './Navbar';
 import Sider from './Sider';
 import {Box} from 'rebass';
-import http from '@miaoxing/http';
+import http from '@mxjs/http';
 import $ from 'miaoxing';
 import propTypes from 'prop-types';
 

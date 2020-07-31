@@ -1,7 +1,7 @@
 import React from "react";
-import {Col, Row, Card, ListGroup} from '@miaoxing/bootstrap';
+import {Col, Row, Card, ListGroup} from '@mxjs/bootstrap';
 import color from 'color';
-import {Page} from "@miaoxing/a-page";
+import {Page} from "@mxjs/a-page";
 import {
   Chart,
   Geom,
@@ -9,12 +9,12 @@ import {
   Tooltip,
   Legend,
 } from "bizcharts";
-import http from '@miaoxing/http';
+import http from '@mxjs/http';
 import {Box, Flex, Link} from 'rebass';
-import {sx} from '@miaoxing/css';
-import '@miaoxing/bootstrap-antd/Card/style';
+import {sx} from '@mxjs/css';
+import '@mxjs/bootstrap-antd/Card/style';
 import {RightOutlined} from '@ant-design/icons';
-import Icon from '@miaoxing/icons';
+import Icon from '@mxjs/icons';
 
 export default class extends React.Component {
   state = {

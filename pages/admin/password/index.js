@@ -1,9 +1,9 @@
 import React from "react";
-import {Page} from '@miaoxing/a-page';
-import {Form, FormAction, FormItem} from '@miaoxing/a-form';
+import {Page} from '@mxjs/a-page';
+import {Form, FormAction, FormItem} from '@mxjs/a-form';
 import {Alert} from 'antd';
 import {Box} from "rebass";
-import curUrl from '@miaoxing/cur-url';
+import curUrl from '@mxjs/cur-url';
 import app from '@weijs/app';
 
 export default class extends React.Component {

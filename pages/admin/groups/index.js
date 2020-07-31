@@ -1,11 +1,11 @@
 import React, {useCallback, useEffect, useState} from "react";
-import {Table, TableProvider, CTableDeleteLink, useTable} from "@miaoxing/a-table";
-import {CEditLink, CNewBtn} from "@miaoxing/a-clink";
+import {Table, TableProvider, CTableDeleteLink, useTable} from "@mxjs/a-table";
+import {CEditLink, CNewBtn} from "@mxjs/a-clink";
 import {Button} from "react-bootstrap";
-import {Page, PageActions} from "@miaoxing/a-page";
-import {LinkActions} from "@miaoxing/actions";
+import {Page, PageActions} from "@mxjs/a-page";
+import {LinkActions} from "@mxjs/actions";
 import $ from 'miaoxing';
-import http from '@miaoxing/http';
+import http from '@mxjs/http';
 
 export default () => {
   const [data, setData] = useState({

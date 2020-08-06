@@ -7,7 +7,7 @@ use Miaoxing\Plugin\BaseController;
 use Miaoxing\Plugin\Service\UserModel;
 use Miaoxing\Services\Rest\FormTrait;
 use Miaoxing\Services\Rest\IndexTrait;
-use Wei\Request;
+use Wei\Req;
 use Wei\V;
 
 class AdminsController extends BaseController
@@ -115,13 +115,13 @@ class AdminsController extends BaseController
         return $user->toRet();
     }
 
-    protected function beforeIndexFind(Request $req, UserModel $models)
+    protected function beforeIndexFind(Req $req, UserModel $models)
     {
         $models->where('isAdmin', true)
             ->reqQuery();
     }
 
-    protected function afterIndexFind(Request $req, UserModel $users)
+    protected function afterIndexFind(Req $req, UserModel $users)
     {
         // NOTE: UserModel 里还没有 group 关联，需手动读取
         $groupIds = array_unique(array_filter($users->getAll('groupId')));

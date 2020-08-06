@@ -8,7 +8,7 @@ use Miaoxing\Plugin\Service\Plugin;
 use Miaoxing\Plugin\Service\UserModel;
 use Miaoxing\Services\Rest\RestTrait;
 use Wei\Event;
-use Wei\Request;
+use Wei\Req;
 use Wei\V;
 
 class GroupsController extends BaseController
@@ -33,22 +33,22 @@ class GroupsController extends BaseController
         ]);
     }
 
-    protected function beforeUpdateFind(Request $req)
+    protected function beforeUpdateFind(Req $req)
     {
         return V::key('name', '名称')->check($req);
     }
 
-    protected function beforeSave(Request $req, Model $model)
+    protected function beforeSave(Req $req, Model $model)
     {
         return Event::until('groupUpdate', [$model]);
     }
 
-    protected function beforeDestroy(Request $req, Model $model)
+    protected function beforeDestroy(Req $req, Model $model)
     {
         return Event::until('groupDestroy', [$model]);
     }
 
-    protected function afterDestroy(Request $req, Model $model)
+    protected function afterDestroy(Req $req, Model $model)
     {
         UserModel::where('groupId', $req['id'])->update('groupId', 0);
     }

@@ -90,7 +90,7 @@ class GroupModel
      * @param string $name
      * @param mixed $value
      * @param bool $throwException
-     * @return $this
+     * @return $this|false
      * @see Model::set
      */
     public static function set($name, $value = null, $throwException = true)
@@ -100,7 +100,7 @@ class GroupModel
     /**
      * Executes the generated SQL and returns the found record object or false
      *
-     * @param int|string $id
+     * @param int|string|array|null $id
      * @return $this|null
      * @see Model::find
      */
@@ -145,7 +145,7 @@ class GroupModel
     }
 
     /**
-     * @param $attributes
+     * @param array $attributes
      * @param array $data
      * @return $this
      * @see Model::findByOrCreate
@@ -166,9 +166,9 @@ class GroupModel
     }
 
     /**
-     * @param $column
-     * @param null $operator
-     * @param null $value
+     * @param mixed $column
+     * @param mixed|null $operator
+     * @param mixed|null $value
      * @return $this|null
      * @see Model::findBy
      */
@@ -177,9 +177,9 @@ class GroupModel
     }
 
     /**
-     * @param $column
-     * @param null $operator
-     * @param null $value
+     * @param mixed $column
+     * @param mixed|null $operator
+     * @param mixed|null $value
      * @return $this|$this[]
      * @see Model::findAllBy
      */
@@ -188,8 +188,8 @@ class GroupModel
     }
 
     /**
-     * @param $attributes
-     * @param array $data
+     * @param array $attributes
+     * @param array|object $data
      * @return $this
      * @see Model::findOrInitBy
      */
@@ -200,9 +200,9 @@ class GroupModel
     /**
      * Find a record by primary key value and throws 404 exception if record not found
      *
-     * @param $column
-     * @param $operator
-     * @param mixed $value
+     * @param mixed $column
+     * @param mixed|null $operator
+     * @param mixed|null $value
      * @return $this
      * @throws \Exception
      * @see Model::findByOrFail
@@ -212,7 +212,7 @@ class GroupModel
     }
 
     /**
-     * @param array|Request|null $request
+     * @param array|Req|null $request
      * @return $this
      * @throws \Exception
      * @see Model::findFromRequest
@@ -232,7 +232,7 @@ class GroupModel
     }
 
     /**
-     * @return $this
+     * @return $this|array
      * @see Model::all
      */
     public static function all()
@@ -261,7 +261,6 @@ class GroupModel
     /**
      * Executes the generated query and returns the first array result
      *
-     * @param mixed $conditions
      * @param mixed|null $column
      * @param mixed|null $operator
      * @param mixed|null $value
@@ -275,11 +274,10 @@ class GroupModel
     /**
      * Executes the generated query and returns all array results
      *
-     * @param mixed $conditions
      * @param mixed|null $column
      * @param mixed|null $operator
      * @param mixed|null $value
-     * @return array|false
+     * @return array
      * @see QueryBuilder::fetchAll
      */
     public static function fetchAll($column = null, $operator = null, $value = null)
@@ -321,7 +319,7 @@ class GroupModel
      * Execute a update query with specified data
      *
      * @param array|string $set
-     * @param null $value
+     * @param mixed $value
      * @return int
      * @see QueryBuilder::update
      */
@@ -332,7 +330,6 @@ class GroupModel
     /**
      * Execute a delete query with specified conditions
      *
-     * @param mixed $conditions
      * @param mixed|null $column
      * @param mixed|null $operator
      * @param mixed|null $value
@@ -346,7 +343,7 @@ class GroupModel
     /**
      * Sets the position of the first result to retrieve (the "offset")
      *
-     * @param int $offset The first result to return
+     * @param int|float|string $offset The first result to return
      * @return $this
      * @see QueryBuilder::offset
      */
@@ -357,7 +354,7 @@ class GroupModel
     /**
      * Sets the maximum number of results to retrieve (the "limit")
      *
-     * @param int $limit The maximum number of results to retrieve
+     * @param int|float|string $limit The maximum number of results to retrieve
      * @return $this
      * @see QueryBuilder::limit
      */
@@ -389,7 +386,7 @@ class GroupModel
     }
 
     /**
-     * @param $columns
+     * @param array|string $columns
      * @return $this
      * @see QueryBuilder::selectDistinct
      */
@@ -462,7 +459,6 @@ class GroupModel
      * @param string|null $first
      * @param string $operator
      * @param string|null $second
-     * @param string $type
      * @return $this
      * @see QueryBuilder::innerJoin
      */
@@ -510,8 +506,8 @@ class GroupModel
      * ```
      *
      * @param array|Closure|string|null $column
-     * @param null $operator
-     * @param null $value
+     * @param mixed|null $operator
+     * @param mixed|null $value
      * @return $this
      * @see QueryBuilder::where
      */
@@ -521,7 +517,7 @@ class GroupModel
 
     /**
      * @param string $expression
-     * @param array $params
+     * @param mixed $params
      * @return $this
      * @see QueryBuilder::whereRaw
      */
@@ -530,7 +526,7 @@ class GroupModel
     }
 
     /**
-     * @param $column
+     * @param string $column
      * @param array $params
      * @return $this
      * @see QueryBuilder::whereBetween
@@ -540,7 +536,17 @@ class GroupModel
     }
 
     /**
-     * @param $column
+     * @param string $column
+     * @param array $params
+     * @return $this
+     * @see QueryBuilder::orWhereBetween
+     */
+    public static function orWhereBetween($column, array $params)
+    {
+    }
+
+    /**
+     * @param string $column
      * @param array $params
      * @return $this
      * @see QueryBuilder::whereNotBetween
@@ -550,7 +556,7 @@ class GroupModel
     }
 
     /**
-     * @param $column
+     * @param string $column
      * @param array $params
      * @return $this
      * @see QueryBuilder::whereIn
@@ -560,7 +566,7 @@ class GroupModel
     }
 
     /**
-     * @param $column
+     * @param string $column
      * @param array $params
      * @return $this
      * @see QueryBuilder::whereNotIn
@@ -570,7 +576,7 @@ class GroupModel
     }
 
     /**
-     * @param $column
+     * @param string $column
      * @return $this
      * @see QueryBuilder::whereNull
      */
@@ -579,7 +585,7 @@ class GroupModel
     }
 
     /**
-     * @param $column
+     * @param string $column
      * @return $this
      * @see QueryBuilder::whereNotNULL
      */
@@ -588,9 +594,9 @@ class GroupModel
     }
 
     /**
-     * @param $column
-     * @param $opOrValue
-     * @param null $value
+     * @param string $column
+     * @param mixed $opOrValue
+     * @param mixed|null $value
      * @return $this
      * @see QueryBuilder::whereDate
      */
@@ -599,9 +605,9 @@ class GroupModel
     }
 
     /**
-     * @param $column
-     * @param $opOrValue
-     * @param null $value
+     * @param string $column
+     * @param mixed $opOrValue
+     * @param mixed|null $value
      * @return $this
      * @see QueryBuilder::whereMonth
      */
@@ -610,9 +616,9 @@ class GroupModel
     }
 
     /**
-     * @param $column
-     * @param $opOrValue
-     * @param null $value
+     * @param string $column
+     * @param mixed $opOrValue
+     * @param mixed|null $value
      * @return $this
      * @see QueryBuilder::whereDay
      */
@@ -621,9 +627,9 @@ class GroupModel
     }
 
     /**
-     * @param $column
-     * @param $opOrValue
-     * @param null $value
+     * @param string $column
+     * @param mixed $opOrValue
+     * @param mixed|null $value
      * @return $this
      * @see QueryBuilder::whereYear
      */
@@ -632,9 +638,9 @@ class GroupModel
     }
 
     /**
-     * @param $column
-     * @param $opOrValue
-     * @param null $value
+     * @param string $column
+     * @param mixed $opOrValue
+     * @param mixed|null $value
      * @return $this
      * @see QueryBuilder::whereTime
      */
@@ -643,9 +649,9 @@ class GroupModel
     }
 
     /**
-     * @param $column
-     * @param $opOrColumn2
-     * @param null $column2
+     * @param string $column
+     * @param string $opOrColumn2
+     * @param string|null $column2
      * @return $this
      * @see QueryBuilder::whereColumn
      */
@@ -667,8 +673,8 @@ class GroupModel
     }
 
     /**
-     * @param $column
-     * @param $value
+     * @param mixed $column
+     * @param mixed $value
      * @param string $condition
      * @return $this
      * @see QueryBuilder::whereNotContains
@@ -693,9 +699,6 @@ class GroupModel
      * Specifies a restriction over the groups of the query.
      * Replaces any previous having restrictions, if any.
      *
-     * @param string $conditions The having conditions
-     * @param array $params The condition parameters
-     * @param array $types The parameter types
      * @param mixed $column
      * @param mixed $operator
      * @param mixed|null $value
@@ -770,7 +773,7 @@ class GroupModel
     }
 
     /**
-     * @param string $lock
+     * @param string|bool $lock
      * @return $this
      * @see QueryBuilder::lock
      */
@@ -963,7 +966,7 @@ class GroupModel
      * @param string $name
      * @param mixed $value
      * @param bool $throwException
-     * @return $this
+     * @return $this|false
      * @see Model::set
      */
     public function set($name, $value = null, $throwException = true)
@@ -973,7 +976,7 @@ class GroupModel
     /**
      * Executes the generated SQL and returns the found record object or false
      *
-     * @param int|string $id
+     * @param int|string|array|null $id
      * @return $this|null
      * @see Model::find
      */
@@ -1018,7 +1021,7 @@ class GroupModel
     }
 
     /**
-     * @param $attributes
+     * @param array $attributes
      * @param array $data
      * @return $this
      * @see Model::findByOrCreate
@@ -1039,9 +1042,9 @@ class GroupModel
     }
 
     /**
-     * @param $column
-     * @param null $operator
-     * @param null $value
+     * @param mixed $column
+     * @param mixed|null $operator
+     * @param mixed|null $value
      * @return $this|null
      * @see Model::findBy
      */
@@ -1050,9 +1053,9 @@ class GroupModel
     }
 
     /**
-     * @param $column
-     * @param null $operator
-     * @param null $value
+     * @param mixed $column
+     * @param mixed|null $operator
+     * @param mixed|null $value
      * @return $this|$this[]
      * @see Model::findAllBy
      */
@@ -1061,8 +1064,8 @@ class GroupModel
     }
 
     /**
-     * @param $attributes
-     * @param array $data
+     * @param array $attributes
+     * @param array|object $data
      * @return $this
      * @see Model::findOrInitBy
      */
@@ -1073,9 +1076,9 @@ class GroupModel
     /**
      * Find a record by primary key value and throws 404 exception if record not found
      *
-     * @param $column
-     * @param $operator
-     * @param mixed $value
+     * @param mixed $column
+     * @param mixed|null $operator
+     * @param mixed|null $value
      * @return $this
      * @throws \Exception
      * @see Model::findByOrFail
@@ -1085,7 +1088,7 @@ class GroupModel
     }
 
     /**
-     * @param array|Request|null $request
+     * @param array|Req|null $request
      * @return $this
      * @throws \Exception
      * @see Model::findFromRequest
@@ -1105,7 +1108,7 @@ class GroupModel
     }
 
     /**
-     * @return $this
+     * @return $this|array
      * @see Model::all
      */
     public function all()
@@ -1134,7 +1137,6 @@ class GroupModel
     /**
      * Executes the generated query and returns the first array result
      *
-     * @param mixed $conditions
      * @param mixed|null $column
      * @param mixed|null $operator
      * @param mixed|null $value
@@ -1148,11 +1150,10 @@ class GroupModel
     /**
      * Executes the generated query and returns all array results
      *
-     * @param mixed $conditions
      * @param mixed|null $column
      * @param mixed|null $operator
      * @param mixed|null $value
-     * @return array|false
+     * @return array
      * @see QueryBuilder::fetchAll
      */
     public function fetchAll($column = null, $operator = null, $value = null)
@@ -1194,7 +1195,7 @@ class GroupModel
      * Execute a update query with specified data
      *
      * @param array|string $set
-     * @param null $value
+     * @param mixed $value
      * @return int
      * @see QueryBuilder::update
      */
@@ -1205,7 +1206,6 @@ class GroupModel
     /**
      * Execute a delete query with specified conditions
      *
-     * @param mixed $conditions
      * @param mixed|null $column
      * @param mixed|null $operator
      * @param mixed|null $value
@@ -1219,7 +1219,7 @@ class GroupModel
     /**
      * Sets the position of the first result to retrieve (the "offset")
      *
-     * @param int $offset The first result to return
+     * @param int|float|string $offset The first result to return
      * @return $this
      * @see QueryBuilder::offset
      */
@@ -1230,7 +1230,7 @@ class GroupModel
     /**
      * Sets the maximum number of results to retrieve (the "limit")
      *
-     * @param int $limit The maximum number of results to retrieve
+     * @param int|float|string $limit The maximum number of results to retrieve
      * @return $this
      * @see QueryBuilder::limit
      */
@@ -1262,7 +1262,7 @@ class GroupModel
     }
 
     /**
-     * @param $columns
+     * @param array|string $columns
      * @return $this
      * @see QueryBuilder::selectDistinct
      */
@@ -1335,7 +1335,6 @@ class GroupModel
      * @param string|null $first
      * @param string $operator
      * @param string|null $second
-     * @param string $type
      * @return $this
      * @see QueryBuilder::innerJoin
      */
@@ -1383,8 +1382,8 @@ class GroupModel
      * ```
      *
      * @param array|Closure|string|null $column
-     * @param null $operator
-     * @param null $value
+     * @param mixed|null $operator
+     * @param mixed|null $value
      * @return $this
      * @see QueryBuilder::where
      */
@@ -1394,7 +1393,7 @@ class GroupModel
 
     /**
      * @param string $expression
-     * @param array $params
+     * @param mixed $params
      * @return $this
      * @see QueryBuilder::whereRaw
      */
@@ -1403,7 +1402,7 @@ class GroupModel
     }
 
     /**
-     * @param $column
+     * @param string $column
      * @param array $params
      * @return $this
      * @see QueryBuilder::whereBetween
@@ -1413,7 +1412,17 @@ class GroupModel
     }
 
     /**
-     * @param $column
+     * @param string $column
+     * @param array $params
+     * @return $this
+     * @see QueryBuilder::orWhereBetween
+     */
+    public function orWhereBetween($column, array $params)
+    {
+    }
+
+    /**
+     * @param string $column
      * @param array $params
      * @return $this
      * @see QueryBuilder::whereNotBetween
@@ -1423,7 +1432,7 @@ class GroupModel
     }
 
     /**
-     * @param $column
+     * @param string $column
      * @param array $params
      * @return $this
      * @see QueryBuilder::whereIn
@@ -1433,7 +1442,7 @@ class GroupModel
     }
 
     /**
-     * @param $column
+     * @param string $column
      * @param array $params
      * @return $this
      * @see QueryBuilder::whereNotIn
@@ -1443,7 +1452,7 @@ class GroupModel
     }
 
     /**
-     * @param $column
+     * @param string $column
      * @return $this
      * @see QueryBuilder::whereNull
      */
@@ -1452,7 +1461,7 @@ class GroupModel
     }
 
     /**
-     * @param $column
+     * @param string $column
      * @return $this
      * @see QueryBuilder::whereNotNULL
      */
@@ -1461,9 +1470,9 @@ class GroupModel
     }
 
     /**
-     * @param $column
-     * @param $opOrValue
-     * @param null $value
+     * @param string $column
+     * @param mixed $opOrValue
+     * @param mixed|null $value
      * @return $this
      * @see QueryBuilder::whereDate
      */
@@ -1472,9 +1481,9 @@ class GroupModel
     }
 
     /**
-     * @param $column
-     * @param $opOrValue
-     * @param null $value
+     * @param string $column
+     * @param mixed $opOrValue
+     * @param mixed|null $value
      * @return $this
      * @see QueryBuilder::whereMonth
      */
@@ -1483,9 +1492,9 @@ class GroupModel
     }
 
     /**
-     * @param $column
-     * @param $opOrValue
-     * @param null $value
+     * @param string $column
+     * @param mixed $opOrValue
+     * @param mixed|null $value
      * @return $this
      * @see QueryBuilder::whereDay
      */
@@ -1494,9 +1503,9 @@ class GroupModel
     }
 
     /**
-     * @param $column
-     * @param $opOrValue
-     * @param null $value
+     * @param string $column
+     * @param mixed $opOrValue
+     * @param mixed|null $value
      * @return $this
      * @see QueryBuilder::whereYear
      */
@@ -1505,9 +1514,9 @@ class GroupModel
     }
 
     /**
-     * @param $column
-     * @param $opOrValue
-     * @param null $value
+     * @param string $column
+     * @param mixed $opOrValue
+     * @param mixed|null $value
      * @return $this
      * @see QueryBuilder::whereTime
      */
@@ -1516,9 +1525,9 @@ class GroupModel
     }
 
     /**
-     * @param $column
-     * @param $opOrColumn2
-     * @param null $column2
+     * @param string $column
+     * @param string $opOrColumn2
+     * @param string|null $column2
      * @return $this
      * @see QueryBuilder::whereColumn
      */
@@ -1540,8 +1549,8 @@ class GroupModel
     }
 
     /**
-     * @param $column
-     * @param $value
+     * @param mixed $column
+     * @param mixed $value
      * @param string $condition
      * @return $this
      * @see QueryBuilder::whereNotContains
@@ -1566,9 +1575,6 @@ class GroupModel
      * Specifies a restriction over the groups of the query.
      * Replaces any previous having restrictions, if any.
      *
-     * @param string $conditions The having conditions
-     * @param array $params The condition parameters
-     * @param array $types The parameter types
      * @param mixed $column
      * @param mixed $operator
      * @param mixed|null $value
@@ -1643,7 +1649,7 @@ class GroupModel
     }
 
     /**
-     * @param string $lock
+     * @param string|bool $lock
      * @return $this
      * @see QueryBuilder::lock
      */

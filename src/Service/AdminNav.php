@@ -77,7 +77,7 @@ class AdminNav extends \Miaoxing\Plugin\BaseService
      */
     protected function isInCategories(array $category)
     {
-        $url = ltrim(wei()->request->getPathInfo(), '/');
+        $url = ltrim(wei()->req->getPathInfo(), '/');
         foreach ($category['navs'] as $i => $subCategories) {
             foreach ($subCategories['navs'] as $nav) {
                 if ($nav['url'] == $url) {

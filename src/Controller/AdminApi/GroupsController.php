@@ -33,6 +33,11 @@ class GroupsController extends BaseController
         ]);
     }
 
+    public function updateAction(Req $req)
+    {
+        
+    }
+
     protected function beforeUpdateFind(Req $req)
     {
         return V::key('name', '名称')->check($req);

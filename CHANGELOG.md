@@ -1,3 +1,18 @@
+## [0.1.3](https://github.com/miaoxing/admin/compare/v0.1.2...v0.1.3) (2020-08-07)
+
+
+### Features
+
+* 增加 *Action 类，通过组合的方式简化常用的 CRUD 操作 ([65e5cc3](https://github.com/miaoxing/admin/commit/65e5cc36a5a97031998c302b7fb1094d0b44f120))
+
+
+
+
+
+### Dependencies
+
+* **@miaoxing/app:** upgrade from 0.1.2 to 0.1.3
+
 ## [0.1.2](https://github.com/miaoxing/admin/compare/v0.1.1...v0.1.2) (2020-08-06)
 
 

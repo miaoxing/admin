@@ -5,14 +5,12 @@ namespace Miaoxing\Admin\Controller\AdminApi;
 use Miaoxing\Admin\Service\GroupModel;
 use Miaoxing\Plugin\BaseController;
 use Miaoxing\Plugin\Service\UserModel;
-use Miaoxing\Services\Rest\FormTrait;
-use Miaoxing\Services\Rest\IndexTrait;
-use Wei\Req;
+use Miaoxing\Services\Action\FormTrait;
+use Miaoxing\Services\Service\IndexAction;
 use Wei\V;
 
 class AdminsController extends BaseController
 {
-    use IndexTrait;
     use FormTrait;
 
     protected $controllerName = '管理员管理';
@@ -24,10 +22,26 @@ class AdminsController extends BaseController
         'enable' => '启用/禁用',
     ];
 
-    /**
-     * @var GroupModel|GroupModel[]|array
-     */
-    protected $groups;
+    public function indexAction()
+    {
+        $groups = [];
+        return IndexAction
+            ::beforeFind(function (UserModel $models) {
+                $models->where('isAdmin', true)
+                    ->reqQuery();
+            })
+            ->afterFind(function (UserModel $users) use (&$groups) {
+                // NOTE: UserModel 里还没有 group 关联，需手动读取
+                $groupIds = array_unique(array_filter($users->getAll('groupId')));
+                $groups = $groupIds ? GroupModel::findAll($groupIds)->indexBy('id') : [];
+            })
+            ->buildData(function (UserModel $user) use ($groups) {
+                return [
+                    'group' => $groups[$user->groupId] ?? null,
+                ];
+            })
+            ->exec($this);
+    }
 
     public function createModel()
     {
@@ -46,7 +60,7 @@ class AdminsController extends BaseController
 
     public function updateAction()
     {
-        $user = UserModel::findFromRequest();
+        $user = UserModel::findFromReq();
 
         // 添加用户时才校验用户名
         $validateUsername = $user->isNew();
@@ -113,25 +127,5 @@ class AdminsController extends BaseController
         $user->save();
 
         return $user->toRet();
-    }
-
-    protected function beforeIndexFind(Req $req, UserModel $models)
-    {
-        $models->where('isAdmin', true)
-            ->reqQuery();
-    }
-
-    protected function afterIndexFind(Req $req, UserModel $users)
-    {
-        // NOTE: UserModel 里还没有 group 关联，需手动读取
-        $groupIds = array_unique(array_filter($users->getAll('groupId')));
-        $this->groups = $groupIds ? GroupModel::findAll($groupIds)->indexBy('id') : [];
-    }
-
-    protected function buildIndexData(UserModel $user)
-    {
-        return [
-            'group' => $this->groups[$user->groupId] ?? null,
-        ];
     }
 }

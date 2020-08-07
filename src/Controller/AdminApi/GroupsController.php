@@ -6,14 +6,15 @@ use Miaoxing\Plugin\BaseController;
 use Miaoxing\Plugin\Service\Model;
 use Miaoxing\Plugin\Service\Plugin;
 use Miaoxing\Plugin\Service\UserModel;
-use Miaoxing\Services\Rest\RestTrait;
+use Miaoxing\Services\Service\DestroyAction;
+use Miaoxing\Services\Action\CrudTrait;
+use Miaoxing\Services\Service\UpdateAction;
 use Wei\Event;
-use Wei\Req;
 use Wei\V;
 
 class GroupsController extends BaseController
 {
-    use RestTrait;
+    use CrudTrait;
 
     protected $controllerName = '分组管理';
 
@@ -33,28 +34,27 @@ class GroupsController extends BaseController
         ]);
     }
 
-    public function updateAction(Req $req)
+    public function updateAction()
     {
-        
+        return UpdateAction
+            ::beforeFind(function () {
+                return V::key('name', '名称')->check($this->req);
+            })
+            ->beforeSave(function (Model $model) {
+                return Event::until('groupUpdate', [$model]);
+            })
+            ->exec($this);
     }
 
-    protected function beforeUpdateFind(Req $req)
+    public function destroyAction()
     {
-        return V::key('name', '名称')->check($req);
-    }
-
-    protected function beforeSave(Req $req, Model $model)
-    {
-        return Event::until('groupUpdate', [$model]);
-    }
-
-    protected function beforeDestroy(Req $req, Model $model)
-    {
-        return Event::until('groupDestroy', [$model]);
-    }
-
-    protected function afterDestroy(Req $req, Model $model)
-    {
-        UserModel::where('groupId', $req['id'])->update('groupId', 0);
+        return DestroyAction
+            ::beforeDestroy(function (Model $model) {
+                return Event::until('groupDestroy', [$model]);
+            })
+            ->afterDestroy(function () {
+                UserModel::where('groupId', $this->req['id'])->update('groupId', 0);
+            })
+            ->exec($this);
     }
 }

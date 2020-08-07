@@ -13,7 +13,7 @@ export default () => {
   });
 
   useEffect(() => {
-    http.curPath('metadata', {loading: true}).then(ret => setData(ret));
+    http.curPath('index-config', {loading: true}).then(ret => setData(ret));
   }, []);
 
   const [table] = useTable();

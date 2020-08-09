@@ -10,18 +10,6 @@ use Miaoxing\Plugin\Service\Model;
 /**
  * GroupModel
  *
- * @start
- * @property int $id
- * @property string $name
- * @property int $sort
- * @property int $status
- * @property string $createdAt
- * @property string $updatedAt
- * @property int $createdBy
- * @property int $updatedBy
- * @property string $deletedAt
- * @property int $deletedBy
- * @end
  * @property GroupModel $parent
  */
 class GroupModel extends Model
@@ -30,31 +18,8 @@ class GroupModel extends Model
     use SoftDeleteTrait;
     use ReqQueryTrait;
 
-    /**
-     * @var array
-     */
-    protected $casts = [
-        // @start
-        'id' => 'int',
-        'name' => 'string',
-        'sort' => 'int',
-        'status' => 'int',
-        'created_at' => 'datetime',
-        'updated_at' => 'datetime',
-        'created_by' => 'int',
-        'updated_by' => 'int',
-        'deleted_at' => 'datetime',
-        'deleted_by' => 'int',
-        // @end
-        'xx' => 'xx',
-    ];
-
     protected $data = [
         'sort' => 50,
-    ];
-
-    protected $fields = [
-          // ... 都是 auto 生成的
     ];
 
     /**

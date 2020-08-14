@@ -1,6 +1,6 @@
 {
   "name": "@mxjs/admin",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "private": true,
   "repository": "https://github.com/miaoxing/admin",
   "license": "MIT",
@@ -11,7 +11,7 @@
     "core-js": "^3.6.5",
     "enzyme": "^3.11.0",
     "enzyme-to-json": "^3.5.0",
-    "@miaoxing/dev": "^6.0.0",
+    "@miaoxing/dev": "^0.1.0",
     "next-url": "^1.0.0",
     "prop-types": "^15.7.2",
     "react": "^16.13.1",

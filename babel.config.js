@@ -1,15 +1,15 @@
 module.exports = {
-  "presets": [
+  'presets': [
     [
-      "@babel/preset-env",
+      '@babel/preset-env',
       {
-        "useBuiltIns": "entry",
-        "corejs": {
-          "version": 3
-        }
-      }
+        'useBuiltIns': 'entry',
+        'corejs': {
+          'version': 3,
+        },
+      },
     ],
-    "@babel/preset-react"
+    '@babel/preset-react',
   ],
   plugins: [
     // Stage 1
@@ -27,5 +27,5 @@ module.exports = {
     //
     // // Stage 4
     // "@babel/plugin-proposal-object-rest-spread",
-  ]
+  ],
 };

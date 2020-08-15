@@ -1,5 +1,5 @@
-import "core-js/stable";
-import "regenerator-runtime/runtime";
+import 'core-js/stable';
+import 'regenerator-runtime/runtime';
 
 import React from 'react';
 import {MemoryRouter} from 'react-router';
@@ -20,7 +20,7 @@ function createPromise() {
       reject(result);
       return promise;
     };
-  })
+  });
 
   promise.resolve = res;
   promise.reject = rej;
@@ -50,16 +50,16 @@ describe('admin/groups', () => {
         data: [],
       }))
       .mockImplementationOnce(() => promise2.resolve({
-        code: 1
+        code: 1,
       }))
       .mockImplementationOnce(() => promise3.resolve({
         code: 1,
         data: [
           {
             id: 1,
-            name: '测试'
-          }
-        ]
+            name: '测试',
+          },
+        ],
       }));
 
     const {container} = render(<MemoryRouter>
@@ -84,16 +84,16 @@ describe('admin/groups', () => {
         data: [],
       }))
       .mockImplementationOnce(() => Promise.resolve({
-        code: 1
+        code: 1,
       }))
       .mockImplementationOnce(() => Promise.resolve({
         code: 1,
         data: [
           {
             id: 1,
-            name: '测试'
-          }
-        ]
+            name: '测试',
+          },
+        ],
       }));
 
     // Act 加载页面，可以看到删除按钮
@@ -113,7 +113,7 @@ describe('admin/groups', () => {
     }));
     $.get.mockImplementationOnce(() => Promise.resolve({
       code: 1,
-      data: []
+      data: [],
     }));
 
     // Act 点击删除会有弹窗确认

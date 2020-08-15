@@ -1,11 +1,11 @@
 import React from 'react';
-import {Page, PageActions} from "@mxjs/a-page";
-import {Table, TableProvider, TableStatusCheckbox} from "@mxjs/a-table";
+import {Page, PageActions} from '@mxjs/a-page';
+import {Table, TableProvider, TableStatusCheckbox} from '@mxjs/a-table';
 import {SearchForm, SearchItem, Select} from '@mxjs/a-form';
 import {CNewBtn, CEditLink} from '@mxjs/a-clink';
-import {Tooltip} from "antd";
-import {QuestionCircleOutlined} from '@ant-design/icons'
-import curUrl from "@mxjs/cur-url";
+import {Tooltip} from 'antd';
+import {QuestionCircleOutlined} from '@ant-design/icons';
+import curUrl from '@mxjs/cur-url';
 import http from '@mxjs/http';
 
 export default class extends React.Component {
@@ -44,7 +44,7 @@ export default class extends React.Component {
             columns={[
               {
                 title: '用户名',
-                dataIndex: 'username'
+                dataIndex: 'username',
               },
               {
                 title: '姓名',
@@ -52,15 +52,15 @@ export default class extends React.Component {
               },
               {
                 title: '昵称',
-                dataIndex: 'nickName'
+                dataIndex: 'nickName',
               },
               {
                 title: '分组',
-                dataIndex: ['group', 'name']
+                dataIndex: ['group', 'name'],
               },
               {
                 title: '创建时间',
-                dataIndex: 'createdAt'
+                dataIndex: 'createdAt',
               },
               {
                 title: <Tooltip title="禁用后，用户将无法登录">
@@ -68,8 +68,8 @@ export default class extends React.Component {
                 </Tooltip>,
                 dataIndex: 'isEnabled',
                 render: (cell, row) => {
-                  return <TableStatusCheckbox url={curUrl.toApi('enable')} row={row} name="isEnabled"/>
-                }
+                  return <TableStatusCheckbox url={curUrl.toApi('enable')} row={row} name="isEnabled"/>;
+                },
               },
               {
                 title: '操作',
@@ -77,11 +77,11 @@ export default class extends React.Component {
                 render: (id) => (
                   <CEditLink id={id}/>
                 ),
-              }
+              },
             ]}
           />
         </TableProvider>
       </Page>
-    )
+    );
   }
 }

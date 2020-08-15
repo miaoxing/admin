@@ -1,14 +1,14 @@
-import "core-js/stable";
-import "regenerator-runtime/runtime";
+import 'core-js/stable';
+import 'regenerator-runtime/runtime';
 
 import React from 'react';
 import $ from 'miaoxing';
 import Form from '../../../../pages/admin/groups/edit';
 import app from '@mxjs/app';
 import {render, screen, fireEvent} from '@testing-library/react';
-import '@testing-library/jest-dom/extend-expect'
-import {createMemoryHistory} from "history";
-import {Router} from "react-router";
+import '@testing-library/jest-dom/extend-expect';
+import {createMemoryHistory} from 'history';
+import {Router} from 'react-router';
 
 // https://jestjs.io/docs/en/manual-mocks#mocking-methods-which-are-not-implemented-in-jsdom
 Object.defineProperty(window, 'matchMedia', {
@@ -37,7 +37,7 @@ function createPromise() {
       reject(result);
       return promise;
     };
-  })
+  });
 
   promise.resolve = res;
   promise.reject = rej;
@@ -72,7 +72,7 @@ describe('admin/groups', () => {
       }))
       .mockImplementationOnce(() => promise2.resolve({
         code: 1,
-        data: []
+        data: [],
       }));
 
     const promise3 = createPromise();
@@ -83,8 +83,8 @@ describe('admin/groups', () => {
 
     const history = createMemoryHistory({
       initialEntries: [
-        '/admin/groups/new'
-      ]
+        '/admin/groups/new',
+      ],
     });
     const {getByLabelText} = render(<Router history={history}>
       <Form/>

@@ -1,5 +1,5 @@
-import React from "react";
-import {Layout} from "antd";
+import React from 'react';
+import {Layout} from 'antd';
 import Navbar from './Navbar';
 import Sider from './Sider';
 import {Box} from 'rebass';
@@ -14,7 +14,7 @@ export default class extends React.Component {
   };
 
   static propTypes = {
-    children: propTypes.node
+    children: propTypes.node,
   }
 
   componentDidMount() {
@@ -23,7 +23,7 @@ export default class extends React.Component {
       if (ret.code !== 1) {
         $.ret(ret);
       }
-    })
+    });
   }
 
   render() {

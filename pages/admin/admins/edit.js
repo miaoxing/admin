@@ -2,9 +2,9 @@
  * @share new
  */
 import React from 'react';
-import {Page, PageActions} from "@mxjs/a-page";
-import {Form, FormItem, FormAction, Select} from "@mxjs/a-form";
-import {CListBtn} from "@mxjs/a-clink";
+import {Page, PageActions} from '@mxjs/a-page';
+import {Form, FormItem, FormAction, Select} from '@mxjs/a-form';
+import {CListBtn} from '@mxjs/a-clink';
 import http from '@mxjs/http';
 import Upload, {convertToFirstFile} from '@mxjs/upload';
 import curUrl from '@mxjs/cur-url';
@@ -61,7 +61,7 @@ class AdminForm extends React.Component {
           }}
         </Form>
       </Page>
-    )
+    );
   }
 }
 

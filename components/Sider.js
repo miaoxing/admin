@@ -1,8 +1,8 @@
-import React from "react";
-import {Menu, Layout} from "antd";
-import {Link} from "@mxjs/router";
+import React from 'react';
+import {Menu, Layout} from 'antd';
+import {Link} from '@mxjs/router';
 import logo from '../images/logo.png';
-import {Flex, Image} from "rebass";
+import {Flex, Image} from 'rebass';
 import propTypes from 'prop-types';
 
 const {Sider} = Layout;
@@ -14,7 +14,7 @@ export default class extends React.Component {
   }
 
   static propTypes = {
-    menus: propTypes.array
+    menus: propTypes.array,
   }
 
   getMenuProps() {
@@ -31,7 +31,7 @@ export default class extends React.Component {
     return {
       defaultOpenKeys: defaultOpenKeys,
       defaultSelectedKeys: [pathname],
-    }
+    };
   }
 
   render() {

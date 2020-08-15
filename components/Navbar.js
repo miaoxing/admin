@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 import app, {history} from '@mxjs/app';
 import http from '@mxjs/http';
 import $ from 'miaoxing';
@@ -17,7 +17,7 @@ export default class extends React.Component {
   };
 
   static propTypes = {
-    user: propTypes.object
+    user: propTypes.object,
   }
 
   handleLogout = async () => {

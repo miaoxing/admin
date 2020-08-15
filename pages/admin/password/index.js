@@ -1,8 +1,8 @@
-import React from "react";
+import React from 'react';
 import {Page} from '@mxjs/a-page';
 import {Form, FormAction, FormItem} from '@mxjs/a-form';
 import {Alert} from 'antd';
-import {Box} from "rebass";
+import {Box} from 'rebass';
 import curUrl from '@mxjs/cur-url';
 import app from '@mxjs/app';
 
@@ -25,6 +25,6 @@ export default class extends React.Component {
 
         <FormAction/>
       </Form>
-    </Page>
+    </Page>;
   }
 }

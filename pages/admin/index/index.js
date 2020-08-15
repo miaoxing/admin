@@ -1,14 +1,14 @@
-import React from "react";
+import React from 'react';
 import {Col, Row, Card, ListGroup} from '@mxjs/bootstrap';
 import color from 'color';
-import {Page} from "@mxjs/a-page";
+import {Page} from '@mxjs/a-page';
 import {
   Chart,
   Geom,
   Axis,
   Tooltip,
   Legend,
-} from "bizcharts";
+} from 'bizcharts';
 import http from '@mxjs/http';
 import {Box, Flex, Link} from 'rebass';
 import {sx} from '@mxjs/css';
@@ -19,7 +19,7 @@ import Icon from '@mxjs/icons';
 export default class extends React.Component {
   state = {
     charts: [],
-    stats: []
+    stats: [],
   }
 
   componentDidMount() {
@@ -77,8 +77,8 @@ export default class extends React.Component {
             scale={{
               date: {
                 type: 'time',
-                mask: 'MM-DD'
-              }
+                mask: 'MM-DD',
+              },
             }}
             forceFit
           >
@@ -87,25 +87,25 @@ export default class extends React.Component {
             <Axis name="value"/>
             <Tooltip
               crosshairs={{
-                type: "y"
+                type: 'y',
               }}
             />
             <Geom
               type="line"
               position="date*value"
               size={2}
-              color={"name"}
-              shape={"smooth"}
+              color={'name'}
+              shape={'smooth'}
             />
             <Geom
               type="point"
               position="date*value"
               size={4}
-              shape={"circle"}
-              color={"name"}
+              shape={'circle'}
+              color={'name'}
               style={{
-                stroke: "#fff",
-                lineWidth: 1
+                stroke: '#fff',
+                lineWidth: 1,
               }}
             />
           </Chart>

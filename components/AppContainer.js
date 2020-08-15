@@ -1,8 +1,8 @@
 import {hot} from 'react-hot-loader/root';
-import React from 'react'
+import React from 'react';
 import {ConfigProvider, Spin} from 'antd';
 import {Loading} from '@mxjs/loading';
-import App from "plugins/app/components/App";
+import App from 'plugins/app/components/App';
 import zhCN from 'antd/es/locale/zh_CN';
 import Layout from './Layout';
 import configs from 'storage/configs/admin';

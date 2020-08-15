@@ -1,9 +1,9 @@
-import React, {useCallback, useEffect, useState} from "react";
-import {Table, TableProvider, CTableDeleteLink, useTable} from "@mxjs/a-table";
-import {CEditLink, CNewBtn} from "@mxjs/a-clink";
-import {Button} from "react-bootstrap";
-import {Page, PageActions} from "@mxjs/a-page";
-import {LinkActions} from "@mxjs/actions";
+import React, {useCallback, useEffect, useState} from 'react';
+import {Table, TableProvider, CTableDeleteLink, useTable} from '@mxjs/a-table';
+import {CEditLink, CNewBtn} from '@mxjs/a-clink';
+import {Button} from 'react-bootstrap';
+import {Page, PageActions} from '@mxjs/a-page';
+import {LinkActions} from '@mxjs/actions';
 import $ from 'miaoxing';
 import http from '@mxjs/http';
 
@@ -36,7 +36,7 @@ export default () => {
           columns={[
             {
               title: '名称',
-              dataIndex: 'name'
+              dataIndex: 'name',
             },
             {
               title: '顺序',
@@ -57,11 +57,11 @@ export default () => {
                   <CEditLink id={id}/>
                   <CTableDeleteLink id={id}/>
                 </LinkActions>
-              )
+              ),
             },
           ]}
         />
       </TableProvider>
     </Page>
   );
-}
+};

@@ -8,13 +8,25 @@
     "test": "jest"
   },
   "devDependencies": {
+    "@miaoxing/dev": "^6.1.0",
+    "@testing-library/react": "^10.4.8",
     "core-js": "^3.6.5",
     "enzyme": "^3.11.0",
     "enzyme-to-json": "^3.5.0",
-    "@miaoxing/dev": "^6.1.0",
+    "history": "^5.0.0",
     "next-url": "^1.0.0",
     "prop-types": "^15.7.2",
     "react": "^16.13.1",
+    "react-router": "^5.2.0",
     "regenerator-runtime": "^0.13.5"
+  },
+  "dependencies": {
+    "miaoxing": "^0.1.2"
+  },
+  "jest": {
+    "preset": "jest-preset-miaoxing",
+    "snapshotSerializers": [
+      "enzyme-to-json/serializer"
+    ]
   }
 }

@@ -15,6 +15,8 @@ class AdminPlugin extends \Miaoxing\Plugin\BasePlugin
 
     protected $description = '提供后台布局,头部菜单,侧边栏菜单等功能';
 
+    protected $code = 203;
+
     public function onAdminNavGetNavs(&$navs, &$categories, &$subCategories)
     {
         $categories['user'] = [

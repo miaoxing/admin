@@ -21,18 +21,11 @@ class GroupsController extends BaseController
     protected $controllerPermissionName = '用户分组管理';
 
     protected $actionPermissions = [
-        'index,indexConfig' => '列表',
+        'index' => '列表',
         'new,create' => '添加',
         'edit,update' => '编辑',
         'destroy' => '删除',
     ];
-
-    public function indexConfigAction()
-    {
-        return suc([
-            'hasWechatGroup' => Plugin::isInstalled('wechat-group'),
-        ]);
-    }
 
     public function updateAction()
     {

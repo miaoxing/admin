@@ -1,34 +1,17 @@
-import React, {useCallback, useEffect, useState} from 'react';
+import React from 'react';
 import {Table, TableProvider, CTableDeleteLink, useTable} from '@mxjs/a-table';
 import {CEditLink, CNewBtn} from '@mxjs/a-clink';
-import {Button} from 'react-bootstrap';
 import {Page, PageActions} from '@mxjs/a-page';
 import {LinkActions} from '@mxjs/actions';
-import $ from 'miaoxing';
-import http from '@mxjs/http';
 
 export default () => {
-  const [data, setData] = useState({
-    hasWechatGroup: false,
-  });
-
-  useEffect(() => {
-    http.curPath('index-config', {loading: true}).then(ret => setData(ret));
-  }, []);
-
   const [table] = useTable();
-  const handleClick = useCallback(() => {
-    http.post('wechat-groups/sync-form-wechat', {loading: true}).then(ret => $.ret(ret, table.reload));
-  }, []);
 
   return (
     <Page>
       <TableProvider>
         <PageActions>
           <CNewBtn/>
-          {data.hasWechatGroup && <Button variant="secondary" onClick={handleClick}>
-            从微信同步分组
-          </Button>}
         </PageActions>
 
         <Table
@@ -42,12 +25,6 @@ export default () => {
               title: '顺序',
               dataIndex: 'sort',
               sorter: true,
-            },
-            {
-              title: '状态',
-              dataIndex: 'wechatId',
-              hideInTable: data.hasWechatGroup,
-              render: text => text > 0 ? '已同步' : '未同步',
             },
             {
               title: '操作',

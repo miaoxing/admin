@@ -5,7 +5,6 @@ import {SearchForm, SearchItem, Select} from '@mxjs/a-form';
 import {CNewBtn, CEditLink} from '@mxjs/a-clink';
 import {Tooltip} from 'antd';
 import {QuestionCircleOutlined} from '@ant-design/icons';
-import curUrl from '@mxjs/cur-url';
 import http from '@mxjs/http';
 
 export default class extends React.Component {
@@ -14,10 +13,7 @@ export default class extends React.Component {
   };
 
   componentDidMount() {
-    http.curPath('index-config', {loading: true})
-      .then(ret => {
-        this.setState(ret);
-      });
+    http.get('groups?withUngroup=1').then(ret => this.setState(ret));
   }
 
   render() {
@@ -68,7 +64,8 @@ export default class extends React.Component {
                 </Tooltip>,
                 dataIndex: 'isEnabled',
                 render: (cell, row) => {
-                  return <TableStatusCheckbox url={curUrl.toApi('enable')} row={row} name="isEnabled"/>;
+                  return row.id === 1 ? <Tooltip title="不能禁用超级管理员">-</Tooltip> :
+                    <TableStatusCheckbox row={row} name="isEnabled"/>;
                 },
               },
               {

@@ -48,7 +48,7 @@ export default class extends React.Component {
         <Form
           size="large"
           onFinish={async values => {
-            const ret = await http.post('user/login', {data: values});
+            const ret = await http.postCur({data: values});
             await $.ret(ret);
             if (ret.code === 1) {
               window.location = nextUrl(app.url('admin'));

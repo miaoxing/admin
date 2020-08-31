@@ -23,7 +23,7 @@ export default class extends React.Component {
   }
 
   componentDidMount() {
-    http.cur({loading: true}).then(ret => this.setState(ret));
+    http.getCur({loading: true}).then(ret => this.setState(ret));
   }
 
   render() {

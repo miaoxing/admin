@@ -1,5 +1,5 @@
 /**
- * @share new
+ * @share [id]/edit
  */
 import React from 'react';
 import {Page, PageActions} from '@mxjs/a-page';
@@ -7,7 +7,7 @@ import {Form, FormItem, FormAction, Select} from '@mxjs/a-form';
 import {CListBtn} from '@mxjs/a-clink';
 import http from '@mxjs/http';
 import Upload, {convertToFirstFile} from '@mxjs/upload';
-import curUrl from '@mxjs/cur-url';
+import app from '@mxjs/app';
 
 class AdminForm extends React.Component {
   state = {
@@ -15,7 +15,7 @@ class AdminForm extends React.Component {
   };
 
   componentDidMount() {
-    http.curPath('form-config').then(ret => this.setState(ret));
+    http.get('groups?withUngroup=1').then(ret => this.setState(ret));
   }
 
   render() {
@@ -51,7 +51,7 @@ class AdminForm extends React.Component {
                 extra="支持.jpg .jpeg .bmp .gif .png格式照片"
                 valuePropName="fileList"
               >
-                <Upload url={curUrl.toApi('upload')} max={1}/>
+                <Upload url={app.apiUrl('admins/avatar')} max={1}/>
               </FormItem>
 
               <FormItem name="id" type="hidden"/>

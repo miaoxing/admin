@@ -14,7 +14,8 @@ export default class extends React.Component {
       </Box>
       <Form
         valuesUrl={false}
-        url={curUrl.apiUpdate()}
+        url={curUrl.api()}
+        method="put"
         redirectUrl={app.url('admin/login', {next: window.location.pathname})}
       >
         <FormItem label="旧密码" name="oldPassword" type="password" required/>

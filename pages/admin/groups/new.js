@@ -1,5 +1,5 @@
 /**
- * @share new
+ * @share [id]/edit
  */
 import React from 'react';
 import {CListBtn} from '@mxjs/a-clink';

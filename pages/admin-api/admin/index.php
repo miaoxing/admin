@@ -1,18 +1,7 @@
 <?php
 
-namespace Miaoxing\Admin\Controller\AdminApi;
-
-use Miaoxing\Plugin\BaseController;
-
-class IndexController extends BaseController
-{
-    protected $controllerName = '首页';
-
-    protected $actionPermissions = [
-        'index' => '首页',
-    ];
-
-    public function indexAction()
+return new class extends \Miaoxing\Plugin\BaseController {
+    public function get()
     {
         return suc([
             'charts' => [
@@ -115,4 +104,4 @@ class IndexController extends BaseController
             ],
         ]);
     }
-}
+};

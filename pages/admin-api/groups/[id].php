@@ -1,33 +1,27 @@
 <?php
 
-namespace Miaoxing\Admin\Controller\AdminApi;
-
+use Miaoxing\Admin\Service\GroupModel;
 use Miaoxing\Plugin\BaseController;
 use Miaoxing\Plugin\Service\Model;
-use Miaoxing\Plugin\Service\Plugin;
 use Miaoxing\Plugin\Service\UserModel;
 use Miaoxing\Services\Service\DestroyAction;
-use Miaoxing\Services\Action\CrudTrait;
+use Miaoxing\Services\Service\ShowAction;
 use Miaoxing\Services\Service\UpdateAction;
 use Wei\Event;
 use Wei\V;
 
-class GroupsController extends BaseController
-{
-    use CrudTrait;
+return new class extends BaseController {
+    public function createModel()
+    {
+        return GroupModel::new();
+    }
 
-    protected $controllerName = '分组管理';
+    public function get()
+    {
+        return ShowAction::exec($this);
+    }
 
-    protected $controllerPermissionName = '用户分组管理';
-
-    protected $actionPermissions = [
-        'index' => '列表',
-        'new,create' => '添加',
-        'edit,update' => '编辑',
-        'destroy' => '删除',
-    ];
-
-    public function updateAction()
+    public function patch()
     {
         return UpdateAction
             ::beforeFind(function () {
@@ -39,7 +33,7 @@ class GroupsController extends BaseController
             ->exec($this);
     }
 
-    public function destroyAction()
+    public function delete()
     {
         return DestroyAction
             ::beforeDestroy(function (Model $model) {
@@ -50,4 +44,4 @@ class GroupsController extends BaseController
             })
             ->exec($this);
     }
-}
+};

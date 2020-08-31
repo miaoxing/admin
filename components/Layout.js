@@ -10,17 +10,29 @@ import propTypes from 'prop-types';
 export default class extends React.Component {
   state = {
     menus: [],
+    pages: {},
     user: {},
   };
 
   static propTypes = {
     children: propTypes.node,
-  }
+  };
 
   componentDidMount() {
     http.get('admin-page', {loading: true}).then(ret => {
-      this.setState(ret);
-      if (ret.code !== 1) {
+      if (ret.code === 1) {
+        // @internal TODO Provider
+        miaoxing.pages = ret.data.pages;
+        this.setState(ret.data);
+      } else {
+        $.ret(ret);
+      }
+    });
+
+    http.get('user').then(ret => {
+      if (ret.code === 1) {
+        this.setState({user: ret.data});
+      } else {
         $.ret(ret);
       }
     });

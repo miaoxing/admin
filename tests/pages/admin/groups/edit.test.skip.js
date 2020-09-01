@@ -3,8 +3,8 @@ import 'regenerator-runtime/runtime';
 
 import React from 'react';
 import $ from 'miaoxing';
-import Form from '../../../../pages/admin/groups/edit';
-import app from '@mxjs/app';
+import Form from '../../../../pages/admin/groups/new';
+import {app} from '@mxjs/app';
 import {render, screen, fireEvent} from '@testing-library/react';
 import '@testing-library/jest-dom/extend-expect';
 import {createMemoryHistory} from 'history';

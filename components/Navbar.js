@@ -1,5 +1,5 @@
 import React from 'react';
-import app, {history} from '@mxjs/app';
+import {history} from '@mxjs/app';
 import http from '@mxjs/http';
 import $ from 'miaoxing';
 import {Layout, Avatar, Menu, Dropdown} from 'antd';
@@ -24,7 +24,7 @@ export default class extends React.Component {
     const ret = await http.post('user/logout');
     await $.ret(ret);
     if (ret.code === 1) {
-      history.push(app.url('admin/login', {next: window.location.pathname}));
+      history.push($.url('admin/login', {next: window.location.pathname}));
     }
   }
 
@@ -45,7 +45,7 @@ export default class extends React.Component {
           overlay={
             <Menu>
               <Menu.Item>
-                <Link to={app.url('admin/password')}>
+                <Link to={$.url('admin/password')}>
                   <LockOutlined/>{' '}修改密码
                 </Link>
               </Menu.Item>

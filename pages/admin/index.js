@@ -23,7 +23,7 @@ export default class extends React.Component {
   }
 
   componentDidMount() {
-    http.getCur({loading: true}).then(ret => this.setState(ret));
+    http.get('admin', {loading: true}).then(ret => this.setState(ret));
   }
 
   render() {

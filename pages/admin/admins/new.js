@@ -1,13 +1,13 @@
 /**
  * @share [id]/edit
  */
+import $ from 'miaoxing';
 import React from 'react';
 import {Page, PageActions} from '@mxjs/a-page';
 import {Form, FormItem, FormAction, Select} from '@mxjs/a-form';
 import {CListBtn} from '@mxjs/a-clink';
 import http from '@mxjs/http';
 import Upload, {convertToFirstFile} from '@mxjs/upload';
-import app from '@mxjs/app';
 
 class AdminForm extends React.Component {
   state = {
@@ -51,7 +51,7 @@ class AdminForm extends React.Component {
                 extra="支持.jpg .jpeg .bmp .gif .png格式照片"
                 valuePropName="fileList"
               >
-                <Upload url={app.apiUrl('admins/avatar')} max={1}/>
+                <Upload url={$.apiUrl('admins/avatar')} max={1}/>
               </FormItem>
 
               <FormItem name="id" type="hidden"/>

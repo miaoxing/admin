@@ -16,7 +16,7 @@ const AppContainer = () => {
     <ConfigProvider
       locale={zhCN}
     >
-      <App theme={theme} defaultLayout={Layout} {...configs}/>
+      <App defaultLayout={Layout} configs={{theme, ...configs}}/>
     </ConfigProvider>
   );
 };

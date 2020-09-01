@@ -1,10 +1,10 @@
+import $ from 'miaoxing';
 import React from 'react';
 import {Page} from '@mxjs/a-page';
 import {Form, FormAction, FormItem} from '@mxjs/a-form';
 import {Alert} from 'antd';
 import {Box} from 'rebass';
 import curUrl from '@mxjs/cur-url';
-import app from '@mxjs/app';
 
 export default class extends React.Component {
   render() {
@@ -16,7 +16,7 @@ export default class extends React.Component {
         valuesUrl={false}
         url={curUrl.api()}
         method="put"
-        redirectUrl={app.url('admin/login', {next: window.location.pathname})}
+        redirectUrl={$.url('admin/login', {next: window.location.pathname})}
       >
         <FormItem label="旧密码" name="oldPassword" type="password" required/>
 

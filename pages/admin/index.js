@@ -9,7 +9,7 @@ import {
   Tooltip,
   Legend,
 } from 'bizcharts';
-import http from '@mxjs/http';
+import api from '@mxjs/api';
 import {Box, Flex, Link} from 'rebass';
 import {sx} from '@mxjs/css';
 import '@mxjs/bootstrap-antd/Card/style';
@@ -23,7 +23,7 @@ export default class extends React.Component {
   }
 
   componentDidMount() {
-    http.get('admin', {loading: true}).then(ret => this.setState(ret));
+    api.get('admin', {loading: true}).then(ret => this.setState(ret));
   }
 
   render() {

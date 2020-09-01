@@ -6,7 +6,7 @@ import {Form, Button, Input} from 'antd';
 import {Box, Heading, Image} from 'rebass';
 import $ from 'miaoxing';
 import logo from '../../../images/logo.png';
-import http from '@mxjs/http';
+import api from '@mxjs/api';
 import {Global, css} from '@emotion/core';
 import {FormItem} from '@mxjs/a-form';
 import nextUrl from 'next-url';
@@ -47,7 +47,7 @@ export default class extends React.Component {
         <Form
           size="large"
           onFinish={async values => {
-            const ret = await http.postCur({data: values});
+            const ret = await api.postCur({data: values});
             await $.ret(ret);
             if (ret.code === 1) {
               window.location = nextUrl($.url('admin'));

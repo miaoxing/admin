@@ -5,7 +5,7 @@ import {SearchForm, SearchItem, Select} from '@mxjs/a-form';
 import {CNewBtn, CEditLink} from '@mxjs/a-clink';
 import {Tooltip} from 'antd';
 import {QuestionCircleOutlined} from '@ant-design/icons';
-import http from '@mxjs/http';
+import api from '@mxjs/api';
 
 export default class extends React.Component {
   state = {
@@ -13,7 +13,7 @@ export default class extends React.Component {
   };
 
   componentDidMount() {
-    http.get('groups?withUngroup=1').then(ret => this.setState(ret));
+    api.get('groups?withUngroup=1').then(ret => this.setState(ret));
   }
 
   render() {

@@ -6,7 +6,7 @@ import React from 'react';
 import {Page, PageActions} from '@mxjs/a-page';
 import {Form, FormItem, FormAction, Select} from '@mxjs/a-form';
 import {CListBtn} from '@mxjs/a-clink';
-import http from '@mxjs/http';
+import api from '@mxjs/api';
 import Upload, {convertToFirstFile} from '@mxjs/upload';
 
 class AdminForm extends React.Component {
@@ -15,7 +15,7 @@ class AdminForm extends React.Component {
   };
 
   componentDidMount() {
-    http.get('groups?withUngroup=1').then(ret => this.setState(ret));
+    api.get('groups?withUngroup=1').then(ret => this.setState(ret));
   }
 
   render() {

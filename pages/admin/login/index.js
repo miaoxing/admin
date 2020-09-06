@@ -50,6 +50,7 @@ export default class extends React.Component {
             const ret = await api.postCur({data: values});
             await $.ret(ret);
             if (ret.code === 1) {
+              window.localStorage.setItem('token', ret.token);
               window.location = nextUrl($.url('admin'));
             }
           }}

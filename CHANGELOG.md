@@ -1,3 +1,18 @@
+## [0.2.2](https://github.com/miaoxing/admin/compare/v0.2.1...v0.2.2) (2020-09-06)
+
+
+### Features
+
+* 增加 jwt 登录 ([0eee357](https://github.com/miaoxing/admin/commit/0eee357ec854d4665a25e27b0d1b81b71a2f99a1))
+
+
+
+
+
+### Dependencies
+
+* **@miaoxing/app:** upgrade from 0.2.1 to 0.2.2
+
 ## [0.2.1](https://github.com/miaoxing/admin/compare/v0.2.0...v0.2.1) (2020-09-01)
 
 

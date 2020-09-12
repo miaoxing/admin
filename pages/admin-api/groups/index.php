@@ -9,11 +9,6 @@ use Wei\Req;
 return new class extends BaseController {
     use PostToPatchTrait;
 
-    public function createModel()
-    {
-        return GroupModel::new();
-    }
-
     public function get()
     {
         return IndexAction

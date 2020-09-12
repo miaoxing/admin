@@ -1,6 +1,5 @@
 <?php
 
-use Miaoxing\Admin\Service\GroupModel;
 use Miaoxing\Plugin\BaseController;
 use Miaoxing\Plugin\Service\Model;
 use Miaoxing\Plugin\Service\UserModel;
@@ -11,11 +10,6 @@ use Wei\Event;
 use Wei\V;
 
 return new class extends BaseController {
-    public function createModel()
-    {
-        return GroupModel::new();
-    }
-
     public function get()
     {
         return ShowAction::exec($this);

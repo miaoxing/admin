@@ -6,6 +6,7 @@ import {Box} from 'rebass';
 import api from '@mxjs/api';
 import $ from 'miaoxing';
 import propTypes from 'prop-types';
+import {PageContext} from '@mxjs/a-page';
 
 export default class extends React.Component {
   state = {
@@ -21,8 +22,6 @@ export default class extends React.Component {
   componentDidMount() {
     api.get('admin-page', {loading: true}).then(ret => {
       if (ret.code === 1) {
-        // @internal TODO Provider
-        miaoxing.pages = ret.data.pages;
         this.setState(ret.data);
       } else {
         $.ret(ret);
@@ -39,17 +38,21 @@ export default class extends React.Component {
   }
 
   render() {
-    return <Box as={Layout} minHeight="100vh">
-      <Sider menus={this.state.menus}/>
-      <Layout>
-        <Navbar user={this.state.user}/>
-        <Box as={Layout.Content} px={4} pt={4}>
-          {this.props.children}
+    return (
+      <PageContext.Provider value={{pages: this.state.pages}}>
+        <Box as={Layout} minHeight="100vh">
+          <Sider menus={this.state.menus}/>
+          <Layout>
+            <Navbar user={this.state.user}/>
+            <Box as={Layout.Content} px={4} pt={4}>
+              {this.props.children}
+            </Box>
+            <Box as={Layout.Footer} textAlign="center">
+              Miaoxing ©2020
+            </Box>
+          </Layout>
         </Box>
-        <Box as={Layout.Footer} textAlign="center">
-          Miaoxing ©2020
-        </Box>
-      </Layout>
-    </Box>;
+      </PageContext.Provider>
+    );
   }
 }

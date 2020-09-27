@@ -24,7 +24,7 @@ export default class extends React.Component {
 
         <FormItem label="重复新密码" name="passwordConfirm" type="password" required/>
 
-        <FormAction/>
+        <FormAction list={false}/>
       </Form>
     </Page>;
   }

@@ -7,7 +7,7 @@ import {Page, PageActions} from '@mxjs/a-page';
 import {Form, FormItem, FormAction, Select} from '@mxjs/a-form';
 import {CListBtn} from '@mxjs/a-clink';
 import api from '@mxjs/api';
-import Upload, {convertToFirstFile} from '@mxjs/upload';
+import Upload from '@mxjs/upload';
 
 class AdminForm extends React.Component {
   state = {
@@ -25,12 +25,7 @@ class AdminForm extends React.Component {
           <CListBtn/>
         </PageActions>
 
-        <Form
-          beforeSubmit={values => {
-            values = convertToFirstFile(values, 'avatar');
-            return values;
-          }}
-        >
+        <Form>
           {({id}) => {
             return <>
               <FormItem label="用户名" name="username" type={id ? 'plain' : 'text'} required/>

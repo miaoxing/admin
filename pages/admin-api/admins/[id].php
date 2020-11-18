@@ -28,9 +28,8 @@ return new class extends BaseController {
         // 添加用户,编辑用户时,提交了密码,才检验密码是否合法
         $validatePassword = $user->isNew() || $req['password'];
 
-        $ret = V::key('username', '用户名')
-            ->required($validateUsername)
-            ->when($validateUsername, function (V $v) {
+        $ret = V
+            ::key('username', '用户名')->required($validateUsername)->when($validateUsername, function (V $v) {
                 $v->length(1, 32)
                     ->alnum()
                     ->notRecordExists('users', 'username');
@@ -40,7 +39,7 @@ return new class extends BaseController {
                 'equalTo',
                 '两次输入的密码不相等'
             )
-            ->key('nickName', ' 昵称')->required(false)->length(1, 32)
+            ->char('nickName', ' 昵称')->maxCharLength(32)
             ->check($req);
         $this->tie($ret);
 

@@ -46,7 +46,7 @@ class AdminForm extends React.Component {
                 extra="支持.jpg .jpeg .bmp .gif .png格式照片"
                 valuePropName="fileList"
               >
-                <Upload url={$.apiUrl('admins/avatar')} max={1}/>
+                <Upload url={$.apiUrl('files', {type: 'image'})} max={1}/>
               </FormItem>
 
               <FormItem name="id" type="hidden"/>

@@ -21,7 +21,7 @@ export default class extends React.Component {
 
   componentDidMount() {
     api.get('admin-page', {loading: true}).then(ret => {
-      if (ret.code === 1) {
+      if (ret.isSuc()) {
         this.setState(ret.data);
       } else {
         $.ret(ret);
@@ -29,7 +29,7 @@ export default class extends React.Component {
     });
 
     api.get('user').then(ret => {
-      if (ret.code === 1) {
+      if (ret.isSuc()) {
         this.setState({user: ret.data});
       } else {
         $.ret(ret);

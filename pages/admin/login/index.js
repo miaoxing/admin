@@ -49,7 +49,7 @@ export default class extends React.Component {
           onFinish={async values => {
             const ret = await api.postCur({data: values});
             await $.ret(ret);
-            if (ret.code === 1) {
+            if (ret.isSuc()) {
               window.localStorage.setItem('token', ret.token);
               window.location = nextUrl($.url('admin'));
             }

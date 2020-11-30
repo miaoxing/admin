@@ -12,7 +12,7 @@ class V20161030010000AddGroupIdToUsersTable extends BaseMigration
     public function up()
     {
         $this->schema->table('users')
-            ->int('group_id')->comment('用户组')->after('out_id')
+            ->uInt('group_id')->comment('用户组')->after('out_id')
             ->exec();
     }
 

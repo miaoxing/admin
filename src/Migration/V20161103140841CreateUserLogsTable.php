@@ -24,7 +24,7 @@ class V20161103140841CreateUserLogsTable extends BaseMigration
             ->string('newValue', 64)
             ->timestamp('confirmTime')
             ->int('confirmUser')
-            ->timestampsV1()
+            ->timestamps()
             ->int('updateUser')
             ->exec();
     }

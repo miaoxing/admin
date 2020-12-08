@@ -3,6 +3,7 @@
 namespace Miaoxing\Admin\Service;
 
 use Miaoxing\Plugin\ConfigTrait;
+use Miaoxing\Plugin\Model\ModelTrait;
 use Miaoxing\Plugin\Model\ReqQueryTrait;
 
 /**
@@ -10,7 +11,7 @@ use Miaoxing\Plugin\Model\ReqQueryTrait;
  *
  * @property string defaultName
  */
-class Group extends \Miaoxing\Plugin\BaseModel
+class Group extends \Miaoxing\Plugin\BaseService
 {
     use ReqQueryTrait;
     use ConfigTrait;

@@ -2,6 +2,7 @@
 
 namespace Miaoxing\Admin\Service;
 
+use Miaoxing\Plugin\Model\ModelTrait;
 use Miaoxing\Plugin\Service\User;
 use Miaoxing\Plugin\Service\UserModel;
 
@@ -10,6 +11,8 @@ use Miaoxing\Plugin\Service\UserModel;
  */
 class AdminLog extends \Miaoxing\Plugin\BaseModel
 {
+    use ModelTrait;
+
     /**
      * {@inheritdoc}
      */

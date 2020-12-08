@@ -3,16 +3,16 @@
 namespace Miaoxing\Admin\Service;
 
 use Miaoxing\Admin\Metadata\GroupTrait;
+use Miaoxing\Plugin\BaseModel;
 use Miaoxing\Plugin\Model\ReqQueryTrait;
 use Miaoxing\Plugin\Model\SoftDeleteTrait;
-use Miaoxing\Plugin\Service\Model;
 
 /**
  * GroupModel
  *
  * @property GroupModel $parent
  */
-class GroupModel extends Model
+class GroupModel extends BaseModel
 {
     use GroupTrait;
     use SoftDeleteTrait;

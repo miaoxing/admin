@@ -2,6 +2,8 @@
 
 namespace Miaoxing\Admin\Metadata;
 
+use Miaoxing\Plugin\Model\ModelTrait;
+
 /**
  * GroupTrait
  *
@@ -18,6 +20,8 @@ namespace Miaoxing\Admin\Metadata;
  */
 trait GroupTrait
 {
+    use ModelTrait;
+
     /**
      * @var array
      * @see CastTrait::$casts

@@ -2,7 +2,7 @@
 
 /**
  * @property    Miaoxing\Admin\Service\AdminLog $adminLog 后台管理日志
- * @method      Miaoxing\Admin\Service\AdminLog|Miaoxing\Admin\Service\AdminLog[] adminLog()
+ * @method      Miaoxing\Admin\Service\AdminLog|Miaoxing\Admin\Service\AdminLog[] adminLog($table = null)
  */
 class AdminLogMixin {
 }
@@ -15,7 +15,6 @@ class AdminNavMixin {
 
 /**
  * @property    Miaoxing\Admin\Service\Group $group 用户分组
- * @method      Miaoxing\Admin\Service\Group|Miaoxing\Admin\Service\Group[] group()
  */
 class GroupMixin {
 }

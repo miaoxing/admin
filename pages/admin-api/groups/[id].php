@@ -1,7 +1,7 @@
 <?php
 
 use Miaoxing\Plugin\BaseController;
-use Miaoxing\Plugin\Service\Model;
+use Miaoxing\Plugin\BaseModel;
 use Miaoxing\Plugin\Service\UserModel;
 use Miaoxing\Services\Service\DestroyAction;
 use Miaoxing\Services\Service\ShowAction;
@@ -21,7 +21,7 @@ return new class extends BaseController {
             ::beforeFind(function () {
                 return V::key('name', '名称')->check($this->req);
             })
-            ->beforeSave(function (Model $model) {
+            ->beforeSave(function (BaseModel $model) {
                 return Event::until('groupUpdate', [$model]);
             })
             ->exec($this);
@@ -30,7 +30,7 @@ return new class extends BaseController {
     public function delete()
     {
         return DestroyAction
-            ::beforeDestroy(function (Model $model) {
+            ::beforeDestroy(function (BaseModel $model) {
                 return Event::until('groupDestroy', [$model]);
             })
             ->afterDestroy(function () {

@@ -15,7 +15,7 @@ class AdminForm extends React.Component {
   };
 
   componentDidMount() {
-    api.get('groups?withUngroup=1').then(ret => this.setState(ret));
+    api.getMax('groups?withUngroup=1').then(ret => this.setState(ret));
   }
 
   render() {

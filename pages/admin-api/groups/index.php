@@ -12,11 +12,7 @@ return new class extends BaseController {
     public function get()
     {
         return IndexAction
-            ::beforeFind(function (GroupModel $models, Req $req) {
-                if ($req['withUngroup']) {
-                    $models->resetSqlPart('limit')->resetSqlPart('offset');
-                }
-            })->afterFind(function (GroupModel $models, Req $req) {
+            ::afterFind(function (GroupModel $models, Req $req) {
                 if ($req['withUngroup']) {
                     $models->withUngroup();
                 }

@@ -117,8 +117,7 @@ class Group extends \Miaoxing\Plugin\BaseService
         if (!$this->groupCaches) {
             $this->groupCaches = wei()->groupModel()
                 ->desc('sort')
-                ->cache(86400)
-                ->tags(false)
+                ->setCacheTime(86400)
                 ->setCacheKey('groups:' . wei()->app->getId())
                 ->indexBy('id')
                 ->findAll();

@@ -800,11 +800,11 @@ class AdminLog
     /**
      * Set or remove cache time for the query
      *
-     * @param false|int|null $seconds
+     * @param int|null $seconds
      * @return $this
-     * @see AdminLog::cache
+     * @see AdminLog::setCacheTime
      */
-    public static function cache($seconds = null)
+    public static function setCacheTime(?int $seconds): self
     {
     }
 
@@ -1632,11 +1632,11 @@ class GroupModel
     /**
      * Set or remove cache time for the query
      *
-     * @param false|int|null $seconds
+     * @param int|null $seconds
      * @return $this
-     * @see GroupModel::cache
+     * @see GroupModel::setCacheTime
      */
-    public static function cache($seconds = null)
+    public static function setCacheTime(?int $seconds): self
     {
     }
 
@@ -2501,11 +2501,11 @@ class AdminLog
     /**
      * Set or remove cache time for the query
      *
-     * @param false|int|null $seconds
+     * @param int|null $seconds
      * @return $this
-     * @see AdminLog::cache
+     * @see AdminLog::setCacheTime
      */
-    public function cache($seconds = null)
+    public function setCacheTime(?int $seconds): self
     {
     }
 
@@ -3333,11 +3333,11 @@ class GroupModel
     /**
      * Set or remove cache time for the query
      *
-     * @param false|int|null $seconds
+     * @param int|null $seconds
      * @return $this
-     * @see GroupModel::cache
+     * @see GroupModel::setCacheTime
      */
-    public function cache($seconds = null)
+    public function setCacheTime(?int $seconds): self
     {
     }
 

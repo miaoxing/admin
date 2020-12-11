@@ -18,7 +18,7 @@ class GroupModel extends BaseModel
     use SoftDeleteTrait;
     use ReqQueryTrait;
 
-    protected $data = [
+    protected $attributes = [
         'sort' => 50,
     ];
 
@@ -78,7 +78,7 @@ class GroupModel extends BaseModel
      */
     public function withUngroup()
     {
-        array_unshift($this->data, self::new([
+        array_unshift($this->attributes, self::new([
             'id' => 0,
             'name' => '未分组',
         ]));

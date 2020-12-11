@@ -19,11 +19,11 @@ class AdminLog
     /**
      * 不经过fillable检查,设置数据并保存
      *
-     * @param array $data
+     * @param array $attributes
      * @return $this
-     * @see AdminLog::saveData
+     * @see AdminLog::saveAttributes
      */
-    public static function saveData($data = [])
+    public static function saveAttributes($attributes = [])
     {
     }
 
@@ -51,22 +51,22 @@ class AdminLog
     /**
      * Import a PHP array in this record
      *
-     * @param array|\ArrayAccess $data
+     * @param array|\ArrayAccess $attributes
      * @return $this
      * @see AdminLog::fromArray
      */
-    public static function fromArray($data)
+    public static function fromArray($attributes)
     {
     }
 
     /**
      * Save the record or data to database
      *
-     * @param array $data
+     * @param array $attributes
      * @return $this
      * @see AdminLog::save
      */
-    public static function save($data = [])
+    public static function save($attributes = [])
     {
     }
 
@@ -121,11 +121,11 @@ class AdminLog
      * Find a record by primary key, or init with the specified data if record not found
      *
      * @param int|string $id
-     * @param array|object $data
+     * @param array|object $attributes
      * @return $this
      * @see AdminLog::findOrInit
      */
-    public static function findOrInit($id = null, $data = [])
+    public static function findOrInit($id = null, $attributes = [])
     {
     }
 
@@ -133,11 +133,11 @@ class AdminLog
      * Find a record by primary key, or save with the specified data if record not found
      *
      * @param int|string $id
-     * @param array $data
+     * @param array $attributes
      * @return $this
      * @see AdminLog::findOrCreate
      */
-    public static function findOrCreate($id, $data = [])
+    public static function findOrCreate($id, $attributes = [])
     {
     }
 
@@ -853,7 +853,7 @@ class GroupModel
      *
      * @param array $data
      * @return $this
-     * @see GroupModel::saveData
+     * @see GroupModel::saveAttributes
      */
     public static function saveData($data = [])
     {
@@ -1720,11 +1720,11 @@ class AdminLog
     /**
      * 不经过fillable检查,设置数据并保存
      *
-     * @param array $data
+     * @param array $attributes
      * @return $this
-     * @see AdminLog::saveData
+     * @see AdminLog::saveAttributes
      */
-    public function saveData($data = [])
+    public function saveAttributes($attributes = [])
     {
     }
 
@@ -1752,22 +1752,22 @@ class AdminLog
     /**
      * Import a PHP array in this record
      *
-     * @param array|\ArrayAccess $data
+     * @param array|\ArrayAccess $attributes
      * @return $this
      * @see AdminLog::fromArray
      */
-    public function fromArray($data)
+    public function fromArray($attributes)
     {
     }
 
     /**
      * Save the record or data to database
      *
-     * @param array $data
+     * @param array $attributes
      * @return $this
      * @see AdminLog::save
      */
-    public function save($data = [])
+    public function save($attributes = [])
     {
     }
 
@@ -1822,11 +1822,11 @@ class AdminLog
      * Find a record by primary key, or init with the specified data if record not found
      *
      * @param int|string $id
-     * @param array|object $data
+     * @param array|object $attributes
      * @return $this
      * @see AdminLog::findOrInit
      */
-    public function findOrInit($id = null, $data = [])
+    public function findOrInit($id = null, $attributes = [])
     {
     }
 
@@ -1834,11 +1834,11 @@ class AdminLog
      * Find a record by primary key, or save with the specified data if record not found
      *
      * @param int|string $id
-     * @param array $data
+     * @param array $attributes
      * @return $this
      * @see AdminLog::findOrCreate
      */
-    public function findOrCreate($id, $data = [])
+    public function findOrCreate($id, $attributes = [])
     {
     }
 
@@ -2554,7 +2554,7 @@ class GroupModel
      *
      * @param array $data
      * @return $this
-     * @see GroupModel::saveData
+     * @see GroupModel::saveAttributes
      */
     public function saveData($data = [])
     {

@@ -1,35 +1,37 @@
 <?php
 
+use Miaoxing\Admin\Service\AdminModel;
 use Miaoxing\Admin\Service\GroupModel;
 use Miaoxing\Plugin\BaseController;
 use Miaoxing\Services\Page\PostToPatchTrait;
 use Miaoxing\Services\Service\IndexAction;
-use Miaoxing\User\Service\UserModel;
 
 return new class extends BaseController {
     use PostToPatchTrait;
-
-    public function createModel()
-    {
-        return UserModel::new()->where('isAdmin', true);
-    }
 
     public function get()
     {
         $groups = [];
         return IndexAction
-            ::beforeFind(function (UserModel $models) {
-                $models->where('isAdmin', true)
-                    ->reqQuery();
+            ::beforeFind(function (AdminModel $admins) {
+                $admins->reqQuery();
             })
-            ->afterFind(function (UserModel $users) use (&$groups) {
+            ->afterFind(function (AdminModel $admins) use (&$groups) {
+                $admins->load('user');
+
                 // NOTE: UserModel 里还没有 group 关联，需手动读取
-                $groupIds = array_unique(array_filter($users->getAll('groupId')));
+                $groupIds = [];
+                /** @var AdminModel $admin */
+                foreach ($admins as $admin) {
+                    $groupIds[] = $admin->user->groupId;
+                }
+                $groupIds = array_unique(array_filter($groupIds));
+
                 $groups = $groupIds ? GroupModel::findAll($groupIds)->indexBy('id') : [];
             })
-            ->buildData(function (UserModel $user) use (&$groups) {
+            ->buildData(function (AdminModel $admin) use (&$groups) {
                 return [
-                    'group' => $groups[$user->groupId] ?? null,
+                    'group' => $groups[$admin->user->groupId] ?? null,
                 ];
             })
             ->exec($this);

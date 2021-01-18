@@ -2,6 +2,7 @@
 
 namespace Miaoxing\Admin\Service;
 
+use Miaoxing\Plugin\Model\HasAppIdTrait;
 use Miaoxing\Plugin\Model\ModelTrait;
 use Miaoxing\Plugin\Service\User;
 use Miaoxing\Plugin\Service\UserModel;
@@ -12,11 +13,7 @@ use Miaoxing\Plugin\Service\UserModel;
 class AdminLog extends \Miaoxing\Plugin\BaseModel
 {
     use ModelTrait;
-
-    /**
-     * {@inheritdoc}
-     */
-    protected $table = 'adminLogs';
+    use HasAppIdTrait;
 
     /**
      * 记录后台操作日志
@@ -26,7 +23,7 @@ class AdminLog extends \Miaoxing\Plugin\BaseModel
      */
     public function log(string $description, UserModel $user = null)
     {
-        wei()->adminLog()->setAppId()->save([
+        wei()->adminLog()->save([
             'userId' => $user ? $user->id : User::id(),
             'description' => $description,
         ]);

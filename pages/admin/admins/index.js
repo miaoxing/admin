@@ -25,13 +25,13 @@ export default class extends React.Component {
 
         <TableProvider>
           <SearchForm>
-            <SearchItem label="用户名" name="username$ct"/>
+            <SearchItem label="用户名" name={["user", "username$ct"]}/>
 
-            <SearchItem label="姓名" name="name$ct"/>
+            <SearchItem label="姓名" name={["user", "name$ct"]}/>
 
-            <SearchItem label="昵称" name="nickName$ct"/>
+            <SearchItem label="昵称" name={["user", "nickName$ct"]}/>
 
-            <SearchItem label="分组" name="groupId" initialValue="">
+            <SearchItem label="分组" name={["user", "groupId"]} initialValue="">
               <Select options={this.state.data} labelKey="name" valueKey="id" all/>
             </SearchItem>
           </SearchForm>
@@ -40,15 +40,15 @@ export default class extends React.Component {
             columns={[
               {
                 title: '用户名',
-                dataIndex: 'username',
+                dataIndex: ['user', 'username'],
               },
               {
                 title: '姓名',
-                dataIndex: 'name',
+                dataIndex: ['user', 'name'],
               },
               {
                 title: '昵称',
-                dataIndex: 'nickName',
+                dataIndex: ['user', 'nickName'],
               },
               {
                 title: '分组',
@@ -62,10 +62,10 @@ export default class extends React.Component {
                 title: <Tooltip title="禁用后，用户将无法登录">
                   启用 <QuestionCircleOutlined/>
                 </Tooltip>,
-                dataIndex: 'isEnabled',
+                dataIndex: ['user', 'isEnabled'],
                 render: (cell, row) => {
                   return row.id === 1 ? <Tooltip title="不能禁用超级管理员">-</Tooltip> :
-                    <TableStatusCheckbox row={row} name="isEnabled"/>;
+                    <TableStatusCheckbox row={row} name={["user", "isEnabled"]}/>;
                 },
               },
               {

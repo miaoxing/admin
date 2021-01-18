@@ -6,18 +6,14 @@ use Miaoxing\Plugin\Model\ModelTrait;
 
 /**
  * @property int $id
- * @property string $name
- * @property int $sort
- * @property int $status
+ * @property int $userId
  * @property string|null $createdAt
  * @property string|null $updatedAt
  * @property int $createdBy
  * @property int $updatedBy
- * @property string|null $deletedAt
- * @property int $deletedBy
  * @internal will change in the future
  */
-trait GroupTrait
+trait AdminTrait
 {
     use ModelTrait;
 }

@@ -8,13 +8,11 @@ use Miaoxing\Plugin\Model\ModelTrait;
  * @property int $id
  * @property int $appId
  * @property int $userId
+ * @property string $description
  * @property string|null $createdAt
- * @property string|null $updatedAt
- * @property int $createdBy
- * @property int $updatedBy
  * @internal will change in the future
  */
-trait AdminTrait
+trait AdminLogTrait
 {
     use ModelTrait;
 }

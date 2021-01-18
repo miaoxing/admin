@@ -1,15 +1,15 @@
 <?php
 
 /**
- * @property    Miaoxing\Admin\Service\AdminLog $adminLog 后台管理日志
- * @method      static adminLog($table = null)
+ * @property    Miaoxing\Admin\Service\AdminLogModel $adminLogModel 后台管理日志
+ * @method      Miaoxing\Admin\Service\AdminLogModel adminLogModel()
  */
-class AdminLogMixin {
+class AdminLogModelMixin {
 }
 
 /**
  * @property    Miaoxing\Admin\Service\AdminModel $adminModel
- * @method      static adminModel($table = null)
+ * @method      Miaoxing\Admin\Service\AdminModel adminModel()
  */
 class AdminModelMixin {
 }
@@ -28,13 +28,13 @@ class GroupMixin {
 
 /**
  * @property    Miaoxing\Admin\Service\GroupModel $groupModel GroupModel
- * @method      static groupModel($table = null)
+ * @method      Miaoxing\Admin\Service\GroupModel groupModel()
  */
 class GroupModelMixin {
 }
 
 /**
- * @mixin AdminLogMixin
+ * @mixin AdminLogModelMixin
  * @mixin AdminModelMixin
  * @mixin AdminNavMixin
  * @mixin GroupMixin
@@ -51,8 +51,11 @@ function wei()
     return new AutoCompletion;
 }
 
-/** @var Miaoxing\Admin\Service\AdminLog $adminLog */
-$adminLog = wei()->adminLog;
+/** @var Miaoxing\Admin\Service\AdminLogModel $adminLogModel */
+$adminLog = wei()->adminLogModel();
+
+/** @var Miaoxing\Admin\Service\AdminLogModel|Miaoxing\Admin\Service\AdminLogModel[] $adminLogModels */
+$adminLogs = wei()->adminLogModel();
 
 /** @var Miaoxing\Admin\Service\AdminModel $adminModel */
 $admin = wei()->adminModel();

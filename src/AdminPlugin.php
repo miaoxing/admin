@@ -2,12 +2,14 @@
 
 namespace Miaoxing\Admin;
 
+use Miaoxing\Admin\Service\AdminLogModel;
+use Miaoxing\Plugin\BasePlugin;
 use Miaoxing\Plugin\Service\User;
 use Miaoxing\Plugin\Service\UserModel;
 use Miaoxing\Services\Service\Url;
 use Wei\RetTrait;
 
-class AdminPlugin extends \Miaoxing\Plugin\BasePlugin
+class AdminPlugin extends BasePlugin
 {
     use RetTrait;
 
@@ -40,7 +42,7 @@ class AdminPlugin extends \Miaoxing\Plugin\BasePlugin
     public function onUserLogin(UserModel $user)
     {
         if ($user->isAdmin) {
-            wei()->adminLog->log('用户登陆', $user);
+            AdminLogModel::log('用户登陆', $user);
         }
     }
 

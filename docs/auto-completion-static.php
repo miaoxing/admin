@@ -2,14 +2,25 @@
 
 namespace Miaoxing\Admin\Service;
 
-class AdminLog
+class AdminLogModel
 {
+    /**
+     * 记录后台操作日志
+     *
+     * @param string $description
+     * @param UserModel|null $user
+     * @see AdminLogModel::log
+     */
+    public static function log(string $description, \Miaoxing\Plugin\Service\UserModel $user = null)
+    {
+    }
+
     /**
      * Set each attribute value, without checking whether the column is fillable, and save the model
      *
      * @param iterable $attributes
      * @return $this
-     * @see AdminLog::saveAttributes
+     * @see AdminLogModel::saveAttributes
      */
     public static function saveAttributes(iterable $attributes = []): self
     {
@@ -21,7 +32,7 @@ class AdminLog
      * @param array|callable $returnFields A indexed array specified the fields to return
      * @param callable|null $prepend
      * @return array
-     * @see AdminLog::toArray
+     * @see AdminLogModel::toArray
      */
     public static function toArray($returnFields = [], callable $prepend = null): array
     {
@@ -32,7 +43,7 @@ class AdminLog
      *
      * @param array $merge
      * @return Ret
-     * @see AdminLog::toRet
+     * @see AdminLogModel::toRet
      */
     public static function toRet(array $merge = []): \Wei\Ret
     {
@@ -42,7 +53,7 @@ class AdminLog
      * Return the record table name
      *
      * @return string
-     * @see AdminLog::getTable
+     * @see AdminLogModel::getTable
      */
     public static function getTable(): string
     {
@@ -53,7 +64,7 @@ class AdminLog
      *
      * @param iterable $array
      * @return $this
-     * @see AdminLog::fromArray
+     * @see AdminLogModel::fromArray
      */
     public static function fromArray(iterable $array): self
     {
@@ -64,7 +75,7 @@ class AdminLog
      *
      * @param iterable $attributes
      * @return $this
-     * @see AdminLog::save
+     * @see AdminLogModel::save
      */
     public static function save(iterable $attributes = []): self
     {
@@ -75,7 +86,7 @@ class AdminLog
      *
      * @param int|string $id
      * @return $this
-     * @see AdminLog::destroy
+     * @see AdminLogModel::destroy
      */
     public static function destroy($id = null): self
     {
@@ -88,7 +99,7 @@ class AdminLog
      * @param mixed $value
      * @param bool $throwException
      * @return $this|false
-     * @see AdminLog::set
+     * @see AdminLogModel::set
      */
     public static function set($name, $value = null, bool $throwException = true)
     {
@@ -99,7 +110,7 @@ class AdminLog
      *
      * @param int|string|array|null $id
      * @return $this|null
-     * @see AdminLog::find
+     * @see AdminLogModel::find
      */
     public static function find($id): ?self
     {
@@ -111,7 +122,7 @@ class AdminLog
      * @param int|string $id
      * @return $this
      * @throws \Exception
-     * @see AdminLog::findOrFail
+     * @see AdminLogModel::findOrFail
      */
     public static function findOrFail($id): self
     {
@@ -123,7 +134,7 @@ class AdminLog
      * @param int|string $id
      * @param array|object $attributes
      * @return $this
-     * @see AdminLog::findOrInit
+     * @see AdminLogModel::findOrInit
      */
     public static function findOrInit($id = null, $attributes = []): self
     {
@@ -135,7 +146,7 @@ class AdminLog
      * @param int|string $id
      * @param array $attributes
      * @return $this
-     * @see AdminLog::findOrCreate
+     * @see AdminLogModel::findOrCreate
      */
     public static function findOrCreate($id, $attributes = []): self
     {
@@ -145,7 +156,7 @@ class AdminLog
      * @param array $attributes
      * @param array|object $data
      * @return $this
-     * @see AdminLog::findByOrCreate
+     * @see AdminLogModel::findByOrCreate
      */
     public static function findByOrCreate($attributes, $data = []): self
     {
@@ -156,7 +167,7 @@ class AdminLog
      *
      * @param array $ids
      * @return $this|$this[]
-     * @see AdminLog::findAll
+     * @see AdminLogModel::findAll
      */
     public static function findAll(array $ids): self
     {
@@ -167,7 +178,7 @@ class AdminLog
      * @param mixed|null $operator
      * @param mixed|null $value
      * @return $this|null
-     * @see AdminLog::findBy
+     * @see AdminLogModel::findBy
      */
     public static function findBy($column, $operator = null, $value = null): ?self
     {
@@ -178,7 +189,7 @@ class AdminLog
      * @param mixed|null $operator
      * @param mixed|null $value
      * @return $this|$this[]
-     * @see AdminLog::findAllBy
+     * @see AdminLogModel::findAllBy
      */
     public static function findAllBy($column, $operator = null, $value = null): self
     {
@@ -188,7 +199,7 @@ class AdminLog
      * @param array $attributes
      * @param array|object $data
      * @return $this
-     * @see AdminLog::findOrInitBy
+     * @see AdminLogModel::findOrInitBy
      */
     public static function findOrInitBy(array $attributes, $data = []): self
     {
@@ -202,7 +213,7 @@ class AdminLog
      * @param mixed|null $value
      * @return $this
      * @throws \Exception
-     * @see AdminLog::findByOrFail
+     * @see AdminLogModel::findByOrFail
      */
     public static function findByOrFail($column, $operator = null, $value = null): self
     {
@@ -212,7 +223,7 @@ class AdminLog
      * @param Req|null $req
      * @return $this
      * @throws \Exception
-     * @see AdminLog::findFromReq
+     * @see AdminLogModel::findFromReq
      */
     public static function findFromReq(\Wei\Req $req = null): self
     {
@@ -222,7 +233,7 @@ class AdminLog
      * Executes the generated SQL and returns the found record object or null if not found
      *
      * @return $this|null
-     * @see AdminLog::first
+     * @see AdminLogModel::first
      */
     public static function first(): ?self
     {
@@ -230,7 +241,7 @@ class AdminLog
 
     /**
      * @return $this|$this[]
-     * @see AdminLog::all
+     * @see AdminLogModel::all
      */
     public static function all(): self
     {
@@ -241,7 +252,7 @@ class AdminLog
      *
      * @param string $column
      * @return $this
-     * @see AdminLog::indexBy
+     * @see AdminLogModel::indexBy
      */
     public static function indexBy(string $column): self
     {
@@ -251,7 +262,7 @@ class AdminLog
      * Returns the name of columns of current table
      *
      * @return array
-     * @see AdminLog::getColumns
+     * @see AdminLogModel::getColumns
      */
     public static function getColumns(): array
     {
@@ -262,7 +273,7 @@ class AdminLog
      *
      * @param string|int|null $name
      * @return bool
-     * @see AdminLog::hasColumn
+     * @see AdminLogModel::hasColumn
      */
     public static function hasColumn($name): bool
     {
@@ -275,7 +286,7 @@ class AdminLog
      * @param mixed|null $operator
      * @param mixed|null $value
      * @return array|null
-     * @see AdminLog::fetch
+     * @see AdminLogModel::fetch
      */
     public static function fetch($column = null, $operator = null, $value = null): ?array
     {
@@ -288,7 +299,7 @@ class AdminLog
      * @param mixed|null $operator
      * @param mixed|null $value
      * @return array
-     * @see AdminLog::fetchAll
+     * @see AdminLogModel::fetchAll
      */
     public static function fetchAll($column = null, $operator = null, $value = null): array
     {
@@ -298,7 +309,7 @@ class AdminLog
      * @param string $column
      * @param string|null $index
      * @return array
-     * @see AdminLog::pluck
+     * @see AdminLogModel::pluck
      */
     public static function pluck(string $column, string $index = null): array
     {
@@ -308,7 +319,7 @@ class AdminLog
      * @param int $count
      * @param callable $callback
      * @return bool
-     * @see AdminLog::chunk
+     * @see AdminLogModel::chunk
      */
     public static function chunk(int $count, callable $callback): bool
     {
@@ -319,7 +330,7 @@ class AdminLog
      *
      * @param string $column
      * @return int
-     * @see AdminLog::cnt
+     * @see AdminLogModel::cnt
      */
     public static function cnt($column = '*'): int
     {
@@ -331,7 +342,7 @@ class AdminLog
      * @param array|string $set
      * @param mixed $value
      * @return int
-     * @see AdminLog::update
+     * @see AdminLogModel::update
      */
     public static function update($set = [], $value = null): int
     {
@@ -344,7 +355,7 @@ class AdminLog
      * @param mixed|null $operator
      * @param mixed|null $value
      * @return int
-     * @see AdminLog::delete
+     * @see AdminLogModel::delete
      */
     public static function delete($column = null, $operator = null, $value = null): int
     {
@@ -355,7 +366,7 @@ class AdminLog
      *
      * @param int|float|string $offset The first result to return
      * @return $this
-     * @see AdminLog::offset
+     * @see AdminLogModel::offset
      */
     public static function offset($offset): self
     {
@@ -366,7 +377,7 @@ class AdminLog
      *
      * @param int|float|string $limit The maximum number of results to retrieve
      * @return $this
-     * @see AdminLog::limit
+     * @see AdminLogModel::limit
      */
     public static function limit($limit): self
     {
@@ -377,7 +388,7 @@ class AdminLog
      *
      * @param int $page The page number
      * @return $this
-     * @see AdminLog::page
+     * @see AdminLogModel::page
      */
     public static function page($page): self
     {
@@ -389,7 +400,7 @@ class AdminLog
      *
      * @param array|string $columns the selection expressions
      * @return $this
-     * @see AdminLog::select
+     * @see AdminLogModel::select
      */
     public static function select($columns = ['*']): self
     {
@@ -398,7 +409,7 @@ class AdminLog
     /**
      * @param array|string $columns
      * @return $this
-     * @see AdminLog::selectDistinct
+     * @see AdminLogModel::selectDistinct
      */
     public static function selectDistinct($columns): self
     {
@@ -407,7 +418,7 @@ class AdminLog
     /**
      * @param string $expression
      * @return $this
-     * @see AdminLog::selectRaw
+     * @see AdminLogModel::selectRaw
      */
     public static function selectRaw($expression): self
     {
@@ -419,7 +430,7 @@ class AdminLog
      *
      * @param array|string $columns
      * @return $this
-     * @see AdminLog::selectExcept
+     * @see AdminLogModel::selectExcept
      */
     public static function selectExcept($columns): self
     {
@@ -431,7 +442,7 @@ class AdminLog
      *
      * @param string $column
      * @return $this
-     * @see AdminLog::selectMain
+     * @see AdminLogModel::selectMain
      */
     public static function selectMain(string $column = '*'): self
     {
@@ -443,7 +454,7 @@ class AdminLog
      * @param string $table
      * @param string|null $alias
      * @return $this
-     * @see AdminLog::from
+     * @see AdminLogModel::from
      */
     public static function from(string $table, $alias = null): self
     {
@@ -453,7 +464,7 @@ class AdminLog
      * @param string $table
      * @param mixed|null $alias
      * @return $this
-     * @see AdminLog::table
+     * @see AdminLogModel::table
      */
     public static function table(string $table, $alias = null): self
     {
@@ -468,7 +479,7 @@ class AdminLog
      * @param string|null $second
      * @param string $type
      * @return $this
-     * @see AdminLog::join
+     * @see AdminLogModel::join
      */
     public static function join(string $table, string $first = null, string $operator = '=', string $second = null, string $type = 'INNER'): self
     {
@@ -482,7 +493,7 @@ class AdminLog
      * @param string $operator
      * @param string|null $second
      * @return $this
-     * @see AdminLog::innerJoin
+     * @see AdminLogModel::innerJoin
      */
     public static function innerJoin(string $table, string $first = null, string $operator = '=', string $second = null): self
     {
@@ -496,7 +507,7 @@ class AdminLog
      * @param string $operator
      * @param string|null $second
      * @return $this
-     * @see AdminLog::leftJoin
+     * @see AdminLogModel::leftJoin
      */
     public static function leftJoin(string $table, string $first = null, string $operator = '=', string $second = null): self
     {
@@ -510,7 +521,7 @@ class AdminLog
      * @param string $operator
      * @param string|null $second
      * @return $this
-     * @see AdminLog::rightJoin
+     * @see AdminLogModel::rightJoin
      */
     public static function rightJoin(string $table, string $first = null, string $operator = '=', string $second = null): self
     {
@@ -531,7 +542,7 @@ class AdminLog
      * @param mixed|null $operator
      * @param mixed|null $value
      * @return $this
-     * @see AdminLog::where
+     * @see AdminLogModel::where
      */
     public static function where($column = null, $operator = null, $value = null): self
     {
@@ -541,7 +552,7 @@ class AdminLog
      * @param scalar $expression
      * @param mixed $params
      * @return $this
-     * @see AdminLog::whereRaw
+     * @see AdminLogModel::whereRaw
      */
     public static function whereRaw($expression, $params = null): self
     {
@@ -551,7 +562,7 @@ class AdminLog
      * @param string $column
      * @param array $params
      * @return $this
-     * @see AdminLog::whereBetween
+     * @see AdminLogModel::whereBetween
      */
     public static function whereBetween(string $column, array $params): self
     {
@@ -561,7 +572,7 @@ class AdminLog
      * @param string $column
      * @param array $params
      * @return $this
-     * @see AdminLog::whereNotBetween
+     * @see AdminLogModel::whereNotBetween
      */
     public static function whereNotBetween(string $column, array $params): self
     {
@@ -571,7 +582,7 @@ class AdminLog
      * @param string $column
      * @param array $params
      * @return $this
-     * @see AdminLog::whereIn
+     * @see AdminLogModel::whereIn
      */
     public static function whereIn(string $column, array $params): self
     {
@@ -581,7 +592,7 @@ class AdminLog
      * @param string $column
      * @param array $params
      * @return $this
-     * @see AdminLog::whereNotIn
+     * @see AdminLogModel::whereNotIn
      */
     public static function whereNotIn(string $column, array $params): self
     {
@@ -590,7 +601,7 @@ class AdminLog
     /**
      * @param string $column
      * @return $this
-     * @see AdminLog::whereNull
+     * @see AdminLogModel::whereNull
      */
     public static function whereNull(string $column): self
     {
@@ -599,7 +610,7 @@ class AdminLog
     /**
      * @param string $column
      * @return $this
-     * @see AdminLog::whereNotNull
+     * @see AdminLogModel::whereNotNull
      */
     public static function whereNotNull(string $column): self
     {
@@ -610,7 +621,7 @@ class AdminLog
      * @param mixed $opOrValue
      * @param mixed|null $value
      * @return $this
-     * @see AdminLog::whereDate
+     * @see AdminLogModel::whereDate
      */
     public static function whereDate(string $column, $opOrValue, $value = null): self
     {
@@ -621,7 +632,7 @@ class AdminLog
      * @param mixed $opOrValue
      * @param mixed|null $value
      * @return $this
-     * @see AdminLog::whereMonth
+     * @see AdminLogModel::whereMonth
      */
     public static function whereMonth(string $column, $opOrValue, $value = null): self
     {
@@ -632,7 +643,7 @@ class AdminLog
      * @param mixed $opOrValue
      * @param mixed|null $value
      * @return $this
-     * @see AdminLog::whereDay
+     * @see AdminLogModel::whereDay
      */
     public static function whereDay(string $column, $opOrValue, $value = null): self
     {
@@ -643,7 +654,7 @@ class AdminLog
      * @param mixed $opOrValue
      * @param mixed|null $value
      * @return $this
-     * @see AdminLog::whereYear
+     * @see AdminLogModel::whereYear
      */
     public static function whereYear(string $column, $opOrValue, $value = null): self
     {
@@ -654,7 +665,7 @@ class AdminLog
      * @param mixed $opOrValue
      * @param mixed|null $value
      * @return $this
-     * @see AdminLog::whereTime
+     * @see AdminLogModel::whereTime
      */
     public static function whereTime(string $column, $opOrValue, $value = null): self
     {
@@ -665,7 +676,7 @@ class AdminLog
      * @param mixed $opOrColumn2
      * @param mixed|null $column2
      * @return $this
-     * @see AdminLog::whereColumn
+     * @see AdminLogModel::whereColumn
      */
     public static function whereColumn(string $column, $opOrColumn2, $column2 = null): self
     {
@@ -678,7 +689,7 @@ class AdminLog
      * @param mixed $value
      * @param string $condition
      * @return $this
-     * @see AdminLog::whereContains
+     * @see AdminLogModel::whereContains
      */
     public static function whereContains(string $column, $value, string $condition = 'AND'): self
     {
@@ -689,7 +700,7 @@ class AdminLog
      * @param mixed $value
      * @param string $condition
      * @return $this
-     * @see AdminLog::whereNotContains
+     * @see AdminLogModel::whereNotContains
      */
     public static function whereNotContains(string $column, $value, string $condition = 'OR'): self
     {
@@ -701,7 +712,7 @@ class AdminLog
      * @param string $column
      * @param bool $has
      * @return $this
-     * @see AdminLog::whereHas
+     * @see AdminLogModel::whereHas
      */
     public static function whereHas(string $column, bool $has = true): self
     {
@@ -712,7 +723,7 @@ class AdminLog
      *
      * @param string $column
      * @return $this
-     * @see AdminLog::whereNotHas
+     * @see AdminLogModel::whereNotHas
      */
     public static function whereNotHas(string $column): self
     {
@@ -724,7 +735,7 @@ class AdminLog
      *
      * @param mixed $column the grouping column
      * @return $this
-     * @see AdminLog::groupBy
+     * @see AdminLogModel::groupBy
      */
     public static function groupBy($column): self
     {
@@ -739,7 +750,7 @@ class AdminLog
      * @param mixed|null $value
      * @param mixed $condition
      * @return $this
-     * @see AdminLog::having
+     * @see AdminLogModel::having
      */
     public static function having($column, $operator, $value = null, $condition = 'AND'): self
     {
@@ -752,7 +763,7 @@ class AdminLog
      * @param string $column the ordering expression
      * @param string $order the ordering direction
      * @return $this
-     * @see AdminLog::orderBy
+     * @see AdminLogModel::orderBy
      */
     public static function orderBy(string $column, $order = 'ASC'): self
     {
@@ -763,7 +774,7 @@ class AdminLog
      *
      * @param string $field The name of field
      * @return $this
-     * @see AdminLog::desc
+     * @see AdminLogModel::desc
      */
     public static function desc(string $field): self
     {
@@ -774,7 +785,7 @@ class AdminLog
      *
      * @param string $field The name of field
      * @return $this
-     * @see AdminLog::asc
+     * @see AdminLogModel::asc
      */
     public static function asc(string $field): self
     {
@@ -782,7 +793,7 @@ class AdminLog
 
     /**
      * @return $this
-     * @see AdminLog::forUpdate
+     * @see AdminLogModel::forUpdate
      */
     public static function forUpdate(): self
     {
@@ -790,7 +801,7 @@ class AdminLog
 
     /**
      * @return $this
-     * @see AdminLog::forShare
+     * @see AdminLogModel::forShare
      */
     public static function forShare(): self
     {
@@ -799,7 +810,7 @@ class AdminLog
     /**
      * @param string|bool $lock
      * @return $this
-     * @see AdminLog::lock
+     * @see AdminLogModel::lock
      */
     public static function lock($lock): self
     {
@@ -810,7 +821,7 @@ class AdminLog
      * @param callable $callback
      * @param callable|null $default
      * @return $this
-     * @see AdminLog::when
+     * @see AdminLogModel::when
      */
     public static function when($value, callable $callback, callable $default = null): self
     {
@@ -821,7 +832,7 @@ class AdminLog
      * @param callable $callback
      * @param callable|null $default
      * @return $this
-     * @see AdminLog::unless
+     * @see AdminLogModel::unless
      */
     public static function unless($value, callable $callback, callable $default = null): self
     {
@@ -830,7 +841,7 @@ class AdminLog
     /**
      * @param callable|null $converter
      * @return $this
-     * @see AdminLog::setDbKeyConverter
+     * @see AdminLogModel::setDbKeyConverter
      */
     public static function setDbKeyConverter(callable $converter = null): self
     {
@@ -839,7 +850,7 @@ class AdminLog
     /**
      * @param callable|null $converter
      * @return $this
-     * @see AdminLog::setPhpKeyConverter
+     * @see AdminLogModel::setPhpKeyConverter
      */
     public static function setPhpKeyConverter(callable $converter = null): self
     {
@@ -850,7 +861,7 @@ class AdminLog
      *
      * @param int|null $seconds
      * @return $this
-     * @see AdminLog::setCacheTime
+     * @see AdminLogModel::setCacheTime
      */
     public static function setCacheTime(?int $seconds): self
     {
@@ -859,7 +870,7 @@ class AdminLog
     /**
      * @param array|string|true $scopes
      * @return $this
-     * @see AdminLog::unscoped
+     * @see AdminLogModel::unscoped
      */
     public static function unscoped($scopes = []): self
     {
@@ -874,7 +885,7 @@ class AdminLog
      *
      * @param string $method
      * @return bool
-     * @see AdminLog::isRelation
+     * @see AdminLogModel::isRelation
      */
     public static function isRelation(string $method): bool
     {
@@ -2717,14 +2728,25 @@ class GroupModel
 namespace Miaoxing\Admin\Service;
 
 if (0) {
-class AdminLog
+class AdminLogModel
 {
+    /**
+     * 记录后台操作日志
+     *
+     * @param string $description
+     * @param UserModel|null $user
+     * @see AdminLogModel::log
+     */
+    public function log(string $description, \Miaoxing\Plugin\Service\UserModel $user = null)
+    {
+    }
+
     /**
      * Set each attribute value, without checking whether the column is fillable, and save the model
      *
      * @param iterable $attributes
      * @return $this
-     * @see AdminLog::saveAttributes
+     * @see AdminLogModel::saveAttributes
      */
     public function saveAttributes(iterable $attributes = []): self
     {
@@ -2736,7 +2758,7 @@ class AdminLog
      * @param array|callable $returnFields A indexed array specified the fields to return
      * @param callable|null $prepend
      * @return array
-     * @see AdminLog::toArray
+     * @see AdminLogModel::toArray
      */
     public function toArray($returnFields = [], callable $prepend = null): array
     {
@@ -2747,7 +2769,7 @@ class AdminLog
      *
      * @param array $merge
      * @return Ret
-     * @see AdminLog::toRet
+     * @see AdminLogModel::toRet
      */
     public function toRet(array $merge = []): \Wei\Ret
     {
@@ -2757,7 +2779,7 @@ class AdminLog
      * Return the record table name
      *
      * @return string
-     * @see AdminLog::getTable
+     * @see AdminLogModel::getTable
      */
     public function getTable(): string
     {
@@ -2768,7 +2790,7 @@ class AdminLog
      *
      * @param iterable $array
      * @return $this
-     * @see AdminLog::fromArray
+     * @see AdminLogModel::fromArray
      */
     public function fromArray(iterable $array): self
     {
@@ -2779,7 +2801,7 @@ class AdminLog
      *
      * @param iterable $attributes
      * @return $this
-     * @see AdminLog::save
+     * @see AdminLogModel::save
      */
     public function save(iterable $attributes = []): self
     {
@@ -2790,7 +2812,7 @@ class AdminLog
      *
      * @param int|string $id
      * @return $this
-     * @see AdminLog::destroy
+     * @see AdminLogModel::destroy
      */
     public function destroy($id = null): self
     {
@@ -2803,7 +2825,7 @@ class AdminLog
      * @param mixed $value
      * @param bool $throwException
      * @return $this|false
-     * @see AdminLog::set
+     * @see AdminLogModel::set
      */
     public function set($name, $value = null, bool $throwException = true)
     {
@@ -2814,7 +2836,7 @@ class AdminLog
      *
      * @param int|string|array|null $id
      * @return $this|null
-     * @see AdminLog::find
+     * @see AdminLogModel::find
      */
     public function find($id): ?self
     {
@@ -2826,7 +2848,7 @@ class AdminLog
      * @param int|string $id
      * @return $this
      * @throws \Exception
-     * @see AdminLog::findOrFail
+     * @see AdminLogModel::findOrFail
      */
     public function findOrFail($id): self
     {
@@ -2838,7 +2860,7 @@ class AdminLog
      * @param int|string $id
      * @param array|object $attributes
      * @return $this
-     * @see AdminLog::findOrInit
+     * @see AdminLogModel::findOrInit
      */
     public function findOrInit($id = null, $attributes = []): self
     {
@@ -2850,7 +2872,7 @@ class AdminLog
      * @param int|string $id
      * @param array $attributes
      * @return $this
-     * @see AdminLog::findOrCreate
+     * @see AdminLogModel::findOrCreate
      */
     public function findOrCreate($id, $attributes = []): self
     {
@@ -2860,7 +2882,7 @@ class AdminLog
      * @param array $attributes
      * @param array|object $data
      * @return $this
-     * @see AdminLog::findByOrCreate
+     * @see AdminLogModel::findByOrCreate
      */
     public function findByOrCreate($attributes, $data = []): self
     {
@@ -2871,7 +2893,7 @@ class AdminLog
      *
      * @param array $ids
      * @return $this|$this[]
-     * @see AdminLog::findAll
+     * @see AdminLogModel::findAll
      */
     public function findAll(array $ids): self
     {
@@ -2882,7 +2904,7 @@ class AdminLog
      * @param mixed|null $operator
      * @param mixed|null $value
      * @return $this|null
-     * @see AdminLog::findBy
+     * @see AdminLogModel::findBy
      */
     public function findBy($column, $operator = null, $value = null): ?self
     {
@@ -2893,7 +2915,7 @@ class AdminLog
      * @param mixed|null $operator
      * @param mixed|null $value
      * @return $this|$this[]
-     * @see AdminLog::findAllBy
+     * @see AdminLogModel::findAllBy
      */
     public function findAllBy($column, $operator = null, $value = null): self
     {
@@ -2903,7 +2925,7 @@ class AdminLog
      * @param array $attributes
      * @param array|object $data
      * @return $this
-     * @see AdminLog::findOrInitBy
+     * @see AdminLogModel::findOrInitBy
      */
     public function findOrInitBy(array $attributes, $data = []): self
     {
@@ -2917,7 +2939,7 @@ class AdminLog
      * @param mixed|null $value
      * @return $this
      * @throws \Exception
-     * @see AdminLog::findByOrFail
+     * @see AdminLogModel::findByOrFail
      */
     public function findByOrFail($column, $operator = null, $value = null): self
     {
@@ -2927,7 +2949,7 @@ class AdminLog
      * @param Req|null $req
      * @return $this
      * @throws \Exception
-     * @see AdminLog::findFromReq
+     * @see AdminLogModel::findFromReq
      */
     public function findFromReq(\Wei\Req $req = null): self
     {
@@ -2937,7 +2959,7 @@ class AdminLog
      * Executes the generated SQL and returns the found record object or null if not found
      *
      * @return $this|null
-     * @see AdminLog::first
+     * @see AdminLogModel::first
      */
     public function first(): ?self
     {
@@ -2945,7 +2967,7 @@ class AdminLog
 
     /**
      * @return $this|$this[]
-     * @see AdminLog::all
+     * @see AdminLogModel::all
      */
     public function all(): self
     {
@@ -2956,7 +2978,7 @@ class AdminLog
      *
      * @param string $column
      * @return $this
-     * @see AdminLog::indexBy
+     * @see AdminLogModel::indexBy
      */
     public function indexBy(string $column): self
     {
@@ -2966,7 +2988,7 @@ class AdminLog
      * Returns the name of columns of current table
      *
      * @return array
-     * @see AdminLog::getColumns
+     * @see AdminLogModel::getColumns
      */
     public function getColumns(): array
     {
@@ -2977,7 +2999,7 @@ class AdminLog
      *
      * @param string|int|null $name
      * @return bool
-     * @see AdminLog::hasColumn
+     * @see AdminLogModel::hasColumn
      */
     public function hasColumn($name): bool
     {
@@ -2990,7 +3012,7 @@ class AdminLog
      * @param mixed|null $operator
      * @param mixed|null $value
      * @return array|null
-     * @see AdminLog::fetch
+     * @see AdminLogModel::fetch
      */
     public function fetch($column = null, $operator = null, $value = null): ?array
     {
@@ -3003,7 +3025,7 @@ class AdminLog
      * @param mixed|null $operator
      * @param mixed|null $value
      * @return array
-     * @see AdminLog::fetchAll
+     * @see AdminLogModel::fetchAll
      */
     public function fetchAll($column = null, $operator = null, $value = null): array
     {
@@ -3013,7 +3035,7 @@ class AdminLog
      * @param string $column
      * @param string|null $index
      * @return array
-     * @see AdminLog::pluck
+     * @see AdminLogModel::pluck
      */
     public function pluck(string $column, string $index = null): array
     {
@@ -3023,7 +3045,7 @@ class AdminLog
      * @param int $count
      * @param callable $callback
      * @return bool
-     * @see AdminLog::chunk
+     * @see AdminLogModel::chunk
      */
     public function chunk(int $count, callable $callback): bool
     {
@@ -3034,7 +3056,7 @@ class AdminLog
      *
      * @param string $column
      * @return int
-     * @see AdminLog::cnt
+     * @see AdminLogModel::cnt
      */
     public function cnt($column = '*'): int
     {
@@ -3046,7 +3068,7 @@ class AdminLog
      * @param array|string $set
      * @param mixed $value
      * @return int
-     * @see AdminLog::update
+     * @see AdminLogModel::update
      */
     public function update($set = [], $value = null): int
     {
@@ -3059,7 +3081,7 @@ class AdminLog
      * @param mixed|null $operator
      * @param mixed|null $value
      * @return int
-     * @see AdminLog::delete
+     * @see AdminLogModel::delete
      */
     public function delete($column = null, $operator = null, $value = null): int
     {
@@ -3070,7 +3092,7 @@ class AdminLog
      *
      * @param int|float|string $offset The first result to return
      * @return $this
-     * @see AdminLog::offset
+     * @see AdminLogModel::offset
      */
     public function offset($offset): self
     {
@@ -3081,7 +3103,7 @@ class AdminLog
      *
      * @param int|float|string $limit The maximum number of results to retrieve
      * @return $this
-     * @see AdminLog::limit
+     * @see AdminLogModel::limit
      */
     public function limit($limit): self
     {
@@ -3092,7 +3114,7 @@ class AdminLog
      *
      * @param int $page The page number
      * @return $this
-     * @see AdminLog::page
+     * @see AdminLogModel::page
      */
     public function page($page): self
     {
@@ -3104,7 +3126,7 @@ class AdminLog
      *
      * @param array|string $columns the selection expressions
      * @return $this
-     * @see AdminLog::select
+     * @see AdminLogModel::select
      */
     public function select($columns = ['*']): self
     {
@@ -3113,7 +3135,7 @@ class AdminLog
     /**
      * @param array|string $columns
      * @return $this
-     * @see AdminLog::selectDistinct
+     * @see AdminLogModel::selectDistinct
      */
     public function selectDistinct($columns): self
     {
@@ -3122,7 +3144,7 @@ class AdminLog
     /**
      * @param string $expression
      * @return $this
-     * @see AdminLog::selectRaw
+     * @see AdminLogModel::selectRaw
      */
     public function selectRaw($expression): self
     {
@@ -3134,7 +3156,7 @@ class AdminLog
      *
      * @param array|string $columns
      * @return $this
-     * @see AdminLog::selectExcept
+     * @see AdminLogModel::selectExcept
      */
     public function selectExcept($columns): self
     {
@@ -3146,7 +3168,7 @@ class AdminLog
      *
      * @param string $column
      * @return $this
-     * @see AdminLog::selectMain
+     * @see AdminLogModel::selectMain
      */
     public function selectMain(string $column = '*'): self
     {
@@ -3158,7 +3180,7 @@ class AdminLog
      * @param string $table
      * @param string|null $alias
      * @return $this
-     * @see AdminLog::from
+     * @see AdminLogModel::from
      */
     public function from(string $table, $alias = null): self
     {
@@ -3168,7 +3190,7 @@ class AdminLog
      * @param string $table
      * @param mixed|null $alias
      * @return $this
-     * @see AdminLog::table
+     * @see AdminLogModel::table
      */
     public function table(string $table, $alias = null): self
     {
@@ -3183,7 +3205,7 @@ class AdminLog
      * @param string|null $second
      * @param string $type
      * @return $this
-     * @see AdminLog::join
+     * @see AdminLogModel::join
      */
     public function join(string $table, string $first = null, string $operator = '=', string $second = null, string $type = 'INNER'): self
     {
@@ -3197,7 +3219,7 @@ class AdminLog
      * @param string $operator
      * @param string|null $second
      * @return $this
-     * @see AdminLog::innerJoin
+     * @see AdminLogModel::innerJoin
      */
     public function innerJoin(string $table, string $first = null, string $operator = '=', string $second = null): self
     {
@@ -3211,7 +3233,7 @@ class AdminLog
      * @param string $operator
      * @param string|null $second
      * @return $this
-     * @see AdminLog::leftJoin
+     * @see AdminLogModel::leftJoin
      */
     public function leftJoin(string $table, string $first = null, string $operator = '=', string $second = null): self
     {
@@ -3225,7 +3247,7 @@ class AdminLog
      * @param string $operator
      * @param string|null $second
      * @return $this
-     * @see AdminLog::rightJoin
+     * @see AdminLogModel::rightJoin
      */
     public function rightJoin(string $table, string $first = null, string $operator = '=', string $second = null): self
     {
@@ -3246,7 +3268,7 @@ class AdminLog
      * @param mixed|null $operator
      * @param mixed|null $value
      * @return $this
-     * @see AdminLog::where
+     * @see AdminLogModel::where
      */
     public function where($column = null, $operator = null, $value = null): self
     {
@@ -3256,7 +3278,7 @@ class AdminLog
      * @param scalar $expression
      * @param mixed $params
      * @return $this
-     * @see AdminLog::whereRaw
+     * @see AdminLogModel::whereRaw
      */
     public function whereRaw($expression, $params = null): self
     {
@@ -3266,7 +3288,7 @@ class AdminLog
      * @param string $column
      * @param array $params
      * @return $this
-     * @see AdminLog::whereBetween
+     * @see AdminLogModel::whereBetween
      */
     public function whereBetween(string $column, array $params): self
     {
@@ -3276,7 +3298,7 @@ class AdminLog
      * @param string $column
      * @param array $params
      * @return $this
-     * @see AdminLog::whereNotBetween
+     * @see AdminLogModel::whereNotBetween
      */
     public function whereNotBetween(string $column, array $params): self
     {
@@ -3286,7 +3308,7 @@ class AdminLog
      * @param string $column
      * @param array $params
      * @return $this
-     * @see AdminLog::whereIn
+     * @see AdminLogModel::whereIn
      */
     public function whereIn(string $column, array $params): self
     {
@@ -3296,7 +3318,7 @@ class AdminLog
      * @param string $column
      * @param array $params
      * @return $this
-     * @see AdminLog::whereNotIn
+     * @see AdminLogModel::whereNotIn
      */
     public function whereNotIn(string $column, array $params): self
     {
@@ -3305,7 +3327,7 @@ class AdminLog
     /**
      * @param string $column
      * @return $this
-     * @see AdminLog::whereNull
+     * @see AdminLogModel::whereNull
      */
     public function whereNull(string $column): self
     {
@@ -3314,7 +3336,7 @@ class AdminLog
     /**
      * @param string $column
      * @return $this
-     * @see AdminLog::whereNotNull
+     * @see AdminLogModel::whereNotNull
      */
     public function whereNotNull(string $column): self
     {
@@ -3325,7 +3347,7 @@ class AdminLog
      * @param mixed $opOrValue
      * @param mixed|null $value
      * @return $this
-     * @see AdminLog::whereDate
+     * @see AdminLogModel::whereDate
      */
     public function whereDate(string $column, $opOrValue, $value = null): self
     {
@@ -3336,7 +3358,7 @@ class AdminLog
      * @param mixed $opOrValue
      * @param mixed|null $value
      * @return $this
-     * @see AdminLog::whereMonth
+     * @see AdminLogModel::whereMonth
      */
     public function whereMonth(string $column, $opOrValue, $value = null): self
     {
@@ -3347,7 +3369,7 @@ class AdminLog
      * @param mixed $opOrValue
      * @param mixed|null $value
      * @return $this
-     * @see AdminLog::whereDay
+     * @see AdminLogModel::whereDay
      */
     public function whereDay(string $column, $opOrValue, $value = null): self
     {
@@ -3358,7 +3380,7 @@ class AdminLog
      * @param mixed $opOrValue
      * @param mixed|null $value
      * @return $this
-     * @see AdminLog::whereYear
+     * @see AdminLogModel::whereYear
      */
     public function whereYear(string $column, $opOrValue, $value = null): self
     {
@@ -3369,7 +3391,7 @@ class AdminLog
      * @param mixed $opOrValue
      * @param mixed|null $value
      * @return $this
-     * @see AdminLog::whereTime
+     * @see AdminLogModel::whereTime
      */
     public function whereTime(string $column, $opOrValue, $value = null): self
     {
@@ -3380,7 +3402,7 @@ class AdminLog
      * @param mixed $opOrColumn2
      * @param mixed|null $column2
      * @return $this
-     * @see AdminLog::whereColumn
+     * @see AdminLogModel::whereColumn
      */
     public function whereColumn(string $column, $opOrColumn2, $column2 = null): self
     {
@@ -3393,7 +3415,7 @@ class AdminLog
      * @param mixed $value
      * @param string $condition
      * @return $this
-     * @see AdminLog::whereContains
+     * @see AdminLogModel::whereContains
      */
     public function whereContains(string $column, $value, string $condition = 'AND'): self
     {
@@ -3404,7 +3426,7 @@ class AdminLog
      * @param mixed $value
      * @param string $condition
      * @return $this
-     * @see AdminLog::whereNotContains
+     * @see AdminLogModel::whereNotContains
      */
     public function whereNotContains(string $column, $value, string $condition = 'OR'): self
     {
@@ -3416,7 +3438,7 @@ class AdminLog
      * @param string $column
      * @param bool $has
      * @return $this
-     * @see AdminLog::whereHas
+     * @see AdminLogModel::whereHas
      */
     public function whereHas(string $column, bool $has = true): self
     {
@@ -3427,7 +3449,7 @@ class AdminLog
      *
      * @param string $column
      * @return $this
-     * @see AdminLog::whereNotHas
+     * @see AdminLogModel::whereNotHas
      */
     public function whereNotHas(string $column): self
     {
@@ -3439,7 +3461,7 @@ class AdminLog
      *
      * @param mixed $column the grouping column
      * @return $this
-     * @see AdminLog::groupBy
+     * @see AdminLogModel::groupBy
      */
     public function groupBy($column): self
     {
@@ -3454,7 +3476,7 @@ class AdminLog
      * @param mixed|null $value
      * @param mixed $condition
      * @return $this
-     * @see AdminLog::having
+     * @see AdminLogModel::having
      */
     public function having($column, $operator, $value = null, $condition = 'AND'): self
     {
@@ -3467,7 +3489,7 @@ class AdminLog
      * @param string $column the ordering expression
      * @param string $order the ordering direction
      * @return $this
-     * @see AdminLog::orderBy
+     * @see AdminLogModel::orderBy
      */
     public function orderBy(string $column, $order = 'ASC'): self
     {
@@ -3478,7 +3500,7 @@ class AdminLog
      *
      * @param string $field The name of field
      * @return $this
-     * @see AdminLog::desc
+     * @see AdminLogModel::desc
      */
     public function desc(string $field): self
     {
@@ -3489,7 +3511,7 @@ class AdminLog
      *
      * @param string $field The name of field
      * @return $this
-     * @see AdminLog::asc
+     * @see AdminLogModel::asc
      */
     public function asc(string $field): self
     {
@@ -3497,7 +3519,7 @@ class AdminLog
 
     /**
      * @return $this
-     * @see AdminLog::forUpdate
+     * @see AdminLogModel::forUpdate
      */
     public function forUpdate(): self
     {
@@ -3505,7 +3527,7 @@ class AdminLog
 
     /**
      * @return $this
-     * @see AdminLog::forShare
+     * @see AdminLogModel::forShare
      */
     public function forShare(): self
     {
@@ -3514,7 +3536,7 @@ class AdminLog
     /**
      * @param string|bool $lock
      * @return $this
-     * @see AdminLog::lock
+     * @see AdminLogModel::lock
      */
     public function lock($lock): self
     {
@@ -3525,7 +3547,7 @@ class AdminLog
      * @param callable $callback
      * @param callable|null $default
      * @return $this
-     * @see AdminLog::when
+     * @see AdminLogModel::when
      */
     public function when($value, callable $callback, callable $default = null): self
     {
@@ -3536,7 +3558,7 @@ class AdminLog
      * @param callable $callback
      * @param callable|null $default
      * @return $this
-     * @see AdminLog::unless
+     * @see AdminLogModel::unless
      */
     public function unless($value, callable $callback, callable $default = null): self
     {
@@ -3545,7 +3567,7 @@ class AdminLog
     /**
      * @param callable|null $converter
      * @return $this
-     * @see AdminLog::setDbKeyConverter
+     * @see AdminLogModel::setDbKeyConverter
      */
     public function setDbKeyConverter(callable $converter = null): self
     {
@@ -3554,7 +3576,7 @@ class AdminLog
     /**
      * @param callable|null $converter
      * @return $this
-     * @see AdminLog::setPhpKeyConverter
+     * @see AdminLogModel::setPhpKeyConverter
      */
     public function setPhpKeyConverter(callable $converter = null): self
     {
@@ -3565,7 +3587,7 @@ class AdminLog
      *
      * @param int|null $seconds
      * @return $this
-     * @see AdminLog::setCacheTime
+     * @see AdminLogModel::setCacheTime
      */
     public function setCacheTime(?int $seconds): self
     {
@@ -3574,7 +3596,7 @@ class AdminLog
     /**
      * @param array|string|true $scopes
      * @return $this
-     * @see AdminLog::unscoped
+     * @see AdminLogModel::unscoped
      */
     public function unscoped($scopes = []): self
     {
@@ -3589,7 +3611,7 @@ class AdminLog
      *
      * @param string $method
      * @return bool
-     * @see AdminLog::isRelation
+     * @see AdminLogModel::isRelation
      */
     public function isRelation(string $method): bool
     {

@@ -11,12 +11,12 @@ class V20170113100840CreateAdminLogsTable extends BaseMigration
      */
     public function up()
     {
-        $this->schema->table('adminLogs')
+        $this->schema->table('admin_logs')
             ->id()
-            ->int('appId')
-            ->int('userId')
+            ->int('app_id')
+            ->int('user_id')
             ->string('description')
-            ->timestamp('createTime')
+            ->timestamp('created_at')
             ->exec();
     }
 
@@ -25,6 +25,6 @@ class V20170113100840CreateAdminLogsTable extends BaseMigration
      */
     public function down()
     {
-        $this->schema->dropIfExists('adminLogs');
+        $this->schema->dropIfExists('admin_logs');
     }
 }

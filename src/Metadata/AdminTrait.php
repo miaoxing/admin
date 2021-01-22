@@ -2,8 +2,6 @@
 
 namespace Miaoxing\Admin\Metadata;
 
-use Miaoxing\Plugin\Model\ModelTrait;
-
 /**
  * @property int $id
  * @property int $appId
@@ -16,5 +14,4 @@ use Miaoxing\Plugin\Model\ModelTrait;
  */
 trait AdminTrait
 {
-    use ModelTrait;
 }

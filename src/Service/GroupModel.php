@@ -4,6 +4,7 @@ namespace Miaoxing\Admin\Service;
 
 use Miaoxing\Admin\Metadata\GroupTrait;
 use Miaoxing\Plugin\BaseModel;
+use Miaoxing\Plugin\Model\ModelTrait;
 use Miaoxing\Plugin\Model\ReqQueryTrait;
 use Miaoxing\Plugin\Model\SoftDeleteTrait;
 
@@ -14,6 +15,7 @@ use Miaoxing\Plugin\Model\SoftDeleteTrait;
  */
 class GroupModel extends BaseModel
 {
+    use ModelTrait;
     use GroupTrait;
     use SoftDeleteTrait;
     use ReqQueryTrait;

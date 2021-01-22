@@ -101,7 +101,7 @@ class AdminLogModel
      * @return $this|false
      * @see AdminLogModel::set
      */
-    public static function set($name, $value = null, bool $throwException = true)
+    public static function set($name, $value, bool $throwException = true)
     {
     }
 
@@ -980,7 +980,7 @@ class AdminModel
      * @return $this|false
      * @see AdminModel::set
      */
-    public static function set($name, $value = null, bool $throwException = true)
+    public static function set($name, $value, bool $throwException = true)
     {
     }
 
@@ -1884,7 +1884,7 @@ class GroupModel
      * @return $this|false
      * @see GroupModel::set
      */
-    public static function set($name, $value = null, bool $throwException = true)
+    public static function set($name, $value, bool $throwException = true)
     {
     }
 
@@ -2827,7 +2827,7 @@ class AdminLogModel
      * @return $this|false
      * @see AdminLogModel::set
      */
-    public function set($name, $value = null, bool $throwException = true)
+    public function set($name, $value, bool $throwException = true)
     {
     }
 
@@ -3706,7 +3706,7 @@ class AdminModel
      * @return $this|false
      * @see AdminModel::set
      */
-    public function set($name, $value = null, bool $throwException = true)
+    public function set($name, $value, bool $throwException = true)
     {
     }
 
@@ -4610,7 +4610,7 @@ class GroupModel
      * @return $this|false
      * @see GroupModel::set
      */
-    public function set($name, $value = null, bool $throwException = true)
+    public function set($name, $value, bool $throwException = true)
     {
     }
 

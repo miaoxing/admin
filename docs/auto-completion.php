@@ -2,14 +2,14 @@
 
 /**
  * @property    Miaoxing\Admin\Service\AdminLogModel $adminLogModel 后台管理日志
- * @method      Miaoxing\Admin\Service\AdminLogModel adminLogModel()
+ * @method      Miaoxing\Admin\Service\AdminLogModel adminLogModel() 返回当前对象
  */
 class AdminLogModelMixin {
 }
 
 /**
  * @property    Miaoxing\Admin\Service\AdminModel $adminModel
- * @method      Miaoxing\Admin\Service\AdminModel adminModel()
+ * @method      Miaoxing\Admin\Service\AdminModel adminModel() 返回当前对象
  */
 class AdminModelMixin {
 }
@@ -28,7 +28,7 @@ class GroupMixin {
 
 /**
  * @property    Miaoxing\Admin\Service\GroupModel $groupModel GroupModel
- * @method      Miaoxing\Admin\Service\GroupModel groupModel()
+ * @method      Miaoxing\Admin\Service\GroupModel groupModel() 返回当前对象
  */
 class GroupModelMixin {
 }
@@ -51,16 +51,16 @@ function wei()
     return new AutoCompletion;
 }
 
-/** @var Miaoxing\Admin\Service\AdminLogModel $adminLogModel */
-$adminLog = wei()->adminLogModel();
+/** @var Miaoxing\Admin\Service\AdminLogModel $adminLog */
+$adminLog = wei()->adminLogModel;
 
-/** @var Miaoxing\Admin\Service\AdminLogModel|Miaoxing\Admin\Service\AdminLogModel[] $adminLogModels */
+/** @var Miaoxing\Admin\Service\AdminLogModel|Miaoxing\Admin\Service\AdminLogModel[] $adminLogs */
 $adminLogs = wei()->adminLogModel();
 
-/** @var Miaoxing\Admin\Service\AdminModel $adminModel */
-$admin = wei()->adminModel();
+/** @var Miaoxing\Admin\Service\AdminModel $admin */
+$admin = wei()->adminModel;
 
-/** @var Miaoxing\Admin\Service\AdminModel|Miaoxing\Admin\Service\AdminModel[] $adminModels */
+/** @var Miaoxing\Admin\Service\AdminModel|Miaoxing\Admin\Service\AdminModel[] $admins */
 $admins = wei()->adminModel();
 
 /** @var Miaoxing\Admin\Service\AdminNav $adminNav */
@@ -69,8 +69,8 @@ $adminNav = wei()->adminNav;
 /** @var Miaoxing\Admin\Service\Group $group */
 $group = wei()->group;
 
-/** @var Miaoxing\Admin\Service\GroupModel $groupModel */
-$group = wei()->groupModel();
+/** @var Miaoxing\Admin\Service\GroupModel $group */
+$group = wei()->groupModel;
 
-/** @var Miaoxing\Admin\Service\GroupModel|Miaoxing\Admin\Service\GroupModel[] $groupModels */
+/** @var Miaoxing\Admin\Service\GroupModel|Miaoxing\Admin\Service\GroupModel[] $groups */
 $groups = wei()->groupModel();

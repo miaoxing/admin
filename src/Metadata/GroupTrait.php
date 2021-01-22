@@ -2,8 +2,6 @@
 
 namespace Miaoxing\Admin\Metadata;
 
-use Miaoxing\Plugin\Model\ModelTrait;
-
 /**
  * @property int $id
  * @property string $name
@@ -19,5 +17,4 @@ use Miaoxing\Plugin\Model\ModelTrait;
  */
 trait GroupTrait
 {
-    use ModelTrait;
 }

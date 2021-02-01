@@ -37,6 +37,11 @@ class AdminPlugin extends BasePlugin
             'name' => '营销',
             'sort' => 100,
         ];
+
+        $categories['setting'] = [
+            'name' => '设置',
+            'sort' => 90,
+        ];
     }
 
     public function onUserLogin(UserModel $user)

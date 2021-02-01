@@ -21,7 +21,7 @@ export default class extends React.Component {
   }
 
   handleLogout = async () => {
-    const ret = await api.post('user/logout');
+    const ret = await api.post('logout');
     await $.ret(ret);
     if (ret.isSuc()) {
       history.push($.url('admin/login', {next: window.location.pathname}));

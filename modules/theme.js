@@ -5,6 +5,7 @@ const theme = require('@mxjs/style/theme-preset');
 Object.assign(theme.colors, {
   blue: '#1890ff',
   primary: '#1890ff', // blue
+  danger: '#fa5b50',
 });
 
 module.exports = theme;

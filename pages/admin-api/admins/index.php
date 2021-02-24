@@ -13,10 +13,7 @@ return new class extends BaseController {
     {
         $groups = [];
         return IndexAction
-            ::beforeFind(function (AdminModel $admins) {
-                $admins->reqQuery();
-            })
-            ->afterFind(function (AdminModel $admins) use (&$groups) {
+            ::afterFind(function (AdminModel $admins) use (&$groups) {
                 $admins->load('user');
 
                 // NOTE: UserModel 里还没有 group 关联，需手动读取

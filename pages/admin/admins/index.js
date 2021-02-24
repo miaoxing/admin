@@ -25,13 +25,13 @@ export default class extends React.Component {
 
         <TableProvider>
           <SearchForm>
-            <SearchItem label="用户名" name={["user", "username$ct"]}/>
+            <SearchItem label="用户名" name={["search", "user", "username:ct"]}/>
 
-            <SearchItem label="姓名" name={["user", "name$ct"]}/>
+            <SearchItem label="姓名" name={["search", "user", "name:ct"]}/>
 
-            <SearchItem label="昵称" name={["user", "nickName$ct"]}/>
+            <SearchItem label="昵称" name={["search", "user", "nickName:ct"]}/>
 
-            <SearchItem label="分组" name={["user", "groupId"]} initialValue="">
+            <SearchItem label="分组" name={["search", "user", "groupId"]} initialValue="">
               <Select options={this.state.data} labelKey="name" valueKey="id" all/>
             </SearchItem>
           </SearchForm>

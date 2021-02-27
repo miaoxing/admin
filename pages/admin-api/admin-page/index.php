@@ -11,6 +11,8 @@ return new class extends BaseController {
             'data' => [
                 'menus' => $this->getMenus(),
                 'pages' => $this->getPages(),
+                'title' => '喵星商城',
+                'logo' => Url::to('images/logo.svg'),
             ],
         ]);
     }

@@ -1,8 +1,7 @@
 import React from 'react';
 import {Menu, Layout} from 'antd';
 import {Link} from '@mxjs/router';
-import logo from '../images/logo.png';
-import {Flex, Image} from 'rebass';
+import {Flex, Image, Heading} from 'rebass';
 import propTypes from 'prop-types';
 import {withRouter} from 'react-router';
 
@@ -13,6 +12,8 @@ const {SubMenu} = Menu;
 export default class extends React.Component {
   static defaultProps = {
     menus: [],
+    title: '',
+    logo: '',
   }
 
   static propTypes = {
@@ -85,7 +86,8 @@ export default class extends React.Component {
         collapsedWidth="0"
       >
         <Flex alignItems="center" justifyContent="center" height={60}>
-          <Image height={25} src={logo}/>
+          <Image height={25} src={this.props.logo}/>
+          <Heading as="h1" ml={2} color="white">{this.props.title}</Heading>
         </Flex>
 
         {this.props.menus.length && <Menu

@@ -12,6 +12,8 @@ export default class extends React.Component {
   state = {
     menus: [],
     pages: {},
+    title: '',
+    logo: '',
     user: {},
   };
 
@@ -41,7 +43,7 @@ export default class extends React.Component {
     return (
       <PageContext.Provider value={{pages: this.state.pages}}>
         <Box as={Layout} minHeight="100vh">
-          <Sider menus={this.state.menus}/>
+          <Sider menus={this.state.menus} title={this.state.title} logo={this.state.logo}/>
           <Layout>
             <Navbar user={this.state.user}/>
             <Box as={Layout.Content} px={4} pt={4}>

@@ -4,10 +4,12 @@ import {Link} from '@mxjs/router';
 import logo from '../images/logo.png';
 import {Flex, Image} from 'rebass';
 import propTypes from 'prop-types';
+import {withRouter} from 'react-router';
 
 const {Sider} = Layout;
 const {SubMenu} = Menu;
 
+@withRouter
 export default class extends React.Component {
   static defaultProps = {
     menus: [],
@@ -17,35 +19,57 @@ export default class extends React.Component {
     menus: propTypes.array,
   }
 
-  getMenuProps() {
+  state = {
+    openKeys: [],
+    selectedKeys: [],
+  }
+
+  componentDidMount() {
+    this.updateMenu();
+    this.props.history.listen(() => {
+      this.updateMenu();
+    });
+  }
+
+  componentDidUpdate(prevProps, prevState, snapshot) {
+    if (prevProps.menus !== this.props.menus) {
+      this.updateMenu();
+    }
+  }
+
+  updateMenu() {
     const pathname = window.location.pathname;
-    let defaultOpenKeys = [];
-    let defaultSelectedKeys = [];
+    let openKeys = this.state.openKeys;
+    let selectedKeys = [];
 
     // 查找完全匹配的菜单
     this.findMenu(([menu, menu2]) => {
       if (menu2.url === pathname) {
-        defaultOpenKeys.push(menu.name);
-        defaultSelectedKeys.push(menu2.name);
+        openKeys.push(menu.name);
+        selectedKeys.push(menu2.name);
         return true;
       }
     });
 
-    // 如果没有，查找部分匹配的菜单
-    if (defaultOpenKeys.length === 0) {
+    // 如果没有完全匹配，查找部分匹配的菜单
+    if (selectedKeys.length === 0) {
       this.findMenu(([menu, menu2]) => {
         if (menu2.url !== '/' && pathname.startsWith(menu2.url)) {
-          defaultOpenKeys.push(menu.name);
-          defaultSelectedKeys.push(menu2.name);
+          openKeys.push(menu.name);
+          selectedKeys.push(menu2.name);
           return true;
         }
       });
     }
 
-    return {
-      defaultOpenKeys: defaultOpenKeys,
-      defaultSelectedKeys: defaultSelectedKeys,
-    };
+    // Unique
+    openKeys = [...new Set(openKeys)];
+
+    this.setState({openKeys, selectedKeys})
+  }
+
+  handleOpenChange = (openKeys, e) => {
+    this.setState({openKeys})
   }
 
   findMenu(fn) {
@@ -67,7 +91,9 @@ export default class extends React.Component {
         {this.props.menus.length && <Menu
           theme="dark"
           mode="inline"
-          {...this.getMenuProps()}
+          openKeys={this.state.openKeys}
+          selectedKeys={this.state.selectedKeys}
+          onOpenChange={this.handleOpenChange}
         >
           {this.props.menus.map(menu => (
             <SubMenu

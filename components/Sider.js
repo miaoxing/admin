@@ -4,12 +4,13 @@ import {Link} from '@mxjs/router';
 import {Flex, Image, Heading} from 'rebass';
 import propTypes from 'prop-types';
 import {withRouter} from 'react-router';
+import ReactRouterPropTypes from 'react-router-prop-types';
 
 const {Sider} = Layout;
 const {SubMenu} = Menu;
 
-@withRouter
-export default class extends React.Component {
+export default @withRouter
+class extends React.Component {
   static defaultProps = {
     menus: [],
     title: '',
@@ -17,7 +18,10 @@ export default class extends React.Component {
   }
 
   static propTypes = {
+    history: ReactRouterPropTypes.history.isRequired,
     menus: propTypes.array,
+    title: propTypes.string,
+    logo: propTypes.string,
   }
 
   state = {
@@ -32,7 +36,7 @@ export default class extends React.Component {
     });
   }
 
-  componentDidUpdate(prevProps, prevState, snapshot) {
+  componentDidUpdate(prevProps) {
     if (prevProps.menus !== this.props.menus) {
       this.updateMenu();
     }
@@ -66,11 +70,11 @@ export default class extends React.Component {
     // Unique
     openKeys = [...new Set(openKeys)];
 
-    this.setState({openKeys, selectedKeys})
+    this.setState({openKeys, selectedKeys});
   }
 
-  handleOpenChange = (openKeys, e) => {
-    this.setState({openKeys})
+  handleOpenChange = (openKeys) => {
+    this.setState({openKeys});
   }
 
   findMenu(fn) {

@@ -5,7 +5,6 @@ import React from 'react';
 import {Form, Button, Input} from 'antd';
 import {Box, Heading, Image} from 'rebass';
 import $ from 'miaoxing';
-import logo from '../../../images/logo.png';
 import api from '@mxjs/api';
 import {Global, css} from '@emotion/core';
 import {FormItem} from '@mxjs/a-form';
@@ -33,7 +32,7 @@ export default class extends React.Component {
           mb={4}
           textAlign="center"
         >
-          <Image height={30} src={logo}/>
+          <Image height={50} src="/images/logo.svg"/>
         </Box>
         <Heading
           mb={5}

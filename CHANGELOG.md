@@ -13,11 +13,6 @@
 * **theme:** 增加 `danger` 颜色 ([5ba81d4](https://github.com/miaoxing/admin/commit/5ba81d4b18250dd5a909014d70445b58499be8bd))
 
 
-* refactor(admin)!: 升级管理员日志功能 ([3ca89e2](https://github.com/miaoxing/admin/commit/3ca89e2cdb2e886c415a23ede5ce79cf63f62d50))
-* refactor(admin)!: 增加 admins 表单独记录管理员 ([effcb5c](https://github.com/miaoxing/admin/commit/effcb5c23f7045622c92eb9619c99059d9df13b0))
-* refactor!: `Service/Model` 拆分出 `ModelTrait`, 改名为 `BaseModel` ([efb875e](https://github.com/miaoxing/admin/commit/efb875e5954c63aa44e4ebaee3ecf1b180b04436))
-
-
 ### Code Refactoring
 
 * 更改头像上传接口为由文件插件提供 ([9ecb305](https://github.com/miaoxing/admin/commit/9ecb3050eb8bcdab4fed719409ff38d76c81d467))

@@ -1,3 +1,46 @@
+# [0.3.0](https://github.com/miaoxing/admin/compare/v0.2.4...v0.3.0) (2021-03-05)
+
+
+### Bug Fixes
+
+* 切换页面，要重新计算左侧菜单 ([88aa03c](https://github.com/miaoxing/admin/commit/88aa03c66b5e6acac2713a21272247555e1dd282))
+* 解决在子页面刷新后，侧边菜单未选中的问题 ([e7203d0](https://github.com/miaoxing/admin/commit/e7203d05d740689792dd92c7aead61219db030b7))
+* 退出登录地址错误 ([abf1670](https://github.com/miaoxing/admin/commit/abf16701dffcf7ef92f0bb13fb55df04e0641539))
+
+
+### Features
+
+* **theme:** 增加 `danger` 颜色 ([5ba81d4](https://github.com/miaoxing/admin/commit/5ba81d4b18250dd5a909014d70445b58499be8bd))
+
+
+* refactor(admin)!: 升级管理员日志功能 ([3ca89e2](https://github.com/miaoxing/admin/commit/3ca89e2cdb2e886c415a23ede5ce79cf63f62d50))
+* refactor(admin)!: 增加 admins 表单独记录管理员 ([effcb5c](https://github.com/miaoxing/admin/commit/effcb5c23f7045622c92eb9619c99059d9df13b0))
+* refactor!: `Service/Model` 拆分出 `ModelTrait`, 改名为 `BaseModel` ([efb875e](https://github.com/miaoxing/admin/commit/efb875e5954c63aa44e4ebaee3ecf1b180b04436))
+
+
+### Code Refactoring
+
+* 更改头像上传接口为由文件插件提供 ([9ecb305](https://github.com/miaoxing/admin/commit/9ecb3050eb8bcdab4fed719409ff38d76c81d467))
+
+
+### BREAKING CHANGES
+
+* 升级管理员日志功能
+* 管理员接口原来是操作 UserModel，改为操作 AdminModel
+* `Service/Model` 拆分出 `ModelTrait`, 改名为 `BaseModel`
+* 下线头像上传接口，更改为文件插件的上传接口
+
+
+
+
+
+### Dependencies
+
+* **miaoxing:** upgrade from 0.1.5 to 0.1.6
+* **@mxjs/upload:** upgrade from 0.2.0 to 0.3.0
+* **@miaoxing/app:** upgrade from 0.2.4 to 0.2.5
+* **@miaoxing/file:** upgrade to 0.1.0
+
 ## [0.2.4](https://github.com/miaoxing/admin/compare/v0.2.3...v0.2.4) (2020-09-27)
 
 

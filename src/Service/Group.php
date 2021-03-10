@@ -3,7 +3,6 @@
 namespace Miaoxing\Admin\Service;
 
 use Miaoxing\Plugin\ConfigTrait;
-use Miaoxing\Plugin\Model\ModelTrait;
 use Miaoxing\Plugin\Model\ReqQueryTrait;
 
 /**
@@ -13,8 +12,8 @@ use Miaoxing\Plugin\Model\ReqQueryTrait;
  */
 class Group extends \Miaoxing\Plugin\BaseService
 {
-    use ReqQueryTrait;
     use ConfigTrait;
+    use ReqQueryTrait;
 
     /**
      * 是否是客服小组
@@ -46,8 +45,8 @@ class Group extends \Miaoxing\Plugin\BaseService
 
     public function getCustomerServiceGroups()
     {
-        $this->customerServiceGroups ||
-        $this->customerServiceGroups = wei()->group()->findAll(['isCustomerService' => self::CUSTOMER_SERVICE]);
+        $this->customerServiceGroups
+        || $this->customerServiceGroups = wei()->group()->findAll(['isCustomerService' => self::CUSTOMER_SERVICE]);
 
         return $this->customerServiceGroups;
     }

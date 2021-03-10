@@ -15,10 +15,10 @@ use Miaoxing\Plugin\Model\SoftDeleteTrait;
  */
 class GroupModel extends BaseModel
 {
-    use ModelTrait;
     use GroupTrait;
-    use SoftDeleteTrait;
+    use ModelTrait;
     use ReqQueryTrait;
+    use SoftDeleteTrait;
 
     protected $attributes = [
         'sort' => 50,

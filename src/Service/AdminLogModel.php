@@ -14,9 +14,9 @@ use Miaoxing\Plugin\Service\UserModel;
  */
 class AdminLogModel extends BaseModel
 {
-    use ModelTrait;
     use AdminLogTrait;
     use HasAppIdTrait;
+    use ModelTrait;
 
     /**
      * 记录后台操作日志

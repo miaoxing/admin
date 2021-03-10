@@ -183,7 +183,7 @@ class AdminNav extends \Miaoxing\Plugin\BaseService
      * @param int $type
      * @return array
      */
-    protected function orderBy(array $array, $key = 'sort', $type = SORT_DESC)
+    protected function orderBy(array $array, $key = 'sort', $type = \SORT_DESC)
     {
         $array2 = [];
         foreach ($array as $k => $v) {

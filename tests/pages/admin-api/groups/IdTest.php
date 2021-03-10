@@ -3,7 +3,6 @@
 namespace MiaoxingTest\Admin\Pages\AdminApi\Groups;
 
 use Miaoxing\Admin\Service\GroupModel;
-use Miaoxing\Plugin\Service\Jwt;
 use Miaoxing\Plugin\Service\Tester;
 use Miaoxing\Plugin\Service\User;
 use Miaoxing\Plugin\Test\BaseTestCase;

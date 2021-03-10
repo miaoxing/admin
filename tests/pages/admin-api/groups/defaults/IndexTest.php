@@ -3,8 +3,8 @@
 namespace MiaoxingTest\Admin\Pages\AdminApi\Groups\Defaults;
 
 use Miaoxing\Admin\Service\GroupModel;
-use Miaoxing\Plugin\Test\BaseTestCase;
 use Miaoxing\Plugin\Service\Tester;
+use Miaoxing\Plugin\Test\BaseTestCase;
 
 class IndexTest extends BaseTestCase
 {

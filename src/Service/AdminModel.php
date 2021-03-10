@@ -16,8 +16,8 @@ use Miaoxing\Plugin\Service\UserModel;
 class AdminModel extends BaseModel
 {
     use AdminTrait;
-    use ModelTrait;
     use HasAppIdTrait;
+    use ModelTrait;
     use ReqQueryTrait;
 
     /**

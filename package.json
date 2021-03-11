@@ -1,6 +1,6 @@
 {
   "name": "@mxjs/admin",
-  "version": "0.3.7",
+  "version": "0.3.8",
   "private": true,
   "repository": "https://github.com/miaoxing/admin",
   "license": "MIT",
@@ -21,8 +21,8 @@
     "regenerator-runtime": "^0.13.5"
   },
   "dependencies": {
-    "miaoxing": "^0.1.10",
-    "@mxjs/upload": "^0.3.6"
+    "miaoxing": "^0.2.0",
+    "@mxjs/upload": "^0.3.7"
   },
   "jest": {
     "preset": "jest-preset-miaoxing",

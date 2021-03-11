@@ -1,3 +1,13 @@
+## [0.3.7](https://github.com/miaoxing/admin/compare/v0.3.6...v0.3.7) (2021-03-11)
+
+
+
+
+
+### Dependencies
+
+* **@mxjs/upload:** upgrade from `0.3.5` to `0.3.6`
+
 ## [0.3.6](https://github.com/miaoxing/admin/compare/v0.3.5...v0.3.6) (2021-03-10)
 
 

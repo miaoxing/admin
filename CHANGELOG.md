@@ -1,3 +1,22 @@
+## [0.3.9](https://github.com/miaoxing/admin/compare/v0.3.8...v0.3.9) (2021-03-12)
+
+
+### Bug Fixes
+
+* 更新前端包依赖 ([114d5d7](https://github.com/miaoxing/admin/commit/114d5d76c6a9d060d83c6a57c11ce07517eddd70))
+
+
+
+
+
+### Dependencies
+
+* **@miaoxing/dev:** upgrade from `6.3.2` to `6.3.3`
+* **miaoxing:** upgrade from `0.2.0` to `0.2.1`
+* **@mxjs/upload:** upgrade from `0.3.7` to `0.3.8`
+* **@miaoxing/app:** upgrade from `0.2.10` to `0.2.11`
+* **@miaoxing/file:** upgrade from `0.1.5` to `0.1.6`
+
 ## [0.3.8](https://github.com/miaoxing/admin/compare/v0.3.7...v0.3.8) (2021-03-11)
 
 

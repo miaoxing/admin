@@ -25,6 +25,7 @@ export default class extends React.Component {
     api.get('admin-page', {loading: true}).then(ret => {
       if (ret.isSuc()) {
         this.setState(ret.data);
+        document.title = ret.data.title;
       } else {
         $.ret(ret);
       }

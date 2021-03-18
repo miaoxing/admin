@@ -1,4 +1,3 @@
-import {hot} from 'react-hot-loader/root';
 import React from 'react';
 import {ConfigProvider, Spin} from 'antd';
 import {Loading} from '@mxjs/loading';
@@ -21,5 +20,5 @@ const AppContainer = () => {
   );
 };
 
-export default hot(AppContainer);
+export default AppContainer;
 

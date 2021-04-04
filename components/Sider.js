@@ -1,7 +1,7 @@
 import React from 'react';
 import {Menu, Layout} from 'antd';
 import {Link} from '@mxjs/router';
-import {Flex, Image, Heading} from 'rebass';
+import {Flex, Image, Heading} from '@mxjs/box';
 import propTypes from 'prop-types';
 import {withRouter} from 'react-router';
 import ReactRouterPropTypes from 'react-router-prop-types';

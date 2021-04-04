@@ -10,7 +10,7 @@ import {
   Legend,
 } from 'bizcharts';
 import api from '@mxjs/api';
-import {Box, Flex, Link} from 'rebass';
+import {Box, Flex, Link} from '@mxjs/box';
 import {sx} from '@mxjs/css';
 import '@mxjs/bootstrap-antd/Card/style';
 import {RightOutlined} from '@ant-design/icons';

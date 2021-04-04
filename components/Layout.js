@@ -2,7 +2,7 @@ import React from 'react';
 import {Layout} from 'antd';
 import Navbar from './Navbar';
 import Sider from './Sider';
-import {Box} from 'rebass';
+import {Box} from '@mxjs/box';
 import api from '@mxjs/api';
 import $ from 'miaoxing';
 import propTypes from 'prop-types';

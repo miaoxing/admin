@@ -3,10 +3,10 @@
  */
 import React from 'react';
 import {Form, Button, Input} from 'antd';
-import {Box, Heading, Image} from 'rebass';
+import {Box, Heading, Image} from '@mxjs/box';
 import $ from 'miaoxing';
 import api from '@mxjs/api';
-import {Global, css} from '@emotion/core';
+import {Global, css} from '@emotion/react';
 import {FormItem} from '@mxjs/a-form';
 import nextUrl from 'next-url';
 

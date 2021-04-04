@@ -5,7 +5,7 @@ import $ from 'miaoxing';
 import {Layout, Avatar, Menu, Dropdown} from 'antd';
 import {DownOutlined} from '@ant-design/icons';
 import {Link} from '@mxjs/router';
-import {Box} from 'rebass';
+import {Box} from '@mxjs/box';
 import {Actions} from '@mxjs/actions';
 import {floatRight} from '@mxjs/css';
 import {LockOutlined, LogoutOutlined} from '@ant-design/icons';

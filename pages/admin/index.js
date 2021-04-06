@@ -11,10 +11,10 @@ import {
 } from 'bizcharts';
 import api from '@mxjs/api';
 import {Box, Flex, Link} from '@mxjs/box';
-import {sx} from '@mxjs/css';
 import '@mxjs/bootstrap-antd/Card/style';
 import {RightOutlined} from '@ant-design/icons';
 import Icon from '@mxjs/icons';
+import {css} from '@chakra-ui/react';
 
 export default class extends React.Component {
   state = {
@@ -66,7 +66,7 @@ export default class extends React.Component {
         </Card.Body>
       </Card>
 
-      <Card css={sx({mt: 4})}>
+      <Card css={css({mt: 4})}>
         <Card.Header>
           交易走势
         </Card.Header>
@@ -112,7 +112,7 @@ export default class extends React.Component {
         </Card.Body>
       </Card>
 
-      <Card css={sx({mt: 4})}>
+      <Card css={css({mt: 4})}>
         <Flex as={Card.Header} justifyContent="space-between" alignItems="center">
           更新日志
           <Link href="#" target="_blank" fontWeight="normal" fontSize="md">

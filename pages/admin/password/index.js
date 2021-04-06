@@ -9,7 +9,7 @@ import curUrl from '@mxjs/cur-url';
 export default class extends React.Component {
   render() {
     return <Page>
-      <Box mb={4} abc="bbc">
+      <Box mb={4}>
         <Alert type="warning" message="修改完成后需重新登录，请妥善保管好密码。"/>
       </Box>
       <Form

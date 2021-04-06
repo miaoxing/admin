@@ -115,7 +115,7 @@ export default class extends React.Component {
       <Card css={sx({mt: 4})}>
         <Flex as={Card.Header} justifyContent="space-between" alignItems="center">
           更新日志
-          <Link href="#" target="_blank" fontWeight="normal" fontSize="1">
+          <Link href="#" target="_blank" fontWeight="normal" fontSize="md">
             更多{' '}<RightOutlined/>
           </Link>
         </Flex>

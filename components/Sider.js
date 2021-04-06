@@ -89,9 +89,9 @@ class extends React.Component {
         breakpoint="lg"
         collapsedWidth="0"
       >
-        <Flex alignItems="center" justifyContent="center" height={60}>
-          <Image height={25} src={this.props.logo}/>
-          <Heading as="h1" ml={2} color="white">{this.props.title}</Heading>
+        <Flex alignItems="center" justifyContent="center" height="60px">
+          <Image height="25px" src={this.props.logo}/>
+          <Heading as="h1" ml={2} mb={0} fontSize="xl" color="white">{this.props.title}</Heading>
         </Flex>
 
         {this.props.menus.length && <Menu

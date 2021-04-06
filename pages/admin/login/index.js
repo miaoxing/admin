@@ -24,20 +24,20 @@ export default class extends React.Component {
       <Box
         width={350}
         mx="auto"
-        mt={5}
-        p={5}
+        mt={12}
+        p={12}
         bg="white"
       >
         <Box
           mb={4}
           textAlign="center"
         >
-          <Image height={50} src="/images/logo.svg"/>
+          <Image height="50px" src="/images/logo.svg"/>
         </Box>
         <Heading
-          mb={5}
+          mb={12}
           textAlign="center"
-          fontSize={3}
+          fontSize="lg"
           fontWeight="normal"
           color="muted"
         >

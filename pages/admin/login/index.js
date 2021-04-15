@@ -3,7 +3,7 @@
  */
 import React from 'react';
 import {Form, Button, Input} from 'antd';
-import {Box, Heading, Image} from '@mxjs/box';
+import {Box, Flex, Heading, Image} from '@mxjs/box';
 import $ from 'miaoxing';
 import api from '@mxjs/api';
 import {Global, css} from '@emotion/react';
@@ -12,19 +12,19 @@ import nextUrl from 'next-url';
 
 export default class extends React.Component {
   render() {
-    return <>
+    return <Flex>
       <Global
         styles={css`
           body {
-            background: #f5f8fa url(https://image-10001577.image.myqcloud.com/uploads/3/20190602/15594729401485.jpg);
+            background: #f5f8fa url(https://image-10001577.image.myqcloud.com/uploads/3/20190602/15594729401485.jpg) no-repeat center center fixed;
             background-size: cover;
           }
-      `}
+        `}
       />
       <Box
         width={350}
         mx="auto"
-        mt={12}
+        my={12}
         p={12}
         bg="white"
       >
@@ -75,6 +75,6 @@ export default class extends React.Component {
           </FormItem>
         </Form>
       </Box>
-    </>;
+    </Flex>;
   }
 }

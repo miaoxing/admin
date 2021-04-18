@@ -14,7 +14,7 @@ import {Box, Flex, Link} from '@mxjs/box';
 import '@mxjs/bootstrap-antd/Card/style';
 import {RightOutlined} from '@ant-design/icons';
 import Icon from '@mxjs/icons';
-import {css} from '@chakra-ui/react';
+import {css} from '@mxjs/css';
 
 export default class extends React.Component {
   state = {

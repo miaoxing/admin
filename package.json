@@ -7,6 +7,9 @@
   "scripts": {
     "test": "jest"
   },
+  "dependencies": {
+    "@mxjs/css": "^0.1.0"
+  },
   "devDependencies": {
     "@miaoxing/dev": "^6.3.4",
     "@testing-library/react": "^10.4.8",

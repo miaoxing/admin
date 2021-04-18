@@ -29,6 +29,9 @@
     "color": "^3.1.2",
     "lodash.merge": "^4.6.2"
   },
+  "ciDependencies": {
+    "@mxjs/css": "miaoxing/mxjs-css"
+  },
   "jest": {
     "preset": "jest-preset-miaoxing",
     "snapshotSerializers": [

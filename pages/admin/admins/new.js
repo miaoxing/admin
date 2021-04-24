@@ -42,11 +42,8 @@ class AdminForm extends React.Component {
                 <Select options={this.state.data} labelKey="name" valueKey="id"/>
               </FormItem>
 
-              <FormItem label="头像" name={['user', 'avatar']}
-                extra="支持.jpg .jpeg .bmp .gif .png格式照片"
-                valuePropName="fileList"
-              >
-                <Upload name={['user', 'avatar']} url={$.apiUrl('files', {type: 'image'})} max={1}/>
+              <FormItem label="头像" name={['user', 'avatar']} extra="支持.jpg .jpeg .bmp .gif .png格式照片">
+                <Upload url={$.apiUrl('files', {type: 'image'})} max={1}/>
               </FormItem>
 
               <FormItem name="id" type="hidden"/>

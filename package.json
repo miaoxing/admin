@@ -1,6 +1,6 @@
 {
   "name": "@mxjs/admin",
-  "version": "0.3.11",
+  "version": "0.3.12",
   "private": true,
   "repository": "https://github.com/miaoxing/admin",
   "license": "MIT",
@@ -8,10 +8,10 @@
     "test": "jest"
   },
   "dependencies": {
-    "@mxjs/css": "^0.1.0"
+    "@mxjs/css": "^0.2.0"
   },
   "devDependencies": {
-    "@miaoxing/dev": "^6.3.4",
+    "@miaoxing/dev": "^6.4.0",
     "@testing-library/react": "^10.4.8",
     "core-js": "^3.6.5",
     "enzyme": "^3.11.0",
@@ -23,8 +23,8 @@
     "react-router": "^5.2.0",
     "regenerator-runtime": "^0.13.5",
     "@ant-design/icons": "^4.2.1",
-    "miaoxing": "^0.2.2",
-    "@mxjs/upload": "^0.3.10",
+    "miaoxing": "^0.2.3",
+    "@mxjs/upload": "^0.4.0",
     "bizcharts": "^3.5.6",
     "color": "^3.1.2",
     "lodash.merge": "^4.6.2"

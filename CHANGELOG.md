@@ -1,3 +1,28 @@
+## [0.3.12](https://github.com/miaoxing/admin/compare/v0.3.11...v0.3.12) (2021-04-27)
+
+
+### Bug Fixes
+
+* 内容过高时背景重复，底部边距失效，头部边距导致出现滚动条 ([8e114f7](https://github.com/miaoxing/admin/commit/8e114f7d1ffbcca43e68a2f328e06ede6f9e69e0))
+
+
+### Features
+
+* 增加创建页面测试数据的 Seeder ([152446f](https://github.com/miaoxing/admin/commit/152446f0f89f9edeecd13aa4885ec18e75061fe0))
+
+
+
+
+
+### Dependencies
+
+* **@mxjs/css:** upgrade from `0.1.0` to `0.2.0`
+* **@miaoxing/dev:** upgrade from `6.3.4` to `6.4.0`
+* **miaoxing:** upgrade from `0.2.2` to `0.2.3`
+* **@mxjs/upload:** upgrade from `0.3.10` to `0.4.0`
+* **@miaoxing/app:** upgrade from `0.2.13` to `0.3.0`
+* **@miaoxing/file:** upgrade from `0.1.8` to `0.1.9`
+
 ## [0.3.11](https://github.com/miaoxing/admin/compare/v0.3.10...v0.3.11) (2021-03-22)
 
 

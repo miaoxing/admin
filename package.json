@@ -30,7 +30,9 @@
     "lodash.merge": "^4.6.2"
   },
   "ciDependencies": {
-    "@mxjs/css": "miaoxing/mxjs-css"
+    "@mxjs/css": "miaoxing/mxjs-css",
+    "babel-preset-miaoxing": "miaoxing/babel-preset-miaoxing",
+    "@miaoxing/dev": "miaoxing/dev"
   },
   "jest": {
     "preset": "jest-preset-miaoxing",

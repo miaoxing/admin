@@ -22,7 +22,7 @@
     "react": "^16.13.1",
     "react-router": "^5.2.0",
     "regenerator-runtime": "^0.13.5",
-    "@ant-design/icons": "^4.2.1",
+    "@ant-design/icons": "^4.6.2",
     "miaoxing": "^0.2.3",
     "@mxjs/upload": "^0.4.0",
     "bizcharts": "^3.5.6",

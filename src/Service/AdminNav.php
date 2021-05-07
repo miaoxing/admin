@@ -4,6 +4,11 @@ namespace Miaoxing\Admin\Service;
 
 /**
  * 后台导航
+ *
+ * @mixin \EventMixin
+ * @mixin \ViewMixin
+ * @mixin \AppMixin
+ * @mixin \PluginMixin
  */
 class AdminNav extends \Miaoxing\Plugin\BaseService
 {

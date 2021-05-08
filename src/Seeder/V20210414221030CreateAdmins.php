@@ -6,7 +6,7 @@ use Faker\Factory;
 use Miaoxing\Admin\Service\AdminModel;
 use Miaoxing\Admin\Service\GroupModel;
 use Miaoxing\Plugin\Seeder\BaseSeeder;
-use Miaoxing\User\Service\UserModel;
+use Miaoxing\Plugin\Service\UserModel;
 
 class V20210414221030CreateAdmins extends BaseSeeder
 {

@@ -18,7 +18,7 @@ class Group extends \Miaoxing\Plugin\BaseService
     /**
      * 是否是客服小组
      */
-    const CUSTOMER_SERVICE = 1;
+    public const CUSTOMER_SERVICE = 1;
 
     protected $table = 'groups';
 

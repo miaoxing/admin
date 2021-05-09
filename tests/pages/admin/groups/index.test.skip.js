@@ -1,6 +1,3 @@
-import 'core-js/stable';
-import 'regenerator-runtime/runtime';
-
 import React from 'react';
 import {MemoryRouter} from 'react-router';
 import $ from 'miaoxing';

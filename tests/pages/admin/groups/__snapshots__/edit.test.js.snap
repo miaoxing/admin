@@ -1,0 +1,42 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`admin/groups form 1`] = `
+[MockFunction] {
+  "calls": Array [
+    Array [
+      Object {
+        "method": "get",
+        "url": "/admin-api/groups/defaults",
+      },
+    ],
+    Array [
+      Object {
+        "data": Object {
+          "id": 1,
+          "name": "测试分组",
+          "sort": 50,
+        },
+        "loading": true,
+        "method": "POST",
+        "url": "/admin-api/groups",
+      },
+    ],
+  ],
+  "results": Array [
+    Object {
+      "type": "return",
+      "value": Promise {
+        "reject": [Function],
+        "resolve": [Function],
+      },
+    },
+    Object {
+      "type": "return",
+      "value": Promise {
+        "reject": [Function],
+        "resolve": [Function],
+      },
+    },
+  ],
+}
+`;

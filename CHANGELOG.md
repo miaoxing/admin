@@ -1,3 +1,28 @@
+## [0.3.13](https://github.com/miaoxing/admin/compare/v0.3.12...v0.3.13) (2021-05-11)
+
+
+### Bug Fixes
+
+* 更新默认数据的结构 ([41f97d9](https://github.com/miaoxing/admin/commit/41f97d929a36f00e470989741be550f8a88ceb51))
+
+
+
+
+
+### Dependencies
+
+* **@mxjs/css:** upgrade from `0.2.0` to `0.2.1`
+* **miaoxing:** upgrade from `0.2.3` to `0.2.4`
+* **@mxjs/upload:** upgrade from `0.4.0` to `0.4.1`
+* **@mxjs/a-clink:** upgrade from `0.1.6` to `0.1.7`
+* **@mxjs/a-table:** upgrade from `0.3.9` to `0.3.10`
+* **@mxjs/a-page:** upgrade from `0.2.6` to `0.2.7`
+* **@mxjs/a-form:** upgrade from `0.2.13` to `0.2.14`
+* **@miaoxing/dev:** upgrade from `6.4.0` to `7.0.0`
+* **@mxjs/test:** upgrade from `0.1.6` to `0.1.7`
+* **@miaoxing/app:** upgrade from `0.3.0` to `0.3.1`
+* **@miaoxing/file:** upgrade from `0.1.9` to `0.1.10`
+
 ## [0.3.12](https://github.com/miaoxing/admin/compare/v0.3.11...v0.3.12) (2021-04-27)
 
 

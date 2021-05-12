@@ -38,6 +38,11 @@ class AdminPlugin extends BasePlugin
             'sort' => 100,
         ];
 
+        $categories['content'] = [
+            'name' => '内容',
+            'sort' => 95,
+        ];
+
         $categories['setting'] = [
             'name' => '设置',
             'sort' => 90,

@@ -5,9 +5,8 @@ import $ from 'miaoxing';
 import {Layout, Avatar, Menu, Dropdown} from 'antd';
 import {DownOutlined} from '@ant-design/icons';
 import {Link} from '@mxjs/router';
-import {Box} from '@mxjs/box';
 import {Actions} from '@mxjs/actions';
-import {floatRight} from '@mxjs/css';
+import {css, floatRight} from '@mxjs/css';
 import {LockOutlined, LogoutOutlined} from '@ant-design/icons';
 import propTypes from 'prop-types';
 
@@ -18,7 +17,7 @@ export default class extends React.Component {
 
   static propTypes = {
     user: propTypes.object,
-  }
+  };
 
   handleLogout = async () => {
     const ret = await api.post('logout');
@@ -26,19 +25,18 @@ export default class extends React.Component {
     if (ret.isSuc()) {
       history.push($.url('admin/login', {next: window.location.pathname}));
     }
-  }
+  };
 
   render() {
     const {user} = this.props;
 
     return (
-      <Box
-        as={Layout.Header}
-        bg="white"
-        sx={{
+      <Layout.Header
+        css={css({
+          bg: 'white !important', /* 开发时，避免 reload 之后被原有样式覆盖 */
           boxShadow: 'sm',
           zIndex: 1,
-        }}
+        })}
       >
         <Dropdown
           css={floatRight()}
@@ -67,7 +65,7 @@ export default class extends React.Component {
             </Actions>
           </a>
         </Dropdown>
-      </Box>
+      </Layout.Header>
     );
   }
 }

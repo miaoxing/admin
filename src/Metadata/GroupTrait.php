@@ -3,7 +3,7 @@
 namespace Miaoxing\Admin\Metadata;
 
 /**
- * @property int $id
+ * @property int|null $id
  * @property string $name
  * @property int $sort
  * @property int $status

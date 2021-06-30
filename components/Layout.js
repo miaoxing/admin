@@ -22,7 +22,7 @@ export default class extends React.Component {
   };
 
   componentDidMount() {
-    api.get('admin-page', {loading: true}).then(ret => {
+    api.get('admin-page', {loading: true}).then(({ret}) => {
       if (ret.isSuc()) {
         this.setState(ret.data);
         document.title = ret.data.title;
@@ -31,7 +31,7 @@ export default class extends React.Component {
       }
     });
 
-    api.get('user').then(ret => {
+    api.get('user').then(({ret}) => {
       if (ret.isSuc()) {
         this.setState({user: ret.data});
       } else {

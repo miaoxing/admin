@@ -27,13 +27,15 @@ describe('admin/groups', () => {
 
     $.http = jest.fn()
       .mockImplementationOnce(() => promise.resolve(Ret.new({
-        code: 1,
-        data: [
-          {
-            id: 1,
-            name: '测试',
-          },
-        ],
+        ret: {
+          code: 1,
+          data: [
+            {
+              id: 1,
+              name: '测试',
+            },
+          ],
+        },
       })));
 
     const {container, findByText} = render(<MemoryRouter>
@@ -54,13 +56,15 @@ describe('admin/groups', () => {
 
     $.http = jest.fn()
       .mockImplementationOnce(() => promise.resolve(Ret.new({
-        code: 1,
-        data: [
-          {
-            id: 1,
-            name: '测试',
-          },
-        ],
+        ret: {
+          code: 1,
+          data: [
+            {
+              id: 1,
+              name: '测试',
+            },
+          ],
+        },
       })));
 
     const {findByText} = render(<MemoryRouter>
@@ -79,9 +83,11 @@ describe('admin/groups', () => {
     $.confirm = jest.fn().mockImplementationOnce((message, fn) => {
       return fn(true);
     });
-    $.http.mockImplementationOnce(() => promise2.resolve(Ret.new({
-      code: 1,
-    })));
+    $.http.mockImplementationOnce(() => promise2.resolve({
+      ret: Ret.new({
+        code: 1,
+      }),
+    }));
 
     // Act 点击删除会有弹窗确认
     fireEvent.click(link);

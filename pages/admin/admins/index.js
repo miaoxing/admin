@@ -13,7 +13,7 @@ export default class extends React.Component {
   };
 
   componentDidMount() {
-    api.get('groups?withUngroup=1').then(ret => this.setState(ret));
+    api.get('groups?withUngroup=1').then(({ret}) => this.setState(ret));
   }
 
   render() {

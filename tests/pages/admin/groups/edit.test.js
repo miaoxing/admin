@@ -30,19 +30,25 @@ describe('admin/groups', () => {
     $.http = jest.fn()
       // 读取默认数据
       .mockImplementationOnce(() => promise.resolve({
-        code: 1,
-        data: {
-          id: 1,
-          sort: 50,
+        ret: {
+          code: 1,
+          data: {
+            id: 1,
+            sort: 50,
+          },
         },
       }))
       .mockImplementationOnce(() => promise2.resolve({
-        code: 1,
-        data: [],
+        ret: {
+          code: 1,
+          data: [],
+        },
       }))
       .mockImplementationOnce(() => promise3.resolve({
-        code: 1,
-        data: [],
+        ret: {
+          code: 1,
+          data: [],
+        },
       }));
 
     const {getByLabelText} = render(<MemoryRouter>

@@ -23,7 +23,7 @@ export default class extends React.Component {
   }
 
   componentDidMount() {
-    api.get('admin', {loading: true}).then(ret => this.setState(ret));
+    api.get('admin', {loading: true}).then(({ret}) => this.setState(ret));
   }
 
   render() {

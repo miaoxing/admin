@@ -46,7 +46,7 @@ export default class extends React.Component {
         <Form
           size="large"
           onFinish={async values => {
-            const ret = await api.postCur({data: values});
+            const {ret} = await api.postCur({data: values});
             await $.ret(ret);
             if (ret.isSuc()) {
               window.localStorage.setItem('token', ret.token);

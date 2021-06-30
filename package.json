@@ -38,6 +38,7 @@
     "jest-preset-miaoxing": "miaoxing/jest-preset-miaoxing",
     "@mxjs/css": "miaoxing/mxjs-css",
     "@miaoxing/dev": "miaoxing/dev",
-    "@mxjs/router": "miaoxing/mxjs-router"
+    "@mxjs/a-form": "miaoxing/mxjs-a-form",
+    "@mxjs/a-table": "miaoxing/mxjs-a-table"
   }
 }

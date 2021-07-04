@@ -24,7 +24,7 @@ class AdminModel extends BaseModel
      * @Relation
      */
     #[Relation]
-    public function user()
+    public function user(): UserModel
     {
         return $this->belongsTo(UserModel::class);
     }

@@ -29,9 +29,9 @@ class GroupModel extends BaseModel
      */
     protected $parents;
 
-    public function parent()
+    public function parent(): self
     {
-        return $this->hasOne(wei()->groupModel(), 'id', 'parentId');
+        return $this->hasOne(static::class, 'id', 'parentId');
     }
 
     public function afterSave()

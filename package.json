@@ -39,6 +39,7 @@
     "jest-preset-miaoxing": "miaoxing/jest-preset-miaoxing",
     "@mxjs/css": "miaoxing/mxjs-css",
     "@miaoxing/dev": "miaoxing/dev",
+    "@mxjs/a-clink": "miaoxing/mxjs-a-clink",
     "@mxjs/a-form": "miaoxing/mxjs-a-form",
     "@mxjs/a-table": "miaoxing/mxjs-a-table"
   }

@@ -1,4 +1,3 @@
-import React from 'react';
 import $ from 'miaoxing';
 import Form from '../../../../pages/admin/groups/new';
 import {app} from '@mxjs/app';

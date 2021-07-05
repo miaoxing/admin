@@ -2,14 +2,14 @@
  * @share [id]/edit
  */
 import $ from 'miaoxing';
-import React from 'react';
+import { Component } from 'react';
 import {Page, PageActions} from '@mxjs/a-page';
 import {Form, FormItem, FormAction, Select} from '@mxjs/a-form';
 import {CListBtn} from '@mxjs/a-clink';
 import api from '@mxjs/api';
 import Upload from '@mxjs/upload';
 
-class AdminForm extends React.Component {
+class AdminForm extends Component {
   state = {
     data: [],
   };

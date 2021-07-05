@@ -1,4 +1,4 @@
-import React from 'react';
+import { Component } from 'react';
 import {history} from '@mxjs/app';
 import api from '@mxjs/api';
 import $ from 'miaoxing';
@@ -10,7 +10,7 @@ import {css, floatRight} from '@mxjs/css';
 import {LockOutlined, LogoutOutlined} from '@ant-design/icons';
 import propTypes from 'prop-types';
 
-export default class extends React.Component {
+export default class extends Component {
   static defaultProps = {
     user: {},
   };

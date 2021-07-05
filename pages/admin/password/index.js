@@ -1,12 +1,12 @@
 import $ from 'miaoxing';
-import React from 'react';
+import { Component } from 'react';
 import {Page} from '@mxjs/a-page';
 import {Form, FormAction, FormItem} from '@mxjs/a-form';
 import {Alert} from 'antd';
 import {Box} from '@mxjs/box';
 import curUrl from '@mxjs/cur-url';
 
-export default class extends React.Component {
+export default class extends Component {
   render() {
     return <Page>
       <Box mb={4}>

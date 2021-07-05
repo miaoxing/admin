@@ -1,4 +1,4 @@
-import React from 'react';
+import { Component } from 'react';
 import {Col, Row, Card, ListGroup} from '@mxjs/bootstrap';
 import color from 'color';
 import {Page} from '@mxjs/a-page';
@@ -16,7 +16,7 @@ import {RightOutlined} from '@ant-design/icons';
 import Icon from '@mxjs/icons';
 import {css} from '@mxjs/css';
 
-export default class extends React.Component {
+export default class extends Component {
   state = {
     charts: [],
     stats: [],

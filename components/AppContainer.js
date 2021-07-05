@@ -1,4 +1,3 @@
-import React from 'react';
 import {ConfigProvider, Spin} from 'antd';
 import {Loading} from '@mxjs/loading';
 import App from 'plugins/app/components/App';

@@ -1,4 +1,4 @@
-import React from 'react';
+import { Component } from 'react';
 import {Layout} from 'antd';
 import Navbar from './Navbar';
 import Sider from './Sider';
@@ -8,7 +8,7 @@ import $ from 'miaoxing';
 import propTypes from 'prop-types';
 import {PageContext} from '@mxjs/a-page';
 
-export default class extends React.Component {
+export default class extends Component {
   state = {
     menus: [],
     pages: {},

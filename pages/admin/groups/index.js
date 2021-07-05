@@ -1,4 +1,3 @@
-import React from 'react';
 import {Table, TableProvider, CTableDeleteLink, useTable} from '@mxjs/a-table';
 import {CEditLink, CNewBtn} from '@mxjs/a-clink';
 import {Page, PageActions} from '@mxjs/a-page';

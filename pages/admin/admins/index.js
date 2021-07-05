@@ -1,4 +1,4 @@
-import React from 'react';
+import { Component } from 'react';
 import {Page, PageActions} from '@mxjs/a-page';
 import {Table, TableProvider, TableStatusCheckbox} from '@mxjs/a-table';
 import {SearchForm, SearchItem, Select} from '@mxjs/a-form';
@@ -7,7 +7,7 @@ import {Tooltip} from 'antd';
 import {QuestionCircleOutlined} from '@ant-design/icons';
 import api from '@mxjs/api';
 
-export default class extends React.Component {
+export default class extends Component {
   state = {
     data: [],
   };

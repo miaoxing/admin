@@ -1,7 +1,7 @@
 /**
  * @layout false
  */
-import React from 'react';
+import { Component } from 'react';
 import {Form, Button, Input} from 'antd';
 import {Box, Flex, Heading, Image} from '@mxjs/box';
 import $ from 'miaoxing';
@@ -10,7 +10,7 @@ import {Global, css} from '@emotion/react';
 import {FormItem} from '@mxjs/a-form';
 import nextUrl from 'next-url';
 
-export default class extends React.Component {
+export default class extends Component {
   render() {
     return <Flex>
       <Global

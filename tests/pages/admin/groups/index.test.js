@@ -25,17 +25,16 @@ describe('admin/groups', () => {
     const promise = createPromise();
 
     $.http = jest.fn()
-      .mockImplementationOnce(() => promise.resolve(Ret.new({
-        ret: {
-          code: 1,
+      .mockImplementationOnce(() => promise.resolve({
+        ret: Ret.suc({
           data: [
             {
               id: 1,
               name: '测试',
             },
           ],
-        },
-      })));
+        }),
+      }));
 
     const {container, findByText} = render(<MemoryRouter>
       <Index/>
@@ -54,17 +53,16 @@ describe('admin/groups', () => {
     const promise = createPromise();
 
     $.http = jest.fn()
-      .mockImplementationOnce(() => promise.resolve(Ret.new({
-        ret: {
-          code: 1,
+      .mockImplementationOnce(() => promise.resolve({
+        ret: Ret.suc({
           data: [
             {
               id: 1,
               name: '测试',
             },
           ],
-        },
-      })));
+        }),
+      }));
 
     const {findByText} = render(<MemoryRouter>
       <Index/>
@@ -83,9 +81,7 @@ describe('admin/groups', () => {
       return fn(true);
     });
     $.http.mockImplementationOnce(() => promise2.resolve({
-      ret: Ret.new({
-        code: 1,
-      }),
+      ret: Ret.suc(),
     }));
 
     // Act 点击删除会有弹窗确认

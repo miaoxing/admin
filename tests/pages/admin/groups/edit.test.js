@@ -1,4 +1,4 @@
-import $ from 'miaoxing';
+import $, {Ret} from 'miaoxing';
 import Form from '../../../../pages/admin/groups/new';
 import {app} from '@mxjs/app';
 import {render, screen, fireEvent, waitFor} from '@testing-library/react';
@@ -29,25 +29,22 @@ describe('admin/groups', () => {
     $.http = jest.fn()
       // 读取默认数据
       .mockImplementationOnce(() => promise.resolve({
-        ret: {
-          code: 1,
+        ret: Ret.suc({
           data: {
             id: 1,
             sort: 50,
           },
-        },
+        }),
       }))
       .mockImplementationOnce(() => promise2.resolve({
-        ret: {
-          code: 1,
+        ret: Ret.suc({
           data: [],
-        },
+        }),
       }))
       .mockImplementationOnce(() => promise3.resolve({
-        ret: {
-          code: 1,
+        ret: Ret.suc({
           data: [],
-        },
+        }),
       }));
 
     const {getByLabelText} = render(<MemoryRouter>

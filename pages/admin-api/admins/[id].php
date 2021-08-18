@@ -17,7 +17,7 @@ return new class extends BaseController {
     {
         $data = (array) $req['user'];
         $admin = AdminModel::findFromReq();
-        $user = $admin->user()->findOrInitBy([]);
+        $user = $admin->user()->findOrInitBy();
 
         // 添加用户时才校验用户名
         $validateUsername = $user->isNew();

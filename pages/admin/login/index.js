@@ -50,7 +50,7 @@ export default class extends Component {
             await $.ret(ret);
             if (ret.isSuc()) {
               window.localStorage.setItem('token', ret.token);
-              window.location = nextUrl($.url('admin'));
+              window.location.href = nextUrl($.url('admin'));
             }
           }}
         >

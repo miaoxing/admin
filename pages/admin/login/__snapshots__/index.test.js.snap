@@ -1,0 +1,30 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`login suc 1`] = `
+[MockFunction] {
+  "calls": Array [
+    Array [
+      Object {
+        "data": Object {
+          "password": "password",
+          "username": "admin",
+        },
+        "method": "post",
+        "url": "/admin-api/login",
+      },
+    ],
+  ],
+  "results": Array [
+    Object {
+      "type": "return",
+      "value": Promise {},
+    },
+  ],
+}
+`;
+
+exports[`login suc 2`] = `
+Storage {
+  "token": "test",
+}
+`;

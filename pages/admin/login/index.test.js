@@ -43,4 +43,23 @@ describe('login', () => {
     expect(window.localStorage).toMatchSnapshot();
     expect(window.location.href).toBe('/admin');
   });
+
+  test('err', async () => {
+    $.http = jest.fn().mockResolvedValueOnce({
+      ret: Ret.err('测试登录失败'),
+    });
+
+    const {container, ...result} = render(<Index/>);
+
+    fireEvent.change(result.getByPlaceholderText('用户名'), {target: {value: 'admin'}});
+    fireEvent.change(result.getByPlaceholderText('密码'), {target: {value: 'password'}});
+    fireEvent.click(result.getByText('登 录'));
+
+    await waitFor(() => {
+      expect($.http).toBeCalled();
+    });
+
+    expect($.http).toMatchSnapshot();
+    expect(window.location.href).toBe('http://localhost/admin/login');
+  });
 });

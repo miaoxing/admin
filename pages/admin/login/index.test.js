@@ -20,6 +20,18 @@ describe('login', () => {
     app.page = {};
   });
 
+  const login = async () => {
+    const {container, ...result} = render(<Index/>);
+
+    fireEvent.change(result.getByPlaceholderText('用户名'), {target: {value: 'admin'}});
+    fireEvent.change(result.getByPlaceholderText('密码'), {target: {value: 'password'}});
+    fireEvent.click(result.getByText('登 录'));
+
+    await waitFor(() => {
+      expect($.http).toBeCalled();
+    });
+  };
+
   test('suc', async () => {
     $.http = jest.fn().mockResolvedValueOnce({
       ret: Ret.suc({
@@ -29,19 +41,25 @@ describe('login', () => {
 
     window.localStorage = jest.fn();
 
-    const {container, ...result} = render(<Index/>);
-
-    fireEvent.change(result.getByPlaceholderText('用户名'), {target: {value: 'admin'}});
-    fireEvent.change(result.getByPlaceholderText('密码'), {target: {value: 'password'}});
-    fireEvent.click(result.getByText('登 录'));
-
-    await waitFor(() => {
-      expect($.http).toBeCalled();
-    });
+    await login();
 
     expect($.http).toMatchSnapshot();
     expect(window.localStorage).toMatchSnapshot();
     expect(window.location.href).toBe('/admin');
+  });
+
+  test('suc and redirect', async () => {
+    setUrl('admin/login?next=/admin/password');
+
+    $.http = jest.fn().mockResolvedValueOnce({
+      ret: Ret.suc({
+        token: 'test',
+      }),
+    });
+
+    await login();
+
+    expect(window.location.href).toBe('/admin/password');
   });
 
   test('err', async () => {
@@ -49,15 +67,7 @@ describe('login', () => {
       ret: Ret.err('测试登录失败'),
     });
 
-    const {container, ...result} = render(<Index/>);
-
-    fireEvent.change(result.getByPlaceholderText('用户名'), {target: {value: 'admin'}});
-    fireEvent.change(result.getByPlaceholderText('密码'), {target: {value: 'password'}});
-    fireEvent.click(result.getByText('登 录'));
-
-    await waitFor(() => {
-      expect($.http).toBeCalled();
-    });
+    await login();
 
     expect($.http).toMatchSnapshot();
     expect(window.location.href).toBe('http://localhost/admin/login');

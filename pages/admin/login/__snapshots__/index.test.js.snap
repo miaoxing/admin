@@ -33,7 +33,7 @@ exports[`login suc 1`] = `
           "username": "admin",
         },
         "method": "post",
-        "url": "/admin-api/login",
+        "url": "/admin-api/login?next=/admin/password",
       },
     ],
   ],

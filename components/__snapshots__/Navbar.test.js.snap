@@ -1,0 +1,36 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Navbar logout 1`] = `
+[MockFunction] {
+  "calls": Array [
+    Array [
+      Object {
+        "method": "post",
+        "url": "/api/logout",
+      },
+    ],
+  ],
+  "results": Array [
+    Object {
+      "type": "return",
+      "value": Promise {},
+    },
+  ],
+}
+`;
+
+exports[`Navbar logout 2`] = `
+[MockFunction] {
+  "calls": Array [
+    Array [
+      "/admin/login?next=%2F",
+    ],
+  ],
+  "results": Array [
+    Object {
+      "type": "return",
+      "value": undefined,
+    },
+  ],
+}
+`;

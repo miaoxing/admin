@@ -8,6 +8,7 @@ use Miaoxing\Plugin\Model\Attributes\Relation;
 use Miaoxing\Plugin\Model\HasAppIdTrait;
 use Miaoxing\Plugin\Model\ModelTrait;
 use Miaoxing\Plugin\Model\ReqQueryTrait;
+use Miaoxing\Plugin\Model\SnowflakeTrait;
 use Miaoxing\Plugin\Service\UserModel;
 
 /**
@@ -19,6 +20,7 @@ class AdminModel extends BaseModel
     use HasAppIdTrait;
     use ModelTrait;
     use ReqQueryTrait;
+    use SnowflakeTrait;
 
     /**
      * @Relation

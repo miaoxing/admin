@@ -12,9 +12,9 @@ class V20210117162415CreateAdminsTable extends BaseMigration
     public function up()
     {
         $this->schema->table('admins')
-            ->id()
+            ->bigId()
             ->uInt('app_id')
-            ->uInt('user_id')
+            ->uBigInt('user_id')
             ->timestamps()
             ->userstamps()
             ->index('user_id')

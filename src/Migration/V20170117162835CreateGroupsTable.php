@@ -12,7 +12,7 @@ class V20170117162835CreateGroupsTable extends BaseMigration
     public function up()
     {
         $this->schema->table('groups')->tableComment('用户分组')
-            ->id()
+            ->bigId()
             ->string('name', 64)
             ->uInt('sort')->defaults(50)
             ->uTinyInt('status')

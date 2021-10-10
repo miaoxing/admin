@@ -27,7 +27,8 @@
     "@mxjs/a-clink": "^0.1.8",
     "@mxjs/a-table": "^0.3.11",
     "@mxjs/a-page": "^0.2.8",
-    "@mxjs/a-form": "^0.2.15"
+    "@mxjs/a-form": "^0.2.15",
+    "@mxjs/api": "^0.1.3"
   },
   "devDependencies": {
     "@miaoxing/dev": "^7.0.1",

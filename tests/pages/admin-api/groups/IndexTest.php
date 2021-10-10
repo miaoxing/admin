@@ -42,6 +42,6 @@ class IndexTest extends BaseTestCase
         $this->assertNotEquals('1', $group->id);
         $this->assertSame('测试', $group->name);
         $this->assertSame(60, $group->sort);
-        $this->assertSame(1, $group->createdBy);
+        $this->assertSame('1', $group->createdBy);
     }
 }

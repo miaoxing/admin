@@ -4,33 +4,38 @@
  * @property    Miaoxing\Admin\Service\AdminLogModel $adminLogModel 后台管理日志
  * @method      Miaoxing\Admin\Service\AdminLogModel adminLogModel() 返回当前对象
  */
-class AdminLogModelMixin {
+class AdminLogModelMixin
+{
 }
 
 /**
  * @property    Miaoxing\Admin\Service\AdminModel $adminModel
  * @method      Miaoxing\Admin\Service\AdminModel adminModel() 返回当前对象
  */
-class AdminModelMixin {
+class AdminModelMixin
+{
 }
 
 /**
  * @property    Miaoxing\Admin\Service\AdminNav $adminNav 后台导航
  */
-class AdminNavMixin {
+class AdminNavMixin
+{
 }
 
 /**
  * @property    Miaoxing\Admin\Service\Group $group 用户分组
  */
-class GroupMixin {
+class GroupMixin
+{
 }
 
 /**
  * @property    Miaoxing\Admin\Service\GroupModel $groupModel GroupModel
  * @method      Miaoxing\Admin\Service\GroupModel groupModel() 返回当前对象
  */
-class GroupModelMixin {
+class GroupModelMixin
+{
 }
 
 /**
@@ -40,7 +45,8 @@ class GroupModelMixin {
  * @mixin GroupMixin
  * @mixin GroupModelMixin
  */
-class AutoCompletion {
+class AutoCompletion
+{
 }
 
 /**
@@ -48,7 +54,7 @@ class AutoCompletion {
  */
 function wei()
 {
-    return new AutoCompletion;
+    return new AutoCompletion();
 }
 
 /** @var Miaoxing\Admin\Service\AdminLogModel $adminLog */

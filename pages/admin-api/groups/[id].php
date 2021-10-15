@@ -9,7 +9,7 @@ use Miaoxing\Services\Service\UpdateAction;
 use Wei\Event;
 use Wei\V;
 
-return new class extends BaseController {
+return new class() extends BaseController {
     public function get()
     {
         return ShowAction::exec($this);

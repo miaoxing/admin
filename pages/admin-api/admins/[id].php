@@ -6,7 +6,7 @@ use Miaoxing\Services\Page\ItemTrait;
 use Wei\Req;
 use Wei\V;
 
-return new class extends BaseController {
+return new class() extends BaseController {
     use ItemTrait;
 
     protected $include = [

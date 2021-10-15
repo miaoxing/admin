@@ -6,7 +6,7 @@ use Miaoxing\Services\Page\PostToPatchTrait;
 use Miaoxing\Services\Service\IndexAction;
 use Wei\Req;
 
-return new class extends BaseController {
+return new class() extends BaseController {
     use PostToPatchTrait;
 
     public function get()

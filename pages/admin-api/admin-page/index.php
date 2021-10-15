@@ -1,10 +1,9 @@
 <?php
 
 use Miaoxing\Plugin\BaseController;
-use Wei\Req;
 use Wei\Url;
 
-return new class extends BaseController {
+return new class() extends BaseController {
     public function get()
     {
         return suc([
@@ -45,16 +44,16 @@ return new class extends BaseController {
     {
         $result = [];
         foreach ($pages as $path => $next) {
-            if (substr($path, 0, 2) === '/_') {
+            if ('/_' === substr($path, 0, 2)) {
                 continue;
             }
 
-            if (substr($path, 0, 1) === '/') {
+            if ('/' === substr($path, 0, 1)) {
                 $result[$path] = $this->filterConfig($next);
                 continue;
             }
 
-            if (in_array($path, ['name'])) {
+            if (in_array($path, ['name'], true)) {
                 $result[$path] = $next;
             }
         }

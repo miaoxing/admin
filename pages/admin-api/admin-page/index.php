@@ -3,7 +3,7 @@
 use Miaoxing\Plugin\BaseController;
 use Wei\Url;
 
-return new class() extends BaseController {
+return new class () extends BaseController {
     public function get()
     {
         return suc([

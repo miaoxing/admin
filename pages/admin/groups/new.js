@@ -4,6 +4,7 @@
 import { CListBtn } from '@mxjs/a-clink';
 import {Page, PageActions} from '@mxjs/a-page';
 import {Form, FormItem, FormAction} from '@mxjs/a-form';
+import {FormItemSort} from '@miaoxing/admin';
 
 export default () => {
   return (
@@ -14,7 +15,7 @@ export default () => {
 
       <Form>
         <FormItem label="名称" name="name" required/>
-        <FormItem label="顺序" name="sort" type="number"/>
+        <FormItemSort/>
         <FormItem name="id" type="hidden"/>
         <FormAction/>
       </Form>

@@ -11,29 +11,30 @@
     "preset": "jest-preset-miaoxing"
   },
   "dependencies": {
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2",
-    "react-router": "^5.2.0",
-    "@mxjs/css": "^0.2.3",
     "@ant-design/icons": "^4.6.2",
-    "miaoxing": "^0.3.0",
+    "@fower/react": "^1.55.0",
+    "@mxjs/a-clink": "^0.2.0",
+    "@mxjs/a-form": "^0.3.0",
+    "@mxjs/a-page": "^0.3.0",
+    "@mxjs/a-table": "^0.4.0",
+    "@mxjs/api": "^0.1.4",
+    "@mxjs/css": "^0.2.3",
     "@mxjs/upload": "^0.5.0",
     "bizcharts": "^3.5.6",
     "color": "^3.1.2",
-    "next-url": "^1.0.0",
-    "prop-types": "^15.7.2",
     "history": "^5.0.0",
     "lodash.merge": "^4.6.2",
-    "@mxjs/a-clink": "^0.2.0",
-    "@mxjs/a-table": "^0.4.0",
-    "@mxjs/a-page": "^0.3.0",
-    "@mxjs/a-form": "^0.3.0",
-    "@mxjs/api": "^0.1.4"
+    "miaoxing": "^0.3.0",
+    "next-url": "^1.0.0",
+    "prop-types": "^15.7.2",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-router": "^5.2.0"
   },
   "devDependencies": {
     "@miaoxing/dev": "^8.0.0",
-    "@testing-library/react": "^11.2.6",
-    "@mxjs/test": "^0.2.0"
+    "@mxjs/test": "^0.2.0",
+    "@testing-library/react": "^11.2.6"
   },
   "ciDependencies": {
     "miaoxing": "miaoxing/miaoxing-js",

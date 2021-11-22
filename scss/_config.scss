@@ -1,8 +1,0 @@
-// 1. Webpack 注入 theme.js 变量
-// @see <rootDir>/webpack.config.js
-
-// 2. 调整 bootstrap 为 antd 风格
-@import "~@mxjs/bootstrap-antd/config";
-
-// 3. 根据使用习惯调整 bootstrap 主题
-@import "~@mxjs/style/config";

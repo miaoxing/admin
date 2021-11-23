@@ -3,7 +3,7 @@
  */
 import { Component } from 'react';
 import {Form, Button, Input} from 'antd';
-import {Box, Flex, Heading, Image} from '@mxjs/box';
+import {Box, Image} from '@mxjs/box';
 import $ from 'miaoxing';
 import api from '@mxjs/api';
 import {Global, css} from '@emotion/react';
@@ -12,7 +12,7 @@ import nextUrl from 'next-url';
 
 export default class extends Component {
   render() {
-    return <Flex>
+    return <Box flex>
       <Global
         styles={css`
           body {
@@ -22,27 +22,26 @@ export default class extends Component {
         `}
       />
       <Box
-        width={350}
+        w={350}
         mx="auto"
-        my={12}
-        p={12}
-        bg="white"
+        my12
+        p12
+        bgWhite
       >
         <Box
-          mb={4}
-          textAlign="center"
+          mb4
+          textCenter
         >
-          <Image height="50px" src="/images/logo.svg"/>
+          <Image h="50px" src="/images/logo.svg"/>
         </Box>
-        <Heading
-          mb={12}
-          textAlign="center"
-          fontSize="lg"
-          fontWeight="normal"
-          color="muted"
+        <Box
+          mb12
+          textCenter
+          textLG
+          gray500
         >
           登录
-        </Heading>
+        </Box>
         <Form
           size="large"
           onFinish={async values => {
@@ -75,6 +74,6 @@ export default class extends Component {
           </FormItem>
         </Form>
       </Box>
-    </Flex>;
+    </Box>;
   }
 }

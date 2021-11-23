@@ -9,7 +9,7 @@ import {
   Legend,
 } from 'bizcharts';
 import api from '@mxjs/api';
-import {Box, Link} from '@mxjs/box';
+import {Box} from '@mxjs/box';
 import {RightOutlined} from '@ant-design/icons';
 import Icon from '@mxjs/icons';
 import {Card, Col, Row, List} from 'antd';
@@ -103,9 +103,9 @@ export default class extends Component {
       <Box mt={4}>
         <Card title="更新日志"
           extra={
-            <Link href="#" target="_blank" fontWeight="normal" fontSize="md">
+            <Box as="a" href="#" target="_blank" textBase>
               更多{' '}<RightOutlined/>
-            </Link>
+            </Box>
           }
           bodyStyle={{paddingTop: 0, paddingBottom: 0}}
         >

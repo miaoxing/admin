@@ -43,11 +43,11 @@ export default class extends Component {
   render() {
     return (
       <PageContext.Provider value={{pages: this.state.pages}}>
-        <Box as={Layout} minHeight="100vh">
+        <Box as={Layout} minH="100vh">
           <Sider menus={this.state.menus} title={this.state.title} logo={this.state.logo}/>
           <Layout>
             <Navbar user={this.state.user}/>
-            <Box as={Layout.Content} px={4} pt={4}>
+            <Box as={Layout.Content} px4 pt4>
               {this.props.children}
             </Box>
             <Box as={Layout.Footer} textAlign="center">

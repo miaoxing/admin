@@ -1,7 +1,7 @@
 import React from 'react';
 import {Menu, Layout} from 'antd';
 import {Link} from '@mxjs/router';
-import {Flex, Image, Heading} from '@mxjs/box';
+import {Box, Image} from '@mxjs/box';
 import propTypes from 'prop-types';
 import {withRouter} from 'react-router';
 import ReactRouterPropTypes from 'react-router-prop-types';
@@ -89,10 +89,10 @@ class extends React.Component {
         breakpoint="lg"
         collapsedWidth="0"
       >
-        <Flex alignItems="center" justifyContent="center" height="60px">
-          <Image height="25px" src={this.props.logo}/>
-          <Heading as="h1" ml={2} mb={0} fontSize="xl" color="white">{this.props.title}</Heading>
-        </Flex>
+        <Box toCenter h="60px">
+          <Image h="25px" src={this.props.logo}/>
+          <Box as="h1" ml2 mb0 textXL white>{this.props.title}</Box>
+        </Box>
 
         {this.props.menus.length && <Menu
           theme="dark"

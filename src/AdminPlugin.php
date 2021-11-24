@@ -56,20 +56,6 @@ class AdminPlugin extends BasePlugin
         }
     }
 
-    public function onBeforeStyle()
-    {
-        if ($this->app->isAdmin()) {
-            wei()->page->addPluginAssets('admin');
-        }
-    }
-
-    public function onBodyStart()
-    {
-        if ($this->app->isAdmin()) {
-            wei()->view->display('@admin/_browser-update.php');
-        }
-    }
-
     public function onCheckAuth()
     {
         if (!$this->app->isAdmin()) {

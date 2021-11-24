@@ -5,6 +5,7 @@ import {Box, Image} from '@mxjs/box';
 import propTypes from 'prop-types';
 import {withRouter} from 'react-router';
 import ReactRouterPropTypes from 'react-router-prop-types';
+import logo from '../images/logo.svg';
 
 const {Sider} = Layout;
 const {SubMenu} = Menu;
@@ -89,10 +90,10 @@ class extends React.Component {
         breakpoint="lg"
         collapsedWidth="0"
       >
-        <Box toCenter h="60px">
-          <Image h="25px" src={this.props.logo}/>
+        {this.props.title && <Box toCenter h="60px">
+          <Image h="25px" src={this.props.logo || logo}/>
           <Box as="h1" ml2 mb0 textXL white>{this.props.title}</Box>
-        </Box>
+        </Box>}
 
         {this.props.menus.length && <Menu
           theme="dark"

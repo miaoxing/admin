@@ -9,6 +9,7 @@ import api from '@mxjs/api';
 import {Global, css} from '@emotion/react';
 import {FormItem} from '@mxjs/a-form';
 import nextUrl from 'next-url';
+import logo from '@miaoxing/admin/images/logo.svg';
 
 export default class extends Component {
   render() {
@@ -32,7 +33,7 @@ export default class extends Component {
           mb4
           textCenter
         >
-          <Image h="50px" src="/images/logo.svg"/>
+          <Image h="50px" src={logo}/>
         </Box>
         <Box
           mb12

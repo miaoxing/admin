@@ -2,13 +2,14 @@ import { Component } from 'react';
 import {history} from '@mxjs/app';
 import api from '@mxjs/api';
 import $ from 'miaoxing';
-import {Layout, Avatar, Menu, Dropdown} from 'antd';
+import {Layout, Menu, Dropdown} from 'antd';
 import {DownOutlined} from '@ant-design/icons';
 import {Link} from '@mxjs/router';
 import {Actions} from '@mxjs/actions';
 import {css, floatRight} from '@mxjs/css';
 import {LockOutlined, LogoutOutlined} from '@ant-design/icons';
 import propTypes from 'prop-types';
+import Avatar from './Avatar';
 
 export default class extends Component {
   static defaultProps = {
@@ -57,9 +58,7 @@ export default class extends Component {
         >
           <a className="ant-dropdown-link" onClick={e => e.preventDefault()}>
             <Actions>
-              <Avatar src={user.avatar}>
-                {user.username ? user.username.substr(0, 1).toUpperCase() : ''}
-              </Avatar>
+              <Avatar user={user}/>
               {user.username}
               <DownOutlined/>
             </Actions>

@@ -43,8 +43,8 @@ export default class extends Component {
               >
                 <Box textLG mb5>{stat.title}</Box>
                 <Box text="3em">{stat.value}</Box>
-                <Icon type={stat.icon} css={{
-                  opacity: .15,
+                <Icon type={stat.icon} style={{
+                  opacity: 0.15,
                   position: 'absolute',
                   top: '50%',
                   transform: 'translateY(-50%)',

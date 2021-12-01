@@ -1,4 +1,4 @@
-import { Component } from 'react';
+import {Component} from 'react';
 import {history} from '@mxjs/app';
 import api from '@mxjs/api';
 import $ from 'miaoxing';
@@ -6,10 +6,10 @@ import {Layout, Menu, Dropdown} from 'antd';
 import {DownOutlined} from '@ant-design/icons';
 import {Link} from '@mxjs/router';
 import {Actions} from '@mxjs/actions';
-import {css, floatRight} from '@mxjs/css';
 import {LockOutlined, LogoutOutlined} from '@ant-design/icons';
 import propTypes from 'prop-types';
 import Avatar from './Avatar';
+import {css, createStyle} from '@fower/core';
 
 export default class extends Component {
   static defaultProps = {
@@ -33,14 +33,11 @@ export default class extends Component {
 
     return (
       <Layout.Header
-        css={css({
-          bg: 'white !important', /* 开发时，避免 reload 之后被原有样式覆盖 */
-          boxShadow: 'sm',
-          zIndex: 1,
-        })}
+        className={css('toRight', 'zIndex-1', {shadow: '0 1px 2px 0 rgba(0, 0, 0, 0.05)'})}
+        /* 开发时，避免 reload 之后被原有样式覆盖 */
+        style={createStyle('bgWhite')}
       >
         <Dropdown
-          css={floatRight()}
           overlay={
             <Menu>
               <Menu.Item>

@@ -9,7 +9,7 @@ import {Actions} from '@mxjs/actions';
 import {LockOutlined, LogoutOutlined} from '@ant-design/icons';
 import propTypes from 'prop-types';
 import Avatar from './Avatar';
-import {css, createStyle} from '@fower/core';
+import {css, createStyle} from '@mxjs/css';
 
 export default class extends Component {
   static defaultProps = {

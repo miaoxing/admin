@@ -12,7 +12,7 @@
   },
   "dependencies": {
     "@ant-design/icons": "^4.6.2",
-    "@fower/react": "^1.59.0",
+    "@fower/react": "^1.61.0",
     "@mxjs/a-clink": "^0.2.0",
     "@mxjs/a-form": "^0.3.0",
     "@mxjs/a-page": "^0.3.0",

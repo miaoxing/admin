@@ -9,6 +9,7 @@ import '@fower/react';
 wei.setConfigs(config);
 
 setConfig({
+  objectPropKeys: ['sx', 'css'],
   theme: {
     colors: {
       brand: theme.colors.primary,

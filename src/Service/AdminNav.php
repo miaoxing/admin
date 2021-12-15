@@ -129,7 +129,10 @@ class AdminNav extends \Miaoxing\Plugin\BaseService
     {
         // 过滤空的父分类
         foreach ($categories as $i => $category) {
-            if (!isset($category['navs']) || !$category['navs']) {
+            if (
+                (!isset($category['navs']) || !$category['navs'])
+                && !isset($category['url'])
+            ) {
                 unset($categories[$i]);
             }
         }
@@ -147,10 +150,12 @@ class AdminNav extends \Miaoxing\Plugin\BaseService
     {
         foreach ($categories as &$category) {
             // 对子分类排序
-            $category['navs'] = $this->orderBy($category['navs']);
+            $category['navs'] = $this->orderBy($category['navs'] ?? []);
 
             // 取第一个导航项的链接,作为父分类的链接
-            $category['url'] = $category['navs'][0]['navs'][0]['url'] ?? '';
+            if (!isset($category['url'])) {
+                $category['url'] = $category['navs'][0]['navs'][0]['url'] ?? '';
+            }
         }
 
         // 对父分类排序

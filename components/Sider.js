@@ -16,19 +16,19 @@ class extends React.Component {
     menus: [],
     title: '',
     logo: '',
-  }
+  };
 
   static propTypes = {
     history: ReactRouterPropTypes.history.isRequired,
     menus: propTypes.array,
     title: propTypes.string,
     logo: propTypes.string,
-  }
+  };
 
   state = {
     openKeys: [],
     selectedKeys: [],
-  }
+  };
 
   componentDidMount() {
     this.updateMenu();
@@ -48,16 +48,27 @@ class extends React.Component {
     let openKeys = this.state.openKeys;
     let selectedKeys = [];
 
-    // 查找完全匹配的菜单
-    this.findMenu(([menu, menu2]) => {
-      if (menu2.url === pathname) {
+    // 查找完全匹配的一级菜单
+    for (const menu of this.props.menus) {
+      if (menu.url === pathname)  {
         openKeys.push(menu.name);
-        selectedKeys.push(menu2.name);
-        return true;
+        selectedKeys.push(menu.name);
+        break;
       }
-    });
+    }
 
-    // 如果没有完全匹配，查找部分匹配的菜单
+    // 查找完全匹配的二级菜单
+    if (selectedKeys.length === 0) {
+      this.findMenu(([menu, menu2]) => {
+        if (menu2.url === pathname) {
+          openKeys.push(menu.name);
+          selectedKeys.push(menu2.name);
+          return true;
+        }
+      });
+    }
+
+    // 如果没有完全匹配，查找部分匹配的二级菜单
     if (selectedKeys.length === 0) {
       this.findMenu(([menu, menu2]) => {
         if (menu2.url !== '/' && pathname.startsWith(menu2.url)) {
@@ -76,7 +87,7 @@ class extends React.Component {
 
   handleOpenChange = (openKeys) => {
     this.setState({openKeys});
-  }
+  };
 
   findMenu(fn) {
     this.props.menus.forEach(menu => {
@@ -103,20 +114,25 @@ class extends React.Component {
           onOpenChange={this.handleOpenChange}
         >
           {this.props.menus.map(menu => (
-            <SubMenu
-              key={menu.name}
-              title={
-                <span>
-                  <span>{menu.name}</span>
-                </span>
-              }
-            >
-              {menu.navs.map(menu2 => (
-                <Menu.Item key={menu2.name}>
-                  <Link to={menu2.url}>{menu2.name}</Link>
-                </Menu.Item>
-              ))}
-            </SubMenu>
+            menu.url ?
+              <Menu.Item key={menu.name}>
+                <Link to={menu.url} target={menu.target}>{menu.name}</Link>
+              </Menu.Item>
+              :
+              <SubMenu
+                key={menu.name}
+                title={
+                  <span>
+                    <span>{menu.name}</span>
+                  </span>
+                }
+              >
+                {menu.navs.map(menu2 => (
+                  <Menu.Item key={menu2.name}>
+                    <Link to={menu2.url} target={menu2.target}>{menu2.name}</Link>
+                  </Menu.Item>
+                ))}
+              </SubMenu>
           ))}
         </Menu>}
       </Sider>

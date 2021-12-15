@@ -21,6 +21,12 @@ class AdminPlugin extends BasePlugin
 
     public function onAdminNavGetNavs(&$navs, &$categories, &$subCategories)
     {
+        $categories['index'] = [
+            'name' => '首页',
+            'sort' => 1000,
+            'url' => 'admin',
+        ];
+
         $categories['user'] = [
             'name' => '用户',
             'sort' => 700,

@@ -7,13 +7,12 @@ import api from '@mxjs/api';
 import $ from 'miaoxing';
 import propTypes from 'prop-types';
 import {PageContext} from '@mxjs/a-page';
+import {ConfigConsumer} from 'plugins/app/components/ConfigContext';
 
 export default class extends Component {
   state = {
     menus: [],
     pages: {},
-    title: '',
-    logo: '',
     user: {},
   };
 
@@ -25,7 +24,6 @@ export default class extends Component {
     api.get('admin-page', {loading: true}).then(({ret}) => {
       if (ret.isSuc()) {
         this.setState(ret.data);
-        document.title = ret.data.title;
       } else {
         $.ret(ret);
       }
@@ -44,14 +42,16 @@ export default class extends Component {
     return (
       <PageContext.Provider value={{pages: this.state.pages}}>
         <Box as={Layout} minH="100vh">
-          <Sider menus={this.state.menus} title={this.state.title} logo={this.state.logo}/>
+          <Sider menus={this.state.menus}/>
           <Layout>
             <Navbar user={this.state.user}/>
             <Box as={Layout.Content} px4 pt4>
               {this.props.children}
             </Box>
             <Box as={Layout.Footer} textAlign="center">
-              Miaoxing ©2020
+              <ConfigConsumer>
+                {({page}) => page.copyright}
+              </ConfigConsumer>
             </Box>
           </Layout>
         </Box>

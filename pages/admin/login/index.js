@@ -10,6 +10,7 @@ import {Global, css} from '@emotion/react';
 import {FormItem} from '@mxjs/a-form';
 import nextUrl from 'next-url';
 import logo from '@miaoxing/admin/images/logo.svg';
+import {ConfigConsumer} from '@miaoxing/app';
 
 export default class extends Component {
   render() {
@@ -33,7 +34,9 @@ export default class extends Component {
           mb4
           textCenter
         >
-          <Image h="50px" src={logo}/>
+          <ConfigConsumer>
+            {({page}) => <Image h="50px" src={page.logo || logo}/>}
+          </ConfigConsumer>
         </Box>
         <Box
           mb12

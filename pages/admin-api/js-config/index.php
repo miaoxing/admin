@@ -8,6 +8,12 @@ return new class () extends BaseController {
 
     public function get()
     {
-        return suc(['data' => JsConfig::toArray()]);
+        // TODO config
+        $page = [
+            'title' => '喵星商城',
+            'copyright' => 'Miaoxing ©2021',
+        ];
+
+        return suc(['data' => JsConfig::toArray() + ['page' => $page]]);
     }
 };

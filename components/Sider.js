@@ -6,6 +6,7 @@ import propTypes from 'prop-types';
 import {withRouter} from 'react-router';
 import ReactRouterPropTypes from 'react-router-prop-types';
 import logo from '../images/logo.svg';
+import {ConfigConsumer} from 'plugins/app/components/ConfigContext';
 
 const {Sider} = Layout;
 const {SubMenu} = Menu;
@@ -101,11 +102,16 @@ class extends React.Component {
         breakpoint="lg"
         collapsedWidth="0"
       >
-        {this.props.title && <Box toCenter h="60px">
-          <Image h="25px" src={this.props.logo || logo}/>
-          <Box as="h1" ml2 mb0 textXL white>{this.props.title}</Box>
-        </Box>}
-
+        <ConfigConsumer>
+          {({page}) => {
+            return (
+              <Box toCenter h="60px">
+                <Image h="25px" src={page.logo || logo}/>
+                <Box as="h1" ml2 mb0 textXL white>{page.title}</Box>
+              </Box>
+            );
+          }}
+        </ConfigConsumer>
         {this.props.menus.length && <Menu
           theme="dark"
           mode="inline"

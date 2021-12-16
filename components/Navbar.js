@@ -10,6 +10,7 @@ import {LockOutlined, LogoutOutlined} from '@ant-design/icons';
 import propTypes from 'prop-types';
 import Avatar from './Avatar';
 import {css, createStyle} from '@mxjs/css';
+import {Box} from '@mxjs/box';
 
 export default class extends Component {
   static defaultProps = {
@@ -53,13 +54,13 @@ export default class extends Component {
             </Menu>
           }
         >
-          <a className="ant-dropdown-link" onClick={e => e.preventDefault()}>
+          <Box cursorPointer>
             <Actions>
               <Avatar user={user}/>
               {user.username}
               <DownOutlined/>
             </Actions>
-          </a>
+          </Box>
         </Dropdown>
       </Layout.Header>
     );

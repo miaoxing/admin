@@ -1,6 +1,6 @@
 import {MemoryRouter} from 'react-router';
 import $, {Ret} from 'miaoxing';
-import Index from '../../../../pages/admin/groups/index';
+import Index from './index';
 import {app} from '@mxjs/app';
 import {render, fireEvent} from '@testing-library/react';
 import {bootstrap, createPromise, resetUrl, setUrl} from '@mxjs/test';

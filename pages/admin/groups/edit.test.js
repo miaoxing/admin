@@ -1,5 +1,5 @@
 import $, {Ret} from 'miaoxing';
-import Form from '../../../../pages/admin/groups/new';
+import Form from './new';
 import {app} from '@mxjs/app';
 import {render, screen, fireEvent, waitFor} from '@testing-library/react';
 import {MemoryRouter} from 'react-router';

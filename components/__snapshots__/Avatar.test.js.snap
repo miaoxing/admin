@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Avatar default 1`] = `
+<div>
+  <span
+    class="ant-avatar ant-avatar-circle ant-avatar-image"
+  >
+    <img
+      src="test-file-stub"
+    />
+  </span>
+</div>
+`;

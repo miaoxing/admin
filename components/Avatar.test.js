@@ -7,4 +7,10 @@ describe('Avatar', () => {
 
     expect(container).toMatchSnapshot();
   });
+
+  test('custom', () => {
+    const {container} = render(<Avatar user={{avatar: 'abc.png'}}/>);
+
+    expect(container).toMatchSnapshot();
+  });
 });

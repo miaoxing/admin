@@ -4,6 +4,9 @@
   "private": true,
   "repository": "https://github.com/miaoxing/admin",
   "license": "MIT",
+  "workspaces": [
+    "plugins/*"
+  ],
   "scripts": {
     "test": "jest"
   },
@@ -43,10 +46,12 @@
     "jest-preset-miaoxing": "miaoxing/jest-preset-miaoxing",
     "@mxjs/css": "miaoxing/mxjs-css",
     "@miaoxing/dev": "miaoxing/dev",
+    "@miaoxing/app": "miaoxing/app",
     "@mxjs/a-clink": "miaoxing/mxjs-a-clink",
     "@mxjs/a-form": "miaoxing/mxjs-a-form",
     "@mxjs/a-page": "miaoxing/mxjs-a-page",
     "@mxjs/a-table": "miaoxing/mxjs-a-table",
-    "@mxjs/a-button": "miaoxing/mxjs-a-button"
+    "@mxjs/a-button": "miaoxing/mxjs-a-button",
+    "@mxjs/box": "miaoxing/mxjs-box"
   }
 }

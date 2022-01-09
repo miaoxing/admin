@@ -44,7 +44,7 @@ describe('admin/groups', () => {
 
     await Promise.all([promise]);
 
-    expect(container.querySelector('.btn-success').innerHTML).toBe('添 加');
+    expect(container.querySelector('.ant-btn').textContent).toBe('添 加');
 
     expect($.http).toMatchSnapshot();
   });

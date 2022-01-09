@@ -10,9 +10,6 @@
   "scripts": {
     "test": "jest"
   },
-  "jest": {
-    "preset": "jest-preset-miaoxing"
-  },
   "dependencies": {
     "@ant-design/icons": "^4.6.2",
     "@fower/react": "^1.61.0",

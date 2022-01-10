@@ -3,7 +3,7 @@ import {render} from '@testing-library/react';
 
 describe('InputPrice', () => {
   test('default', () => {
-    const {container} = render(<InputPrice user={{}}/>);
+    const {container} = render(<InputPrice/>);
 
     expect(container).toMatchSnapshot();
   });

@@ -1,3 +1,56 @@
+# [0.5.0](https://github.com/miaoxing/admin/compare/v0.4.0...v0.5.0) (2022-01-12)
+
+
+### Bug Fixes
+
+* 更新 `[@fower](https://github.com/fower)` 到 `^1.59.0` ([032a475](https://github.com/miaoxing/admin/commit/032a475b4b804e384fad2f8196ba02b6c971b58c))
+
+
+### Code Refactoring
+
+* **admin:** 管理端移除 PHP 视图功能 ([36d775e](https://github.com/miaoxing/admin/commit/36d775e8ebc527018ba5e70cf815603d2aa70f3c))
+
+
+### Features
+
+* **admin:** `AdminModelTrait` 增加 `MineTrait` ([8a82ddb](https://github.com/miaoxing/admin/commit/8a82ddb3d902a49f29d3e91c4195c8b9a3dd392d))
+* **admin:** 允许带链接的一级菜单 ([fd28717](https://github.com/miaoxing/admin/commit/fd287172cb980fb15f3c78dcb58e3d6d3972b5dc))
+* **admin:** 启动时加载配置 ([a44f527](https://github.com/miaoxing/admin/commit/a44f5277ac758b5b41937b32dc86544de070bd6e))
+* **admin:** 增加 `FormItemSort` 组件 ([f0f6aef](https://github.com/miaoxing/admin/commit/f0f6aef0ec18e0939df36a881dd68f56ceeb3bfc))
+* **admin:** 增加 `fower/react` 配置 ([5976f30](https://github.com/miaoxing/admin/commit/5976f3089f866ca7cd4e88a8d69164d7cc66fdc5))
+* **admin:** 增加 `InputPrice` 组件 ([5536919](https://github.com/miaoxing/admin/commit/55369193d6268398890a28fe051388a3aec219ec))
+* **admin:** 增加 logo 文件，后台无返回 logo 时显示默认 logo ([540cff6](https://github.com/miaoxing/admin/commit/540cff622ccb21e448f3f6b7a104d3b1479702b2))
+* **admin:** 增加后台首页入口 ([ea1cba6](https://github.com/miaoxing/admin/commit/ea1cba6ce41de9fd00f180a7bd39f20ea654e012))
+* **admin:** 增加默认头像组件 ([9df06a1](https://github.com/miaoxing/admin/commit/9df06a12b5ba35a6e46fe57114ff9c5affc9aaef))
+* **admin:** 配置 `fower` 解析 `sx` 属性 ([0f884a3](https://github.com/miaoxing/admin/commit/0f884a3a900458155a9c39a607036487472e0e98))
+* 更新 `[@fower](https://github.com/fower)` 到 `^1.61` ([7c00614](https://github.com/miaoxing/admin/commit/7c006144fb2bb4b94c621938d19bd13d83adf7fc))
+* **admin, webpack:** 发布插件的 public 目录，以便通过浏览器直接访问 ([a954ac2](https://github.com/miaoxing/admin/commit/a954ac253eb83bd8e6e626e7bbc15d0c23cb2f59))
+* **app:** 更改 `$.alert` 和 `$.confirm` 为 antd 的 Modal 组件 ([8c9c09c](https://github.com/miaoxing/admin/commit/8c9c09c331928e81e16c104b26afb3a4587e8c3f))
+
+
+### BREAKING CHANGES
+
+* **admin:** 管理端移除 PHP 视图功能
+
+
+
+
+
+### Dependencies
+
+* **@mxjs/a-clink:** upgrade from `0.2.0` to `0.2.1`
+* **@mxjs/a-form:** upgrade from `0.3.0` to `0.3.1`
+* **@mxjs/a-page:** upgrade from `0.3.0` to `0.3.1`
+* **@mxjs/a-table:** upgrade from `0.4.0` to `0.4.1`
+* **@mxjs/api:** upgrade from `0.1.4` to `0.1.5`
+* **@mxjs/css:** upgrade from `0.2.3` to `0.3.0`
+* **@mxjs/upload:** upgrade from `0.5.0` to `0.5.1`
+* **miaoxing:** upgrade from `0.3.0` to `0.4.0`
+* **@miaoxing/dev:** upgrade from `8.0.0` to `8.0.1`
+* **@mxjs/test:** upgrade from `0.2.0` to `0.2.1`
+* **@miaoxing/app:** upgrade from `0.4.0` to `0.5.0`
+* **@miaoxing/file:** upgrade from `0.1.13` to `0.1.14`
+
 # [0.4.0](https://github.com/miaoxing/admin/compare/v0.3.15...v0.4.0) (2021-10-28)
 
 

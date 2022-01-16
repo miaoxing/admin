@@ -14,6 +14,7 @@ return new class () extends BaseController {
             'title' => $page->getTitle(),
             'logo' => $page->getLogo(),
             'copyright' => $page->getCopyright(),
+            'bg' => $page->getBg(),
         ];
 
         return suc(['data' => JsConfig::toArray() + ['page' => $config]]);

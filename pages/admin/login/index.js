@@ -1,7 +1,7 @@
 /**
  * @layout false
  */
-import { Component } from 'react';
+import {Component} from 'react';
 import {Form, Button, Input} from 'antd';
 import {Box, Image} from '@mxjs/box';
 import $ from 'miaoxing';
@@ -12,17 +12,23 @@ import nextUrl from 'next-url';
 import logo from '@miaoxing/admin/images/logo.svg';
 import {ConfigConsumer} from '@miaoxing/app';
 
+const bg = 'https://image-10001577.image.myqcloud.com/uploads/3/20190602/15594729401485.jpg';
+
 export default class extends Component {
   render() {
     return <Box flex>
-      <Global
-        styles={css`
-          body {
-            background: #f5f8fa url(https://image-10001577.image.myqcloud.com/uploads/3/20190602/15594729401485.jpg) no-repeat center center fixed;
-            background-size: cover;
-          }
-        `}
-      />
+      <ConfigConsumer>
+        {({page}) => (
+          <Global
+            styles={css`
+              body {
+                background: #f5f8fa url(${page.bg || bg}) no-repeat center center fixed;
+                background-size: cover;
+              }
+            `}
+          />
+        )}
+      </ConfigConsumer>
       <Box
         w={350}
         mx="auto"

@@ -22,6 +22,14 @@ class AdminPage extends BaseService
     protected $logo = '';
 
     /**
+     * 背景图片，可用于登录等简单页面
+     *
+     * @var string
+     * @experimental 只有特定页面有背景，可能要改为其他更合适的名称
+     */
+    protected $bg = '';
+
+    /**
      * @return string
      */
     public function getTitle(): string
@@ -43,5 +51,14 @@ class AdminPage extends BaseService
     public function getLogo(): string
     {
         return $this->logo;
+    }
+
+    /**
+     * @return string
+     * @experimental
+     */
+    public function getBg(): string
+    {
+        return $this->bg;
     }
 }

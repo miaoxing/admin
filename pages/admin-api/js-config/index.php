@@ -8,12 +8,14 @@ return new class () extends BaseController {
 
     public function get()
     {
-        // TODO config
-        $page = [
-            'title' => '喵星商城',
-            'copyright' => 'Miaoxing ©2021',
+        $page = wei()->adminPage;
+
+        $config = [
+            'title' => $page->getTitle(),
+            'logo' => $page->getLogo(),
+            'copyright' => $page->getCopyright(),
         ];
 
-        return suc(['data' => JsConfig::toArray() + ['page' => $page]]);
+        return suc(['data' => JsConfig::toArray() + ['page' => $config]]);
     }
 };

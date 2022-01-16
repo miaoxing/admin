@@ -983,6 +983,36 @@ class AdminLogModel
 class AdminModel
 {
     /**
+     * Query: Filter by current user id
+     *
+     * @return $this
+     * @see AdminModel::mine
+     */
+    public static function mine(): self
+    {
+    }
+
+    /**
+     * Query: find or init the record by current user id
+     *
+     * @return $this
+     * @see AdminModel::findOrInitMine
+     */
+    public static function findOrInitMine(): self
+    {
+    }
+
+    /**
+     * Query: find or init and cache the record by current user id
+     *
+     * @return self
+     * @see AdminModel::findOrInitMineCached
+     */
+    public static function findOrInitMineCached(): self
+    {
+    }
+
+    /**
      * Set each attribute value, without checking whether the column is fillable, and save the model
      *
      * @param iterable $attributes
@@ -1948,6 +1978,10 @@ class AdminModel
 }
 
 class AdminNav
+{
+}
+
+class AdminPage
 {
 }
 
@@ -3935,6 +3969,36 @@ if (0) {
     class AdminModel
     {
         /**
+         * Query: Filter by current user id
+         *
+         * @return $this
+         * @see AdminModel::mine
+         */
+        public function mine(): self
+        {
+        }
+
+        /**
+         * Query: find or init the record by current user id
+         *
+         * @return $this
+         * @see AdminModel::findOrInitMine
+         */
+        public function findOrInitMine(): self
+        {
+        }
+
+        /**
+         * Query: find or init and cache the record by current user id
+         *
+         * @return self
+         * @see AdminModel::findOrInitMineCached
+         */
+        public function findOrInitMineCached(): self
+        {
+        }
+
+        /**
          * Set each attribute value, without checking whether the column is fillable, and save the model
          *
          * @param iterable $attributes
@@ -4888,6 +4952,10 @@ if (0) {
     }
 
     class AdminNav
+    {
+    }
+
+    class AdminPage
     {
     }
 

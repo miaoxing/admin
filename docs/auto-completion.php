@@ -24,6 +24,13 @@ class AdminNavMixin
 }
 
 /**
+ * @property    Miaoxing\Admin\Service\AdminPage $adminPage
+ */
+class AdminPageMixin
+{
+}
+
+/**
  * @property    Miaoxing\Admin\Service\Group $group 用户分组
  */
 class GroupMixin
@@ -42,6 +49,7 @@ class GroupModelMixin
  * @mixin AdminLogModelMixin
  * @mixin AdminModelMixin
  * @mixin AdminNavMixin
+ * @mixin AdminPageMixin
  * @mixin GroupMixin
  * @mixin GroupModelMixin
  */
@@ -71,6 +79,9 @@ $admins = wei()->adminModel();
 
 /** @var Miaoxing\Admin\Service\AdminNav $adminNav */
 $adminNav = wei()->adminNav;
+
+/** @var Miaoxing\Admin\Service\AdminPage $adminPage */
+$adminPage = wei()->adminPage;
 
 /** @var Miaoxing\Admin\Service\Group $group */
 $group = wei()->group;

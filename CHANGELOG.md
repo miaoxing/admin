@@ -1,3 +1,31 @@
+## [0.5.1](https://github.com/miaoxing/admin/compare/v0.5.0...v0.5.1) (2022-02-05)
+
+
+### Features
+
+* **admin:** `AdminModelTrait` 增加 `MineTrait` ([8a82ddb](https://github.com/miaoxing/admin/commit/8a82ddb3d902a49f29d3e91c4195c8b9a3dd392d))
+* **admin:** 增加 `AdminPage` 服务来管理页面数据 ([f07859e](https://github.com/miaoxing/admin/commit/f07859e9fb073d76664516eccd98605511ba4d33))
+* **admin, experimental:** 允许自定义页面背景图 ([118f5a4](https://github.com/miaoxing/admin/commit/118f5a4efa419efecb44cab5b4e11a381be286f8))
+
+
+
+
+
+### Dependencies
+
+* **@mxjs/a-clink:** upgrade from `0.2.1` to `0.2.2`
+* **@mxjs/a-form:** upgrade from `0.3.1` to `0.3.2`
+* **@mxjs/a-page:** upgrade from `0.3.1` to `0.3.2`
+* **@mxjs/a-table:** upgrade from `0.4.1` to `0.4.2`
+* **@mxjs/api:** upgrade from `0.1.5` to `0.1.6`
+* **@mxjs/css:** upgrade from `0.3.0` to `0.3.1`
+* **@mxjs/upload:** upgrade from `0.5.1` to `0.5.2`
+* **miaoxing:** upgrade from `0.4.0` to `0.4.1`
+* **@miaoxing/dev:** upgrade from `8.0.1` to `8.1.0`
+* **@mxjs/test:** upgrade from `0.2.1` to `0.2.2`
+* **@miaoxing/app:** upgrade from `0.5.0` to `0.5.1`
+* **@miaoxing/file:** upgrade from `0.1.14` to `0.1.15`
+
 # [0.5.0](https://github.com/miaoxing/admin/compare/v0.4.0...v0.5.0) (2022-01-12)
 
 
@@ -56,16 +84,16 @@
 
 ### Code Refactoring
 
-* `expand` 参数改为 `include` ([96a4583](https://github.com/miaoxing/admin/commit/96a4583fd841aa5fdc5bb49147b0c16e567fdea3))
-* 调整错误码为 001 开始 ([37b4c0b](https://github.com/miaoxing/admin/commit/37b4c0b6caa6652dcefc37b6e4bfcbafcd3ec36a))
-* **Model:** 模型的关联方法加上返回值 ([fb0de3d](https://github.com/miaoxing/admin/commit/fb0de3d4599737db10fc6056491aaa434e8bfe21))
+* `expand` 参数改为 `include` ([cdc1f77](https://github.com/miaoxing/admin/commit/cdc1f772830472f42b9b2fd67683be003695cfdd))
+* 调整错误码为 001 开始 ([a1b852d](https://github.com/miaoxing/admin/commit/a1b852dc424a05452adbbb991c29cdb2f9a70a3a))
+* **Model:** 模型的关联方法加上返回值 ([7cf855e](https://github.com/miaoxing/admin/commit/7cf855e752877163a9e3aff92c835fc6a6554950))
 
 
 ### Features
 
-* 数据表主键 由 `int` 改为 `bigint` ([ddcdf46](https://github.com/miaoxing/admin/commit/ddcdf4631f12b2fa0ad01caf3cbff67c58cd515e))
-* 更新 `react` 到 17 ([50214bb](https://github.com/miaoxing/admin/commit/50214bb83668857e5043f30551a28b0fda05b719))
-* 模型通过 `SnowflakeTrait` 生成 id ([ec384c8](https://github.com/miaoxing/admin/commit/ec384c88cd7e80737fb64075bcc67fc68cad2d09))
+* 数据表主键 由 `int` 改为 `bigint` ([3f4536a](https://github.com/miaoxing/admin/commit/3f4536a926a48a2ae28e12f2884cb44e9611878f))
+* 更新 `react` 到 17 ([79b16e5](https://github.com/miaoxing/admin/commit/79b16e5c748206a4216e622d79764247e2cd24e4))
+* 模型通过 `SnowflakeTrait` 生成 id ([60c01ad](https://github.com/miaoxing/admin/commit/60c01ad536e146398f057633eb7ac2299bcd165d))
 
 
 ### BREAKING CHANGES

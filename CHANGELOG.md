@@ -3,7 +3,6 @@
 
 ### Features
 
-* **admin:** `AdminModelTrait` 增加 `MineTrait` ([8a82ddb](https://github.com/miaoxing/admin/commit/8a82ddb3d902a49f29d3e91c4195c8b9a3dd392d))
 * **admin:** 增加 `AdminPage` 服务来管理页面数据 ([f07859e](https://github.com/miaoxing/admin/commit/f07859e9fb073d76664516eccd98605511ba4d33))
 * **admin, experimental:** 允许自定义页面背景图 ([118f5a4](https://github.com/miaoxing/admin/commit/118f5a4efa419efecb44cab5b4e11a381be286f8))
 

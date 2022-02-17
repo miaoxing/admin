@@ -1,7 +1,6 @@
 /**
  * @share [id]/edit
  */
-import $ from 'miaoxing';
 import { Component } from 'react';
 import {Page, PageActions} from '@mxjs/a-page';
 import {Form, FormItem, FormAction, Select} from '@mxjs/a-form';
@@ -43,7 +42,7 @@ class AdminForm extends Component {
               </FormItem>
 
               <FormItem label="头像" name={['user', 'avatar']} extra="支持.jpg .jpeg .bmp .gif .png格式照片">
-                <Upload url={$.apiUrl('files', {type: 'image'})} max={1}/>
+                <Upload max={1}/>
               </FormItem>
 
               <FormItem name="id" type="hidden"/>

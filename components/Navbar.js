@@ -25,6 +25,7 @@ export default class extends Component {
     const {ret} = await api.post('logout');
     await $.ret(ret);
     if (ret.isSuc()) {
+      window.localStorage.removeItem('token');
       history.push($.url('admin/login', {next: window.location.pathname}));
     }
   };

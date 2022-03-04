@@ -1,3 +1,36 @@
+# [0.6.0](https://github.com/miaoxing/admin/compare/v0.5.2...v0.6.0) (2022-03-04)
+
+
+### Bug Fixes
+
+* 处理路径时，兼容结尾有 `/` 的情况 ([83c2f9d](https://github.com/miaoxing/admin/commit/83c2f9d9e1cf7804dd29dc5bf52cf119d9264376))
+
+
+### Features
+
+* 数据表 `app_id` 字段由 `int` 升级到 `bigint` ([cbe854e](https://github.com/miaoxing/admin/commit/cbe854ecce433fc49bafc0edfa380f2c3fe7b221))
+
+
+### BREAKING CHANGES
+
+* 数据表 `app_id` 字段由 `int` 升级到 `bigint`
+
+
+
+
+
+### Dependencies
+
+* **@mxjs/a-clink:** upgrade from `0.2.2` to `0.2.3`
+* **@mxjs/a-form:** upgrade from `0.3.2` to `0.3.3`
+* **@mxjs/a-page:** upgrade from `0.3.2` to `0.3.3`
+* **@mxjs/a-table:** upgrade from `0.4.2` to `0.4.3`
+* **@mxjs/api:** upgrade from `0.1.6` to `0.1.7`
+* **@mxjs/upload:** upgrade from `0.6.0` to `0.6.1`
+* **@mxjs/test:** upgrade from `0.2.2` to `0.2.3`
+* **@miaoxing/app:** upgrade from `0.6.0` to `0.6.1`
+* **@miaoxing/file:** upgrade from `0.2.0` to `0.3.0`
+
 ## [0.5.2](https://github.com/miaoxing/admin/compare/v0.5.1...v0.5.2) (2022-02-28)
 
 

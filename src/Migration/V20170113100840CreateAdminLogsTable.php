@@ -13,7 +13,7 @@ class V20170113100840CreateAdminLogsTable extends BaseMigration
     {
         $this->schema->table('admin_logs')
             ->id()
-            ->int('app_id')
+            ->uBigInt('app_id')
             ->uBigInt('user_id')
             ->string('description')
             ->timestamp('created_at')

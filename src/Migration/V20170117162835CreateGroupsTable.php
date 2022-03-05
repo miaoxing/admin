@@ -13,6 +13,7 @@ class V20170117162835CreateGroupsTable extends BaseMigration
     {
         $this->schema->table('groups')->tableComment('用户分组')
             ->bigId()
+            ->uBigInt('app_id')->comment('应用编号')
             ->string('name', 64)
             ->uInt('sort')->defaults(50)
             ->uTinyInt('status')

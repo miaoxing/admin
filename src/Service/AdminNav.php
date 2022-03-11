@@ -9,6 +9,7 @@ namespace Miaoxing\Admin\Service;
  * @mixin \ViewMixin
  * @mixin \AppMixin
  * @mixin \PluginMixin
+ * @mixin \ReqMixin
  */
 class AdminNav extends \Miaoxing\Plugin\BaseService
 {
@@ -42,7 +43,7 @@ class AdminNav extends \Miaoxing\Plugin\BaseService
      */
     public function getIndexUrl()
     {
-        $categories = wei()->adminNav->getCategories();
+        $categories = $this->getCategories();
         $firstCategory = current($categories);
         if (isset($firstCategory['navs'][0]['navs'][0]['url'])) {
             return $firstCategory['navs'][0]['navs'][0]['url'];
@@ -82,7 +83,7 @@ class AdminNav extends \Miaoxing\Plugin\BaseService
      */
     protected function isInCategories(array $category)
     {
-        $url = ltrim(wei()->req->getPathInfo(), '/');
+        $url = ltrim($this->req->getPathInfo(), '/');
         foreach ($category['navs'] as $i => $subCategories) {
             foreach ($subCategories['navs'] as $nav) {
                 if ($nav['url'] == $url) {

@@ -7,6 +7,7 @@ import api from '@mxjs/api';
 import $ from 'miaoxing';
 import propTypes from 'prop-types';
 import {PageContext} from '@mxjs/a-page';
+import {history} from '@mxjs/app';
 import {ConfigConsumer} from 'plugins/app/components/ConfigContext';
 
 export default class extends Component {
@@ -21,6 +22,12 @@ export default class extends Component {
   };
 
   componentDidMount() {
+    // 没有 token 则提前跳转到登录页面
+    if (!window.localStorage.getItem('token')) {
+      history.push($.url('admin/login', {next: window.location.href}));
+      return;
+    }
+
     api.get('admin-page', {loading: true}).then(({ret}) => {
       if (ret.isSuc()) {
         this.setState(ret.data);

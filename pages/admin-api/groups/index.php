@@ -11,11 +11,12 @@ return new class () extends BaseController {
 
     public function get()
     {
-        return IndexAction
-            ::afterFind(function (GroupModel $models, Req $req) {
+        return IndexAction::new()
+            ->afterFind(function (GroupModel $models, Req $req) {
                 if ($req['withUngroup']) {
                     $models->withUngroup();
                 }
-            })->exec($this);
+            })
+            ->exec($this);
     }
 };

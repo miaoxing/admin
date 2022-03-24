@@ -12,8 +12,8 @@ return new class () extends BaseController {
     public function get()
     {
         $groups = [];
-        return IndexAction
-            ::afterFind(function (AdminModel $admins) use (&$groups) {
+        return IndexAction::new()
+            ->afterFind(function (AdminModel $admins) use (&$groups) {
                 $admins->load('user');
 
                 // NOTE: UserModel 里还没有 group 关联，需手动读取

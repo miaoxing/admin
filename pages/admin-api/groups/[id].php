@@ -17,8 +17,8 @@ return new class () extends BaseController {
 
     public function patch()
     {
-        return UpdateAction
-            ::beforeFind(function () {
+        return UpdateAction::new()
+            ->beforeFind(function () {
                 return V::key('name', '名称')->check($this->req);
             })
             ->beforeSave(function (BaseModel $model) {

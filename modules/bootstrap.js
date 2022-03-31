@@ -12,7 +12,7 @@ setConfig({
   objectPropKeys: ['sx', 'css'],
   theme: {
     colors: {
-      brand: theme.colors.primary,
+      brand500: theme.colors.primary,
       primary: theme.colors.primary,
     },
   },

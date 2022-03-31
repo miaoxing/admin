@@ -1,6 +1,6 @@
 {
   "name": "@miaoxing/admin",
-  "version": "0.6.0",
+  "version": "0.7.0",
   "private": true,
   "repository": "https://github.com/miaoxing/admin",
   "license": "MIT",
@@ -13,13 +13,13 @@
   "dependencies": {
     "@ant-design/icons": "^4.6.2",
     "@fower/react": "^1.70.0",
-    "@mxjs/a-clink": "^0.2.3",
-    "@mxjs/a-form": "^0.3.3",
-    "@mxjs/a-page": "^0.3.3",
-    "@mxjs/a-table": "^0.4.3",
-    "@mxjs/api": "^0.1.7",
-    "@mxjs/css": "^0.3.1",
-    "@mxjs/upload": "^0.6.1",
+    "@mxjs/a-clink": "^0.2.4",
+    "@mxjs/a-form": "^0.3.4",
+    "@mxjs/a-page": "^0.3.4",
+    "@mxjs/a-table": "^0.4.4",
+    "@mxjs/api": "^0.1.8",
+    "@mxjs/css": "^0.3.2",
+    "@mxjs/upload": "^0.6.2",
     "bizcharts": "^3.5.6",
     "color": "^3.1.2",
     "history": "^5.0.0",
@@ -33,7 +33,7 @@
   },
   "devDependencies": {
     "@miaoxing/dev": "^8.1.0",
-    "@mxjs/test": "^0.2.3",
+    "@mxjs/test": "^0.2.4",
     "@testing-library/react": "^11.2.6",
     "copy-webpack-plugin": "^10.0.0"
   },

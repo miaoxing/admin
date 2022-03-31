@@ -1,3 +1,39 @@
+# [0.7.0](https://github.com/miaoxing/admin/compare/v0.6.0...v0.7.0) (2022-03-31)
+
+
+### Bug Fixes
+
+* **admin:** 用户分组表增加 `app_id` 字段 ([bf13b2a](https://github.com/miaoxing/admin/commit/bf13b2afef91aba1cdfdc636d2125c2888ec8669))
+* **admin:** 解决 fower 1.68+ 不识别 `brand` 颜色 ([4ff21fa](https://github.com/miaoxing/admin/commit/4ff21fafe49de6654e9388f2b3238a1bf1470b7b))
+
+
+### Features
+
+* 更新 `fower` 到 `^1.70.0` ([0b59c80](https://github.com/miaoxing/admin/commit/0b59c8001c17fd11ad5dbcac4fa1eb7b006bd4d4))
+* **admin:** 后台布局没有 token 则提前跳转到登录页面 ([cd6c641](https://github.com/miaoxing/admin/commit/cd6c64112e3b40bf3c9affeb397755144c569b14))
+
+
+### BREAKING CHANGES
+
+* **admin:** 用户分组表增加 `app_id` 字段
+
+
+
+
+
+### Dependencies
+
+* **@mxjs/a-clink:** upgrade from `0.2.3` to `0.2.4`
+* **@mxjs/a-form:** upgrade from `0.3.3` to `0.3.4`
+* **@mxjs/a-page:** upgrade from `0.3.3` to `0.3.4`
+* **@mxjs/a-table:** upgrade from `0.4.3` to `0.4.4`
+* **@mxjs/api:** upgrade from `0.1.7` to `0.1.8`
+* **@mxjs/css:** upgrade from `0.3.1` to `0.3.2`
+* **@mxjs/upload:** upgrade from `0.6.1` to `0.6.2`
+* **@mxjs/test:** upgrade from `0.2.3` to `0.2.4`
+* **@miaoxing/app:** upgrade from `0.6.1` to `0.6.2`
+* **@miaoxing/file:** upgrade from `0.3.0` to `0.3.1`
+
 # [0.6.0](https://github.com/miaoxing/admin/compare/v0.5.2...v0.6.0) (2022-03-04)
 
 

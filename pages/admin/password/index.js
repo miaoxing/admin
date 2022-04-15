@@ -1,14 +1,13 @@
 import $ from 'miaoxing';
-import { Component } from 'react';
 import {Page} from '@mxjs/a-page';
 import {Form, FormAction, FormItem} from '@mxjs/a-form';
 import {Alert} from 'antd';
 import {Box} from '@mxjs/box';
 import curUrl from '@mxjs/cur-url';
 
-export default class extends Component {
-  render() {
-    return <Page>
+const Index = () => {
+  return (
+    <Page>
       <Box mb4>
         <Alert type="warning" message="修改完成后需重新登录，请妥善保管好密码。"/>
       </Box>
@@ -26,6 +25,8 @@ export default class extends Component {
 
         <FormAction list={false}/>
       </Form>
-    </Page>;
-  }
-}
+    </Page>
+  );
+};
+
+export default Index;

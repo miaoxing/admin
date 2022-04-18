@@ -62,7 +62,7 @@ return new class () extends BaseController {
                 continue;
             }
 
-            if (in_array($path, ['name'], true)) {
+            if (in_array($path, ['name', 'url'], true)) {
                 $result[$path] = $next;
             }
         }

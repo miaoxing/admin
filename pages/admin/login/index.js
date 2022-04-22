@@ -1,7 +1,6 @@
 /**
  * @layout false
  */
-import {Component} from 'react';
 import {Form, Button, Input} from 'antd';
 import {Box, Image} from '@mxjs/box';
 import $ from 'miaoxing';
@@ -14,9 +13,9 @@ import {ConfigConsumer} from '@miaoxing/app';
 
 const bg = 'https://image-10001577.image.myqcloud.com/uploads/3/20190602/15594729401485.jpg';
 
-export default class extends Component {
-  render() {
-    return <Box flex>
+const Index = () => {
+  return (
+    <Box flex>
       <ConfigConsumer>
         {({page}) => (
           <Global
@@ -84,6 +83,8 @@ export default class extends Component {
           </FormItem>
         </Form>
       </Box>
-    </Box>;
-  }
-}
+    </Box>
+  );
+};
+
+export default Index;

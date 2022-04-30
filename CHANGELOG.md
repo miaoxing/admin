@@ -1,3 +1,28 @@
+## [0.7.1](https://github.com/miaoxing/admin/compare/v0.7.0...v0.7.1) (2022-04-30)
+
+
+### Bug Fixes
+
+* **u, admin:** 解决域名绑定后台时，直接访问域名，识别不到是后台而出错 ([9fc31a7](https://github.com/miaoxing/admin/commit/9fc31a7daa7a94df5b135e9ee6635f30d63aa690))
+
+
+### Features
+
+* **admin, experimental:** 增加 `FormItemUpload` 组件 ([d14a340](https://github.com/miaoxing/admin/commit/d14a3401d65d418f3bc9555e85ea03df7f7de18c))
+* 允许设置路径的 `url` 为 false 来不显示面包屑地址 ([5cacd2c](https://github.com/miaoxing/admin/commit/5cacd2c2f55073775b861493e19306378a363ed1))
+
+
+
+
+
+### Dependencies
+
+* **@mxjs/a-form:** upgrade from `0.3.4` to `0.3.5`
+* **@mxjs/a-page:** upgrade from `0.3.4` to `0.3.5`
+* **@mxjs/upload:** upgrade from `0.6.2` to `0.6.3`
+* **@miaoxing/app:** upgrade from `0.6.2` to `0.6.3`
+* **@miaoxing/file:** upgrade from `0.3.1` to `0.3.2`
+
 # [0.7.0](https://github.com/miaoxing/admin/compare/v0.6.0...v0.7.0) (2022-03-31)
 
 

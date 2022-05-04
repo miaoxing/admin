@@ -30,12 +30,12 @@ const Navbar = ({user = {}}) => {
       <Dropdown
         overlay={
           <Menu>
-            <Menu.Item>
+            <Menu.Item key="password">
               <Link to={$.url('admin/password')}>
                 <LockOutlined/>{' '}修改密码
               </Link>
             </Menu.Item>
-            <Menu.Item>
+            <Menu.Item key="logout">
               <a onClick={handleLogout}>
                 <LogoutOutlined/>{' '}退出登录
               </a>

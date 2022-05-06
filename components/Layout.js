@@ -8,7 +8,7 @@ import $ from 'miaoxing';
 import propTypes from 'prop-types';
 import {PageContext} from '@mxjs/a-page';
 import {history} from '@mxjs/app';
-import {ConfigConsumer} from 'plugins/app/components/ConfigContext';
+import {ConfigConsumer} from '@miaoxing/app';
 
 export default class extends Component {
   state = {

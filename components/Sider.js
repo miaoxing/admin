@@ -45,7 +45,7 @@ class extends React.Component {
   }
 
   updateMenu() {
-    const pathname = window.location.pathname.replace(/\/+$/, '');
+    const pathname = this.props.history.location.pathname.replace(/\/+$/, '');
     let openKeys = this.state.openKeys;
     let selectedKeys = [];
 

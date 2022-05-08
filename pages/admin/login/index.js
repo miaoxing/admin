@@ -10,6 +10,7 @@ import {FormItem} from '@mxjs/a-form';
 import nextUrl from 'next-url';
 import logo from '@miaoxing/admin/images/logo.svg';
 import {ConfigConsumer} from '@miaoxing/app';
+import {history} from '@mxjs/app';
 
 const bg = 'https://image-10001577.image.myqcloud.com/uploads/3/20190602/15594729401485.jpg';
 
@@ -58,7 +59,7 @@ const Index = () => {
             await $.ret(ret);
             if (ret.isSuc()) {
               window.localStorage.setItem('token', ret.token);
-              window.location.href = nextUrl($.url('admin'));
+              window.location.href = history.createHref({pathname: nextUrl($.url('admin'))});
             }
           }}
         >

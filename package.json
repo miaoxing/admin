@@ -25,7 +25,7 @@
     "history": "^5.0.0",
     "lodash.merge": "^4.6.2",
     "miaoxing": "^0.4.1",
-    "next-url": "^1.0.0",
+    "next-url": "^1.1.0",
     "prop-types": "^15.7.2",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",

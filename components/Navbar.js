@@ -16,7 +16,9 @@ const handleLogout = async () => {
   await $.ret(ret);
   if (ret.isSuc()) {
     window.localStorage.removeItem('token');
-    history.push($.url('admin/login', {next: window.location.pathname}));
+    history.push($.url('admin/login', {
+      next: history.location.pathname + history.location.search + history.location.hash
+    }));
   }
 };
 

@@ -4,6 +4,7 @@ import {Form, FormAction, FormItem} from '@mxjs/a-form';
 import {Alert} from 'antd';
 import {Box} from '@mxjs/box';
 import curUrl from '@mxjs/cur-url';
+import {history} from '@mxjs/app';
 
 const Index = () => {
   return (
@@ -15,7 +16,7 @@ const Index = () => {
         valuesUrl={false}
         url={curUrl.api()}
         method="put"
-        redirectUrl={$.url('admin/login', {next: window.location.pathname})}
+        redirectUrl={$.url('admin/login', {next: history.location.pathname})}
       >
         <FormItem label="旧密码" name="oldPassword" type="password" required/>
 

@@ -9,6 +9,7 @@ import propTypes from 'prop-types';
 import {PageContext} from '@mxjs/a-page';
 import {history} from '@mxjs/app';
 import {ConfigConsumer} from '@miaoxing/app';
+import getLoginPath from '../modules/get-login-path';
 
 export default class extends Component {
   state = {
@@ -24,7 +25,7 @@ export default class extends Component {
   componentDidMount() {
     // 没有 token 则提前跳转到登录页面
     if (!window.localStorage.getItem('token')) {
-      history.push($.url('admin/login', {next: window.location.href}));
+      history.push(getLoginPath());
       return;
     }
 

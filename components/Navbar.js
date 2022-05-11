@@ -10,15 +10,14 @@ import propTypes from 'prop-types';
 import Avatar from './Avatar';
 import {css, createStyle} from '@mxjs/css';
 import {Box} from '@mxjs/box';
+import getLoginPath from '../modules/get-login-path';
 
 const handleLogout = async () => {
   const {ret} = await api.post('logout');
   await $.ret(ret);
   if (ret.isSuc()) {
     window.localStorage.removeItem('token');
-    history.push($.url('admin/login', {
-      next: history.location.pathname + history.location.search + history.location.hash
-    }));
+    history.push(getLoginPath());
   }
 };
 

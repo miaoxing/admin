@@ -28,25 +28,7 @@ return new class () extends BaseController {
 
     private function getMenus()
     {
-        $menus = array_values(wei()->adminNav->getCategories());
-
-        foreach ($menus as $i => $menu) {
-            if ($menu['url'] && !$this->isFullUrl($menu['url'])) {
-                $menus[$i]['url'] = Url::to($menu['url']);
-            }
-            foreach ($menu['navs'] as $j => $menu2) {
-                if (!$this->isFullUrl($menu2['url'])) {
-                    $menus[$i]['navs'][$j]['url'] = Url::to($menu2['url']);
-                }
-            }
-        }
-
-        return $menus;
-    }
-
-    private function isFullUrl(string $url): bool
-    {
-        return (bool) parse_url($url, \PHP_URL_SCHEME);
+        return array_values(wei()->adminNav->getCategories());
     }
 
     private function filterConfig($pages)

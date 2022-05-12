@@ -6,10 +6,20 @@ import propTypes from 'prop-types';
 import {withRouter} from 'react-router';
 import ReactRouterPropTypes from 'react-router-prop-types';
 import logo from '../images/logo.svg';
+import $ from 'miaoxing';
 import {ConfigConsumer} from 'plugins/app/components/ConfigContext';
 
 const {Sider} = Layout;
 const {SubMenu} = Menu;
+
+const MenuLink = ({menu}) => {
+  // 快速检查是否为外部地址
+  if (menu.url.indexOf('://') > 0) {
+    return <a href={menu.url} target={menu.target}>{menu.name}</a>;
+  } else {
+    return <Link to={$.url(menu.url)} target={menu.target}>{menu.name}</Link>
+  }
+};
 
 export default @withRouter
 class extends React.Component {
@@ -96,6 +106,10 @@ class extends React.Component {
     });
   }
 
+  getUrl(url) {
+    return url.indexOf('://') > 0 ? url : $.url(url);
+  }
+
   render() {
     return (
       <Sider
@@ -122,7 +136,7 @@ class extends React.Component {
           {this.props.menus.map(menu => (
             menu.url ?
               <Menu.Item key={menu.name}>
-                <Link to={menu.url} target={menu.target}>{menu.name}</Link>
+                <MenuLink menu={menu}/>
               </Menu.Item>
               :
               <SubMenu
@@ -135,7 +149,7 @@ class extends React.Component {
               >
                 {menu.navs.map(menu2 => (
                   <Menu.Item key={menu2.name}>
-                    <Link to={menu2.url} target={menu2.target}>{menu2.name}</Link>
+                    <MenuLink menu={menu2}/>
                   </Menu.Item>
                 ))}
               </SubMenu>

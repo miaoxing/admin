@@ -7,6 +7,9 @@ import {Form, FormItem, FormAction, Select} from '@mxjs/a-form';
 import {CListBtn} from '@mxjs/a-clink';
 import api from '@mxjs/api';
 import Upload from '@mxjs/upload';
+import {Box} from '@mxjs/box';
+import {Alert} from 'antd';
+import {useConfig} from '@miaoxing/app';
 
 const AdminForm = () => {
   const [data, setData] = useState([]);
@@ -16,11 +19,17 @@ const AdminForm = () => {
     });
   }, []);
 
+  const config = useConfig();
+
   return (
     <Page>
       <PageActions>
         <CListBtn/>
       </PageActions>
+
+      {config?.app?.isDemo && <Box my4>
+        <Alert type="warning" showIcon message="当前是演示模式，提交后密码不会改变"/>
+      </Box>}
 
       <Form>
         {({id}) => {

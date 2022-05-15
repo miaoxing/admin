@@ -2,6 +2,7 @@
 
 use Miaoxing\Admin\Service\AdminModel;
 use Miaoxing\Plugin\BaseController;
+use Miaoxing\Plugin\Service\UserModel;
 use Miaoxing\Services\Page\ItemTrait;
 use Wei\Req;
 use Wei\V;
@@ -49,7 +50,7 @@ return new class () extends BaseController {
             $user->username = $data['username'];
         }
 
-        if ($validatePassword) {
+        if ($this->shouldUpdatePassword($validatePassword, $user)) {
             $user->setPlainPassword($data['password']);
         }
 
@@ -58,5 +59,21 @@ return new class () extends BaseController {
         $admin->save(['userId' => $user->id]);
 
         return $admin->toRet();
+    }
+
+    protected function shouldUpdatePassword(bool $validatePassword, UserModel $user): bool
+    {
+        if ($user->isNew()) {
+            // 新用户总是要更新密码
+            return true;
+        }
+
+        if ($this->app->isDemo()) {
+            // 演示模式下，编辑用户不更新密码
+            return false;
+        }
+
+        // 提交了密码，需更新密码
+        return $validatePassword;
     }
 };

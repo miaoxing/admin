@@ -13,6 +13,47 @@ use Miaoxing\Plugin\Model\SoftDeleteTrait;
 /**
  * GroupModel
  *
+ * @OA\Schema(schema="Group")
+ * @OA\Property(
+ *   property="id",
+ *   type="string",
+ *   description="编号"
+ * )
+ * @OA\Property(
+ *   property="appId",
+ *   type="string",
+ *   description="应用编号"
+ * )
+ * @OA\Property(
+ *   property="name",
+ *   type="string",
+ *   description="名称"
+ * )
+ * @OA\Property(
+ *   property="sort",
+ *   type="int",
+ *   description="顺序"
+ * )
+ * @OA\Property(
+ *   property="createdBy",
+ *   type="string",
+ *   description="创建用户编号"
+ * )
+ * @OA\Property(
+ *   property="createdAt",
+ *   type="string",
+ *   description="创建时间"
+ * )
+ *  @OA\Property(
+ *   property="updatedBy",
+ *   type="string",
+ *   description="更新用户编号"
+ * )
+ * @OA\Property(
+ *   property="updatedAt",
+ *   type="string",
+ *   description="更新时间"
+ * )
  * @property GroupModel $parent
  */
 class GroupModel extends BaseModel

@@ -1,3 +1,41 @@
+## [0.7.2](https://github.com/miaoxing/admin/compare/v0.7.1...v0.7.2) (2022-06-01)
+
+
+### Bug Fixes
+
+* **admin:** 解决控制台提示 Warning: MenuItem should not leave undefined `key`. ([043bcc1](https://github.com/miaoxing/admin/commit/043bcc1f1d5b7f351d21a447fa28002f93bbe035))
+
+
+### Features
+
+* **admin:** 演示模式下，提交修改密码后不会改变原密码 ([2328ed5](https://github.com/miaoxing/admin/commit/2328ed5fb02bf9520fe57a15ebd5692fc63b949b))
+* 演示模式下，提交修改密码后不会改变原密码 ([0d6908a](https://github.com/miaoxing/admin/commit/0d6908a1ebceafefcf153123339a46ad8c49f4fd))
+* **admin:** 侧边栏支持 `hash` 路由模式 ([20449be](https://github.com/miaoxing/admin/commit/20449be800a8ffcde30e6c65e0e8d2486e79a9da))
+* **admin:** 修改密码退出登录支持 `hash` 路由器模式 ([2d094f8](https://github.com/miaoxing/admin/commit/2d094f8ebc293681232271fca8fa192616557c8c))
+* **admin:** 未登录跳转支持 `hash` 路由器模式 ([df35395](https://github.com/miaoxing/admin/commit/df35395ccc0373669ae66cc02c240a2728557d04))
+* **admin:** 登录后跳转支持 `hash` 路由器模式 ([189366a](https://github.com/miaoxing/admin/commit/189366a9e8ffbcf9a3653f504a7ef87d0288b96b))
+* **admin:** 自动跳转后台页面，支持 `hash` 路由器模式 ([d6927d4](https://github.com/miaoxing/admin/commit/d6927d4caf451451f70524d525117cfc78c3357e))
+* **admin:** 退出登录跳转地址支持 `hash` 路由器模式 ([6ed2831](https://github.com/miaoxing/admin/commit/6ed2831558da959b59bcf390e461912c88c81b0f))
+
+
+
+
+
+### Dependencies
+
+* **@mxjs/a-clink:** upgrade from `0.2.4` to `0.2.5`
+* **@mxjs/a-form:** upgrade from `0.3.5` to `0.3.6`
+* **@mxjs/a-page:** upgrade from `0.3.5` to `0.3.6`
+* **@mxjs/a-table:** upgrade from `0.4.4` to `0.4.5`
+* **@mxjs/api:** upgrade from `0.1.8` to `0.1.9`
+* **@mxjs/css:** upgrade from `0.3.2` to `0.3.3`
+* **@mxjs/upload:** upgrade from `0.6.3` to `0.6.4`
+* **miaoxing:** upgrade from `0.4.1` to `0.4.2`
+* **@miaoxing/dev:** upgrade from `8.1.0` to `8.1.1`
+* **@mxjs/test:** upgrade from `0.2.4` to `0.2.5`
+* **@miaoxing/app:** upgrade from `0.6.3` to `0.6.4`
+* **@miaoxing/file:** upgrade from `0.3.2` to `0.3.3`
+
 ## [0.7.1](https://github.com/miaoxing/admin/compare/v0.7.0...v0.7.1) (2022-04-30)
 
 

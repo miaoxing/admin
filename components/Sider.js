@@ -17,8 +17,16 @@ const MenuLink = ({menu}) => {
   if (menu.url.indexOf('://') > 0) {
     return <a href={menu.url} target={menu.target}>{menu.name}</a>;
   } else {
-    return <Link to={$.url(menu.url)} target={menu.target}>{menu.name}</Link>
+    return <Link to={$.url(menu.url)} target={menu.target}>{menu.name}</Link>;
   }
+};
+
+MenuLink.propTypes = {
+  menu: propTypes.shape({
+    url: propTypes.string,
+    target: propTypes.string,
+    name: propTypes.string,
+  }),
 };
 
 export default @withRouter
@@ -61,7 +69,7 @@ class extends React.Component {
 
     // 查找完全匹配的一级菜单
     for (const menu of this.props.menus) {
-      if (menu.url === pathname)  {
+      if (menu.url === pathname) {
         openKeys.push(menu.name);
         selectedKeys.push(menu.name);
         break;

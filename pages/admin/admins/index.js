@@ -78,6 +78,6 @@ const Index = () => {
       </TableProvider>
     </Page>
   );
-}
+};
 
 export default Index;

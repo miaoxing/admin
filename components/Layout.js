@@ -1,6 +1,5 @@
-import { Component } from 'react';
+import {useEffect, useState} from 'react';
 import {Layout} from 'antd';
-import Navbar from './Navbar';
 import Sider from './Sider';
 import {Box} from '@mxjs/box';
 import api from '@mxjs/api';
@@ -9,20 +8,15 @@ import propTypes from 'prop-types';
 import {PageContext} from '@mxjs/a-page';
 import {history} from '@mxjs/app';
 import {ConfigConsumer} from '@miaoxing/app';
+import Navbar from './Navbar';
 import getLoginPath from '../modules/get-login-path';
 
-export default class extends Component {
-  state = {
-    menus: [],
-    pages: {},
-    user: {},
-  };
+const AdminLayout = ({children}) => {
+  const [user, setUser] = useState({});
+  const [menus, setMenus] = useState([]);
+  const [pages, setPages] = useState([]);
 
-  static propTypes = {
-    children: propTypes.node,
-  };
-
-  componentDidMount() {
+  useEffect(() => {
     // 没有 token 则提前跳转到登录页面
     if (!window.localStorage.getItem('token')) {
       history.push(getLoginPath());
@@ -31,7 +25,8 @@ export default class extends Component {
 
     api.get('admin-page', {loading: true}).then(({ret}) => {
       if (ret.isSuc()) {
-        this.setState(ret.data);
+        setMenus(ret.data.menus);
+        setPages(ret.data.pages);
       } else {
         $.ret(ret);
       }
@@ -39,31 +34,33 @@ export default class extends Component {
 
     api.get('user').then(({ret}) => {
       if (ret.isSuc()) {
-        this.setState({user: ret.data});
+        setUser(ret.data);
       } else {
         $.ret(ret);
       }
     });
-  }
+  }, []);
 
-  render() {
-    return (
-      <PageContext.Provider value={{pages: this.state.pages}}>
-        <Box as={Layout} minH="100vh">
-          <Sider menus={this.state.menus}/>
-          <Layout>
-            <Navbar user={this.state.user}/>
-            <Box as={Layout.Content} px4 pt4>
-              {this.props.children}
-            </Box>
-            <Box as={Layout.Footer} textAlign="center">
-              <ConfigConsumer>
-                {({page}) => page.copyright}
-              </ConfigConsumer>
-            </Box>
-          </Layout>
-        </Box>
-      </PageContext.Provider>
-    );
-  }
-}
+  return (
+    <PageContext.Provider value={{pages}}>
+      <Box as={Layout} minH="100vh">
+        <Sider menus={menus}/>
+        <Layout>
+          <Navbar user={user}/>
+          <Box as={Layout.Content} px4 pt4>
+            {children}
+          </Box>
+          <Box as={Layout.Footer} textAlign="center">
+            <ConfigConsumer>
+              {({page}) => page.copyright}
+            </ConfigConsumer>
+          </Box>
+        </Layout>
+      </Box>
+    </PageContext.Provider>
+  );
+};
+
+AdminLayout.propTypes = {
+  children: propTypes.node,
+};

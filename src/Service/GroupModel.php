@@ -81,12 +81,12 @@ class GroupModel extends BaseModel
 
     public function afterSave()
     {
-        wei()->cache->remove('groups:' . wei()->app->getId());
+        wei()->cache->delete('groups:' . wei()->app->getId());
     }
 
     public function afterDestroy()
     {
-        wei()->cache->remove('groups:' . wei()->app->getId());
+        wei()->cache->delete('groups:' . wei()->app->getId());
     }
 
     public function getFullName()

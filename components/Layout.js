@@ -1,5 +1,5 @@
 import {useEffect, useState} from 'react';
-import {Layout} from 'antd';
+import {Layout as AntdLayout} from 'antd';
 import Sider from './Sider';
 import {Box} from '@mxjs/box';
 import api from '@mxjs/api';
@@ -11,7 +11,7 @@ import {ConfigConsumer} from '@miaoxing/app';
 import Navbar from './Navbar';
 import getLoginPath from '../modules/get-login-path';
 
-const AdminLayout = ({children}) => {
+const Layout = ({children}) => {
   const [user, setUser] = useState({});
   const [menus, setMenus] = useState([]);
   const [pages, setPages] = useState([]);
@@ -43,24 +43,26 @@ const AdminLayout = ({children}) => {
 
   return (
     <PageContext.Provider value={{pages}}>
-      <Box as={Layout} minH="100vh">
+      <Box as={AntdLayout} minH="100vh">
         <Sider menus={menus}/>
-        <Layout>
+        <AntdLayout>
           <Navbar user={user}/>
-          <Box as={Layout.Content} px4 pt4>
+          <Box as={AntdLayout.Content} px4 pt4>
             {children}
           </Box>
-          <Box as={Layout.Footer} textAlign="center">
+          <Box as={AntdLayout.Footer} textAlign="center">
             <ConfigConsumer>
               {({page}) => page.copyright}
             </ConfigConsumer>
           </Box>
-        </Layout>
+        </AntdLayout>
       </Box>
     </PageContext.Provider>
   );
 };
 
-AdminLayout.propTypes = {
+Layout.propTypes = {
   children: propTypes.node,
 };
+
+export default Layout;

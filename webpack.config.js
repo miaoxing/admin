@@ -2,22 +2,16 @@ const path = require('path');
 const WebpackConfig = require('@mxjs/webpack');
 const {generateAntdVars} = require('@mxjs/style/utils');
 const CopyPlugin = require('copy-webpack-plugin');
-
 const theme = require('./modules/theme');
-const name = path.basename(__dirname);
 
 const config = WebpackConfig.build({
-  name,
+  name: path.basename(__dirname),
+  entry: 'plugins/admin/modules/app.js',
   lessLoaderOptions: {
     lessOptions: {
       modifyVars: generateAntdVars(theme),
       javascriptEnabled: true,
     },
-  },
-  getEntries() {
-    return {
-      [name]: `${this.rootDir}/plugins/${name}/modules/app.js`,
-    };
   },
 });
 

@@ -8,7 +8,6 @@ const name = path.basename(__dirname);
 
 const config = WebpackConfig.build({
   name,
-  manifest: true,
   lessLoaderOptions: {
     lessOptions: {
       modifyVars: generateAntdVars(theme),

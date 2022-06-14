@@ -7,12 +7,19 @@ const theme = require('./modules/theme');
 const config = WebpackConfig.build({
   name: path.basename(__dirname),
   entry: 'plugins/admin/modules/app.js',
-  lessLoaderOptions: {
-    lessOptions: {
-      modifyVars: generateAntdVars(theme),
-      javascriptEnabled: true,
-    },
-  },
+});
+
+config.module.rules.map(rule => {
+  rule.use && rule.use.map(use => {
+    if (use.loader === 'less-loader') {
+      use.options = {
+        lessOptions: {
+          modifyVars: generateAntdVars(theme),
+          javascriptEnabled: true,
+        },
+      };
+    }
+  });
 });
 
 config.plugins.push(new CopyPlugin({

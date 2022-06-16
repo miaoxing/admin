@@ -17,7 +17,7 @@ class AdminModelMixin
 }
 
 /**
- * @property    Miaoxing\Admin\Service\AdminNav $adminNav 后台导航
+ * @property    Miaoxing\Admin\Service\AdminMenu $adminNav 后台导航
  */
 class AdminNavMixin
 {
@@ -77,7 +77,7 @@ $admin = wei()->adminModel;
 /** @var Miaoxing\Admin\Service\AdminModel|Miaoxing\Admin\Service\AdminModel[] $admins */
 $admins = wei()->adminModel();
 
-/** @var Miaoxing\Admin\Service\AdminNav $adminNav */
+/** @var Miaoxing\Admin\Service\AdminMenu $adminNav */
 $adminNav = wei()->adminNav;
 
 /** @var Miaoxing\Admin\Service\AdminPage $adminPage */

@@ -2,8 +2,10 @@
 
 namespace Miaoxing\Admin\Service;
 
+use Miaoxing\Admin\Service\AdminMenu\Item;
+
 /**
- * 后台导航
+ * 后台菜单
  *
  * @mixin \EventMixin
  * @mixin \ViewMixin
@@ -11,7 +13,7 @@ namespace Miaoxing\Admin\Service;
  * @mixin \PluginMixin
  * @mixin \ReqMixin
  */
-class AdminNav extends \Miaoxing\Plugin\BaseService
+class AdminMenu extends \Miaoxing\Plugin\BaseService
 {
     protected $categories = [];
 
@@ -37,6 +39,49 @@ class AdminNav extends \Miaoxing\Plugin\BaseService
     ];
 
     protected $defaultIndexUrl = 'admin/index/index';
+
+    /**
+     * @var array
+     */
+    protected $items;
+
+    public function getItems(): array
+    {
+        return $this->items;
+    }
+
+    public function addChild($item, $data = [])
+    {
+        $this->items[] = $item;
+        return $item;
+    }
+
+    public function child($key): Item
+    {
+        if (!isset($this->items[$key])) {
+            $this->items[$key] = Item::new($key);
+        }
+        return $this->items[$key];
+
+        foreach ($this->items as $item) {
+            if ($item->key() === $key) {
+                return $item;
+            }
+        }
+        $item = Item::new($key);
+        $this->items[] = $item;
+        return $item;
+    }
+
+    public function getChild($key)
+    {
+        foreach ($this->items as $item) {
+            if ($item->key() === $key) {
+                return $item;
+            }
+        }
+        return null;
+    }
 
     /**
      * 获取首页地址

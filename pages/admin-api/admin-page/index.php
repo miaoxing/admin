@@ -27,7 +27,7 @@ return new class () extends BaseController {
 
     private function getMenus()
     {
-        return array_values(wei()->adminNav->getCategories());
+        return array_values(wei()->adminMenu->getCategories());
     }
 
     private function filterConfig($pages)

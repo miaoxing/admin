@@ -9,17 +9,17 @@ class AdminLogModelMixin
 }
 
 /**
- * @property    Miaoxing\Admin\Service\AdminModel $adminModel
- * @method      Miaoxing\Admin\Service\AdminModel adminModel() 返回当前对象
+ * @property    Miaoxing\Admin\Service\AdminMenu $adminMenu 后台菜单
  */
-class AdminModelMixin
+class AdminMenuMixin
 {
 }
 
 /**
- * @property    Miaoxing\Admin\Service\AdminMenu $adminNav 后台导航
+ * @property    Miaoxing\Admin\Service\AdminModel $adminModel
+ * @method      Miaoxing\Admin\Service\AdminModel adminModel() 返回当前对象
  */
-class AdminNavMixin
+class AdminModelMixin
 {
 }
 
@@ -47,8 +47,8 @@ class GroupModelMixin
 
 /**
  * @mixin AdminLogModelMixin
+ * @mixin AdminMenuMixin
  * @mixin AdminModelMixin
- * @mixin AdminNavMixin
  * @mixin AdminPageMixin
  * @mixin GroupMixin
  * @mixin GroupModelMixin
@@ -71,14 +71,14 @@ $adminLog = wei()->adminLogModel;
 /** @var Miaoxing\Admin\Service\AdminLogModel|Miaoxing\Admin\Service\AdminLogModel[] $adminLogs */
 $adminLogs = wei()->adminLogModel();
 
+/** @var Miaoxing\Admin\Service\AdminMenu $adminMenu */
+$adminMenu = wei()->adminMenu;
+
 /** @var Miaoxing\Admin\Service\AdminModel $admin */
 $admin = wei()->adminModel;
 
 /** @var Miaoxing\Admin\Service\AdminModel|Miaoxing\Admin\Service\AdminModel[] $admins */
 $admins = wei()->adminModel();
-
-/** @var Miaoxing\Admin\Service\AdminMenu $adminNav */
-$adminNav = wei()->adminNav;
 
 /** @var Miaoxing\Admin\Service\AdminPage $adminPage */
 $adminPage = wei()->adminPage;

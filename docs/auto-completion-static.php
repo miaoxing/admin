@@ -980,6 +980,27 @@ class AdminLogModel
     }
 }
 
+class AdminMenu
+{
+    /**
+     * Return the root menu object
+     *
+     * @return Item
+     * @see AdminMenu::getMenu
+     */
+    public static function getMenu(): AdminMenu\Item
+    {
+    }
+
+    /**
+     * @return array
+     * @see AdminMenu::getMenus
+     */
+    public static function getMenus(): array
+    {
+    }
+}
+
 class AdminModel
 {
     /**
@@ -1975,10 +1996,6 @@ class AdminModel
     public static function isRelation(string $method): bool
     {
     }
-}
-
-class AdminNav
-{
 }
 
 class AdminPage
@@ -3966,6 +3983,27 @@ if (0) {
         }
     }
 
+    class AdminMenu
+    {
+        /**
+         * Return the root menu object
+         *
+         * @return Item
+         * @see AdminMenu::getMenu
+         */
+        public function getMenu(): AdminMenu\Item
+        {
+        }
+
+        /**
+         * @return array
+         * @see AdminMenu::getMenus
+         */
+        public function getMenus(): array
+        {
+        }
+    }
+
     class AdminModel
     {
         /**
@@ -4949,10 +4987,6 @@ if (0) {
         public function isRelation(string $method): bool
         {
         }
-    }
-
-    class AdminNav
-    {
     }
 
     class AdminPage

@@ -1,5 +1,6 @@
 <?php
 
+use Miaoxing\Admin\Service\AdminMenu;
 use Miaoxing\Plugin\BaseController;
 
 return new class () extends BaseController {
@@ -7,7 +8,7 @@ return new class () extends BaseController {
     {
         return suc([
             'data' => [
-                'menus' => $this->getMenus(),
+                'menus' => AdminMenu::getMenus(),
                 'pages' => $this->getPages(),
                 'title' => '喵星商城',
             ],
@@ -23,11 +24,6 @@ return new class () extends BaseController {
         }
 
         return $this->filterConfig($pages);
-    }
-
-    private function getMenus()
-    {
-        return array_values(wei()->adminMenu->getCategories());
     }
 
     private function filterConfig($pages)

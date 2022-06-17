@@ -3,6 +3,7 @@
 namespace Miaoxing\Admin;
 
 use Miaoxing\Admin\Service\AdminLogModel;
+use Miaoxing\Admin\Service\AdminMenu;
 use Miaoxing\Plugin\BasePlugin;
 use Miaoxing\Plugin\Service\User;
 use Miaoxing\Plugin\Service\UserModel;
@@ -19,40 +20,18 @@ class AdminPlugin extends BasePlugin
 
     protected $code = 203;
 
-    public function onAdminNavGetNavs(&$navs, &$categories, &$subCategories)
+    public function onAdminMenuGetMenus(AdminMenu $menu)
     {
-        $categories['index'] = [
-            'name' => '首页',
-            'sort' => 1000,
-            'url' => 'admin',
-        ];
+        $menu->addChild('index')->setLabel('首页')->setUrl('admin')->setSort(1000);
+        $menu->addChild('user')->setLabel('用户')->setSort(700);
+        $menu->addChild('content')->setLabel('内容')->setSort(500);
+        $menu->addChild('marketing')->setLabel('营销')->setSort(400);
+        $menu->addChild('setting')->setLabel('设置')->setSort(300);
 
-        $categories['user'] = [
-            'name' => '用户',
-            'sort' => 700,
-            'icon' => 'fa fa-user',
-        ];
-
-        $subCategories[] = [
-            'parentId' => 'user',
-            'name' => '管理员管理',
-            'url' => 'admin/admins',
-        ];
-
-        $categories['marketing'] = [
-            'name' => '营销',
-            'sort' => 100,
-        ];
-
-        $categories['content'] = [
-            'name' => '内容',
-            'sort' => 95,
-        ];
-
-        $categories['setting'] = [
-            'name' => '设置',
-            'sort' => 90,
-        ];
+        $menu->child('user')
+            ->addChild()
+            ->setLabel('管理员管理')
+            ->setUrl('admin/admins');
     }
 
     public function onUserLogin(UserModel $user)

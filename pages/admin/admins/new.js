@@ -14,7 +14,7 @@ import {useConfig} from '@miaoxing/app';
 const AdminForm = () => {
   const [data, setData] = useState([]);
   useEffect(() => {
-    api.getMax('groups?withUngroup=1').then(({ret}) => {
+    api.getMax('groups').then(({ret}) => {
       setData(ret.data);
     });
   }, []);
@@ -45,7 +45,7 @@ const AdminForm = () => {
             <FormItem label="昵称" name={['user', 'nickName']}/>
 
             <FormItem label="分组" name={['user', 'groupId']}>
-              <Select options={data} labelKey="name" valueKey="id"/>
+              <Select options={data} labelKey="name" valueKey="id" firstLabel="请选择" firstValue=""/>
             </FormItem>
 
             <FormItem label="头像" name={['user', 'avatar']} extra="支持.jpg .jpeg .bmp .gif .png格式照片">

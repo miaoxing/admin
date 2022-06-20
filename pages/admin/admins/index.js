@@ -10,7 +10,11 @@ import api from '@mxjs/api';
 const Index = () => {
   const [data, setData] = useState([]);
   useEffect(() => {
-    api.get('groups?withUngroup=1').then(({ret}) => {
+    api.get('groups').then(({ret}) => {
+      ret.data.unshift({
+        id: '0',
+        name: '未分组',
+      });
       setData(ret.data);
     });
   }, []);

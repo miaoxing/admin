@@ -119,16 +119,4 @@ class GroupModel extends BaseModel
 
         return $this->parents;
     }
-
-    /**
-     * Coll: 附加未分组数据
-     */
-    public function withUngroup()
-    {
-        array_unshift($this->attributes, self::new([
-            'id' => 0,
-            'name' => '未分组',
-        ]));
-        return $this;
-    }
 }

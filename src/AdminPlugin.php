@@ -7,7 +7,6 @@ use Miaoxing\Admin\Service\AdminMenu;
 use Miaoxing\Plugin\BasePlugin;
 use Miaoxing\Plugin\Service\User;
 use Miaoxing\Plugin\Service\UserModel;
-use Miaoxing\Services\Service\Url;
 use Wei\RetTrait;
 
 class AdminPlugin extends BasePlugin
@@ -50,14 +49,14 @@ class AdminPlugin extends BasePlugin
         $ret = User::checkLogin();
         if ($ret->isErr()) {
             // 指定后台登录的地址
-            $ret['next'] = Url::to('admin/login');
+            $ret['next'] = 'admin/login';
             return $ret;
         }
 
         if (!User::cur()->isAdmin) {
             return $this->err([
                 'message' => '很抱歉，您没有权限访问当前页面',
-                'next' => Url::to('admin/login'),
+                'next' => 'admin/login',
             ]);
         }
     }

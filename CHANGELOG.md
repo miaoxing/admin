@@ -1,3 +1,47 @@
+# [0.8.0](https://github.com/miaoxing/admin/compare/v0.7.3...v0.8.0) (2022-07-01)
+
+
+### Bug Fixes
+
+* **admin:** 解决 "未分组" 和 "全部" 的 "id" 为空导致筛选重复 ([fa216da](https://github.com/miaoxing/admin/commit/fa216dabb860bec163b991a101f108d24e41b3d6))
+
+
+### Code Refactoring
+
+* **admin:** `AdminNav` 服务改为 `AdminMenu` ([6d09290](https://github.com/miaoxing/admin/commit/6d092906a2ac7c62a8d8ba7180edb22254daef52))
+* **admin:** 后台菜单改为通过 `adminMenuGetMenus` 事件和 `AdminMenu` 服务添加 ([6331a95](https://github.com/miaoxing/admin/commit/6331a9538f0d53c9c137433ab7072894f0328800))
+
+
+### Features
+
+* URL 地址改为只返回路径，以便前台生成完整地址 ([27e9e43](https://github.com/miaoxing/admin/commit/27e9e43c5e95924e385fa4b4868fa29cb44e0a4d))
+
+
+### BREAKING CHANGES
+
+* **admin:** 移除 `GroupModel` 的 `withUngroup` 方法
+* **admin:** 后台菜单改为通过 `adminMenuGetMenus` 事件和 `AdminMenu` 服务添加
+* **admin:** `AdminNav` 服务改为 `AdminMenu`
+
+
+
+
+
+### Dependencies
+
+* **@mxjs/a-clink:** upgrade from `0.2.6` to `1.0.0`
+* **@mxjs/a-form:** upgrade from `0.3.7` to `1.0.0`
+* **@mxjs/a-page:** upgrade from `0.3.7` to `1.0.0`
+* **@mxjs/a-table:** upgrade from `0.4.6` to `1.0.0`
+* **@mxjs/api:** upgrade from `0.1.10` to `1.0.0`
+* **@mxjs/css:** upgrade from `0.3.3` to `1.0.0`
+* **@mxjs/upload:** upgrade from `0.6.5` to `0.6.6`
+* **miaoxing:** upgrade from `0.4.2` to `0.4.3`
+* **@miaoxing/dev:** upgrade from `8.1.1` to `8.1.2`
+* **@mxjs/test:** upgrade from `0.2.6` to `1.0.0`
+* **@miaoxing/app:** upgrade from `0.6.4` to `0.6.5`
+* **@miaoxing/file:** upgrade from `0.3.3` to `0.3.4`
+
 ## [0.7.3](https://github.com/miaoxing/admin/compare/v0.7.2...v0.7.3) (2022-06-06)
 
 

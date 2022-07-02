@@ -1,3 +1,19 @@
+## [0.8.1](https://github.com/miaoxing/admin/compare/v0.8.0...v0.8.1) (2022-07-02)
+
+
+### Bug Fixes
+
+* 解决 composer 2.2+ 默认不启用插件导致安装路径错误 ([d6dc73c](https://github.com/miaoxing/admin/commit/d6dc73cd37c52439c0affd7c9926fb07868151d4))
+
+
+
+
+
+### Dependencies
+
+* **@miaoxing/app:** upgrade from `0.6.5` to `0.6.6`
+* **@miaoxing/file:** upgrade from `0.3.4` to `0.3.5`
+
 # [0.8.0](https://github.com/miaoxing/admin/compare/v0.7.3...v0.8.0) (2022-07-01)
 
 

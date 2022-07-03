@@ -11,10 +11,47 @@ import nextUrl from 'next-url';
 import logo from '@miaoxing/admin/images/logo.svg';
 import {ConfigConsumer} from '@miaoxing/app';
 import {history} from '@mxjs/app';
+import {useEffect, useRef} from 'react';
 
 const bg = 'https://image-10001577.image.myqcloud.com/uploads/3/20190602/15594729401485.jpg';
 
+/**
+ * 解析 auth 参数，从中获得用户名和密码
+ */
+const parseAuth = () => {
+  const auth = $.req('auth');
+  if (!auth) {
+    return;
+  }
+
+  let result;
+  try {
+    result = atob(auth);
+  } catch (e) {
+    return;
+  }
+
+  const index = result.indexOf(':');
+  if (-1 === index) {
+    return;
+  }
+
+  const username = result.substring(0, index);
+  const password = result.substring(index + 1);
+
+  return {username, password};
+};
+
 const Index = () => {
+  const form = useRef();
+  useEffect(() => {
+    const result = parseAuth();
+    if (!result) {
+      return;
+    }
+    form.current.setFieldsValue(result);
+  }, []);
+
   return (
     <Box flex>
       <ConfigConsumer>
@@ -53,6 +90,7 @@ const Index = () => {
           登录
         </Box>
         <Form
+          ref={form}
           size="large"
           onFinish={async values => {
             const {ret} = await api.postCur({data: values});

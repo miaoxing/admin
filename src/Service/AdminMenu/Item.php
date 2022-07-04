@@ -185,6 +185,18 @@ class Item implements JsonSerializable
     }
 
     /**
+     * Remove child by the name
+     *
+     * @param string $name
+     * @return $this
+     */
+    public function removeChild(string $name): self
+    {
+        unset($this->children[$name]);
+        return $this;
+    }
+
+    /**
      * @return array
      */
     public function getChildren(): array

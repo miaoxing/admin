@@ -57,6 +57,17 @@ class AdminMenu extends BaseService
     }
 
     /**
+     * Remove child by the name
+     *
+     * @param string $name
+     * @return Item
+     */
+    public function removeChild(string $name): Item
+    {
+        return $this->menu->removeChild($name);
+    }
+
+    /**
      * Return the root menu object
      *
      * @return Item

@@ -31,6 +31,12 @@ class AdminPlugin extends BasePlugin
             ->addChild()
             ->setLabel('管理员管理')
             ->setUrl('admin/admins');
+
+        $menu->child('setting')
+            ->addChild()
+            ->setLabel('后台设置')
+            ->setUrl('admin/admin-settings')
+            ->setSort(10);
     }
 
     public function onUserLogin(UserModel $user)

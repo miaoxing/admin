@@ -67,5 +67,9 @@ return [
         '/password' => [
             'name' => '修改密码',
         ],
+
+        '/admin-settings' => [
+            'name' => '后台设置',
+        ],
     ],
 ];

@@ -53,7 +53,7 @@ const Index = () => {
   }, []);
 
   return (
-    <Box flex>
+    <Box column minH="100vh">
       <ConfigConsumer>
         {({page}) => (
           <Global
@@ -66,61 +66,70 @@ const Index = () => {
           />
         )}
       </ConfigConsumer>
-      <Box
-        w={350}
-        mx="auto"
-        my12
-        p12
-        bgWhite
-      >
+      <Box flex={1}>
         <Box
-          mb4
-          textCenter
+          w={350}
+          mx="auto"
+          my12
+          p12
+          bgWhite
         >
-          <ConfigConsumer>
-            {({page}) => <Image h="50px" src={page.logo || logo}/>}
-          </ConfigConsumer>
-        </Box>
-        <Box
-          mb12
-          textCenter
-          textLG
-          gray500
-        >
-          登录
-        </Box>
-        <Form
-          ref={form}
-          size="large"
-          onFinish={async values => {
-            const {ret} = await api.postCur({data: values});
-            await $.ret(ret);
-            if (ret.isSuc()) {
-              window.localStorage.setItem('token', ret.token);
-              window.location.href = history.createHref({pathname: nextUrl($.url('admin'))});
-            }
-          }}
-        >
-          <FormItem
-            name="username"
-            rules={[{required: true, message: '请输入用户名'}]}
+          <Box
+            mb4
+            textCenter
           >
-            <Input placeholder="用户名"/>
-          </FormItem>
-
-          <FormItem
-            name="password"
-            rules={[{required: true, message: '请输入密码'}]}
+            <ConfigConsumer>
+              {({page}) => <Image h="50px" src={page.logo || logo}/>}
+            </ConfigConsumer>
+          </Box>
+          <Box
+            mb12
+            textCenter
+            textLG
+            gray500
           >
-            <Input.Password placeholder="密码"/>
-          </FormItem>
+            登录
+          </Box>
+          <Form
+            ref={form}
+            size="large"
+            onFinish={async values => {
+              const {ret} = await api.postCur({data: values});
+              await $.ret(ret);
+              if (ret.isSuc()) {
+                window.localStorage.setItem('token', ret.token);
+                window.location.href = history.createHref({pathname: nextUrl($.url('admin'))});
+              }
+            }}
+          >
+            <FormItem
+              name="username"
+              rules={[{required: true, message: '请输入用户名'}]}
+            >
+              <Input placeholder="用户名"/>
+            </FormItem>
 
-          <FormItem>
-            <Button type="primary" htmlType="submit" block>
-              登 录
-            </Button>
-          </FormItem>
-        </Form>
+            <FormItem
+              name="password"
+              rules={[{required: true, message: '请输入密码'}]}
+            >
+              <Input.Password placeholder="密码"/>
+            </FormItem>
+
+            <FormItem>
+              <Button type="primary" htmlType="submit" block>
+                登 录
+              </Button>
+            </FormItem>
+          </Form>
+        </Box>
+      </Box>
+      <Box textCenter py4 color="gray500">
+        <ConfigConsumer>
+          {({page}) => (
+            <>{page.copyright}</>
+          )}
+        </ConfigConsumer>
       </Box>
     </Box>
   );

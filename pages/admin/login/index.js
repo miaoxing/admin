@@ -11,7 +11,9 @@ import nextUrl from 'next-url';
 import logo from '@miaoxing/admin/images/logo.svg';
 import {ConfigConsumer} from '@miaoxing/app';
 import {history} from '@mxjs/app';
-import {useEffect, useRef} from 'react';
+import {useEffect, useRef, useState} from 'react';
+import publicSecurity from '@miaoxing/admin/images/public-security.png';
+import propTypes from 'prop-types';
 
 const bg = 'https://image-10001577.image.myqcloud.com/uploads/3/20190602/15594729401485.jpg';
 
@@ -42,8 +44,38 @@ const parseAuth = () => {
   return {username, password};
 };
 
+const RecordNumber = ({publicSecurityRecordNumber, icpRecordNumber}) => {
+  return (
+    <Box toCenter>
+      {publicSecurityRecordNumber && <Box as="a" toCenterY mr2 color="gray500" target="_blank"
+        href="https://www.beian.gov.cn/portal/registerSystemInfo">
+        <Image mr1 src={publicSecurity}/>
+        {publicSecurityRecordNumber}
+      </Box>}
+      {icpRecordNumber && <Box as="a" color="gray500" href="https://beian.miit.gov.cn/" target="_blank">
+        {icpRecordNumber}
+      </Box>}
+    </Box>
+  );
+};
+
+RecordNumber.propTypes = {
+  publicSecurityRecordNumber: propTypes.string,
+  icpRecordNumber: propTypes.string,
+};
+
 const Index = () => {
   const form = useRef();
+
+  const [data, setData] = useState({});
+  useEffect(() => {
+    api.getCur().then(({ret}) => {
+      if (ret.isSuc()) {
+        setData(ret.data);
+      }
+    });
+  }, []);
+
   useEffect(() => {
     const result = parseAuth();
     if (!result) {
@@ -130,6 +162,7 @@ const Index = () => {
             <>{page.copyright}</>
           )}
         </ConfigConsumer>
+        <RecordNumber {...data}/>
       </Box>
     </Box>
   );

@@ -5,6 +5,12 @@ exports[`login err 1`] = `
   "calls": Array [
     Array [
       Object {
+        "method": "get",
+        "url": "/admin-api/login",
+      },
+    ],
+    Array [
+      Object {
         "data": Object {
           "password": "password",
           "username": "admin",
@@ -19,6 +25,10 @@ exports[`login err 1`] = `
       "type": "return",
       "value": Promise {},
     },
+    Object {
+      "type": "return",
+      "value": Promise {},
+    },
   ],
 }
 `;
@@ -26,6 +36,12 @@ exports[`login err 1`] = `
 exports[`login suc 1`] = `
 [MockFunction] {
   "calls": Array [
+    Array [
+      Object {
+        "method": "get",
+        "url": "/admin-api/login",
+      },
+    ],
     Array [
       Object {
         "data": Object {
@@ -38,6 +54,10 @@ exports[`login suc 1`] = `
     ],
   ],
   "results": Array [
+    Object {
+      "type": "return",
+      "value": Promise {},
+    },
     Object {
       "type": "return",
       "value": Promise {},

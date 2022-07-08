@@ -33,11 +33,19 @@ describe('login', () => {
   };
 
   test('suc', async () => {
-    $.http = jest.fn().mockResolvedValueOnce({
-      ret: Ret.suc({
-        token: 'test',
-      }),
-    });
+    $.http = jest.fn()
+      // 页面配置
+      .mockResolvedValueOnce({
+        ret: Ret.suc({
+          data: {},
+        }),
+      })
+      // 登录
+      .mockResolvedValueOnce({
+        ret: Ret.suc({
+          token: 'test',
+        }),
+      });
 
     window.localStorage = jest.fn();
 
@@ -51,11 +59,19 @@ describe('login', () => {
   test('suc and redirect', async () => {
     setUrl('admin/login?next=/admin/password');
 
-    $.http = jest.fn().mockResolvedValueOnce({
-      ret: Ret.suc({
-        token: 'test',
-      }),
-    });
+    $.http = jest.fn()
+      // 页面配置
+      .mockResolvedValueOnce({
+        ret: Ret.suc({
+          data: {},
+        }),
+      })
+      // 登录
+      .mockResolvedValueOnce({
+        ret: Ret.suc({
+          token: 'test',
+        }),
+      });
 
     await login();
 
@@ -63,9 +79,17 @@ describe('login', () => {
   });
 
   test('err', async () => {
-    $.http = jest.fn().mockResolvedValueOnce({
-      ret: Ret.err('测试登录失败'),
-    });
+    $.http = jest.fn()
+      // 页面配置
+      .mockResolvedValueOnce({
+        ret: Ret.suc({
+          data: {},
+        }),
+      })
+      // 登录
+      .mockResolvedValueOnce({
+        ret: Ret.err('测试登录失败'),
+      });
 
     await login();
 

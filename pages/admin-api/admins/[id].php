@@ -26,19 +26,15 @@ return new class () extends BaseController {
         // 添加用户,编辑用户时,提交了密码,才检验密码是否合法
         $validatePassword = $user->isNew() || ($data['password'] ?? false);
 
-        $ret = V
-            ::key('username', '用户名')->required($validateUsername)->when($validateUsername, function (V $v) {
-                $v->length(1, 32)
-                    ->alnum()
-                    ->notRecordExists('users', 'username');
-            })
-            ->key('password', '密码')->required($validatePassword)->minLength(6)
-            ->key('passwordAgain', '重复密码')->required($validatePassword)->equalTo($data['password'] ?? null)->message(
-                'equalTo',
-                '两次输入的密码不相等'
-            )
-            ->char('nickName', ' 昵称')->optional()->maxCharLength(32)
-            ->check($data);
+        $v = V::new();
+        $v->string('username', '用户名')->required($validateUsername)->when($validateUsername, function (V $v) {
+            $v->length(1, 32)->alnum()->notRecordExists('users', 'username');
+        });
+        $v->string('password', '密码')->required($validatePassword)->minLength(6);
+        $v->string('passwordAgain', '重复密码')->required($validatePassword)
+            ->equalTo($data['password'] ?? null)->message('equalTo', '两次输入的密码不相等');
+        $v->char('nickName', ' 昵称')->optional()->maxCharLength(32);
+        $ret = $v->check($data);
         $this->tie($ret);
 
         if (isset($data['isEnabled']) && !$data['isEnabled'] && $user->isSuperAdmin()) {

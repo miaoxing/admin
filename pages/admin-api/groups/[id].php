@@ -19,7 +19,9 @@ return new class () extends BaseController {
     {
         return UpdateAction::new()
             ->beforeFind(function () {
-                return V::key('name', '名称')->check($this->req);
+                $v = V::new();
+                $v->tinyChar('name', '名称');
+                return $v->check($this->req);
             })
             ->beforeSave(function (BaseModel $model) {
                 return Event::until('groupUpdate', [$model]);

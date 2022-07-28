@@ -4,13 +4,13 @@ namespace Miaoxing\Admin\Service;
 
 use Miaoxing\Admin\Metadata\AdminTrait;
 use Miaoxing\Plugin\BaseModel;
-use Miaoxing\Plugin\Model\Attributes\Relation;
 use Miaoxing\Plugin\Model\HasAppIdTrait;
 use Miaoxing\Plugin\Model\MineTrait;
 use Miaoxing\Plugin\Model\ModelTrait;
 use Miaoxing\Plugin\Model\ReqQueryTrait;
 use Miaoxing\Plugin\Model\SnowflakeTrait;
 use Miaoxing\Plugin\Service\UserModel;
+use Wei\Model\Relation;
 
 /**
  * @property UserModel $user

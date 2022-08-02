@@ -1,3 +1,43 @@
+# [0.9.0](https://github.com/miaoxing/admin/compare/v0.8.1...v0.9.0) (2022-08-02)
+
+
+### Code Refactoring
+
+* **Model:** 移动模型基类到 `wei` 中 ([e0d5086](https://github.com/miaoxing/admin/commit/e0d5086104c2f09c5006e12e97241e6449b9d891))
+
+
+### Features
+
+* **admin:** `adminMenu` 服务增加 `removeChild` 方法 ([371aec6](https://github.com/miaoxing/admin/commit/371aec64bd03e43028f64e7af6fc0765cdc1cafe))
+* **admin:** 登录页允许通过 URL auth 参数，自动填写用户名和密码 ([c12af38](https://github.com/miaoxing/admin/commit/c12af383c13628bb3af4ac857393902027924fa1))
+* **admin:** 登录页底部显示版权信息 ([7421595](https://github.com/miaoxing/admin/commit/7421595aaea8b149cdc376cbd8270810ca333e7b))
+* **u, admin:** 增加后台设置ICP 备案号和公安备案号功能 ([f4ac074](https://github.com/miaoxing/admin/commit/f4ac074ab6cab498e1e6fb42116f2dd9f4dff82e))
+* **u, admin:** 登录页面底部显示ICP 备案号和公安备案号 ([6cf6b89](https://github.com/miaoxing/admin/commit/6cf6b898a022c110122262553d091f47de685ca0))
+
+
+### BREAKING CHANGES
+
+* **Model:** 移动模型基类到 `wei` 中
+
+
+
+
+
+### Dependencies
+
+* **@mxjs/a-clink:** upgrade from `1.0.0` to `1.0.1`
+* **@mxjs/a-form:** upgrade from `1.0.0` to `1.0.1`
+* **@mxjs/a-page:** upgrade from `1.0.0` to `1.0.1`
+* **@mxjs/a-table:** upgrade from `1.0.0` to `1.0.1`
+* **@mxjs/api:** upgrade from `1.0.0` to `1.0.1`
+* **@mxjs/css:** upgrade from `1.0.0` to `1.0.1`
+* **@mxjs/upload:** upgrade from `0.6.6` to `0.6.7`
+* **miaoxing:** upgrade from `0.4.3` to `0.4.4`
+* **@miaoxing/dev:** upgrade from `8.1.2` to `8.1.3`
+* **@mxjs/test:** upgrade from `1.0.0` to `1.0.1`
+* **@miaoxing/app:** upgrade from `0.6.6` to `0.6.7`
+* **@miaoxing/file:** upgrade from `0.3.5` to `0.3.6`
+
 ## [0.8.1](https://github.com/miaoxing/admin/compare/v0.8.0...v0.8.1) (2022-07-02)
 
 

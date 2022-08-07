@@ -1,10 +1,17 @@
-import {InputNumber} from 'antd';
 import {FormItem} from '@mxjs/a-form';
+import propTypes from 'prop-types';
+import InputPrice from './InputPrice';
 
-export default (props) => {
+const FormInputPrice = ({inputProps, ...props}) => {
   return (
-    <FormItem label="顺序" name="sort" extra="大的显示在前面，按从大到小排列。" {...props}>
-      <InputNumber precision={0} min={-10000} max={10000}/>
+    <FormItem label="价格" name="price" {...props}>
+      <InputPrice {...inputProps}/>
     </FormItem>
   );
 };
+
+FormInputPrice.propTypes = {
+  inputProps: propTypes.object,
+};
+
+export default FormInputPrice;

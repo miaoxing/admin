@@ -68,6 +68,10 @@ return [
             'name' => '修改密码',
         ],
 
+        '/user' => [
+            'name' => '修改资料',
+        ],
+
         '/admin-settings' => [
             'name' => '后台设置',
         ],

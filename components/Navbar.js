@@ -5,7 +5,7 @@ import {Layout, Menu, Dropdown} from 'antd';
 import {DownOutlined} from '@ant-design/icons';
 import {Link} from '@mxjs/router';
 import {Actions} from '@mxjs/actions';
-import {LockOutlined, LogoutOutlined} from '@ant-design/icons';
+import {LockOutlined, LogoutOutlined, UserOutlined} from '@ant-design/icons';
 import propTypes from 'prop-types';
 import Avatar from './Avatar';
 import {css, createStyle} from '@mxjs/css';
@@ -34,6 +34,11 @@ const Navbar = ({user = {}}) => {
             <Menu.Item key="password">
               <Link to={$.url('admin/password')}>
                 <LockOutlined/>{' '}修改密码
+              </Link>
+            </Menu.Item>
+            <Menu.Item key="user">
+              <Link to={$.url('admin/user')}>
+                <UserOutlined/>{' '}修改资料
               </Link>
             </Menu.Item>
             <Menu.Item key="logout">

@@ -46,6 +46,13 @@ class AdminPlugin extends BasePlugin
         }
     }
 
+    public function onBeforeUserLogout(UserModel $user)
+    {
+        if ($user->isAdmin) {
+            AdminLogModel::log('用户退出', $user);
+        }
+    }
+
     public function onCheckAuth()
     {
         if (!$this->app->isAdmin()) {

@@ -19,7 +19,7 @@ class AdminPage extends BaseService
     /**
      * @var string
      */
-    protected $logo = '';
+    protected $logo = 'https://u.miaoxingyun.com/logo.svg';
 
     /**
      * 背景图片，可用于登录等简单页面

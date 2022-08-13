@@ -8,7 +8,6 @@ import api from '@mxjs/api';
 import {Global, css} from '@emotion/react';
 import {FormItem} from '@mxjs/a-form';
 import nextUrl from 'next-url';
-import logo from '@miaoxing/admin/images/logo.svg';
 import {ConfigConsumer} from '@miaoxing/app';
 import {history} from '@mxjs/app';
 import {useEffect, useRef, useState} from 'react';
@@ -111,7 +110,7 @@ const Index = () => {
             textCenter
           >
             <ConfigConsumer>
-              {({page}) => <Image h="50px" src={page.logo || logo}/>}
+              {({page}) => <Image h="50px" src={page.logo}/>}
             </ConfigConsumer>
           </Box>
           <Box

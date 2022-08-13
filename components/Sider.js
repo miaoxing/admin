@@ -5,7 +5,6 @@ import {Box, Image} from '@mxjs/box';
 import propTypes from 'prop-types';
 import {withRouter} from 'react-router';
 import ReactRouterPropTypes from 'react-router-prop-types';
-import logo from '../images/logo.svg';
 import $ from 'miaoxing';
 import {ConfigConsumer} from 'plugins/app/components/ConfigContext';
 
@@ -130,7 +129,7 @@ class extends React.Component {
           {({page}) => {
             return (
               <Box toCenter h="60px">
-                <Image h="25px" src={page.logo || logo}/>
+                <Image h="25px" src={page.logo}/>
                 <Box as="h1" ml2 mb0 textXL white>{page.title}</Box>
               </Box>
             );

@@ -5,13 +5,8 @@ import {FormItemUpload} from '@miaoxing/admin';
 const Index = () => {
   return (
     <Page>
-      <Form method="put" afterSubmit={(ret) => {
-        if (ret.isErr()) {
-          return;
-        }
-        setTimeout(() => {
+      <Form method="put" afterSuc={() => {
           window.location.reload();
-        }, 3000);
       }}>
         <FormItem label="姓名" name="name"/>
 

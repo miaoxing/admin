@@ -154,6 +154,10 @@ class Item implements JsonSerializable
      */
     public function addChild($name = null): self
     {
+        if (null === $name) {
+            $name = count($this->children) + 1;
+        }
+
         $item = $name instanceof self ? $name : self::new($name);
         $name = $item->getName();
         if (null === $name) {

@@ -6,10 +6,10 @@ import {Page, PageActions} from '@mxjs/a-page';
 import {Form, FormItem, FormAction, Select} from '@mxjs/a-form';
 import {CListBtn} from '@mxjs/a-clink';
 import api from '@mxjs/api';
-import Upload from '@mxjs/upload';
 import {Box} from '@mxjs/box';
 import {Alert} from 'antd';
 import {useConfig} from '@miaoxing/app';
+import {FormItemUpload} from '@miaoxing/admin';
 
 const AdminForm = () => {
   const [data, setData] = useState([]);
@@ -48,9 +48,7 @@ const AdminForm = () => {
               <Select options={data} labelKey="name" valueKey="id" firstLabel="请选择" firstValue=""/>
             </FormItem>
 
-            <FormItem label="头像" name={['user', 'avatar']} extra="支持.jpg .jpeg .bmp .gif .png格式照片">
-              <Upload max={1}/>
-            </FormItem>
+            <FormItemUpload label="头像" name={['user', 'avatar']} extra="支持.jpg .jpeg .bmp .gif .png格式照片" max={1}/>
 
             <FormItem name="id" type="hidden"/>
 

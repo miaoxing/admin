@@ -21,7 +21,6 @@ class AdminPlugin extends BasePlugin
 
     public function onAdminMenuGetMenus(AdminMenu $menu)
     {
-        $menu->addChild('index')->setLabel('首页')->setUrl('admin')->setSort(1000);
         $menu->addChild('user')->setLabel('用户')->setSort(700);
         $menu->addChild('content')->setLabel('内容')->setSort(500);
         $menu->addChild('marketing')->setLabel('营销')->setSort(400);

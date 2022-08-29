@@ -42,7 +42,7 @@ const Layout = ({children}) => {
   }, []);
 
   return (
-    <PageContext.Provider value={{pages}}>
+    <PageContext.Provider value={{pages, menus}}>
       <Box as={AntdLayout} minH="100vh">
         <Sider menus={menus}/>
         <AntdLayout>

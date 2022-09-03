@@ -1,3 +1,31 @@
+## [0.9.1](https://github.com/miaoxing/admin/compare/v0.9.0...v0.9.1) (2022-09-03)
+
+
+### Bug Fixes
+
+* **admin:** 上传头像功能失效 ([d60802a](https://github.com/miaoxing/admin/commit/d60802ab471dbe6f61d006875c5b2c8079638338))
+
+
+### Features
+
+* **admin:** 增加 `FormInputPrice` 组件 ([2f3c525](https://github.com/miaoxing/admin/commit/2f3c5253edcc571c4055f4eb83349596b745c09c))
+* **admin:** 记录退出登录操作 ([d8c525d](https://github.com/miaoxing/admin/commit/d8c525da793a26788a642933b6c9e667f5de36c1))
+* **admin:** 进入后台自动跳转到首个菜单页面 ([6285ef8](https://github.com/miaoxing/admin/commit/6285ef8e014287c16686889bae9943c89e0fa01c))
+* **admin, AdminMenu:** 增加菜单时，如果 `name` 为 `null`，则自动生成数字名称 ([9e64fb5](https://github.com/miaoxing/admin/commit/9e64fb5c7053f89366381100f6f79850de42d590))
+* **u, admin:** 增加管理员修改资料功能 ([1ca4c8e](https://github.com/miaoxing/admin/commit/1ca4c8efdb6ce63548009024f1b0cdcdc519a26f))
+
+
+
+
+
+### Dependencies
+
+* **@mxjs/a-form:** upgrade from `1.0.1` to `1.1.0`
+* **@mxjs/a-table:** upgrade from `1.0.1` to `1.0.2`
+* **@mxjs/upload:** upgrade from `0.6.7` to `0.6.8`
+* **@miaoxing/app:** upgrade from `0.6.7` to `0.6.8`
+* **@miaoxing/file:** upgrade from `0.3.6` to `0.3.7`
+
 # [0.9.0](https://github.com/miaoxing/admin/compare/v0.8.1...v0.9.0) (2022-08-02)
 
 

@@ -13,8 +13,8 @@ return new class () extends BaseController {
     public function put($req)
     {
         $v = V::new();
-        $v->string('name', '姓名')->maxCharLength(32);
-        $v->string('nickName', '昵称')->maxCharLength(32);
+        $v->maxCharLength('name', '姓名', 32);
+        $v->maxCharLength('nickName', '昵称', 32);
         $v->tinyChar('avatar', '头像');
         $data = $v->assert($req);
 

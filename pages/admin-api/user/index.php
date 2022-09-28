@@ -10,9 +10,9 @@ return new class () extends BaseController {
         return User::cur()->toRet();
     }
 
-    public function put($req)
+    public function patch($req)
     {
-        $v = V::new();
+        $v = V::defaultOptional();
         $v->maxCharLength('name', '姓名', 32);
         $v->maxCharLength('nickName', '昵称', 32);
         $v->tinyChar('avatar', '头像');

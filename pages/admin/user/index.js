@@ -5,7 +5,7 @@ import {FormItemUpload} from '@miaoxing/admin';
 const Index = () => {
   return (
     <Page>
-      <Form method="put" afterSuc={() => {
+      <Form method="PATCH" afterSuc={() => {
           window.location.reload();
       }}>
         <FormItem label="姓名" name="name"/>

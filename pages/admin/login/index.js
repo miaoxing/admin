@@ -12,9 +12,8 @@ import {ConfigConsumer} from '@miaoxing/app';
 import {history} from '@mxjs/app';
 import {useEffect, useRef, useState} from 'react';
 import publicSecurity from '@miaoxing/admin/images/public-security.png';
+import bg from '@miaoxing/admin/images/bg.svg';
 import propTypes from 'prop-types';
-
-const bg = 'https://image-10001577.image.myqcloud.com/uploads/3/20190602/15594729401485.jpg';
 
 /**
  * 解析 auth 参数，从中获得用户名和密码

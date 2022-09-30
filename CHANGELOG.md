@@ -1,3 +1,23 @@
+## [0.9.2](https://github.com/miaoxing/admin/compare/v0.9.1...v0.9.2) (2022-09-30)
+
+
+### Bug Fixes
+
+* **admin:** 访问后台地址有 `/` 时，跳转地址错误 ([f10e79a](https://github.com/miaoxing/admin/commit/f10e79ac6769a6599bbeab9fe8feb73c00616201))
+
+
+
+
+
+### Dependencies
+
+* **@mxjs/a-form:** upgrade from `1.1.0` to `1.1.1`
+* **@mxjs/a-page:** upgrade from `1.0.1` to `1.1.0`
+* **@mxjs/a-table:** upgrade from `1.0.2` to `1.1.0`
+* **@mxjs/upload:** upgrade from `0.6.8` to `0.6.9`
+* **@miaoxing/app:** upgrade from `0.6.8` to `0.6.9`
+* **@miaoxing/file:** upgrade from `0.3.7` to `0.3.8`
+
 ## [0.9.1](https://github.com/miaoxing/admin/compare/v0.9.0...v0.9.1) (2022-09-03)
 
 

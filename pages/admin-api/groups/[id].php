@@ -19,7 +19,7 @@ return new class () extends BaseController {
     {
         return UpdateAction::new()
             ->beforeFind(function () {
-                $v = V::new();
+                $v = V::defaultOptional()->defaultNotEmpty();
                 $v->tinyChar('name', '名称');
                 return $v->check($this->req);
             })

@@ -28,12 +28,12 @@ return new class () extends BaseController {
 
         $v = V::new();
         $v->string('username', '用户名')->required($validateUsername)->when($validateUsername, function (V $v) {
-            $v->length(1, 32)->alnum()->notRecordExists('users', 'username');
+            $v->length(3, 32)->alnum()->notRecordExists('users', 'username');
         });
-        $v->string('password', '密码')->required($validatePassword)->minLength(6);
-        $v->string('passwordAgain', '重复密码')->required($validatePassword)
+        $v->string('password', '密码', 6, 50)->required($validatePassword);
+        $v->string('passwordAgain', '重复密码', 6, 50)->required($validatePassword)
             ->equalTo($data['password'] ?? null)->message('equalTo', '两次输入的密码不相等');
-        $v->char('nickName', ' 昵称')->optional()->maxCharLength(32);
+        $v->maxCharLength('nickName', ' 昵称', 32)->optional();
         $ret = $v->check($data);
         $this->tie($ret);
 

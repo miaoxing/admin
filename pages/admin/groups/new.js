@@ -6,7 +6,7 @@ import {Page, PageActions} from '@mxjs/a-page';
 import {Form, FormItem, FormAction} from '@mxjs/a-form';
 import {FormItemSort} from '@miaoxing/admin';
 
-export default () => {
+const New = () => {
   return (
     <Page>
       <PageActions>
@@ -22,3 +22,5 @@ export default () => {
     </Page>
   );
 };
+
+export default New;

@@ -3,13 +3,13 @@
 namespace Miaoxing\Admin\Metadata;
 
 /**
- * @property int|null $id
- * @property int $appId
- * @property int $userId
+ * @property string|null $id
+ * @property string $appId
+ * @property string $userId
  * @property string|null $createdAt
  * @property string|null $updatedAt
- * @property int $createdBy
- * @property int $updatedBy
+ * @property string $createdBy
+ * @property string $updatedBy
  * @internal will change in the future
  */
 trait AdminTrait

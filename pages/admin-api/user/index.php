@@ -15,7 +15,7 @@ return new class () extends BaseController {
         $v = V::defaultOptional();
         $v->maxCharLength('name', '姓名', 32);
         $v->maxCharLength('nickName', '昵称', 32);
-        $v->imageUrl('avatar', '头像');
+        $v->imageUrl('avatar', '头像')->allowEmpty();
         $data = $v->assert($req);
 
         User::cur()->save($data);

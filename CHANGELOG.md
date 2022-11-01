@@ -1,3 +1,30 @@
+## [0.9.3](https://github.com/miaoxing/admin/compare/v0.9.2...v0.9.3) (2022-11-01)
+
+
+### Bug Fixes
+
+* 图片字段允许为空字符串 ([9e8d561](https://github.com/miaoxing/admin/commit/9e8d5617b65111d1c5d18e0f1f101c3fe4a80838))
+* 校验增加长度检查 ([ac0204b](https://github.com/miaoxing/admin/commit/ac0204be47a255ca3d6603be93e0dc4b04370791))
+* **admin:** 更新分组允许不提供名称，名称不能为空字符串 ([179975c](https://github.com/miaoxing/admin/commit/179975c7388d8424ea387bfaf9dc8822f036f99a))
+
+
+### Features
+
+* 增加图片地址检查 ([070a5ae](https://github.com/miaoxing/admin/commit/070a5ae5d68a94c554fa24ea65bfd42a939d76d0))
+
+
+
+
+
+### Dependencies
+
+* **@mxjs/a-clink:** upgrade from `1.0.1` to `1.1.0`
+* **@mxjs/a-form:** upgrade from `1.1.1` to `1.1.2`
+* **@mxjs/a-table:** upgrade from `1.1.0` to `1.1.1`
+* **@mxjs/upload:** upgrade from `0.6.9` to `0.6.10`
+* **@miaoxing/app:** upgrade from `0.6.9` to `0.6.10`
+* **@miaoxing/file:** upgrade from `0.3.8` to `0.3.9`
+
 ## [0.9.2](https://github.com/miaoxing/admin/compare/v0.9.1...v0.9.2) (2022-09-30)
 
 

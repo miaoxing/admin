@@ -1,21 +1,34 @@
 import {useEffect, useState} from 'react';
 import {Page, PageActions} from '@mxjs/a-page';
 import {Table, TableProvider, TableStatusCheckbox} from '@mxjs/a-table';
-import {SearchForm, SearchItem, Select} from '@mxjs/a-form';
+import {SearchForm, SearchItem} from '@mxjs/a-form';
 import {CNewBtn, CEditLink} from '@mxjs/a-clink';
-import {Tooltip} from 'antd';
+import {Tooltip, TreeSelect} from 'antd';
 import {QuestionCircleOutlined} from '@ant-design/icons';
 import api from '@mxjs/api';
+import $ from 'miaoxing';
 
 const Index = () => {
-  const [data, setData] = useState([]);
+  const [groups, setGroups] = useState([]);
   useEffect(() => {
-    api.get('groups').then(({ret}) => {
-      ret.data.unshift({
-        id: '0',
-        name: '未分组',
-      });
-      setData(ret.data);
+    api.getMax('groups', {loading: true}).then(({ret}) => {
+      if (ret.isSuc()) {
+        const data = ret.data.map(group => ({
+          value: group.id,
+          title: group.name,
+          children: group.children.map(subGroup => ({
+            value: subGroup.id,
+            title: subGroup.name,
+          })),
+        }));
+        data.unshift({
+          value: '0',
+          title: '未分组',
+        });
+        setGroups(data);
+      } else {
+        $.ret(ret);
+      }
     });
   }, []);
 
@@ -33,8 +46,15 @@ const Index = () => {
 
           <SearchItem label="昵称" name={['search', 'user', 'nickName:ct']}/>
 
-          <SearchItem label="分组" name={['search', 'user', 'groupId']} initialValue="">
-            <Select options={data} labelKey="name" valueKey="id" all/>
+          <SearchItem label="分组" name={['search', 'user', 'groupId']}>
+            <TreeSelect
+              showSearch
+              showArrow
+              allowClear
+              treeDefaultExpandAll
+              placeholder="全部"
+              treeData={groups}
+            />
           </SearchItem>
         </SearchForm>
 

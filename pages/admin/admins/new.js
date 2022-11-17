@@ -3,19 +3,36 @@
  */
 import {useState, useEffect} from 'react';
 import {Page, PageActions} from '@mxjs/a-page';
-import {Form, FormItem, FormAction, Select} from '@mxjs/a-form';
+import {Form, FormItem, FormAction} from '@mxjs/a-form';
 import {CListBtn} from '@mxjs/a-clink';
 import api from '@mxjs/api';
 import {Box} from '@mxjs/box';
-import {Alert} from 'antd';
+import {Alert, TreeSelect} from 'antd';
 import {useConfig} from '@miaoxing/app';
 import {FormItemUpload} from '@miaoxing/admin';
+import $ from 'miaoxing';
 
 const AdminForm = () => {
-  const [data, setData] = useState([]);
+  const [groups, setGroups] = useState([]);
   useEffect(() => {
-    api.getMax('groups').then(({ret}) => {
-      setData(ret.data);
+    api.getMax('groups', {loading: true}).then(({ret}) => {
+      if (ret.isSuc()) {
+        const data = ret.data.map(group => ({
+          value: group.id,
+          title: group.name,
+          children: group.children.map(subGroup => ({
+            value: subGroup.id,
+            title: subGroup.name,
+          })),
+        }));
+        data.unshift({
+          value: '',
+          title: '未分组',
+        });
+        setGroups(data);
+      } else {
+        $.ret(ret);
+      }
     });
   }, []);
 
@@ -45,7 +62,14 @@ const AdminForm = () => {
             <FormItem label="昵称" name={['user', 'nickName']}/>
 
             <FormItem label="分组" name={['user', 'groupId']}>
-              <Select options={data} labelKey="name" valueKey="id" firstLabel="请选择" firstValue=""/>
+              <TreeSelect
+                showSearch
+                showArrow
+                allowClear
+                treeDefaultExpandAll
+                placeholder="请选择"
+                treeData={groups}
+              />
             </FormItem>
 
             <FormItemUpload label="头像" name={['user', 'avatar']} extra="支持.jpg .jpeg .bmp .gif .png格式照片" max={1}/>

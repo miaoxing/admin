@@ -20,7 +20,7 @@ class IndexTest extends BaseTestCase
 
         $ret = Tester::request(['search' => ['id' => $group->id]])->getAdminApi('groups');
 
-        $groups = GroupModel::findAll([$group->id])->toArray();
+        $groups = GroupModel::findAll([$group->id])->load('children')->toArray();
 
         $this->assertSame($groups, $ret['data']);
     }

@@ -36,11 +36,16 @@ describe('admin/groups', () => {
           },
         }),
       }))
+      // 读取父级分组
       .mockImplementationOnce(() => promise2.resolve({
         ret: Ret.suc({
-          data: [],
+          data: {
+            id: 1,
+            sort: 50,
+          },
         }),
       }))
+      // 提交表单
       .mockImplementationOnce(() => promise3.resolve({
         ret: Ret.suc({
           data: [],
@@ -61,7 +66,7 @@ describe('admin/groups', () => {
     fireEvent.change(getByLabelText('名称'), {target: {value: '测试分组'}});
     fireEvent.click(screen.getByText('提 交'));
 
-    await Promise.all([promise2]);
+    await Promise.all([promise3]);
     expect($.http).toMatchSnapshot();
   });
 });

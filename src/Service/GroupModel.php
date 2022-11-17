@@ -55,6 +55,7 @@ use Wei\Model\SoftDeleteTrait;
  *   description="更新时间"
  * )
  * @property GroupModel $parent
+ * @property GroupModel[]|GroupModel $children
  */
 class GroupModel extends BaseModel
 {
@@ -77,6 +78,11 @@ class GroupModel extends BaseModel
     public function parent(): self
     {
         return $this->hasOne(static::class, 'id', 'parentId');
+    }
+
+    public function children(): self
+    {
+        return $this->hasMany(static::class, 'parentId')->desc('sort');
     }
 
     public function afterSave()

@@ -11,9 +11,20 @@ exports[`admin/groups form 1`] = `
     ],
     Array [
       Object {
+        "loading": true,
+        "method": "get",
+        "params": Object {
+          "limit": 500,
+        },
+        "url": "/admin-api/groups",
+      },
+    ],
+    Array [
+      Object {
         "data": Object {
           "id": 1,
           "name": "测试分组",
+          "parentId": undefined,
           "sort": 50,
         },
         "loading": true,
@@ -23,6 +34,13 @@ exports[`admin/groups form 1`] = `
     ],
   ],
   "results": Array [
+    Object {
+      "type": "return",
+      "value": Promise {
+        "reject": [Function],
+        "resolve": [Function],
+      },
+    },
     Object {
       "type": "return",
       "value": Promise {

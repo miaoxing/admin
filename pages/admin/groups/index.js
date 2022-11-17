@@ -1,3 +1,4 @@
+import {useState} from 'react';
 import {Table, TableProvider, CTableDeleteLink, useTable} from '@mxjs/a-table';
 import {CEditLink, CNewBtn} from '@mxjs/a-clink';
 import {Page, PageActions} from '@mxjs/a-page';
@@ -5,6 +6,7 @@ import {LinkActions} from '@mxjs/actions';
 
 const Index = () => {
   const [table] = useTable();
+  const [expandedRowKeys, setExpandedRowKeys] = useState([]);
 
   return (
     <Page>
@@ -15,6 +17,12 @@ const Index = () => {
 
         <Table
           tableApi={table}
+          expandedRowKeys={expandedRowKeys}
+          expandIcon={({record}) => (record.children ? '' : '└ ')}
+          postData={(data) => {
+            setExpandedRowKeys(data.map(record => record.id));
+            return data;
+          }}
           columns={[
             {
               title: '名称',

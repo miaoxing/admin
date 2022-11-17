@@ -16,6 +16,17 @@ class AdminLogModel
     }
 
     /**
+     * Returns the success result with model data
+     *
+     * @param array|string|BaseResource|mixed $merge
+     * @return Ret
+     * @see AdminLogModel::toRet
+     */
+    public static function toRet($merge = []): \Wei\Ret
+    {
+    }
+
+    /**
      * Set each attribute value, without checking whether the column is fillable, and save the model
      *
      * @param iterable $attributes
@@ -35,17 +46,6 @@ class AdminLogModel
      * @see AdminLogModel::toArray
      */
     public static function toArray($returnFields = [], callable $prepend = null): array
-    {
-    }
-
-    /**
-     * Returns the success result with model data
-     *
-     * @param array|string|BaseResource|mixed $merge
-     * @return Ret
-     * @see AdminLogModel::toRet
-     */
-    public static function toRet($merge = []): \Wei\Ret
     {
     }
 
@@ -823,12 +823,21 @@ class AdminLogModel
      * Specifies an ordering for the query results.
      * Replaces any previously specified orderings, if any.
      *
-     * @param string $column the ordering expression
+     * @param string|Raw $column the ordering expression
      * @param string $order the ordering direction
      * @return $this
      * @see AdminLogModel::orderBy
      */
-    public static function orderBy(string $column, $order = 'ASC'): self
+    public static function orderBy($column, $order = 'ASC'): self
+    {
+    }
+
+    /**
+     * @param scalar $expression
+     * @return $this
+     * @see AdminLogModel::orderByRaw
+     */
+    public static function orderByRaw($expression): self
     {
     }
 
@@ -1034,6 +1043,17 @@ class AdminModel
     }
 
     /**
+     * Returns the success result with model data
+     *
+     * @param array|string|BaseResource|mixed $merge
+     * @return Ret
+     * @see AdminModel::toRet
+     */
+    public static function toRet($merge = []): \Wei\Ret
+    {
+    }
+
+    /**
      * Set each attribute value, without checking whether the column is fillable, and save the model
      *
      * @param iterable $attributes
@@ -1053,17 +1073,6 @@ class AdminModel
      * @see AdminModel::toArray
      */
     public static function toArray($returnFields = [], callable $prepend = null): array
-    {
-    }
-
-    /**
-     * Returns the success result with model data
-     *
-     * @param array|string|BaseResource|mixed $merge
-     * @return Ret
-     * @see AdminModel::toRet
-     */
-    public static function toRet($merge = []): \Wei\Ret
     {
     }
 
@@ -1841,12 +1850,21 @@ class AdminModel
      * Specifies an ordering for the query results.
      * Replaces any previously specified orderings, if any.
      *
-     * @param string $column the ordering expression
+     * @param string|Raw $column the ordering expression
      * @param string $order the ordering direction
      * @return $this
      * @see AdminModel::orderBy
      */
-    public static function orderBy(string $column, $order = 'ASC'): self
+    public static function orderBy($column, $order = 'ASC'): self
+    {
+    }
+
+    /**
+     * @param scalar $expression
+     * @return $this
+     * @see AdminModel::orderByRaw
+     */
+    public static function orderByRaw($expression): self
     {
     }
 
@@ -2009,6 +2027,17 @@ class Group
 class GroupModel
 {
     /**
+     * Returns the success result with model data
+     *
+     * @param array|string|BaseResource|mixed $merge
+     * @return Ret
+     * @see GroupModel::toRet
+     */
+    public static function toRet($merge = []): \Wei\Ret
+    {
+    }
+
+    /**
      * Set each attribute value, without checking whether the column is fillable, and save the model
      *
      * @param iterable $attributes
@@ -2028,17 +2057,6 @@ class GroupModel
      * @see GroupModel::toArray
      */
     public static function toArray($returnFields = [], callable $prepend = null): array
-    {
-    }
-
-    /**
-     * Returns the success result with model data
-     *
-     * @param array|string|BaseResource|mixed $merge
-     * @return Ret
-     * @see GroupModel::toRet
-     */
-    public static function toRet($merge = []): \Wei\Ret
     {
     }
 
@@ -2816,12 +2834,21 @@ class GroupModel
      * Specifies an ordering for the query results.
      * Replaces any previously specified orderings, if any.
      *
-     * @param string $column the ordering expression
+     * @param string|Raw $column the ordering expression
      * @param string $order the ordering direction
      * @return $this
      * @see GroupModel::orderBy
      */
-    public static function orderBy(string $column, $order = 'ASC'): self
+    public static function orderBy($column, $order = 'ASC'): self
+    {
+    }
+
+    /**
+     * @param scalar $expression
+     * @return $this
+     * @see GroupModel::orderByRaw
+     */
+    public static function orderByRaw($expression): self
     {
     }
 
@@ -3012,6 +3039,16 @@ class GroupModel
     public static function withDeleted(): self
     {
     }
+
+    /**
+     * Add a query to return only purged records
+     *
+     * @return $this
+     * @see GroupModel::onlyPurged
+     */
+    public static function onlyPurged(): self
+    {
+    }
 }
 
 namespace Miaoxing\Admin\Service;
@@ -3027,6 +3064,17 @@ if (0) {
          * @see AdminLogModel::log
          */
         public function log(string $description, \Miaoxing\Plugin\Service\UserModel $user = null)
+        {
+        }
+
+        /**
+         * Returns the success result with model data
+         *
+         * @param array|string|BaseResource|mixed $merge
+         * @return Ret
+         * @see AdminLogModel::toRet
+         */
+        public function toRet($merge = []): \Wei\Ret
         {
         }
 
@@ -3050,17 +3098,6 @@ if (0) {
          * @see AdminLogModel::toArray
          */
         public function toArray($returnFields = [], callable $prepend = null): array
-        {
-        }
-
-        /**
-         * Returns the success result with model data
-         *
-         * @param array|string|BaseResource|mixed $merge
-         * @return Ret
-         * @see AdminLogModel::toRet
-         */
-        public function toRet($merge = []): \Wei\Ret
         {
         }
 
@@ -3826,12 +3863,21 @@ if (0) {
          * Specifies an ordering for the query results.
          * Replaces any previously specified orderings, if any.
          *
-         * @param string $column the ordering expression
+         * @param string|Raw $column the ordering expression
          * @param string $order the ordering direction
          * @return $this
          * @see AdminLogModel::orderBy
          */
-        public function orderBy(string $column, $order = 'ASC'): self
+        public function orderBy($column, $order = 'ASC'): self
+        {
+        }
+
+        /**
+         * @param scalar $expression
+         * @return $this
+         * @see AdminLogModel::orderByRaw
+         */
+        public function orderByRaw($expression): self
         {
         }
 
@@ -4037,6 +4083,17 @@ if (0) {
         }
 
         /**
+         * Returns the success result with model data
+         *
+         * @param array|string|BaseResource|mixed $merge
+         * @return Ret
+         * @see AdminModel::toRet
+         */
+        public function toRet($merge = []): \Wei\Ret
+        {
+        }
+
+        /**
          * Set each attribute value, without checking whether the column is fillable, and save the model
          *
          * @param iterable $attributes
@@ -4056,17 +4113,6 @@ if (0) {
          * @see AdminModel::toArray
          */
         public function toArray($returnFields = [], callable $prepend = null): array
-        {
-        }
-
-        /**
-         * Returns the success result with model data
-         *
-         * @param array|string|BaseResource|mixed $merge
-         * @return Ret
-         * @see AdminModel::toRet
-         */
-        public function toRet($merge = []): \Wei\Ret
         {
         }
 
@@ -4832,12 +4878,21 @@ if (0) {
          * Specifies an ordering for the query results.
          * Replaces any previously specified orderings, if any.
          *
-         * @param string $column the ordering expression
+         * @param string|Raw $column the ordering expression
          * @param string $order the ordering direction
          * @return $this
          * @see AdminModel::orderBy
          */
-        public function orderBy(string $column, $order = 'ASC'): self
+        public function orderBy($column, $order = 'ASC'): self
+        {
+        }
+
+        /**
+         * @param scalar $expression
+         * @return $this
+         * @see AdminModel::orderByRaw
+         */
+        public function orderByRaw($expression): self
         {
         }
 
@@ -5000,6 +5055,17 @@ if (0) {
     class GroupModel
     {
         /**
+         * Returns the success result with model data
+         *
+         * @param array|string|BaseResource|mixed $merge
+         * @return Ret
+         * @see GroupModel::toRet
+         */
+        public function toRet($merge = []): \Wei\Ret
+        {
+        }
+
+        /**
          * Set each attribute value, without checking whether the column is fillable, and save the model
          *
          * @param iterable $attributes
@@ -5019,17 +5085,6 @@ if (0) {
          * @see GroupModel::toArray
          */
         public function toArray($returnFields = [], callable $prepend = null): array
-        {
-        }
-
-        /**
-         * Returns the success result with model data
-         *
-         * @param array|string|BaseResource|mixed $merge
-         * @return Ret
-         * @see GroupModel::toRet
-         */
-        public function toRet($merge = []): \Wei\Ret
         {
         }
 
@@ -5795,12 +5850,21 @@ if (0) {
          * Specifies an ordering for the query results.
          * Replaces any previously specified orderings, if any.
          *
-         * @param string $column the ordering expression
+         * @param string|Raw $column the ordering expression
          * @param string $order the ordering direction
          * @return $this
          * @see GroupModel::orderBy
          */
-        public function orderBy(string $column, $order = 'ASC'): self
+        public function orderBy($column, $order = 'ASC'): self
+        {
+        }
+
+        /**
+         * @param scalar $expression
+         * @return $this
+         * @see GroupModel::orderByRaw
+         */
+        public function orderByRaw($expression): self
         {
         }
 
@@ -5989,6 +6053,16 @@ if (0) {
          * @see GroupModel::withDeleted
          */
         public function withDeleted(): self
+        {
+        }
+
+        /**
+         * Add a query to return only purged records
+         *
+         * @return $this
+         * @see GroupModel::onlyPurged
+         */
+        public function onlyPurged(): self
         {
         }
     }

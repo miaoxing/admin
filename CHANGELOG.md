@@ -1,3 +1,38 @@
+## [0.9.5](https://github.com/miaoxing/admin/compare/v0.9.4...v0.9.5) (2022-12-01)
+
+
+### Bug Fixes
+
+* **admin:** 移除菜单后再添加时，name 计算错误导致菜单被覆盖 ([49368a1](https://github.com/miaoxing/admin/commit/49368a1dcb4e4618953a460baa18af9ab6f36b61))
+
+
+### Features
+
+* **admin:** `SearchItemExport` 支持排序 ([e1d90d9](https://github.com/miaoxing/admin/commit/e1d90d91d4dad8715f4ee1c72e4a1f3745898338))
+* **admin:** `SearchItemExport` 支持读取后台输出的文件 ([8428a98](https://github.com/miaoxing/admin/commit/8428a98df2d6ce1fa3945cf192a97f4b5fcda049))
+* **admin:** 分组支持二级 ([022da64](https://github.com/miaoxing/admin/commit/022da64bedeee73a08a44224ef6e6a5dc5ed8bbc))
+* **admin:** 初始化 `SearchItemExport` 组件 ([fd0b60a](https://github.com/miaoxing/admin/commit/fd0b60a8624fbe78955e9afa24b4802498f3521b))
+* **admin:** 增加 `TableImage` 组件 ([4ce002a](https://github.com/miaoxing/admin/commit/4ce002a4e5bc4ec26d64d0d0ef4e404a584e2202))
+* **admin:** 增加 `TableImages` 组件 ([116b64a](https://github.com/miaoxing/admin/commit/116b64a2a7fc34737350231ffe3718008c67fe66))
+* **admin:** 管理员支持二级分组 ([3a3fe7c](https://github.com/miaoxing/admin/commit/3a3fe7c557a83cd0b2e2fe6bc2903d28e2798e5a))
+
+
+
+
+
+### Dependencies
+
+* **@mxjs/a-clink:** upgrade from `1.1.1` to `1.1.2`
+* **@mxjs/a-form:** upgrade from `1.1.3` to `1.1.4`
+* **@mxjs/a-page:** upgrade from `1.1.0` to `1.1.1`
+* **@mxjs/a-table:** upgrade from `1.1.2` to `1.2.0`
+* **@mxjs/api:** upgrade from `1.0.1` to `1.0.2`
+* **@mxjs/upload:** upgrade from `0.6.11` to `0.6.12`
+* **miaoxing:** upgrade from `0.4.4` to `0.4.5`
+* **@mxjs/test:** upgrade from `1.0.1` to `1.0.2`
+* **@miaoxing/app:** upgrade from `0.6.10` to `0.6.11`
+* **@miaoxing/file:** upgrade from `0.3.9` to `0.3.10`
+
 ## [0.9.4](https://github.com/miaoxing/admin/compare/v0.9.3...v0.9.4) (2022-11-02)
 
 

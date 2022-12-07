@@ -63,14 +63,13 @@ class extends React.Component {
 
   updateMenu() {
     let pathname = this.props.history.location.pathname.replace(/\/+$/, '');
-    pathname = pathname.substring(1);
 
     let openKeys = this.state.openKeys;
     let selectedKeys = [];
 
     // 查找完全匹配的一级菜单
     for (const menu of this.props.menus) {
-      if (menu.url === pathname) {
+      if (menu.url && $.url(menu.url) === pathname) {
         openKeys.push(menu.label);
         selectedKeys.push(menu.label);
         break;
@@ -80,7 +79,7 @@ class extends React.Component {
     // 查找完全匹配的二级菜单
     if (selectedKeys.length === 0) {
       this.findMenu(([menu, menu2]) => {
-        if (menu2.url === pathname) {
+        if (menu2.url && $.url(menu2.url) === pathname) {
           openKeys.push(menu.label);
           selectedKeys.push(menu2.label);
           return true;
@@ -91,7 +90,7 @@ class extends React.Component {
     // 如果没有完全匹配，查找部分匹配的二级菜单
     if (selectedKeys.length === 0) {
       this.findMenu(([menu, menu2]) => {
-        if (menu2.url !== '/' && pathname.startsWith(menu2.url)) {
+        if (menu2.url !== '/' && pathname.startsWith($.url(menu2.url))) {
           openKeys.push(menu.label);
           selectedKeys.push(menu2.label);
           return true;

@@ -12,9 +12,12 @@ return new class () extends BaseController {
 
     public function patch($req)
     {
+        $user = User::cur();
+
         $v = V::defaultOptional();
-        $v->maxCharLength('name', '姓名', 32);
-        $v->maxCharLength('nickName', '昵称', 32);
+        $v->setModel($user);
+        $v->modelColumn('name', '姓名');
+        $v->modelColumn('nickName', '昵称');
         $v->imageUrl('avatar', '头像')->allowEmpty();
         $data = $v->assert($req);
 

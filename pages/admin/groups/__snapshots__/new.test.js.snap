@@ -5,18 +5,18 @@ exports[`admin/groups form 1`] = `
   "calls": Array [
     Array [
       Object {
-        "method": "get",
-        "url": "/admin-api/groups/defaults",
-      },
-    ],
-    Array [
-      Object {
         "loading": true,
         "method": "get",
         "params": Object {
           "limit": 500,
         },
         "url": "/admin-api/groups",
+      },
+    ],
+    Array [
+      Object {
+        "method": "get",
+        "url": "/admin-api/groups/defaults",
       },
     ],
     Array [

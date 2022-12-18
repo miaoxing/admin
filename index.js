@@ -6,3 +6,4 @@ export FormItemUpload from './components/FormItemUpload';
 export TableImage from './components/TableImage';
 export TableImages from './components/TableImages';
 export Select from './components/Select';
+export TreeSelect from './components/TreeSelect';

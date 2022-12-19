@@ -1,41 +1,15 @@
 /**
  * @share [id]/edit
  */
-import {useState, useEffect} from 'react';
 import {Page, PageActions} from '@mxjs/a-page';
 import {Form, FormItem, FormAction} from '@mxjs/a-form';
 import {CListBtn} from '@mxjs/a-clink';
-import api from '@mxjs/api';
 import {Box} from '@mxjs/box';
-import {Alert, TreeSelect} from 'antd';
+import {Alert} from 'antd';
 import {useConfig} from '@miaoxing/app';
-import {FormItemUpload} from '@miaoxing/admin';
-import $ from 'miaoxing';
+import {FormItemUpload, TreeSelect} from '@miaoxing/admin';
 
 const AdminForm = () => {
-  const [groups, setGroups] = useState([]);
-  useEffect(() => {
-    api.getMax('groups', {loading: true}).then(({ret}) => {
-      if (ret.isSuc()) {
-        const data = ret.data.map(group => ({
-          value: group.id,
-          title: group.name,
-          children: group.children.map(subGroup => ({
-            value: subGroup.id,
-            title: subGroup.name,
-          })),
-        }));
-        data.unshift({
-          value: '',
-          title: '未分组',
-        });
-        setGroups(data);
-      } else {
-        $.ret(ret);
-      }
-    });
-  }, []);
-
   const config = useConfig();
 
   return (
@@ -63,12 +37,12 @@ const AdminForm = () => {
 
             <FormItem label="分组" name={['user', 'groupId']}>
               <TreeSelect
-                showSearch
-                showArrow
-                allowClear
-                treeDefaultExpandAll
+                url="groups"
                 placeholder="请选择"
-                treeData={groups}
+                prependData={{
+                  id: '',
+                  name: '未分组',
+                }}
               />
             </FormItem>
 

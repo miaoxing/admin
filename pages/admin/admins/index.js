@@ -1,37 +1,12 @@
-import {useEffect, useState} from 'react';
 import {Page, PageActions} from '@mxjs/a-page';
 import {Table, TableProvider, TableStatusCheckbox} from '@mxjs/a-table';
 import {SearchForm, SearchItem} from '@mxjs/a-form';
 import {CNewBtn, CEditLink} from '@mxjs/a-clink';
-import {Tooltip, TreeSelect} from 'antd';
+import {Tooltip} from 'antd';
 import {QuestionCircleOutlined} from '@ant-design/icons';
-import api from '@mxjs/api';
-import $ from 'miaoxing';
+import {TreeSelect} from '@miaoxing/admin';
 
 const Index = () => {
-  const [groups, setGroups] = useState([]);
-  useEffect(() => {
-    api.getMax('groups', {loading: true}).then(({ret}) => {
-      if (ret.isSuc()) {
-        const data = ret.data.map(group => ({
-          value: group.id,
-          title: group.name,
-          children: group.children.map(subGroup => ({
-            value: subGroup.id,
-            title: subGroup.name,
-          })),
-        }));
-        data.unshift({
-          value: '0',
-          title: '未分组',
-        });
-        setGroups(data);
-      } else {
-        $.ret(ret);
-      }
-    });
-  }, []);
-
   return (
     <Page>
       <PageActions>
@@ -48,12 +23,12 @@ const Index = () => {
 
           <SearchItem label="分组" name={['search', 'user', 'groupId']}>
             <TreeSelect
-              showSearch
-              showArrow
-              allowClear
-              treeDefaultExpandAll
+              url="groups"
               placeholder="全部"
-              treeData={groups}
+              prependData={{
+                id: '0',
+                name: '未分组',
+              }}
             />
           </SearchItem>
         </SearchForm>

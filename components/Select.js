@@ -4,7 +4,7 @@ import {Select as OriSelect} from '@mxjs/a-form';
 import propTypes from 'prop-types';
 import $ from 'miaoxing';
 
-const Select = ({url, afterLoad, ...props}) => {
+const Select = ({url, afterLoad, optionsKeys = [['data', 'items'], 'data'], ...props}) => {
   const [options, setOptions] = useState([]);
 
   useEffect(() => {
@@ -14,7 +14,17 @@ const Select = ({url, afterLoad, ...props}) => {
         return;
       }
 
-      setOptions(ret.data);
+      for (const key of optionsKeys) {
+        if (Array.isArray(key) && ret[key[0]]) {
+          setOptions(ret[key[0]][key[1]]);
+          break;
+        }
+
+        if (ret[key]) {
+          setOptions(ret[key]);
+        }
+      }
+
       afterLoad && afterLoad(ret);
     });
   }, []);
@@ -25,6 +35,7 @@ const Select = ({url, afterLoad, ...props}) => {
 Select.propTypes = {
   url: propTypes.string,
   afterLoad: propTypes.func,
+  optionsKeys: propTypes.array,
 };
 
 export default Select;

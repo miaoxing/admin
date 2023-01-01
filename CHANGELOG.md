@@ -1,3 +1,34 @@
+## [0.9.6](https://github.com/miaoxing/admin/compare/v0.9.5...v0.9.6) (2023-01-01)
+
+
+### Features
+
+* 更新 `fower` 到 `~1.75.0` ([10554e6](https://github.com/miaoxing/admin/commit/10554e667d91a569b07681069ea355ca35ec38bb))
+* **admin:** `Select` 增加 `optionsKeys` 属性，用于自动识别多维数据 ([d0c52a6](https://github.com/miaoxing/admin/commit/d0c52a6f28ea011489b87d2192b531311e237c3f))
+* **admin:** 增加 `Select` 组件，允许传入 URL 读取后台数据作为选项 ([48755f6](https://github.com/miaoxing/admin/commit/48755f62723e41c07ea9d4a7970b020b5dec57c2))
+* **admin:** 增加 `TreeSelect` 组件，允许传入 URL 读取后台数据作为选项 ([a5554dd](https://github.com/miaoxing/admin/commit/a5554dd870733b2f7c645a9eb8f4baec8b5f4ba1))
+* **admin:** 增加未登录跳转，控制未登录错误只提示一个 ([069361f](https://github.com/miaoxing/admin/commit/069361f65f1ede44f795657342e6858202183adc))
+* **admin, experimental:** 增加 `consts/[id]` 接口，用于读取服务配置的常量 ([77befcf](https://github.com/miaoxing/admin/commit/77befcf7b14ca0f247c570cb95cc405c3fb2d21e))
+
+
+
+
+
+### Dependencies
+
+* **@mxjs/a-clink:** upgrade from `1.1.2` to `1.1.3`
+* **@mxjs/a-form:** upgrade from `1.1.4` to `1.1.5`
+* **@mxjs/a-page:** upgrade from `1.1.1` to `1.1.2`
+* **@mxjs/a-table:** upgrade from `1.2.0` to `1.2.1`
+* **@mxjs/api:** upgrade from `1.0.2` to `1.0.3`
+* **@mxjs/css:** upgrade from `1.0.1` to `1.1.0`
+* **@mxjs/upload:** upgrade from `0.6.12` to `0.6.13`
+* **miaoxing:** upgrade from `0.4.5` to `0.4.6`
+* **@miaoxing/dev:** upgrade from `8.1.3` to `8.2.0`
+* **@mxjs/test:** upgrade from `1.0.2` to `1.0.3`
+* **@miaoxing/app:** upgrade from `0.6.11` to `0.6.12`
+* **@miaoxing/file:** upgrade from `0.3.10` to `0.3.11`
+
 ## [0.9.5](https://github.com/miaoxing/admin/compare/v0.9.4...v0.9.5) (2022-12-01)
 
 

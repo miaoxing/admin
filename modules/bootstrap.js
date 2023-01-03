@@ -7,8 +7,13 @@ import config from 'config';
 // 提前引入 @fower/preset-web
 import '@fower/react';
 import getLoginPath from './get-login-path';
+import {Spin} from 'antd';
+import {Loading} from '@mxjs/loading';
 
 wei.setConfigs(config);
+
+// 指定 Antd 全局的 loading 样式
+Spin.setDefaultIndicator(<Loading/>);
 
 setConfig({
   objectPropKeys: ['sx', 'css'],

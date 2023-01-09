@@ -15,7 +15,7 @@ const Select = ({url, afterLoad, optionsKeys = [['data', 'items'], 'data'], ...p
       }
 
       for (const key of optionsKeys) {
-        if (Array.isArray(key) && ret[key[0]]) {
+        if (Array.isArray(key) && ret?.[key[0]]?.[key[1]]) {
           setOptions(ret[key[0]][key[1]]);
           break;
         }

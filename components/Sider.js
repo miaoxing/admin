@@ -62,61 +62,49 @@ class extends React.Component {
   }
 
   updateMenu() {
-    let pathname = this.props.history.location.pathname.replace(/\/+$/, '');
+    const pathname = this.props.history.location.pathname.replace(/\/+$/, '');
+    const result = this.match(pathname, this.props.menus);
+    if (result) {
+      this.setState({
+        openKeys: [result[0].label],
+        selectedKeys: [result[1].label],
+      });
+    }
+  }
 
-    let openKeys = this.state.openKeys;
-    let selectedKeys = [];
-
-    // 查找完全匹配的一级菜单
-    for (const menu of this.props.menus) {
-      if (menu.url && $.url(menu.url) === pathname) {
-        openKeys.push(menu.label);
-        selectedKeys.push(menu.label);
-        break;
+  match(pathname, menus, parents = []) {
+    for (const menu of menus) {
+      if (this.matchPath(pathname, menu.url)) {
+        return [...parents, menu];
+      }
+      if (menu.children) {
+        const result = this.match(pathname, menu.children, [...parents, menu]);
+        if (result) {
+          return result;
+        }
       }
     }
+    return false;
+  }
 
-    // 查找完全匹配的二级菜单
-    if (selectedKeys.length === 0) {
-      this.findMenu(([menu, menu2]) => {
-        if (menu2.url && $.url(menu2.url) === pathname) {
-          openKeys.push(menu.label);
-          selectedKeys.push(menu2.label);
-          return true;
-        }
-      });
+  matchPath(pathname, url) {
+    if (!url) {
+      return false;
     }
 
-    // 如果没有完全匹配，查找部分匹配的二级菜单
-    if (selectedKeys.length === 0) {
-      this.findMenu(([menu, menu2]) => {
-        if (menu2.url !== '/' && pathname.startsWith($.url(menu2.url))) {
-          openKeys.push(menu.label);
-          selectedKeys.push(menu2.label);
-          return true;
-        }
-      });
+    const fullUrl = $.url(url);
+
+    if (fullUrl.includes('[')) {
+      const regex = new RegExp(fullUrl.replace('[id]', '(.+?)'));
+      return regex.test(pathname);
     }
 
-    // Unique
-    openKeys = [...new Set(openKeys)];
-
-    this.setState({openKeys, selectedKeys});
+    return fullUrl === pathname;
   }
 
   handleOpenChange = (openKeys) => {
     this.setState({openKeys});
   };
-
-  findMenu(fn) {
-    this.props.menus.forEach(menu => {
-      menu.children.some(menu2 => fn([menu, menu2]));
-    });
-  }
-
-  getUrl(url) {
-    return url.indexOf('://') > 0 ? url : $.url(url);
-  }
 
   render() {
     return (

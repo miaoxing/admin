@@ -9,7 +9,6 @@ import $ from 'miaoxing';
 import {ConfigConsumer} from 'plugins/app/components/ConfigContext';
 
 const {Sider} = Layout;
-const {SubMenu} = Menu;
 
 const MenuLink = ({menu}) => {
   // 快速检查是否为外部地址
@@ -102,6 +101,28 @@ class extends React.Component {
     return fullUrl === pathname;
   }
 
+  getItems() {
+    return this.props.menus.map(menu => {
+      if (menu.url) {
+        return {
+          key: menu.label,
+          label: <MenuLink menu={menu}/>,
+        };
+      }
+
+      return {
+        key: menu.label,
+        label: menu.label,
+        children: menu.children.map(menu2 => {
+          return {
+            key: menu2.label,
+            label: <MenuLink menu={menu2}/>,
+          };
+        }),
+      };
+    });
+  }
+
   handleOpenChange = (openKeys) => {
     this.setState({openKeys});
   };
@@ -128,29 +149,8 @@ class extends React.Component {
           openKeys={this.state.openKeys}
           selectedKeys={this.state.selectedKeys}
           onOpenChange={this.handleOpenChange}
-        >
-          {this.props.menus.map(menu => (
-            menu.url ?
-              <Menu.Item key={menu.label}>
-                <MenuLink menu={menu}/>
-              </Menu.Item>
-              :
-              <SubMenu
-                key={menu.label}
-                title={
-                  <span>
-                    <span>{menu.label}</span>
-                  </span>
-                }
-              >
-                {menu.children.map(menu2 => (
-                  <Menu.Item key={menu2.label}>
-                    <MenuLink menu={menu2}/>
-                  </Menu.Item>
-                ))}
-              </SubMenu>
-          ))}
-        </Menu>}
+          items={this.getItems()}
+        />}
       </Sider>
     );
   }

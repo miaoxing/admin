@@ -1,3 +1,30 @@
+## [0.9.7](https://github.com/miaoxing/admin/compare/v0.9.6...v0.9.7) (2023-01-31)
+
+
+### Bug Fixes
+
+* **admin:** `Select` 组件 `optionsKeys` 判断错误 ([6ea3685](https://github.com/miaoxing/admin/commit/6ea3685845600b9c1066d958ad3b1d446ea094f4))
+
+
+### Features
+
+* 更新 `antd` 到 `~4.24.7` ([b86de72](https://github.com/miaoxing/admin/commit/b86de72fc2bf3b452aaed0d62cf57215e578317e))
+* **admin:** 菜单支持多层级 ([153c241](https://github.com/miaoxing/admin/commit/153c241ee3d6f67138acc815a11ff4513fa9491b))
+
+
+
+
+
+### Dependencies
+
+* **@mxjs/a-clink:** upgrade from `1.1.3` to `1.1.4`
+* **@mxjs/a-form:** upgrade from `1.1.5` to `1.2.0`
+* **@mxjs/a-page:** upgrade from `1.1.2` to `1.1.3`
+* **@mxjs/a-table:** upgrade from `1.2.1` to `1.3.0`
+* **@mxjs/upload:** upgrade from `0.6.13` to `0.6.14`
+* **@miaoxing/app:** upgrade from `0.6.12` to `0.6.13`
+* **@miaoxing/file:** upgrade from `0.3.11` to `0.3.12`
+
 ## [0.9.6](https://github.com/miaoxing/admin/compare/v0.9.5...v0.9.6) (2023-01-01)
 
 

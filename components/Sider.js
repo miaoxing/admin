@@ -7,6 +7,7 @@ import {withRouter} from 'react-router';
 import ReactRouterPropTypes from 'react-router-prop-types';
 import $ from 'miaoxing';
 import {ConfigConsumer} from 'plugins/app/components/ConfigContext';
+import {matchMenus} from '@mxjs/a-page';
 
 const {Sider} = Layout;
 
@@ -62,47 +63,25 @@ class extends React.Component {
 
   updateMenu() {
     const pathname = this.props.history.location.pathname.replace(/\/+$/, '');
-    const result = this.match(pathname, this.props.menus);
-    if (result) {
+    const result = matchMenus(pathname, this.props.menus);
+    if (result.length >= 2) {
       this.setState({
         openKeys: [result[0].label],
         selectedKeys: [result[1].label],
       });
+    } else if (result.length === 1) {
+      this.setState({
+        selectedKeys: [result[0].label],
+      });
     }
-  }
-
-  match(pathname, menus, parents = []) {
-    for (const menu of menus) {
-      if (this.matchPath(pathname, menu.url)) {
-        return [...parents, menu];
-      }
-      if (menu.children) {
-        const result = this.match(pathname, menu.children, [...parents, menu]);
-        if (result) {
-          return result;
-        }
-      }
-    }
-    return false;
-  }
-
-  matchPath(pathname, url) {
-    if (!url) {
-      return false;
-    }
-
-    const fullUrl = $.url(url);
-
-    if (fullUrl.includes('[')) {
-      const regex = new RegExp(fullUrl.replace('[id]', '(.+?)'));
-      return regex.test(pathname);
-    }
-
-    return fullUrl === pathname;
   }
 
   getItems() {
     return this.props.menus.map(menu => {
+      if (false === menu.visible) {
+        return;
+      }
+
       if (menu.url) {
         return {
           key: menu.label,
@@ -114,10 +93,12 @@ class extends React.Component {
         key: menu.label,
         label: menu.label,
         children: menu.children.map(menu2 => {
-          return {
-            key: menu2.label,
-            label: <MenuLink menu={menu2}/>,
-          };
+          if (false !== menu2.visible) {
+            return {
+              key: menu2.label,
+              label: <MenuLink menu={menu2}/>,
+            };
+          }
         }),
       };
     });

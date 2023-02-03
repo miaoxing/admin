@@ -35,6 +35,12 @@ class Item implements JsonSerializable
     protected $extras = [];
 
     /**
+     * @var array
+     * @experimental
+     */
+    protected $privates = [];
+
+    /**
      * @var array<Item>
      */
     protected $children = [];
@@ -146,6 +152,24 @@ class Item implements JsonSerializable
     public function getExtra(string $name)
     {
         return $this->extras[$name] ?? null;
+    }
+
+    /**
+     * @param array<string> $apis
+     * @return $this
+     */
+    public function setApis(array $apis): self
+    {
+        $this->privates['apis'] = $apis;
+        return $this;
+    }
+
+    /**
+     * @return array<string>
+     */
+    public function getApis(): array
+    {
+        return $this->privates['apis'];
     }
 
     /**

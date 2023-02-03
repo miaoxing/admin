@@ -14,7 +14,6 @@ import getLoginPath from '../modules/get-login-path';
 const Layout = ({children}) => {
   const [user, setUser] = useState({});
   const [menus, setMenus] = useState([]);
-  const [pages, setPages] = useState([]);
 
   useEffect(() => {
     // 没有 token 则提前跳转到登录页面
@@ -26,7 +25,6 @@ const Layout = ({children}) => {
     api.get('admin-page', {loading: true}).then(({ret}) => {
       if (ret.isSuc()) {
         setMenus(ret.data.menus);
-        setPages(ret.data.pages);
       } else {
         $.ret(ret);
       }
@@ -42,7 +40,7 @@ const Layout = ({children}) => {
   }, []);
 
   return (
-    <PageContext.Provider value={{pages, menus}}>
+    <PageContext.Provider value={{menus}}>
       <Box as={AntdLayout} minH="100vh">
         <Sider menus={menus}/>
         <AntdLayout>

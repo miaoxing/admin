@@ -26,16 +26,21 @@ class AdminPlugin extends BasePlugin
         $menu->addChild('marketing')->setLabel('营销')->setSort(400);
         $menu->addChild('setting')->setLabel('设置')->setSort(300);
 
-        $menu->child('user')
+        $admins = $menu->child('user')
             ->addChild()
             ->setLabel('管理员管理')
             ->setUrl('admin/admins');
+        $admins->addChild()->setUrl('admin/admins/new')->setLabel('添加');
+        $admins->addChild()->setUrl('admin/admins/[id]/edit')->setLabel('编辑');
 
         $menu->child('setting')
             ->addChild()
             ->setLabel('后台设置')
             ->setUrl('admin/admin-settings')
             ->setSort(10);
+
+        $menu->addChild()->setLabel('修改密码')->setUrl('admin/password')->setExtra('visible', false);
+        $menu->addChild()->setLabel('修改资料')->setUrl('admin/user')->setExtra('visible', false);
     }
 
     public function onUserLogin(UserModel $user)

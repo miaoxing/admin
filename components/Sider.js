@@ -46,6 +46,7 @@ class extends React.Component {
   state = {
     openKeys: [],
     selectedKeys: [],
+    collapsed: false,
   };
 
   componentDidMount() {
@@ -66,7 +67,7 @@ class extends React.Component {
     const result = matchMenus(pathname, this.props.menus);
     if (result.length >= 2) {
       this.setState({
-        openKeys: [result[0].label],
+        openKeys: this.state.collapsed ? [] : [result[0].label],
         selectedKeys: [result[1].label],
       });
     } else if (result.length === 1) {
@@ -108,11 +109,17 @@ class extends React.Component {
     this.setState({openKeys});
   };
 
+  handleCollapse = (collapsed) => {
+    this.setState({collapsed});
+  }
+
   render() {
     return (
       <Sider
         breakpoint="lg"
         collapsedWidth="0"
+        collapsed={this.state.collapsed}
+        onCollapse={this.handleCollapse}
       >
         <ConfigConsumer>
           {({page}) => {

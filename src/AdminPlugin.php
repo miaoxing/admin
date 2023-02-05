@@ -21,26 +21,22 @@ class AdminPlugin extends BasePlugin
 
     public function onAdminMenuGetMenus(AdminMenu $menu)
     {
-        $menu->addChild('user')->setLabel('用户')->setSort(700);
+        $user = $menu->addChild('user')->setLabel('用户')->setSort(700);
         $menu->addChild('content')->setLabel('内容')->setSort(500);
         $menu->addChild('marketing')->setLabel('营销')->setSort(400);
-        $menu->addChild('setting')->setLabel('设置')->setSort(300);
+        $setting = $menu->addChild('setting')->setLabel('设置')->setSort(300);
+        $menu->addChild()->setLabel('修改密码')->setUrl('admin/password')->setExtra('visible', false);
+        $menu->addChild()->setLabel('修改资料')->setUrl('admin/user')->setExtra('visible', false);
 
-        $admins = $menu->child('user')
-            ->addChild()
-            ->setLabel('管理员管理')
-            ->setUrl('admin/admins');
+        $admins = $user->addChild()->setLabel('管理员管理')->setUrl('admin/admins');
         $admins->addChild()->setUrl('admin/admins/new')->setLabel('添加');
         $admins->addChild()->setUrl('admin/admins/[id]/edit')->setLabel('编辑');
 
-        $menu->child('setting')
-            ->addChild()
-            ->setLabel('后台设置')
-            ->setUrl('admin/admin-settings')
-            ->setSort(10);
+        $groups = $user->addChild()->setLabel('分组管理')->setUrl('admin/groups');
+        $groups->addChild()->setLabel('添加')->setUrl('admin/groups/new');
+        $groups->addChild()->setLabel('编辑')->setUrl('admin/groups/[id]/edit');
 
-        $menu->addChild()->setLabel('修改密码')->setUrl('admin/password')->setExtra('visible', false);
-        $menu->addChild()->setLabel('修改资料')->setUrl('admin/user')->setExtra('visible', false);
+        $setting->addChild()->setLabel('后台设置')->setUrl('admin/admin-settings')->setSort(10);
     }
 
     public function onUserLogin(UserModel $user)

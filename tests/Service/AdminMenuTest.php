@@ -27,6 +27,18 @@ class AdminMenuTest extends BaseTestCase
         $this->assertNull($menu->getChild('test'));
     }
 
+    public function testRemoveChildByUrl()
+    {
+        $menu = AdminMenu::instance()->getMenu();
+
+        $menu->addChild()->setUrl('url1');
+        $menu->addChild()->setUrl('url2');
+        $this->assertCount(2, $menu->getChildren());
+
+        $menu->removeChildByUrl('url2');
+        $this->assertCount(1, $menu->getChildren());
+    }
+
     public function testAutoGenerateKey()
     {
         $adminMenu = AdminMenu::instance();

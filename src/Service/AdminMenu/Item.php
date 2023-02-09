@@ -223,6 +223,23 @@ class Item implements JsonSerializable
     }
 
     /**
+     * Remove child by the URL
+     *
+     * @param string|array $url
+     * @return $this
+     */
+    public function removeChildByUrl($url): self
+    {
+        $url = (array) $url;
+        foreach ($this->children as $name => $child) {
+            if (in_array($child->getUrl(), $url, true)) {
+                $this->removeChild($name);
+            }
+        }
+        return $this;
+    }
+
+    /**
      * @return array
      */
     public function getChildren(): array

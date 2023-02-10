@@ -9,6 +9,12 @@ use Miaoxing\Plugin\BaseService;
  * 后台菜单
  *
  * @mixin \EventMixin
+ *
+ * @method Item addChild(string|Item|null $name = null): Item
+ * @method Item|null getChild(string $name)
+ * @method Item child(string $name)
+ * @method Item removeChild(string $name)
+ * @method Item removeChildByUrl(string|array $url)
  */
 class AdminMenu extends BaseService
 {
@@ -28,43 +34,17 @@ class AdminMenu extends BaseService
     }
 
     /**
-     * @param string|Item|null $name
-     * @return Item
-     */
-    public function addChild($name = null): Item
-    {
-        return $this->menu->addChild($name);
-    }
-
-    /**
      * @param string $name
-     * @return Item|null
+     * @param array $args
+     * @return mixed
+     * @throws \ReflectionException
      */
-    public function getChild(string $name): ?Item
+    public function __call(string $name, array $args)
     {
-        return $this->menu->getChild($name);
-    }
-
-    /**
-     * Get or add child by the key
-     *
-     * @param string $name
-     * @return Item
-     */
-    public function child(string $name): Item
-    {
-        return $this->menu->child($name);
-    }
-
-    /**
-     * Remove child by the name
-     *
-     * @param string $name
-     * @return Item
-     */
-    public function removeChild(string $name): Item
-    {
-        return $this->menu->removeChild($name);
+        if (method_exists($this->menu, $name)) {
+            return $this->menu->{$name}(...$args);
+        }
+        return parent::__call($name, $args);
     }
 
     /**

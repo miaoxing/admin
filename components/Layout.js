@@ -7,13 +7,14 @@ import $ from 'miaoxing';
 import propTypes from 'prop-types';
 import {PageContext} from '@mxjs/a-page';
 import {history} from '@mxjs/app';
-import {ConfigConsumer} from '@miaoxing/app';
+import {useConfig} from '@miaoxing/app';
 import Navbar from './Navbar';
 import getLoginPath from '../modules/get-login-path';
 
 const Layout = ({children}) => {
   const [user, setUser] = useState({});
   const [menus, setMenus] = useState([]);
+  const {page} = useConfig();
 
   useEffect(() => {
     // 没有 token 则提前跳转到登录页面
@@ -49,9 +50,7 @@ const Layout = ({children}) => {
             {children}
           </Box>
           <Box as={AntdLayout.Footer} textAlign="center">
-            <ConfigConsumer>
-              {({page}) => page.copyright}
-            </ConfigConsumer>
+            {page.copyright}
           </Box>
         </AntdLayout>
       </Box>

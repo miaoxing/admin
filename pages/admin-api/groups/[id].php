@@ -19,9 +19,10 @@ return new class () extends BaseController {
     public function patch()
     {
         return UpdateAction::new()
-            ->beforeFind(function () {
+            ->afterFind(function (GroupModel $group) {
                 $v = V::defaultOptional()->defaultNotEmpty();
-                $v->tinyChar('name', '名称');
+                $v->tinyChar('name', '名称')->required($group->isNew())
+                    ->notModelExists(GroupModel::whereNot('id', $this->req['id']), 'name');
                 return $v->check($this->req);
             })
             ->beforeSave(function (GroupModel $group) {

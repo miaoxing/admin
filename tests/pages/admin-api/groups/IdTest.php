@@ -26,12 +26,12 @@ class IdTest extends BaseTestCase
     public function testGet()
     {
         $group = GroupModel::save([
-            'name' => '测试',
+            'name' => '测试' . uniqid(),
         ]);
 
         $ret = Tester::getAdminApi('groups/' . $group->id);
         $this->assertRetSuc($ret);
-        $this->assertSame('测试', $ret['data']['name']);
+        $this->assertSame($group->name, $ret['data']['name']);
 
         $group->destroy();
         $this->expectExceptionObject(new \Exception('Record not found', 404));
@@ -50,7 +50,7 @@ class IdTest extends BaseTestCase
         $group = GroupModel::save();
 
         $ret = Tester::patchAdminApi('groups/' . $group->id, [
-            'name' => '测试',
+            'name' => '测试' . uniqid(),
             'sort' => 60,
         ]);
 
@@ -59,8 +59,20 @@ class IdTest extends BaseTestCase
 
         $this->assertSame($group->id, $newGroup->id);
         $this->assertNotEquals($group->name, $newGroup->name);
-        $this->assertSame('测试', $newGroup->name);
         $this->assertSame(60, $newGroup->sort);
+    }
+
+    public function testPatchWithoutName()
+    {
+        $group = GroupModel::save(['name' => '测试' . uniqid()]);
+
+        $ret = Tester::patchAdminApi('groups/' . $group->id);
+        $this->assertRetSuc($ret);
+
+        $ret = Tester::patchAdminApi('groups/' . $group->id, [
+           'name' => '',
+        ]);
+        $this->assertRetErr($ret, '名称不能为空');
     }
 
     public function testDelete()

@@ -14,7 +14,7 @@ class IndexTest extends BaseTestCase
         User::loginById(1);
 
         $group = GroupModel::save([
-            'name' => '测试',
+            'name' => '测试' . uniqid(),
             'sort' => 30,
         ]);
 
@@ -29,10 +29,11 @@ class IndexTest extends BaseTestCase
     {
         User::loginById(1);
 
+        $name = '测试' . uniqid();
         $ret = Tester::postAdminApi('groups', [
             'id' => '1', // ignored
             'createdBy' => '2', // ignored
-            'name' => '测试',
+            'name' => $name,
             'sort' => '60',
         ]);
         $this->assertRetSuc($ret);
@@ -40,8 +41,27 @@ class IndexTest extends BaseTestCase
         /** @var GroupModel $group */
         $group = $ret['data'];
         $this->assertNotEquals('1', $group->id);
-        $this->assertSame('测试', $group->name);
+        $this->assertSame($name, $group->name);
         $this->assertSame(60, $group->sort);
         $this->assertSame('1', $group->createdBy);
+    }
+
+    public function testPostWithoutName()
+    {
+        User::loginById(1);
+
+        $ret = Tester::postAdminApi('groups');
+        $this->assertRetErr($ret, '名称不能为空');
+    }
+
+    public function testPostWithEmptyName()
+    {
+        User::loginById(1);
+
+        $ret = Tester::postAdminApi('groups', [
+            'name' => '',
+            'sort' => '60',
+        ]);
+        $this->assertRetErr($ret, '名称不能为空');
     }
 }

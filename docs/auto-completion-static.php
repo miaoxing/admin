@@ -274,6 +274,18 @@ class AdminLogModel
     }
 
     /**
+     * Execute a update query with specified data
+     *
+     * @param array|string $set
+     * @param mixed $value
+     * @return int
+     * @see AdminLogModel::update
+     */
+    public static function update($set = [], $value = null): int
+    {
+    }
+
+    /**
      * @param array|string|true $scopes
      * @return $this
      * @see AdminLogModel::unscoped
@@ -379,18 +391,6 @@ class AdminLogModel
      * @see AdminLogModel::max
      */
     public static function max(string $column): ?string
-    {
-    }
-
-    /**
-     * Execute a update query with specified data
-     *
-     * @param array|string $set
-     * @param mixed $value
-     * @return int
-     * @see AdminLogModel::update
-     */
-    public static function update($set = [], $value = null): int
     {
     }
 
@@ -595,10 +595,10 @@ class AdminLogModel
      * Replaces any previously specified restrictions, if any.
      *
      * ```php
-     * $user = wei()->db('user')->where('id = 1');
-     * $user = wei()->db('user')->where('id = ?', 1);
-     * $users = wei()->db('user')->where(array('id' => '1', 'username' => 'twin'));
-     * $users = wei()->where(array('id' => array('1', '2', '3')));
+     * $user = QueryBuilder::table('user')->where('id', 1);
+     * $users = QueryBuilder::table('user')->where('id', '>', 1);
+     * $users = QueryBuilder::table('user')->where(['id' => '1', 'username' => 'twin']);
+     * $users = QueryBuilder::table('user')->where(['id' => ['1', '2', '3']]);
      * ```
      *
      * @param array|Closure|string|null $column
@@ -612,12 +612,22 @@ class AdminLogModel
     }
 
     /**
-     * @param scalar $expression
+     * @param string $expression
      * @param mixed $params
      * @return $this
      * @see AdminLogModel::whereRaw
      */
     public static function whereRaw($expression, $params = null): self
+    {
+    }
+
+    /**
+     * @param mixed $column
+     * @param mixed $value
+     * @return $this
+     * @see AdminLogModel::whereNot
+     */
+    public static function whereNot($column, $value): self
     {
     }
 
@@ -833,7 +843,7 @@ class AdminLogModel
     }
 
     /**
-     * @param scalar $expression
+     * @param string $expression
      * @return $this
      * @see AdminLogModel::orderByRaw
      */
@@ -1301,6 +1311,18 @@ class AdminModel
     }
 
     /**
+     * Execute a update query with specified data
+     *
+     * @param array|string $set
+     * @param mixed $value
+     * @return int
+     * @see AdminModel::update
+     */
+    public static function update($set = [], $value = null): int
+    {
+    }
+
+    /**
      * @param array|string|true $scopes
      * @return $this
      * @see AdminModel::unscoped
@@ -1406,18 +1428,6 @@ class AdminModel
      * @see AdminModel::max
      */
     public static function max(string $column): ?string
-    {
-    }
-
-    /**
-     * Execute a update query with specified data
-     *
-     * @param array|string $set
-     * @param mixed $value
-     * @return int
-     * @see AdminModel::update
-     */
-    public static function update($set = [], $value = null): int
     {
     }
 
@@ -1622,10 +1632,10 @@ class AdminModel
      * Replaces any previously specified restrictions, if any.
      *
      * ```php
-     * $user = wei()->db('user')->where('id = 1');
-     * $user = wei()->db('user')->where('id = ?', 1);
-     * $users = wei()->db('user')->where(array('id' => '1', 'username' => 'twin'));
-     * $users = wei()->where(array('id' => array('1', '2', '3')));
+     * $user = QueryBuilder::table('user')->where('id', 1);
+     * $users = QueryBuilder::table('user')->where('id', '>', 1);
+     * $users = QueryBuilder::table('user')->where(['id' => '1', 'username' => 'twin']);
+     * $users = QueryBuilder::table('user')->where(['id' => ['1', '2', '3']]);
      * ```
      *
      * @param array|Closure|string|null $column
@@ -1639,12 +1649,22 @@ class AdminModel
     }
 
     /**
-     * @param scalar $expression
+     * @param string $expression
      * @param mixed $params
      * @return $this
      * @see AdminModel::whereRaw
      */
     public static function whereRaw($expression, $params = null): self
+    {
+    }
+
+    /**
+     * @param mixed $column
+     * @param mixed $value
+     * @return $this
+     * @see AdminModel::whereNot
+     */
+    public static function whereNot($column, $value): self
     {
     }
 
@@ -1860,7 +1880,7 @@ class AdminModel
     }
 
     /**
-     * @param scalar $expression
+     * @param string $expression
      * @return $this
      * @see AdminModel::orderByRaw
      */
@@ -2285,6 +2305,18 @@ class GroupModel
     }
 
     /**
+     * Execute a update query with specified data
+     *
+     * @param array|string $set
+     * @param mixed $value
+     * @return int
+     * @see GroupModel::update
+     */
+    public static function update($set = [], $value = null): int
+    {
+    }
+
+    /**
      * @param array|string|true $scopes
      * @return $this
      * @see GroupModel::unscoped
@@ -2390,18 +2422,6 @@ class GroupModel
      * @see GroupModel::max
      */
     public static function max(string $column): ?string
-    {
-    }
-
-    /**
-     * Execute a update query with specified data
-     *
-     * @param array|string $set
-     * @param mixed $value
-     * @return int
-     * @see GroupModel::update
-     */
-    public static function update($set = [], $value = null): int
     {
     }
 
@@ -2606,10 +2626,10 @@ class GroupModel
      * Replaces any previously specified restrictions, if any.
      *
      * ```php
-     * $user = wei()->db('user')->where('id = 1');
-     * $user = wei()->db('user')->where('id = ?', 1);
-     * $users = wei()->db('user')->where(array('id' => '1', 'username' => 'twin'));
-     * $users = wei()->where(array('id' => array('1', '2', '3')));
+     * $user = QueryBuilder::table('user')->where('id', 1);
+     * $users = QueryBuilder::table('user')->where('id', '>', 1);
+     * $users = QueryBuilder::table('user')->where(['id' => '1', 'username' => 'twin']);
+     * $users = QueryBuilder::table('user')->where(['id' => ['1', '2', '3']]);
      * ```
      *
      * @param array|Closure|string|null $column
@@ -2623,12 +2643,22 @@ class GroupModel
     }
 
     /**
-     * @param scalar $expression
+     * @param string $expression
      * @param mixed $params
      * @return $this
      * @see GroupModel::whereRaw
      */
     public static function whereRaw($expression, $params = null): self
+    {
+    }
+
+    /**
+     * @param mixed $column
+     * @param mixed $value
+     * @return $this
+     * @see GroupModel::whereNot
+     */
+    public static function whereNot($column, $value): self
     {
     }
 
@@ -2844,7 +2874,7 @@ class GroupModel
     }
 
     /**
-     * @param scalar $expression
+     * @param string $expression
      * @return $this
      * @see GroupModel::orderByRaw
      */
@@ -3326,6 +3356,18 @@ if (0) {
         }
 
         /**
+         * Execute a update query with specified data
+         *
+         * @param array|string $set
+         * @param mixed $value
+         * @return int
+         * @see AdminLogModel::update
+         */
+        public function update($set = [], $value = null): int
+        {
+        }
+
+        /**
          * @param array|string|true $scopes
          * @return $this
          * @see AdminLogModel::unscoped
@@ -3431,18 +3473,6 @@ if (0) {
          * @see AdminLogModel::max
          */
         public function max(string $column): ?string
-        {
-        }
-
-        /**
-         * Execute a update query with specified data
-         *
-         * @param array|string $set
-         * @param mixed $value
-         * @return int
-         * @see AdminLogModel::update
-         */
-        public function update($set = [], $value = null): int
         {
         }
 
@@ -3635,10 +3665,10 @@ if (0) {
          * Replaces any previously specified restrictions, if any.
          *
          * ```php
-         * $user = wei()->db('user')->where('id = 1');
-         * $user = wei()->db('user')->where('id = ?', 1);
-         * $users = wei()->db('user')->where(array('id' => '1', 'username' => 'twin'));
-         * $users = wei()->where(array('id' => array('1', '2', '3')));
+         * $user = QueryBuilder::table('user')->where('id', 1);
+         * $users = QueryBuilder::table('user')->where('id', '>', 1);
+         * $users = QueryBuilder::table('user')->where(['id' => '1', 'username' => 'twin']);
+         * $users = QueryBuilder::table('user')->where(['id' => ['1', '2', '3']]);
          * ```
          *
          * @param array|Closure|string|null $column
@@ -3652,12 +3682,22 @@ if (0) {
         }
 
         /**
-         * @param scalar $expression
+         * @param string $expression
          * @param mixed $params
          * @return $this
          * @see AdminLogModel::whereRaw
          */
         public function whereRaw($expression, $params = null): self
+        {
+        }
+
+        /**
+         * @param mixed $column
+         * @param mixed $value
+         * @return $this
+         * @see AdminLogModel::whereNot
+         */
+        public function whereNot($column, $value): self
         {
         }
 
@@ -3873,7 +3913,7 @@ if (0) {
         }
 
         /**
-         * @param scalar $expression
+         * @param string $expression
          * @return $this
          * @see AdminLogModel::orderByRaw
          */
@@ -4341,6 +4381,18 @@ if (0) {
         }
 
         /**
+         * Execute a update query with specified data
+         *
+         * @param array|string $set
+         * @param mixed $value
+         * @return int
+         * @see AdminModel::update
+         */
+        public function update($set = [], $value = null): int
+        {
+        }
+
+        /**
          * @param array|string|true $scopes
          * @return $this
          * @see AdminModel::unscoped
@@ -4446,18 +4498,6 @@ if (0) {
          * @see AdminModel::max
          */
         public function max(string $column): ?string
-        {
-        }
-
-        /**
-         * Execute a update query with specified data
-         *
-         * @param array|string $set
-         * @param mixed $value
-         * @return int
-         * @see AdminModel::update
-         */
-        public function update($set = [], $value = null): int
         {
         }
 
@@ -4650,10 +4690,10 @@ if (0) {
          * Replaces any previously specified restrictions, if any.
          *
          * ```php
-         * $user = wei()->db('user')->where('id = 1');
-         * $user = wei()->db('user')->where('id = ?', 1);
-         * $users = wei()->db('user')->where(array('id' => '1', 'username' => 'twin'));
-         * $users = wei()->where(array('id' => array('1', '2', '3')));
+         * $user = QueryBuilder::table('user')->where('id', 1);
+         * $users = QueryBuilder::table('user')->where('id', '>', 1);
+         * $users = QueryBuilder::table('user')->where(['id' => '1', 'username' => 'twin']);
+         * $users = QueryBuilder::table('user')->where(['id' => ['1', '2', '3']]);
          * ```
          *
          * @param array|Closure|string|null $column
@@ -4667,12 +4707,22 @@ if (0) {
         }
 
         /**
-         * @param scalar $expression
+         * @param string $expression
          * @param mixed $params
          * @return $this
          * @see AdminModel::whereRaw
          */
         public function whereRaw($expression, $params = null): self
+        {
+        }
+
+        /**
+         * @param mixed $column
+         * @param mixed $value
+         * @return $this
+         * @see AdminModel::whereNot
+         */
+        public function whereNot($column, $value): self
         {
         }
 
@@ -4888,7 +4938,7 @@ if (0) {
         }
 
         /**
-         * @param scalar $expression
+         * @param string $expression
          * @return $this
          * @see AdminModel::orderByRaw
          */
@@ -5313,6 +5363,18 @@ if (0) {
         }
 
         /**
+         * Execute a update query with specified data
+         *
+         * @param array|string $set
+         * @param mixed $value
+         * @return int
+         * @see GroupModel::update
+         */
+        public function update($set = [], $value = null): int
+        {
+        }
+
+        /**
          * @param array|string|true $scopes
          * @return $this
          * @see GroupModel::unscoped
@@ -5418,18 +5480,6 @@ if (0) {
          * @see GroupModel::max
          */
         public function max(string $column): ?string
-        {
-        }
-
-        /**
-         * Execute a update query with specified data
-         *
-         * @param array|string $set
-         * @param mixed $value
-         * @return int
-         * @see GroupModel::update
-         */
-        public function update($set = [], $value = null): int
         {
         }
 
@@ -5622,10 +5672,10 @@ if (0) {
          * Replaces any previously specified restrictions, if any.
          *
          * ```php
-         * $user = wei()->db('user')->where('id = 1');
-         * $user = wei()->db('user')->where('id = ?', 1);
-         * $users = wei()->db('user')->where(array('id' => '1', 'username' => 'twin'));
-         * $users = wei()->where(array('id' => array('1', '2', '3')));
+         * $user = QueryBuilder::table('user')->where('id', 1);
+         * $users = QueryBuilder::table('user')->where('id', '>', 1);
+         * $users = QueryBuilder::table('user')->where(['id' => '1', 'username' => 'twin']);
+         * $users = QueryBuilder::table('user')->where(['id' => ['1', '2', '3']]);
          * ```
          *
          * @param array|Closure|string|null $column
@@ -5639,12 +5689,22 @@ if (0) {
         }
 
         /**
-         * @param scalar $expression
+         * @param string $expression
          * @param mixed $params
          * @return $this
          * @see GroupModel::whereRaw
          */
         public function whereRaw($expression, $params = null): self
+        {
+        }
+
+        /**
+         * @param mixed $column
+         * @param mixed $value
+         * @return $this
+         * @see GroupModel::whereNot
+         */
+        public function whereNot($column, $value): self
         {
         }
 
@@ -5860,7 +5920,7 @@ if (0) {
         }
 
         /**
-         * @param scalar $expression
+         * @param string $expression
          * @return $this
          * @see GroupModel::orderByRaw
          */

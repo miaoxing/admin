@@ -8,7 +8,9 @@ use Miaoxing\Plugin\Model\HasAppIdTrait;
 use Miaoxing\Plugin\Model\ModelTrait;
 use Miaoxing\Plugin\Model\ReqQueryTrait;
 use Miaoxing\Plugin\Model\SnowflakeTrait;
+use Miaoxing\Plugin\Service\UserModel;
 use Wei\Model\SoftDeleteTrait;
+use Wei\Ret;
 
 /**
  * GroupModel
@@ -124,5 +126,13 @@ class GroupModel extends BaseModel
         }
 
         return $this->parents;
+    }
+
+    public function checkDestroy(): Ret
+    {
+        if (UserModel::findBy('groupId', $this->id)) {
+            return err(['很抱歉，该%s已被%s使用，不能删除', '分组', '用户']);
+        }
+        return suc();
     }
 }

@@ -49,7 +49,13 @@ const Index = () => {
             },
             {
               title: '分组',
-              dataIndex: ['group', 'name'],
+              dataIndex: 'group',
+              render: (group) => {
+                return [
+                  group?.parent?.name,
+                  group?.name,
+                ].filter(Boolean).join(' / ') || '-';
+              },
             },
             {
               title: '创建时间',

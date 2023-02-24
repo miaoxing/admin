@@ -25,6 +25,9 @@ return new class () extends BaseController {
                 $groupIds = array_unique(array_filter($groupIds));
 
                 $groups = $groupIds ? GroupModel::findAll($groupIds)->indexBy('id') : [];
+                if ($groups) {
+                    $groups->load('parent');
+                }
             })
             ->buildData(function (AdminModel $admin) use (&$groups) {
                 return [

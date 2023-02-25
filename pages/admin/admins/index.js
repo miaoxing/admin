@@ -49,7 +49,7 @@ const Index = () => {
             },
             {
               title: '分组',
-              dataIndex: 'group',
+              dataIndex: ['user', 'group'],
               render: (group) => {
                 return [
                   group?.parent?.name,

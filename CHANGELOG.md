@@ -1,3 +1,40 @@
+# [0.10.0](https://github.com/miaoxing/admin/compare/v0.9.7...v0.10.0) (2023-03-01)
+
+
+### Bug Fixes
+
+* **admin, u:** 移动端打开页面，不展示浮动的菜单 ([9b908f1](https://github.com/miaoxing/admin/commit/9b908f1db297f61ff56398248da9ffdcbf58b17e))
+
+
+### Code Refactoring
+
+* **admin:** 页面合并到菜单中 ([62da802](https://github.com/miaoxing/admin/commit/62da80246aae018fdac9d2f2d0790aac7971d156))
+
+
+### Features
+
+* 分组功能从 `admin` 插件迁移到 `app` 插件中 ([4b37bff](https://github.com/miaoxing/admin/commit/4b37bffbc95e818daeb87a5f55f37e71470ca138))
+* **admin:** 管理员列表增加显示父级分组名称 ([09007d9](https://github.com/miaoxing/admin/commit/09007d9683cd55a0370d841c1fdb771ee6cd1831))
+* 模型增加 `checkDestroy` 方法 ([c77498d](https://github.com/miaoxing/admin/commit/c77498df187d89f9bee7769e20a4efdb09e7fe11))
+* **admin:** 允许通过 `adminMenu` 调用 `menu` 的任意方法 ([c285a37](https://github.com/miaoxing/admin/commit/c285a37facec524a49ca10a64918e22fb7d25611))
+* **admin:** 后台菜单增加 `removeChildByUrl` 方法 ([c131449](https://github.com/miaoxing/admin/commit/c1314499b0a826af08cf5d4864e4c335159cd573))
+* **admin:** 检查分组名称不重复，创建时不能为空 ([845cc73](https://github.com/miaoxing/admin/commit/845cc7313da1bc3325146d3e108665b7ad320eed))
+
+
+### BREAKING CHANGES
+
+* **admin:** 页面合并到菜单中
+
+
+
+
+
+### Dependencies
+
+* **@mxjs/a-page:** upgrade from `1.1.3` to `2.0.0`
+* **@miaoxing/app:** upgrade from `0.6.13` to `0.7.0`
+* **@miaoxing/file:** upgrade from `0.3.12` to `0.3.13`
+
 ## [0.9.7](https://github.com/miaoxing/admin/compare/v0.9.6...v0.9.7) (2023-01-31)
 
 

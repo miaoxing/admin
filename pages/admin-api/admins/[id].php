@@ -20,16 +20,12 @@ return new class () extends BaseController {
         $admin = AdminModel::findFromReq();
         $user = $admin->user()->findOrInitBy();
 
-        // 添加用户时才校验用户名
-        $validateUsername = $user->isNew();
-
         // 添加用户,编辑用户时,提交了密码,才检验密码是否合法
         $validatePassword = $user->isNew() || ($data['password'] ?? false);
 
         $v = V::new();
-        $v->string('username', '用户名')->required($validateUsername)->when($validateUsername, function (V $v) {
-            $v->length(3, 32)->alnum()->notRecordExists('users', 'username');
-        });
+        $v->setModel($user);
+        $v->alnum('username', '用户名')->required($user->isNew())->length(3, 32)->notModelDup();
         $v->string('password', '密码', 6, 50)->required($validatePassword);
         $v->string('passwordAgain', '重复密码', 6, 50)->required($validatePassword)
             ->equalTo($data['password'] ?? null)->message('equalTo', '两次输入的密码不相等');
@@ -42,7 +38,7 @@ return new class () extends BaseController {
         }
 
         // 只有校验过才存储到用户对象中
-        if ($validateUsername) {
+        if (isset($data['username'])) {
             $user->username = $data['username'];
         }
 

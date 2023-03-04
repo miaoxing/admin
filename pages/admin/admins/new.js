@@ -25,7 +25,7 @@ const AdminForm = () => {
       <Form>
         {({id}) => {
           return <>
-            <FormItem label="用户名" name={['user', 'username']} type={id ? 'plain' : 'text'} required/>
+            <FormItem label="用户名" name={['user', 'username']} required/>
 
             <FormItem label="密码" name={['user', 'password']} type="password" required={!id} extra={!!id && '不修改密码请留空'}/>
 

@@ -4,6 +4,7 @@ namespace Miaoxing\Admin;
 
 use Miaoxing\Admin\Service\AdminLogModel;
 use Miaoxing\Admin\Service\AdminMenu;
+use Miaoxing\App\Service\Permission;
 use Miaoxing\Plugin\BasePlugin;
 use Miaoxing\Plugin\Service\User;
 use Miaoxing\Plugin\Service\UserModel;
@@ -35,6 +36,13 @@ class AdminPlugin extends BasePlugin
         $groups = $user->addChild()->setLabel('分组管理')->setUrl('admin/groups');
         $groups->addChild()->setLabel('添加')->setUrl('admin/groups/new');
         $groups->addChild()->setLabel('编辑')->setUrl('admin/groups/[id]/edit');
+
+        if (Permission::isEnabled()) {
+            $roles = $user->addChild()->setLabel('角色管理')->setUrl('admin/roles');
+            $roles->addChild()->setLabel('添加')->setUrl('admin/roles/new');
+            $roles->addChild()->setLabel('编辑')->setUrl('admin/roles/[id]/edit');
+            $roles->addChild()->setLabel('删除')->setUrl('admin/roles/delete');
+        }
 
         $setting->addChild()->setLabel('后台设置')->setUrl('admin/admin-settings')->setSort(10);
     }

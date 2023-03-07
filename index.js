@@ -8,3 +8,5 @@ export TableImages from './components/TableImages';
 export Select from './components/Select';
 export TreeSelect from './components/TreeSelect';
 export Cascader from './components/Cascader';
+
+export useOption from './modules/use-option';

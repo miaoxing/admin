@@ -7,3 +7,4 @@ export TableImage from './components/TableImage';
 export TableImages from './components/TableImages';
 export Select from './components/Select';
 export TreeSelect from './components/TreeSelect';
+export Cascader from './components/Cascader';

@@ -20,6 +20,11 @@ return new class () extends BaseController {
                 $v->array('actions', '菜单和操作', 0, 100);
                 return $v->check($req);
             })
+            ->afterSave(function (RoleModel $role, $req) {
+                if (isset($req['permissionIds'])) {
+                    $role->permissions()->syncRelation($req['permissionIds']);
+                }
+            })
             ->exec($this);
     }
 };

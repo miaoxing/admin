@@ -1,9 +1,11 @@
 <?php
 
 use Miaoxing\Admin\Service\AdminModel;
+use Miaoxing\App\Service\RolesUserModel;
 use Miaoxing\Plugin\BaseController;
 use Miaoxing\Plugin\Service\UserModel;
 use Miaoxing\Services\Page\ItemTrait;
+use Miaoxing\Services\Service\ShowAction;
 use Wei\Req;
 use Wei\V;
 
@@ -13,6 +15,18 @@ return new class () extends BaseController {
     protected $include = [
         'user',
     ];
+
+    public function get()
+    {
+        return ShowAction::new()
+            ->buildData(function (AdminModel $admin) {
+                $userRoles = RolesUserModel::fetchAll('user_id', $admin->userId);
+                return [
+                    'roleIds' => array_column($userRoles, 'roleId'),
+                ];
+            })
+            ->exec($this);
+    }
 
     public function patch(Req $req)
     {
@@ -49,6 +63,11 @@ return new class () extends BaseController {
         $user->isAdmin = true;
         $user->save($data);
         $admin->save(['userId' => $user->id]);
+
+        // 保存角色
+        if (isset($req['roleIds'])) {
+            $user->roles()->syncRelation($req['roleIds']);
+        }
 
         return $admin->toRet();
     }

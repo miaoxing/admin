@@ -7,10 +7,13 @@ import {CListBtn} from '@mxjs/a-clink';
 import {Box} from '@mxjs/box';
 import {Alert} from 'antd';
 import {useConfig} from '@miaoxing/app';
-import {FormItemUpload, Cascader} from '@miaoxing/admin';
+import {FormItemUpload, Cascader, Select, useOption} from '@miaoxing/admin';
+
+const TYPE_DEFAULT = 1;
 
 const AdminForm = () => {
   const config = useConfig();
+  const isEnabledRoleManage = useOption('permission-isEnabledRoleManage', false);
 
   return (
     <Page>
@@ -23,13 +26,17 @@ const AdminForm = () => {
       </Box>}
 
       <Form>
-        {({id}) => {
+        {({id, user}) => {
           return <>
             <FormItem label="用户名" name={['user', 'username']} required/>
 
             <FormItem label="密码" name={['user', 'password']} type="password" required={!id} extra={!!id && '不修改密码请留空'}/>
 
             <FormItem label="重复密码" name={['user', 'passwordAgain']} type="password" required={!id}/>
+
+            {TYPE_DEFAULT === user?.adminType && isEnabledRoleManage && <FormItem label="角色" name="roleIds">
+              <Select url="roles" labelKey="name" valueKey="id" mode="multiple"/>
+            </FormItem>}
 
             <FormItem label="姓名" name={['user', 'name']}/>
 

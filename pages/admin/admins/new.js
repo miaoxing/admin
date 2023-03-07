@@ -7,7 +7,7 @@ import {CListBtn} from '@mxjs/a-clink';
 import {Box} from '@mxjs/box';
 import {Alert} from 'antd';
 import {useConfig} from '@miaoxing/app';
-import {FormItemUpload, TreeSelect} from '@miaoxing/admin';
+import {FormItemUpload, Cascader} from '@miaoxing/admin';
 
 const AdminForm = () => {
   const config = useConfig();
@@ -36,14 +36,7 @@ const AdminForm = () => {
             <FormItem label="昵称" name={['user', 'nickName']}/>
 
             <FormItem label="分组" name={['user', 'groupId']}>
-              <TreeSelect
-                url="groups"
-                placeholder="请选择"
-                prependData={{
-                  id: '',
-                  name: '未分组',
-                }}
-              />
+              <Cascader url="groups" changeOnSelect/>
             </FormItem>
 
             <FormItemUpload label="头像" name={['user', 'avatar']} extra="支持.jpg .jpeg .bmp .gif .png格式照片" max={1}/>

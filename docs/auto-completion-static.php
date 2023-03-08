@@ -595,10 +595,10 @@ class AdminLogModel
      * Replaces any previously specified restrictions, if any.
      *
      * ```php
-     * $user = QueryBuilder::table('user')->where('id', 1);
-     * $users = QueryBuilder::table('user')->where('id', '>', 1);
-     * $users = QueryBuilder::table('user')->where(['id' => '1', 'username' => 'twin']);
-     * $users = QueryBuilder::table('user')->where(['id' => ['1', '2', '3']]);
+     * $user = wei()->db('user')->where('id = 1');
+     * $user = wei()->db('user')->where('id = ?', 1);
+     * $users = wei()->db('user')->where(array('id' => '1', 'username' => 'twin'));
+     * $users = wei()->where(array('id' => array('1', '2', '3')));
      * ```
      *
      * @param array|Closure|string|null $column
@@ -1016,6 +1016,15 @@ class AdminMenu
      * @see AdminMenu::getMenus
      */
     public static function getMenus(): array
+    {
+    }
+
+    /**
+     * @param UserModel|null $user
+     * @return mixed
+     * @see AdminMenu::getMenusByUser
+     */
+    public static function getMenusByUser(\Miaoxing\App\Service\UserModel $user = null)
     {
     }
 }
@@ -1632,10 +1641,10 @@ class AdminModel
      * Replaces any previously specified restrictions, if any.
      *
      * ```php
-     * $user = QueryBuilder::table('user')->where('id', 1);
-     * $users = QueryBuilder::table('user')->where('id', '>', 1);
-     * $users = QueryBuilder::table('user')->where(['id' => '1', 'username' => 'twin']);
-     * $users = QueryBuilder::table('user')->where(['id' => ['1', '2', '3']]);
+     * $user = wei()->db('user')->where('id = 1');
+     * $user = wei()->db('user')->where('id = ?', 1);
+     * $users = wei()->db('user')->where(array('id' => '1', 'username' => 'twin'));
+     * $users = wei()->where(array('id' => array('1', '2', '3')));
      * ```
      *
      * @param array|Closure|string|null $column
@@ -2626,10 +2635,10 @@ class GroupModel
      * Replaces any previously specified restrictions, if any.
      *
      * ```php
-     * $user = QueryBuilder::table('user')->where('id', 1);
-     * $users = QueryBuilder::table('user')->where('id', '>', 1);
-     * $users = QueryBuilder::table('user')->where(['id' => '1', 'username' => 'twin']);
-     * $users = QueryBuilder::table('user')->where(['id' => ['1', '2', '3']]);
+     * $user = wei()->db('user')->where('id = 1');
+     * $user = wei()->db('user')->where('id = ?', 1);
+     * $users = wei()->db('user')->where(array('id' => '1', 'username' => 'twin'));
+     * $users = wei()->where(array('id' => array('1', '2', '3')));
      * ```
      *
      * @param array|Closure|string|null $column
@@ -3665,10 +3674,10 @@ if (0) {
          * Replaces any previously specified restrictions, if any.
          *
          * ```php
-         * $user = QueryBuilder::table('user')->where('id', 1);
-         * $users = QueryBuilder::table('user')->where('id', '>', 1);
-         * $users = QueryBuilder::table('user')->where(['id' => '1', 'username' => 'twin']);
-         * $users = QueryBuilder::table('user')->where(['id' => ['1', '2', '3']]);
+         * $user = wei()->db('user')->where('id = 1');
+         * $user = wei()->db('user')->where('id = ?', 1);
+         * $users = wei()->db('user')->where(array('id' => '1', 'username' => 'twin'));
+         * $users = wei()->where(array('id' => array('1', '2', '3')));
          * ```
          *
          * @param array|Closure|string|null $column
@@ -4086,6 +4095,15 @@ if (0) {
          * @see AdminMenu::getMenus
          */
         public function getMenus(): array
+        {
+        }
+
+        /**
+         * @param UserModel|null $user
+         * @return mixed
+         * @see AdminMenu::getMenusByUser
+         */
+        public function getMenusByUser(\Miaoxing\App\Service\UserModel $user = null)
         {
         }
     }
@@ -4690,10 +4708,10 @@ if (0) {
          * Replaces any previously specified restrictions, if any.
          *
          * ```php
-         * $user = QueryBuilder::table('user')->where('id', 1);
-         * $users = QueryBuilder::table('user')->where('id', '>', 1);
-         * $users = QueryBuilder::table('user')->where(['id' => '1', 'username' => 'twin']);
-         * $users = QueryBuilder::table('user')->where(['id' => ['1', '2', '3']]);
+         * $user = wei()->db('user')->where('id = 1');
+         * $user = wei()->db('user')->where('id = ?', 1);
+         * $users = wei()->db('user')->where(array('id' => '1', 'username' => 'twin'));
+         * $users = wei()->where(array('id' => array('1', '2', '3')));
          * ```
          *
          * @param array|Closure|string|null $column
@@ -5672,10 +5690,10 @@ if (0) {
          * Replaces any previously specified restrictions, if any.
          *
          * ```php
-         * $user = QueryBuilder::table('user')->where('id', 1);
-         * $users = QueryBuilder::table('user')->where('id', '>', 1);
-         * $users = QueryBuilder::table('user')->where(['id' => '1', 'username' => 'twin']);
-         * $users = QueryBuilder::table('user')->where(['id' => ['1', '2', '3']]);
+         * $user = wei()->db('user')->where('id = 1');
+         * $user = wei()->db('user')->where('id = ?', 1);
+         * $users = wei()->db('user')->where(array('id' => '1', 'username' => 'twin'));
+         * $users = wei()->where(array('id' => array('1', '2', '3')));
          * ```
          *
          * @param array|Closure|string|null $column

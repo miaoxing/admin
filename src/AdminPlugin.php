@@ -4,12 +4,17 @@ namespace Miaoxing\Admin;
 
 use Miaoxing\Admin\Service\AdminLogModel;
 use Miaoxing\Admin\Service\AdminMenu;
-use Miaoxing\App\Service\Permission;
+use Miaoxing\App\Middleware\CheckPagePermission;
+use Miaoxing\App\Service\PermissionMap;
 use Miaoxing\Plugin\BasePlugin;
 use Miaoxing\Plugin\Service\User;
 use Miaoxing\Plugin\Service\UserModel;
+use Wei\BaseController;
 use Wei\RetTrait;
 
+/**
+ * @mixin \PermissionPropMixin
+ */
 class AdminPlugin extends BasePlugin
 {
     use RetTrait;
@@ -36,8 +41,9 @@ class AdminPlugin extends BasePlugin
         $groups = $user->addChild()->setLabel('分组管理')->setUrl('admin/groups');
         $groups->addChild()->setLabel('添加')->setUrl('admin/groups/new');
         $groups->addChild()->setLabel('编辑')->setUrl('admin/groups/[id]/edit');
+        $groups->addChild()->setLabel('删除')->setUrl('admin/groups/[id]/delete');
 
-        if (Permission::isEnabled()) {
+        if ($this->permission->isEnabledRoleManage()) {
             $roles = $user->addChild()->setLabel('角色管理')->setUrl('admin/roles');
             $roles->addChild()->setLabel('添加')->setUrl('admin/roles/new');
             $roles->addChild()->setLabel('编辑')->setUrl('admin/roles/[id]/edit');
@@ -45,6 +51,50 @@ class AdminPlugin extends BasePlugin
         }
 
         $setting->addChild()->setLabel('后台设置')->setUrl('admin/admin-settings')->setSort(10);
+    }
+
+    public function onPermissionGetMap(PermissionMap $map)
+    {
+        $map->prefix('admin/admins', function (PermissionMap $map) {
+            $map->addList('', [
+                'GET api/admin/groups',
+            ]);
+            $map->addNew('', [
+                'GET api/admin/groups',
+            ]);
+            $map->addEdit('', [
+                'GET api/admin/groups',
+            ]);
+        });
+
+        $map->prefix('admin/groups', function (PermissionMap $map) {
+            $map->addList();
+            $map->addNew('', [
+                'GET api/admin/groups',
+            ]);
+            $map->addEdit('', [
+                'GET api/admin/groups',
+            ]);
+            $map->addDelete();
+        });
+
+        $map->prefix('admin/roles', function (PermissionMap $map) {
+            $map->addList();
+            $map->addNew();
+            $map->addEdit();
+            $map->addDelete();
+        });
+
+        $map->add('admin/admin-settings', [
+            'PATCH api/admin/admin-settings',
+        ]);
+    }
+
+    public function onControllerInit(BaseController $controller)
+    {
+        if ($this->app->isAdmin() && $this->permission->isEnabledCheck()) {
+            $controller->middleware(CheckPagePermission::class);
+        }
     }
 
     public function onUserLogin(UserModel $user)

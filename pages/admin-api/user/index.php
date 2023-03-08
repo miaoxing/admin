@@ -1,10 +1,19 @@
 <?php
 
+use Miaoxing\App\Middleware\CheckPagePermission;
 use Miaoxing\Plugin\BaseController;
 use Miaoxing\Plugin\Service\User;
 use Wei\V;
 
 return new class () extends BaseController {
+    protected $className = '个人资料';
+
+    public function init()
+    {
+        parent::init();
+        $this->removeMiddleware(CheckPagePermission::class);
+    }
+
     public function get()
     {
         return User::cur()->toRet();

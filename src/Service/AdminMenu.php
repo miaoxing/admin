@@ -3,7 +3,10 @@
 namespace Miaoxing\Admin\Service;
 
 use Miaoxing\Admin\Service\AdminMenu\Item;
+use Miaoxing\App\Service\Permission;
+use Miaoxing\App\Service\UserModel;
 use Miaoxing\Plugin\BaseService;
+use Miaoxing\Plugin\Service\User;
 
 /**
  * 后台菜单
@@ -64,9 +67,49 @@ class AdminMenu extends BaseService
      */
     protected function getMenus(): array
     {
+        $this->loadMenu();
+        return $this->menu->toArray()['children'];
+    }
+
+    /**
+     * @param UserModel|null $user
+     * @return mixed
+     * @svc
+     */
+    protected function getMenusByUser(UserModel $user = null)
+    {
+        $this->loadMenu();
+
+        $user || $user = User::cur();
+        if (!$user->isSuperAdmin() && Permission::isEnabledCheck()) {
+            $permissions = $user->getActionPermissionCodes();
+            $this->filterMenu($this->menu, $permissions);
+        }
+
+        return $this->menu->toArray()['children'];
+    }
+
+    protected function loadMenu()
+    {
         if (!$this->menu->hasChildren()) {
             $this->event->trigger('adminMenuGetMenus', $this);
         }
-        return $this->menu->toArray()['children'];
+    }
+
+    /**
+     * @param Item $menu
+     * @param array $permissions
+     * @return Item
+     * @internal
+     */
+    protected function filterMenu(Item $menu, array $permissions): Item
+    {
+        foreach ($menu->getChildren() as $i => $subMenu) {
+            if ($subMenu->getUrl() && !in_array($subMenu->getUrl(), $permissions, true)) {
+                $menu->removeChild($i);
+            }
+            $this->filterMenu($subMenu, $permissions);
+        }
+        return $menu;
     }
 }

@@ -6,14 +6,16 @@ import api from '@mxjs/api';
 import $ from 'miaoxing';
 import propTypes from 'prop-types';
 import {PageContext} from '@mxjs/a-page';
-import {history} from '@mxjs/app';
+import {history, req} from '@mxjs/app';
 import {useConfig} from '@miaoxing/app';
+import {AuthProvider} from '@mxjs/auth';
 import Navbar from './Navbar';
 import getLoginPath from '../modules/get-login-path';
 
 const Layout = ({children}) => {
   const [user, setUser] = useState({});
   const [menus, setMenus] = useState([]);
+  const [permissions, setPermissions] = useState({});
   const {page} = useConfig();
 
   useEffect(() => {
@@ -38,23 +40,36 @@ const Layout = ({children}) => {
         $.ret(ret);
       }
     });
+
+    api.get('user-permissions').then(({ret}) => {
+      if (ret.isSuc()) {
+        setPermissions(ret.data.codes.reduce((permissions, key) => {
+          permissions[key] = true;
+          return permissions;
+        }, {}));
+      } else {
+        $.ret(ret);
+      }
+    });
   }, []);
 
   return (
-    <PageContext.Provider value={{menus}}>
-      <Box as={AntdLayout} minH="100vh">
-        <Sider menus={menus}/>
-        <AntdLayout>
-          <Navbar user={user}/>
-          <Box as={AntdLayout.Content} px4 pt4>
-            {children}
-          </Box>
-          <Box as={AntdLayout.Footer} textAlign="center">
-            {page.copyright}
-          </Box>
-        </AntdLayout>
-      </Box>
-    </PageContext.Provider>
+    <AuthProvider permissions={permissions} baseUrl={req.getBaseUrl()}>
+      <PageContext.Provider value={{menus}}>
+        <Box as={AntdLayout} minH="100vh">
+          <Sider menus={menus}/>
+          <AntdLayout>
+            <Navbar user={user}/>
+            <Box as={AntdLayout.Content} px4 pt4>
+              {children}
+            </Box>
+            <Box as={AntdLayout.Footer} textAlign="center">
+              {page.copyright}
+            </Box>
+          </AntdLayout>
+        </Box>
+      </PageContext.Provider>
+    </AuthProvider>
   );
 };
 

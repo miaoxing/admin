@@ -105,6 +105,10 @@ class AdminMenu extends BaseService
     protected function filterMenu(Item $menu, array $permissions): Item
     {
         foreach ($menu->getChildren() as $i => $subMenu) {
+            if (false === $subMenu->getExtra('permission')) {
+                continue;
+            }
+
             if ($subMenu->getUrl() && !in_array($subMenu->getUrl(), $permissions, true)) {
                 $menu->removeChild($i);
             }

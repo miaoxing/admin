@@ -13,6 +13,11 @@ const buildTree = (menus) => {
   const tree = [];
   for (const i in menus) {
     const item = menus[i];
+    // 该菜单不做权限控制
+    if (false === item.permission) {
+      continue;
+    }
+
     const key = item.url || item.label;
 
     tree.push({

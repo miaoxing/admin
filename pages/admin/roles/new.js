@@ -18,13 +18,21 @@ const buildTree = (menus) => {
       continue;
     }
 
-    const key = item.url || item.label;
+    // 菜单下面还有操作，将菜单作为一项以便单独选择
+    let children = item.children;
+    if (item.url && children?.length) {
+      item.permission = '#' + item.url;
+      children = [{
+        label: item.permissionLabel || (item.label + '页面'),
+        permission: item.url,
+      }, ...children];
+    }
 
     tree.push({
       ...item,
       title: item.label,
-      key,
-      children: item.children?.length ? buildTree(item.children) : [],
+      key: item.permission || item.url || item.label,
+      children: children?.length ? buildTree(children) : [],
     });
   }
   return tree;

@@ -1,7 +1,6 @@
-import {Table, TableProvider, CTableDeleteLink, useTable, TableStatusCheckbox} from '@mxjs/a-table';
+import {Table, TableActions, TableProvider, CTableDeleteLink, useTable, TableStatusCheckbox} from '@mxjs/a-table';
 import {CEditLink, CNewBtn} from '@mxjs/a-clink';
 import {Page, PageActions} from '@mxjs/a-page';
-import {LinkActions} from '@mxjs/actions';
 
 export default () => {
   const [table] = useTable();
@@ -35,10 +34,10 @@ export default () => {
               title: '操作',
               dataIndex: 'id',
               render: (id) => (
-                <LinkActions>
+                <TableActions>
                   <CEditLink id={id}/>
                   <CTableDeleteLink id={id}/>
-                </LinkActions>
+                </TableActions>
               ),
             },
           ]}

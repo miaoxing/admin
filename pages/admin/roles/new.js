@@ -8,6 +8,7 @@ import {Tree} from 'antd';
 import {useContext, useEffect, useState} from 'react';
 import {Box} from '@mxjs/box';
 import propTypes from 'prop-types';
+import {Select, useOption} from '@miaoxing/admin';
 
 const buildTree = (menus) => {
   const tree = [];
@@ -70,6 +71,8 @@ TreeInput.propTypes = {
 };
 
 const New = () => {
+  const isEnabledPermissionManage = useOption('permission-isEnabledPermissionManage', false);
+
   return (
     <Page>
       <PageActions>
@@ -79,9 +82,13 @@ const New = () => {
       <Form>
         <FormItem label="名称" name="name" required/>
 
-        <FormItem label="菜单" name="actions">
+        <FormItem label="菜单和操作" name="actions">
           <TreeInput/>
         </FormItem>
+
+        {isEnabledPermissionManage && <FormItem label="权限" name="permissionIds">
+          <Select url="permissions" mode="multiple" labelKey="name" valueKey="id"/>
+        </FormItem>}
 
         <FormItem label="描述" name="description" type="textarea"/>
         <FormAction/>

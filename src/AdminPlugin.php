@@ -52,6 +52,13 @@ class AdminPlugin extends BasePlugin
             $roles->addChild()->setLabel('删除')->setUrl('admin/roles/delete');
         }
 
+        if ($this->permission->isEnabledPermissionManage()) {
+            $permissions = $user->addChild()->setLabel('权限管理')->setUrl('admin/permissions');
+            $permissions->addChild()->setLabel('添加')->setUrl('admin/permissions/new');
+            $permissions->addChild()->setLabel('编辑')->setUrl('admin/permissions/[id]/edit');
+            $permissions->addChild()->setLabel('删除')->setUrl('admin/permissions/[id]/delete');
+        }
+
         $setting->addChild()->setLabel('后台设置')->setUrl('admin/admin-settings')->setSort(10);
     }
 
@@ -81,6 +88,17 @@ class AdminPlugin extends BasePlugin
         });
 
         $map->prefix('admin/roles', function (PermissionMap $map) {
+            $map->addList();
+            $map->addNew('', [
+                'GET api/admin/permissions',
+            ]);
+            $map->addEdit('', [
+                'GET api/admin/permissions',
+            ]);
+            $map->addDelete();
+        });
+
+        $map->prefix('admin/permissions', function (PermissionMap $map) {
             $map->addList();
             $map->addNew();
             $map->addEdit();

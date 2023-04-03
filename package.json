@@ -49,7 +49,9 @@
     "@mxjs/a-page": "miaoxing/mxjs-a-page",
     "@mxjs/a-table": "miaoxing/mxjs-a-table",
     "@mxjs/a-button": "miaoxing/mxjs-a-button",
+    "@mxjs/auth": "miaoxing/mxjs-auth",
     "@mxjs/box": "miaoxing/mxjs-box",
+    "@mxjs/router": "miaoxing/mxjs-router",
     "@mxjs/test": "miaoxing/mxjs-test"
   }
 }

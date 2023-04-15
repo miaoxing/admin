@@ -1,3 +1,33 @@
+## [0.10.1](https://github.com/miaoxing/admin/compare/v0.10.0...v0.10.1) (2023-04-15)
+
+
+### Features
+
+* **admin:** 允许设置菜单的 `permission` 为 `false` 来控制不作为权限 ([2a53963](https://github.com/miaoxing/admin/commit/2a539636e876f153e41a825fbf78b30f162a7c92))
+* **admin:** 增加 `Cascader` 组件，支持读取后台数据，传入字符串值 ([c9ad054](https://github.com/miaoxing/admin/commit/c9ad054cd9dd4526c519b00a038aaeff35ca8cb8))
+* **admin:** 增加权限管理功能 ([9035966](https://github.com/miaoxing/admin/commit/9035966cf1de926eeb120da67a59614c5170b6c9))
+* **admin:** 根据用户权限，显示菜单，控制接口访问 ([ed40461](https://github.com/miaoxing/admin/commit/ed4046126b3f8037ef717c842d53da1c638f6bbc))
+* **admin:** 选择菜单时，支持菜单下还有页面的情况 ([58e1004](https://github.com/miaoxing/admin/commit/58e1004b80659df0ce4672356f3b8f6fa5f5d27d))
+* **admin, experimental:** 从后台读取权限设置到 `AuthProvider` ([ecf2cb1](https://github.com/miaoxing/admin/commit/ecf2cb1e2ae053e6c69a91bad60796af0733146b))
+* **admin, experimental:** 增加 `options` 接口和 `useOption` 方法用于读取后台服务选项的值 ([337ed95](https://github.com/miaoxing/admin/commit/337ed953ad589590260d9456368e098c724b0b85))
+* **admin, u:** 允许修改管理员用户名 ([cab9ceb](https://github.com/miaoxing/admin/commit/cab9ceb818dadda7629942f558a32b0c9efec6c0))
+* **admin, u:** 增加角色管理功能 ([f869818](https://github.com/miaoxing/admin/commit/f869818366357ca0650db98aae85cd40a9863c1e))
+* **admin, u:** 管理员可以分配角色 ([485aabe](https://github.com/miaoxing/admin/commit/485aabee15a176ca90cc9817e46964289499432b))
+
+
+
+
+
+### Dependencies
+
+* **@mxjs/a-clink:** upgrade from `1.1.4` to `1.2.0`
+* **@mxjs/a-form:** upgrade from `1.2.0` to `1.2.1`
+* **@mxjs/a-page:** upgrade from `2.0.0` to `2.1.0`
+* **@mxjs/a-table:** upgrade from `1.3.0` to `1.4.0`
+* **@mxjs/upload:** upgrade from `0.6.14` to `0.6.15`
+* **@miaoxing/app:** upgrade from `0.7.0` to `0.7.1`
+* **@miaoxing/file:** upgrade from `0.3.13` to `0.3.14`
+
 # [0.10.0](https://github.com/miaoxing/admin/compare/v0.9.7...v0.10.0) (2023-03-01)
 
 

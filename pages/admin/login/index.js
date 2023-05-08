@@ -1,7 +1,7 @@
 /**
  * @layout false
  */
-import {Form, Button, Input} from 'antd';
+import {Form, Button, Input, Layout} from 'antd';
 import {Box, Image} from '@mxjs/box';
 import $ from 'miaoxing';
 import api from '@mxjs/api';
@@ -83,7 +83,7 @@ const Index = () => {
   }, []);
 
   return (
-    <Box column minH="100vh">
+    <Box as={Layout} column minH="100vh" bgTransparent>
       <ConfigConsumer>
         {({page}) => (
           <Global

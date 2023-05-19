@@ -21,8 +21,8 @@ return new class () extends BaseController {
         return UpdateAction::new()
             ->afterFind(function (GroupModel $group) {
                 $v = V::defaultOptional()->defaultNotEmpty();
-                $v->tinyChar('name', '名称')->required($group->isNew())
-                    ->notModelExists(GroupModel::whereNot('id', $this->req['id']), 'name');
+                $v->setModel($group);
+                $v->modelColumn('name', '名称')->requiredIfNew()->notModelDup();
                 return $v->check($this->req);
             })
             ->beforeSave(function (GroupModel $group) {

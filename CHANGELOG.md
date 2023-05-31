@@ -1,3 +1,34 @@
+## [0.10.4](https://github.com/miaoxing/admin/compare/v0.10.3...v0.10.4) (2023-05-31)
+
+
+### Bug Fixes
+
+* **admin, antd5:** 内容使用 `Layout` 包含起来，以便显示一致的字体和链接颜色 ([329e613](https://github.com/miaoxing/admin/commit/329e613bed630aec22e76fa926288e574866fd06))
+
+
+### Features
+
+* **antd5:** 引入 reset 样式 ([3ea81df](https://github.com/miaoxing/admin/commit/3ea81df39a457b86421aa28bd297791564e13c17))
+
+
+
+
+
+### Dependencies
+
+* **@mxjs/a-clink:** upgrade from `1.2.1` to `1.2.2`
+* **@mxjs/a-form:** upgrade from `1.3.0` to `1.4.0`
+* **@mxjs/a-page:** upgrade from `2.1.1` to `2.1.2`
+* **@mxjs/a-table:** upgrade from `1.4.2` to `1.5.0`
+* **@mxjs/api:** upgrade from `1.0.3` to `1.0.4`
+* **@mxjs/css:** upgrade from `1.1.0` to `1.1.1`
+* **@mxjs/upload:** upgrade from `0.6.17` to `0.6.18`
+* **miaoxing:** upgrade from `0.4.6` to `0.4.7`
+* **@miaoxing/dev:** upgrade from `8.2.0` to `8.2.1`
+* **@mxjs/test:** upgrade from `1.0.3` to `1.0.4`
+* **@miaoxing/app:** upgrade from `0.7.2` to `0.7.3`
+* **@miaoxing/file:** upgrade from `0.3.15` to `0.3.16`
+
 ## [0.10.3](https://github.com/miaoxing/admin/compare/v0.10.2...v0.10.3) (2023-04-30)
 
 

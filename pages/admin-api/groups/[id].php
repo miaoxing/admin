@@ -19,11 +19,13 @@ return new class () extends BaseController {
     public function patch()
     {
         return UpdateAction::new()
-            ->afterFind(function (GroupModel $group) {
+            ->validate(function (GroupModel $group, $req) {
                 $v = V::defaultOptional()->defaultNotEmpty();
                 $v->setModel($group);
+                $v->modelColumn('parentId', '父级分组')->modelExists(GroupModel::class);
                 $v->modelColumn('name', '名称')->requiredIfNew()->notModelDup();
-                return $v->check($this->req);
+                $v->modelColumn('sort', '顺序');
+                return $v->check($req);
             })
             ->beforeSave(function (GroupModel $group) {
                 // 选择了父栏目,但类型和父栏目一致,同时层级为父栏目加1

@@ -12,6 +12,8 @@ use Wei\V;
 return new class () extends BaseController {
     use ItemTrait;
 
+    protected $className = '管理员';
+
     protected $include = [
         'user',
     ];

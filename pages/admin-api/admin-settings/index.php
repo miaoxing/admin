@@ -4,6 +4,8 @@ use Miaoxing\Plugin\BasePage;
 use Miaoxing\Plugin\Service\Config;
 
 return new class () extends BasePage {
+    protected $className = '后台设置';
+
     public function get()
     {
         $settings = Config::getAppMultiple([

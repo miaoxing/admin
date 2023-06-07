@@ -11,6 +11,8 @@ use Wei\Event;
 use Wei\V;
 
 return new class () extends BaseController {
+    protected $className = '分组';
+
     public function get()
     {
         return ShowAction::exec($this);

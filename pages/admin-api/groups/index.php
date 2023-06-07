@@ -8,6 +8,8 @@ use Miaoxing\Services\Service\IndexAction;
 return new class () extends BaseController {
     use PostToPatchTrait;
 
+    protected $className = '分组';
+
     public function get()
     {
         return IndexAction::new()

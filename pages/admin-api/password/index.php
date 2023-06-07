@@ -10,6 +10,12 @@ return new class () extends BaseController {
         'index,update' => '修改密码',
     ];
 
+    protected $className = '密码';
+
+    protected $methodNames = [
+        'put' => '修改',
+    ];
+
     public function put($req)
     {
         return User::cur()->updatePassword($req);

@@ -5,7 +5,7 @@ use Miaoxing\Plugin\Service\Config;
 use Miaoxing\Plugin\Service\User;
 
 return new class () extends BaseController {
-    protected $controllerAuth = false;
+    protected $requireAuth = false;
 
     protected $className = '用户';
 

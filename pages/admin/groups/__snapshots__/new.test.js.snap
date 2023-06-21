@@ -10,14 +10,14 @@ exports[`admin/groups form 1`] = `
         "params": Object {
           "limit": 500,
         },
-        "url": "/admin-api/groups",
+        "url": "/api/admin/groups",
       },
     ],
     Array [
       Object {
         "loading": true,
         "method": "get",
-        "url": "/admin-api/groups/defaults",
+        "url": "/api/admin/groups/defaults",
       },
     ],
     Array [
@@ -30,7 +30,7 @@ exports[`admin/groups form 1`] = `
         },
         "loading": true,
         "method": "POST",
-        "url": "/admin-api/groups",
+        "url": "/api/admin/groups",
       },
     ],
   ],

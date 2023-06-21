@@ -1,6 +1,6 @@
 <?php
 
-namespace MiaoxingTest\Admin\Pages\AdminApi\Admins\Defaults;
+namespace MiaoxingTest\Admin\Pages\Api\Admin\Admins\Defaults;
 
 use Miaoxing\Plugin\Service\Tester;
 use Miaoxing\Plugin\Service\UserModel;

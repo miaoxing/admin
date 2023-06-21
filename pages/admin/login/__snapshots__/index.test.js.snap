@@ -6,7 +6,7 @@ exports[`login err 1`] = `
     Array [
       Object {
         "method": "get",
-        "url": "/admin-api/login",
+        "url": "/api/admin/login",
       },
     ],
     Array [
@@ -16,7 +16,7 @@ exports[`login err 1`] = `
           "username": "admin",
         },
         "method": "post",
-        "url": "/admin-api/login",
+        "url": "/api/admin/login",
       },
     ],
   ],
@@ -39,7 +39,7 @@ exports[`login suc 1`] = `
     Array [
       Object {
         "method": "get",
-        "url": "/admin-api/login",
+        "url": "/api/admin/login",
       },
     ],
     Array [
@@ -49,7 +49,7 @@ exports[`login suc 1`] = `
           "username": "admin",
         },
         "method": "post",
-        "url": "/admin-api/login",
+        "url": "/api/admin/login",
       },
     ],
   ],

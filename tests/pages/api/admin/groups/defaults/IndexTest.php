@@ -1,6 +1,6 @@
 <?php
 
-namespace MiaoxingTest\Admin\Pages\AdminApi\Groups\Defaults;
+namespace MiaoxingTest\Admin\Pages\Api\Admin\Groups\Defaults;
 
 use Miaoxing\Admin\Service\GroupModel;
 use Miaoxing\Plugin\Service\Tester;

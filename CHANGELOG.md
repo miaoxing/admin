@@ -1,3 +1,26 @@
+## [0.10.5](https://github.com/miaoxing/admin/compare/v0.10.4...v0.10.5) (2023-06-30)
+
+
+### Features
+
+* **admin:** 增加页面名称 ([00a1ca5](https://github.com/miaoxing/admin/commit/00a1ca5ab2ff29f2f0aba03cd72ec6a954d22de7))
+
+
+
+
+
+### Dependencies
+
+* **@mxjs/a-clink:** upgrade from `1.2.2` to `2.0.0`
+* **@mxjs/a-form:** upgrade from `1.4.0` to `1.4.1`
+* **@mxjs/a-page:** upgrade from `2.1.2` to `2.1.3`
+* **@mxjs/a-table:** upgrade from `1.5.0` to `1.5.1`
+* **@mxjs/api:** upgrade from `1.0.4` to `1.0.5`
+* **@mxjs/upload:** upgrade from `0.6.18` to `0.6.19`
+* **@mxjs/test:** upgrade from `1.0.4` to `1.0.5`
+* **@miaoxing/app:** upgrade from `0.7.3` to `0.7.4`
+* **@miaoxing/file:** upgrade from `0.3.16` to `0.3.17`
+
 ## [0.10.4](https://github.com/miaoxing/admin/compare/v0.10.3...v0.10.4) (2023-05-31)
 
 

@@ -9,5 +9,6 @@ export Select from './components/Select';
 export TreeSelect from './components/TreeSelect';
 export Cascader from './components/Cascader';
 export Image from './components/Image';
+export Images from './components/Images';
 
 export useOption from './modules/use-option';

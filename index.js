@@ -11,5 +11,6 @@ export Cascader from './components/Cascader';
 export Image from './components/Image';
 export Images from './components/Images';
 export Descriptions from './components/Descriptions';
+export ModalDescriptions from './components/ModalDescriptions';
 
 export useOption from './modules/use-option';

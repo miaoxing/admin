@@ -1,13 +1,13 @@
 <?php
 
 use Miaoxing\App\Middleware\CheckPagePermission;
-use Miaoxing\Plugin\BaseController;
+use Miaoxing\Plugin\BasePage;
 use Miaoxing\Plugin\Service\User;
 
 return new /**
  * @experimental
  */
-class () extends BaseController {
+class () extends BasePage {
     public function init()
     {
         parent::init();

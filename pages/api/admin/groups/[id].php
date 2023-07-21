@@ -1,8 +1,8 @@
 <?php
 
 use Miaoxing\Admin\Service\GroupModel;
-use Miaoxing\Plugin\BaseController;
 use Miaoxing\Plugin\BaseModel;
+use Miaoxing\Plugin\BasePage;
 use Miaoxing\Plugin\Service\UserModel;
 use Miaoxing\Services\Service\DestroyAction;
 use Miaoxing\Services\Service\ShowAction;
@@ -10,7 +10,7 @@ use Miaoxing\Services\Service\UpdateAction;
 use Wei\Event;
 use Wei\V;
 
-return new class () extends BaseController {
+return new class () extends BasePage {
     protected $className = '分组';
 
     public function get()

@@ -2,14 +2,14 @@
 
 use Miaoxing\Admin\Service\AdminModel;
 use Miaoxing\App\Service\RolesUserModel;
-use Miaoxing\Plugin\BaseController;
+use Miaoxing\Plugin\BasePage;
 use Miaoxing\Plugin\Service\UserModel;
 use Miaoxing\Services\Page\ItemTrait;
 use Miaoxing\Services\Service\ShowAction;
 use Wei\Req;
 use Wei\V;
 
-return new class () extends BaseController {
+return new class () extends BasePage {
     use ItemTrait;
 
     protected $className = '管理员';

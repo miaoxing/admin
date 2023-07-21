@@ -1,9 +1,9 @@
 <?php
 
-use Miaoxing\Plugin\BaseController;
+use Miaoxing\Plugin\BasePage;
 use Miaoxing\Plugin\Service\User;
 
-return new class () extends BaseController {
+return new class () extends BasePage {
     protected $className = '用户';
 
     protected $methodNames = [

@@ -1,9 +1,9 @@
 <?php
 
-use Miaoxing\Plugin\BaseController;
+use Miaoxing\Plugin\BasePage;
 use Miaoxing\Plugin\Service\UserModel;
 
-return new class () extends BaseController {
+return new class () extends BasePage {
     public function get()
     {
         return suc([

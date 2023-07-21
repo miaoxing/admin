@@ -1,11 +1,11 @@
 <?php
 
 use Miaoxing\Admin\Service\GroupModel;
-use Miaoxing\Plugin\BaseController;
+use Miaoxing\Plugin\BasePage;
 use Miaoxing\Services\Page\PostToPatchTrait;
 use Miaoxing\Services\Service\IndexAction;
 
-return new class () extends BaseController {
+return new class () extends BasePage {
     use PostToPatchTrait;
 
     protected $className = '分组';

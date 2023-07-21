@@ -1,12 +1,12 @@
 <?php
 
 use Miaoxing\App\Service\PermissionModel;
-use Miaoxing\Plugin\BaseController;
+use Miaoxing\Plugin\BasePage;
 use Miaoxing\Services\Page\ItemTrait;
 use Miaoxing\Services\Service\UpdateAction;
 use Wei\V;
 
-return new class () extends BaseController {
+return new class () extends BasePage {
     use ItemTrait;
 
     protected $className = '权限';

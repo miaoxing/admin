@@ -1,15 +1,12 @@
-import React from 'react';
+import {useEffect, useState} from 'react';
 import {Menu, Layout} from 'antd';
-import {Link} from '@mxjs/router';
-import {Box, Image} from '@mxjs/box';
 import propTypes from 'prop-types';
-import {withRouter} from 'react-router';
-import ReactRouterPropTypes from 'react-router-prop-types';
+import {useLocation} from 'react-router-dom';
 import $ from 'miaoxing';
-import {ConfigConsumer} from 'plugins/app/components/ConfigContext';
+import {Box, Image} from '@mxjs/box';
+import {Link} from '@mxjs/router';
 import {matchMenus} from '@mxjs/a-page';
-
-const {Sider} = Layout;
+import {useConfig} from '@miaoxing/app';
 
 const MenuLink = ({menu}) => {
   // 快速检查是否为外部地址
@@ -28,119 +25,78 @@ MenuLink.propTypes = {
   }),
 };
 
-export default @withRouter
-class extends React.Component {
-  static defaultProps = {
-    menus: [],
-    title: '',
-    logo: '',
-  };
-
-  static propTypes = {
-    history: ReactRouterPropTypes.history.isRequired,
-    menus: propTypes.array,
-    title: propTypes.string,
-    logo: propTypes.string,
-  };
-
-  state = {
-    openKeys: [],
-    selectedKeys: [],
-    collapsed: false,
-  };
-
-  componentDidMount() {
-    this.updateMenu();
-    this.props.history.listen(() => {
-      this.updateMenu();
-    });
-  }
-
-  componentDidUpdate(prevProps) {
-    if (prevProps.menus !== this.props.menus) {
-      this.updateMenu();
+const getItems = (menus) => {
+  return menus.map(menu => {
+    if (false === menu.visible) {
+      return;
     }
-  }
 
-  updateMenu() {
-    const pathname = this.props.history.location.pathname.replace(/\/+$/, '');
-    const result = matchMenus(pathname, this.props.menus);
-    if (result.length >= 2) {
-      this.setState({
-        openKeys: this.state.collapsed ? [] : [result[0].label],
-        selectedKeys: [result[1].label],
-      });
-    } else if (result.length === 1) {
-      this.setState({
-        selectedKeys: [result[0].label],
-      });
-    }
-  }
-
-  getItems() {
-    return this.props.menus.map(menu => {
-      if (false === menu.visible) {
-        return;
-      }
-
-      if (menu.url) {
-        return {
-          key: menu.label,
-          label: <MenuLink menu={menu}/>,
-        };
-      }
-
+    if (menu.url) {
       return {
         key: menu.label,
-        label: menu.label,
-        children: menu.children.map(menu2 => {
-          if (false !== menu2.visible) {
-            return {
-              key: menu2.label,
-              label: <MenuLink menu={menu2}/>,
-            };
-          }
-        }),
+        label: <MenuLink menu={menu}/>,
       };
-    });
-  }
+    }
 
-  handleOpenChange = (openKeys) => {
-    this.setState({openKeys});
-  };
+    return {
+      key: menu.label,
+      label: menu.label,
+      children: menu.children.map(menu2 => {
+        if (false !== menu2.visible) {
+          return {
+            key: menu2.label,
+            label: <MenuLink menu={menu2}/>,
+          };
+        }
+      }),
+    };
+  });
+};
 
-  handleCollapse = (collapsed) => {
-    this.setState({collapsed});
-  }
+const Sider = ({menus = []}) => {
+  const {page} = useConfig();
+  const location = useLocation();
+  const [collapsed, setCollapsed] = useState(false);
+  const [openKeys, setOpenKeys] = useState([]);
+  const [selectedKeys, setSelectedKeys] = useState([]);
 
-  render() {
-    return (
-      <Sider
-        breakpoint="lg"
-        collapsedWidth="0"
-        collapsed={this.state.collapsed}
-        onCollapse={this.handleCollapse}
-      >
-        <ConfigConsumer>
-          {({page}) => {
-            return (
-              <Box toCenter h="60px">
-                <Image h="25px" src={page.logo}/>
-                <Box as="h1" ml2 mb0 textXL white>{page.title}</Box>
-              </Box>
-            );
-          }}
-        </ConfigConsumer>
-        {this.props.menus.length && <Menu
-          theme="dark"
-          mode="inline"
-          openKeys={this.state.openKeys}
-          selectedKeys={this.state.selectedKeys}
-          onOpenChange={this.handleOpenChange}
-          items={this.getItems()}
-        />}
-      </Sider>
-    );
-  }
-}
+  useEffect(() => {
+    const pathname = location.pathname.replace(/\/+$/, '');
+    const result = matchMenus(pathname, menus);
+    if (result.length >= 2) {
+      // 小屏（如移动端）打开页面时，侧边栏是关闭状态，不用展示浮动的菜单
+      setOpenKeys(collapsed ? [] : [result[0].label, ...openKeys]);
+      setSelectedKeys([result[1].label]);
+    } else if (result.length === 1) {
+      setSelectedKeys([result[0].label]);
+    }
+  }, [location.pathname, menus.length]);
 
+  return (
+    <Layout.Sider
+      breakpoint="lg"
+      collapsedWidth="0"
+      collapsed={collapsed}
+      onCollapse={setCollapsed}
+    >
+      <Box toCenter h="60px">
+        <Image h="25px" src={page.logo}/>
+        <Box as="h1" ml2 mb0 textXL white>{page.title}</Box>
+      </Box>
+      {menus.length && <Menu
+        theme="dark"
+        mode="inline"
+        openKeys={openKeys}
+        selectedKeys={selectedKeys}
+        onOpenChange={setOpenKeys}
+        items={getItems(menus)}
+      />}
+    </Layout.Sider>
+  );
+};
+
+Sider.propTypes = {
+  menus: propTypes.array,
+};
+
+export default Sider;

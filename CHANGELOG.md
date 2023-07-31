@@ -1,3 +1,32 @@
+## [0.10.6](https://github.com/miaoxing/admin/compare/v0.10.5...v0.10.6) (2023-07-31)
+
+
+### Features
+
+* **admin:** 增加 `Image` 组件，用于展示单张图片 ([c47bfc0](https://github.com/miaoxing/admin/commit/c47bfc04d87bba0b76cc7c3b55ab448bfe02aeb7))
+* **admin:** 增加 `Images` 组件，用于展示多张图片 ([4ec7a40](https://github.com/miaoxing/admin/commit/4ec7a40b72b56815614f742ed2b304dc6b133af7))
+* **admin, experimental:** 增加 `Descriptions` 组件 ([59b050f](https://github.com/miaoxing/admin/commit/59b050fe9cb18d640430676fef807ffd00f3b49a))
+* **admin, experimental:** 增加 `ModalDescriptions` 组件 ([2c81529](https://github.com/miaoxing/admin/commit/2c81529a6e8d9a97905776562d7024f1f13582a5))
+
+
+
+
+
+### Dependencies
+
+* **@mxjs/a-clink:** upgrade from `2.0.0` to `2.0.1`
+* **@mxjs/a-form:** upgrade from `1.4.1` to `1.5.0`
+* **@mxjs/a-page:** upgrade from `2.1.3` to `2.1.4`
+* **@mxjs/a-table:** upgrade from `1.5.1` to `1.5.2`
+* **@mxjs/api:** upgrade from `1.0.5` to `1.0.6`
+* **@mxjs/css:** upgrade from `1.1.1` to `1.1.2`
+* **@mxjs/upload:** upgrade from `0.6.19` to `0.6.20`
+* **miaoxing:** upgrade from `0.4.7` to `0.4.8`
+* **@miaoxing/dev:** upgrade from `8.2.1` to `8.2.2`
+* **@mxjs/test:** upgrade from `1.0.5` to `1.0.6`
+* **@miaoxing/app:** upgrade from `0.7.4` to `0.7.5`
+* **@miaoxing/file:** upgrade from `0.3.17` to `0.3.18`
+
 ## [0.10.5](https://github.com/miaoxing/admin/compare/v0.10.4...v0.10.5) (2023-06-30)
 
 

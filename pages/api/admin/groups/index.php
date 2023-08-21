@@ -1,6 +1,6 @@
 <?php
 
-use Miaoxing\Admin\Service\GroupModel;
+use Miaoxing\App\Service\GroupModel;
 use Miaoxing\Plugin\BasePage;
 use Miaoxing\Services\Page\PostToPatchTrait;
 use Miaoxing\Services\Service\IndexAction;

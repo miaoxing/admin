@@ -2,7 +2,7 @@
 
 namespace MiaoxingTest\Admin\Pages\Api\Admin\Groups;
 
-use Miaoxing\Admin\Service\GroupModel;
+use Miaoxing\App\Service\GroupModel;
 use Miaoxing\Plugin\Service\Tester;
 use Miaoxing\Plugin\Service\User;
 use Miaoxing\Plugin\Test\BaseTestCase;

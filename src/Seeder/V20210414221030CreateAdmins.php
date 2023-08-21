@@ -4,7 +4,7 @@ namespace Miaoxing\Admin\Seeder;
 
 use Faker\Factory;
 use Miaoxing\Admin\Service\AdminModel;
-use Miaoxing\Admin\Service\GroupModel;
+use Miaoxing\App\Service\GroupModel;
 use Miaoxing\Plugin\Seeder\BaseSeeder;
 use Miaoxing\Plugin\Service\UserModel;
 

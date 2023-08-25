@@ -41,7 +41,8 @@ return new class () extends BasePage {
 
         $v = V::new();
         $v->setModel($user);
-        $v->alnum('username', '用户名')->required($user->isNew())->length(3, 32)->notModelDup();
+        $v->alnum('username', '用户名')->required($user->isNew())->length(3, 32)->notModelDup()
+            ->notRegex('/^\d/')->message('%name%不能以数字开头');
         $v->string('password', '密码', 6, 50)->required($validatePassword);
         $v->string('passwordAgain', '重复密码', 6, 50)->required($validatePassword)
             ->equalTo($data['password'] ?? null)->message('equalTo', '两次输入的密码不相等');

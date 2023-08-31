@@ -14,7 +14,7 @@ class AdminPage extends BaseService
     /**
      * @var string
      */
-    protected $copyright = 'Miaoxing ©2022';
+    protected $copyright = 'Miaoxing ©2023';
 
     /**
      * @var string

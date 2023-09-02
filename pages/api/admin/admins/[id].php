@@ -47,8 +47,7 @@ return new class () extends BasePage {
         $v->string('passwordAgain', '重复密码', 6, 50)->required($validatePassword)
             ->equalTo($data['password'] ?? null)->message('equalTo', '两次输入的密码不相等');
         $v->maxCharLength('nickName', ' 昵称', 32)->optional();
-        $ret = $v->check($data);
-        $this->tie($ret);
+        $v->assert($data);
 
         if (isset($data['isEnabled']) && !$data['isEnabled'] && $user->isSuperAdmin()) {
             return err('不能禁用超级管理员');

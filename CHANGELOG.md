@@ -1,3 +1,39 @@
+# [0.11.0](https://github.com/miaoxing/admin/compare/v0.10.6...v0.11.0) (2023-09-02)
+
+
+### Bug Fixes
+
+* **admin, u:** 用户名不允许以数字开头 ([0c80777](https://github.com/miaoxing/admin/commit/0c807777adf75ec977f09cdc22b2de72bd40bea6))
+
+
+### Code Refactoring
+
+* **admin:** `AdminModel::user()` 更改返回类型为 `app` 的 `UserModel` ([4d98b85](https://github.com/miaoxing/admin/commit/4d98b85534fd5bb67919a865aa4993d253f12d66))
+
+
+### BREAKING CHANGES
+
+* **admin:** `AdminModel::user()` 更改返回类型为 `app` 的 `UserModel`
+
+
+
+
+
+### Dependencies
+
+* **@mxjs/a-clink:** upgrade from `2.0.1` to `2.0.2`
+* **@mxjs/a-form:** upgrade from `1.5.0` to `1.6.0`
+* **@mxjs/a-page:** upgrade from `2.1.4` to `2.1.5`
+* **@mxjs/a-table:** upgrade from `1.5.2` to `1.5.3`
+* **@mxjs/api:** upgrade from `1.0.6` to `1.0.7`
+* **@mxjs/css:** upgrade from `1.1.2` to `1.1.3`
+* **@mxjs/upload:** upgrade from `0.6.20` to `0.6.21`
+* **miaoxing:** upgrade from `0.4.8` to `0.4.9`
+* **@miaoxing/dev:** upgrade from `8.2.2` to `8.2.3`
+* **@mxjs/test:** upgrade from `1.0.6` to `1.0.7`
+* **@miaoxing/app:** upgrade from `0.7.5` to `0.7.6`
+* **@miaoxing/file:** upgrade from `0.3.18` to `0.3.19`
+
 ## [0.10.6](https://github.com/miaoxing/admin/compare/v0.10.5...v0.10.6) (2023-07-31)
 
 

@@ -30,7 +30,10 @@ const AdminForm = () => {
           return <>
             <FormItem label="用户名" name={['user', 'username']} required/>
 
-            <FormItem label="密码" name={['user', 'password']} type="password" required={!id} extra={!!id && '不修改密码请留空'}/>
+            <FormItem
+              label="密码" name={['user', 'password']} type="password" required={!id}
+              controlProps={{placeholder: !!id && '不修改密码请留空'}}
+            />
 
             <FormItem label="重复密码" name={['user', 'passwordAgain']} type="password" required={!id}/>
 

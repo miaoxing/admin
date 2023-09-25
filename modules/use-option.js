@@ -2,6 +2,18 @@ import {useState} from 'react';
 import useAsyncEffect from 'use-async-effect';
 import api from '@mxjs/api';
 import $ from 'miaoxing';
+import memoizeOne from 'async-memoize-one';
+
+async function getOption (name) {
+  const {ret} = await api.get('options', {params: {id: name}});
+  if (ret.isErr()) {
+    $.ret(ret);
+    return;
+  }
+  return ret.data;
+}
+
+const getOptionFromCache = memoizeOne(name => getOption(name));
 
 /**
  * @experimental
@@ -14,12 +26,10 @@ const useOption = (name, defaults) => {
 
   const [value, setValue] = useState(defaults);
   useAsyncEffect(async () => {
-    const {ret} = await api.get('options', {params: {id: name}});
-    if (ret.isErr()) {
-      $.ret(ret);
-      return;
+    const data = await getOptionFromCache(name);
+    if (data) {
+      setValue(data);
     }
-    setValue(ret.data);
   }, [name]);
 
   return value;

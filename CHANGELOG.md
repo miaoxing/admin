@@ -1,3 +1,22 @@
+## [0.11.1](https://github.com/miaoxing/admin/compare/v0.11.0...v0.11.1) (2023-09-30)
+
+
+### Features
+
+* **admin:** `useOption` 支持多个同时调用时，只发送一个请求 ([f25f999](https://github.com/miaoxing/admin/commit/f25f999e39ba882a8e5ab2a44ebf99b99db0ca16))
+
+
+
+
+
+### Dependencies
+
+* **@mxjs/a-form:** upgrade from `1.6.0` to `1.7.0`
+* **@mxjs/a-page:** upgrade from `2.1.5` to `2.2.0`
+* **@mxjs/upload:** upgrade from `0.6.21` to `0.6.22`
+* **@miaoxing/app:** upgrade from `0.7.6` to `0.7.7`
+* **@miaoxing/file:** upgrade from `0.3.19` to `0.3.20`
+
 # [0.11.0](https://github.com/miaoxing/admin/compare/v0.10.6...v0.11.0) (2023-09-02)
 
 

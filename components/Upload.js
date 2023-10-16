@@ -5,5 +5,5 @@ import $ from 'miaoxing';
  * @experimental
  */
 export default (props) => {
-  return <Upload url={$.apiUrl('files', {type: 'image'})} {...props}/>;
+  return <Upload url={$.apiUrl('upload', {type: 'image'})} {...props}/>;
 };

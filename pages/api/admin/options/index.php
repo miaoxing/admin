@@ -18,7 +18,8 @@ class () extends BasePage {
         $data = [];
         $ids = explode(',', (string) $req['id']);
         foreach ($ids as $id) {
-            [$name, $option] = explode('-', $id);
+            $separator = false !== strpos($id, '.') ? '.' : '-';
+            [$name, $option] = explode($separator, $id);
 
             if (!$this->wei->has($name)) {
                 return err('服务不存在');

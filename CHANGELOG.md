@@ -1,3 +1,22 @@
+## [0.11.2](https://github.com/miaoxing/admin/compare/v0.11.1...v0.11.2) (2023-11-02)
+
+
+### Features
+
+* **admin, experimental:** `options` 接口支持使用 `.` 区分服务和选项 ([08f5da5](https://github.com/miaoxing/admin/commit/08f5da59963691c572a46cc1d13160a6991fff52))
+
+
+
+
+
+### Dependencies
+
+* **@mxjs/a-form:** upgrade from `1.7.0` to `2.0.0`
+* **@mxjs/a-table:** upgrade from `1.5.3` to `1.6.0`
+* **@mxjs/upload:** upgrade from `0.6.22` to `0.6.23`
+* **@miaoxing/app:** upgrade from `0.7.7` to `0.7.8`
+* **@miaoxing/file:** upgrade from `0.3.20` to `0.3.21`
+
 ## [0.11.1](https://github.com/miaoxing/admin/compare/v0.11.0...v0.11.1) (2023-09-30)
 
 

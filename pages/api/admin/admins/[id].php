@@ -21,7 +21,7 @@ return new class () extends BasePage {
     public function get()
     {
         return ShowAction::new()
-            ->buildData(function (AdminModel $admin) {
+            ->buildData(static function (AdminModel $admin) {
                 $userRoles = RolesUserModel::fetchAll('user_id', $admin->userId);
                 return [
                     'roleIds' => array_column($userRoles, 'roleId'),

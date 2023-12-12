@@ -21,7 +21,7 @@ return new class () extends BasePage {
     public function patch()
     {
         return UpdateAction::new()
-            ->validate(function (GroupModel $group, $req) {
+            ->validate(static function (GroupModel $group, $req) {
                 $v = V::defaultOptional()->defaultNotEmpty();
                 $v->setModel($group);
                 $v->modelColumn('parentId', '父级分组')->modelExists(GroupModel::class);
@@ -53,8 +53,8 @@ return new class () extends BasePage {
 
     public function delete()
     {
-        return DestroyAction
-            ::beforeDestroy(function (BaseModel $model) {
+        return DestroyAction::new()
+            ->beforeDestroy(static function (BaseModel $model) {
                 return Event::until('groupDestroy', [$model]);
             })
             ->afterDestroy(function () {

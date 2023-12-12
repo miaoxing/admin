@@ -14,7 +14,7 @@ return new class () extends BasePage {
     public function patch()
     {
         return UpdateAction::new()
-            ->validate(function (PermissionModel $permission, $req) {
+            ->validate(static function (PermissionModel $permission, $req) {
                 $v = V::defaultOptional()->defaultNotEmpty();
                 $v->setModel($permission);
                 $v->modelColumn('name', '名称')->requiredIfNew()->notModelDup();

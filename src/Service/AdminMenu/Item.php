@@ -2,12 +2,10 @@
 
 namespace Miaoxing\Admin\Service\AdminMenu;
 
-use JsonSerializable;
-
 /**
  * @experimental May be rename
  */
-class Item implements JsonSerializable
+class Item implements \JsonSerializable
 {
     /**
      * @var string|null
@@ -299,7 +297,7 @@ class Item implements JsonSerializable
         }
 
         // Sort items
-        usort($children, function ($childA, $childB) {
+        usort($children, static function ($childA, $childB) {
             return $childA->getSort() < $childB->getSort();
         });
 

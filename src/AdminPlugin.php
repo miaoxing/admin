@@ -64,7 +64,7 @@ class AdminPlugin extends BasePlugin
 
     public function onPermissionGetMap(PermissionMap $map)
     {
-        $map->prefix('admin/admins', function (PermissionMap $map) {
+        $map->prefix('admin/admins', static function (PermissionMap $map) {
             $map->addList('', [
                 'GET api/admin/groups',
             ]);
@@ -76,7 +76,7 @@ class AdminPlugin extends BasePlugin
             ]);
         });
 
-        $map->prefix('admin/groups', function (PermissionMap $map) {
+        $map->prefix('admin/groups', static function (PermissionMap $map) {
             $map->addList();
             $map->addNew('', [
                 'GET api/admin/groups',
@@ -87,7 +87,7 @@ class AdminPlugin extends BasePlugin
             $map->addDelete();
         });
 
-        $map->prefix('admin/roles', function (PermissionMap $map) {
+        $map->prefix('admin/roles', static function (PermissionMap $map) {
             $map->addList();
             $map->addNew('', [
                 'GET api/admin/permissions',
@@ -98,7 +98,7 @@ class AdminPlugin extends BasePlugin
             $map->addDelete();
         });
 
-        $map->prefix('admin/permissions', function (PermissionMap $map) {
+        $map->prefix('admin/permissions', static function (PermissionMap $map) {
             $map->addList();
             $map->addNew();
             $map->addEdit();

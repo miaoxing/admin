@@ -13,7 +13,7 @@ return new class () extends BasePage {
     public function get()
     {
         return ShowAction::new()
-            ->buildData(function (RoleModel $role) {
+            ->buildData(static function (RoleModel $role) {
                 return [
                     'permissionIds' => $role->permissions->getAll('id'),
                 ];
@@ -24,7 +24,7 @@ return new class () extends BasePage {
     public function patch()
     {
         return UpdateAction::new()
-            ->validate(function ($role, $req) {
+            ->validate(static function ($role, $req) {
                 $v = V::defaultOptional();
                 $v->setModel($role);
                 $v->modelColumn('name', '名称');
@@ -34,7 +34,7 @@ return new class () extends BasePage {
                 $v->array('permissionIds', '权限', 0, 100);
                 return $v->check($req);
             })
-            ->afterSave(function (RoleModel $role, $req) {
+            ->afterSave(static function (RoleModel $role, $req) {
                 if (isset($req['permissionIds'])) {
                     $role->permissions()->syncRelation($req['permissionIds']);
                 }

@@ -13,11 +13,11 @@ return new class () extends BasePage {
     public function get()
     {
         return IndexAction::new()
-            ->beforeFind(function (GroupModel $models) {
+            ->beforeFind(static function (GroupModel $models) {
                 $models->where('level', 1)
                     ->setDefaultSortColumn(['sort', 'id']);
             })
-            ->afterFind(function (GroupModel $models) {
+            ->afterFind(static function (GroupModel $models) {
                 $models->load('children');
             })
             ->exec($this);

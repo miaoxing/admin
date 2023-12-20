@@ -71,7 +71,7 @@ TreeInput.propTypes = {
 };
 
 const New = () => {
-  const isEnabledPermissionManage = useOption('permission-isEnabledPermissionManage', false);
+  const isEnabledPermissionManage = useOption('permission.isEnabledPermissionManage', false);
 
   return (
     <Page>

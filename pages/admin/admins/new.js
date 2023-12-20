@@ -13,7 +13,7 @@ const TYPE_DEFAULT = 1;
 
 const AdminForm = () => {
   const config = useConfig();
-  const isEnabledRoleManage = useOption('permission-isEnabledRoleManage', false);
+  const isEnabledRoleManage = useOption('permission.isEnabledRoleManage', false);
 
   return (
     <Page>

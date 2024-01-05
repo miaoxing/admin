@@ -1,19 +1,19 @@
 /**
  * @layout false
  */
-import {Form, Button, Input, Layout} from 'antd';
-import {Box, Image} from '@mxjs/box';
+import { Card, Form, Button, Input, Layout } from 'antd';
 import $ from 'miaoxing';
 import api from '@mxjs/api';
-import {Global, css} from '@emotion/react';
-import {FormItem} from '@mxjs/a-form';
+import { Global, css } from '@emotion/react';
+import { FormItem } from '@mxjs/a-form';
 import nextUrl from 'next-url';
-import {ConfigConsumer} from '@miaoxing/app';
-import {history} from '@mxjs/app';
-import {useEffect, useRef, useState} from 'react';
+import { ConfigConsumer } from '@miaoxing/app';
+import { history } from '@mxjs/app';
+import { useEffect, useRef, useState } from 'react';
 import publicSecurity from '@miaoxing/admin/images/public-security.png';
 import bg from '@miaoxing/admin/images/bg.svg';
 import propTypes from 'prop-types';
+import { Box, Image } from '@mxjs/box';
 
 /**
  * 解析 auth 参数，从中获得用户名和密码
@@ -44,13 +44,13 @@ const parseAuth = () => {
 
 const RecordNumber = ({publicSecurityRecordNumber, icpRecordNumber}) => {
   return (
-    <Box toCenter>
-      {publicSecurityRecordNumber && <Box as="a" toCenterY mr2 color="gray500" target="_blank"
-        href="https://www.beian.gov.cn/portal/registerSystemInfo">
-        <Image mr1 src={publicSecurity}/>
+    <Box display="flex" alignItems="center" justifyContent="center" ml={2}>
+      {publicSecurityRecordNumber && <Box as="a" display="flex" alignItems="center" mr={2} color="gray.500" target="_blank"
+                                          href="https://www.beian.gov.cn/portal/registerSystemInfo">
+        <Image mr={1} src={publicSecurity}/>
         {publicSecurityRecordNumber}
       </Box>}
-      {icpRecordNumber && <Box as="a" color="gray500" href="https://beian.miit.gov.cn/" target="_blank">
+      {icpRecordNumber && <Box as="a" color="gray.500" href="https://beian.miit.gov.cn/" target="_blank">
         {icpRecordNumber}
       </Box>}
     </Box>
@@ -83,7 +83,7 @@ const Index = () => {
   }, []);
 
   return (
-    <Box as={Layout} column minH="100vh" bgTransparent>
+    <Box as={Layout} minH="100vh" bg="transparent">
       <ConfigConsumer>
         {({page}) => (
           <Global
@@ -98,25 +98,25 @@ const Index = () => {
       </ConfigConsumer>
       <Box flex={1}>
         <Box
+          as={Card}
           w={350}
           mx="auto"
-          my12
-          p12
-          bgWhite
+          my={12}
+          p={6}
         >
           <Box
-            mb4
-            textCenter
+            mb={4}
+            textAlign="center"
           >
             <ConfigConsumer>
-              {({page}) => <Image h="50px" src={page.logo}/>}
+              {({page}) => <Image h={50} src={page.logo}/>}
             </ConfigConsumer>
           </Box>
           <Box
-            mb12
-            textCenter
-            textLG
-            gray500
+            mb={12}
+            textAlign="center"
+            fontSize="lg"
+            color="gray.500"
           >
             登录
           </Box>
@@ -154,7 +154,7 @@ const Index = () => {
           </Form>
         </Box>
       </Box>
-      <Box textCenter py4 color="gray500">
+      <Box textAlign="center" py={4} color="gray.500">
         <ConfigConsumer>
           {({page}) => (
             <>{page.copyright}</>

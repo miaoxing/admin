@@ -30,7 +30,7 @@ class () extends BasePage {
                 return err(['选项 %s 不存在', $id]);
             }
 
-            $property = new \ReflectionProperty($service, $option);
+            $property = new ReflectionProperty($service, $option);
             if (!str_contains($property->getDocComment(), '@api')) {
                 return err(['选项 %s 不存在', $id]);
             }

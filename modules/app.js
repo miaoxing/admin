@@ -1,4 +1,4 @@
-import ReactDOM from 'react-dom';
+import { createRoot } from 'react-dom/client';
 
 import './bootstrap';
 import 'antd/dist/reset.css';
@@ -6,4 +6,6 @@ import '../scss/index.scss';
 
 import AppContainer from '../components/AppContainer';
 
-ReactDOM.render(<AppContainer/>, document.getElementById('root'));
+const container = document.getElementById('root');
+const root = createRoot(container);
+root.render(<AppContainer/>);

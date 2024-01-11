@@ -9,7 +9,7 @@ import {LockOutlined, LogoutOutlined, UserOutlined} from '@ant-design/icons';
 import propTypes from 'prop-types';
 import Avatar from './Avatar';
 import {css, createStyle} from '@mxjs/css';
-import {Box} from '@mxjs/box';
+import { Box } from '@chakra-ui/react';
 import getLoginPath from '../modules/get-login-path';
 
 const handleLogout = async () => {
@@ -60,7 +60,7 @@ const Navbar = ({user = {}}) => {
           items,
         }}
       >
-        <Box cursorPointer>
+        <Box cursor="pointer">
           <Actions>
             <Avatar user={user}/>
             {user.username}

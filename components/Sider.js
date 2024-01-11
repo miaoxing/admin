@@ -3,10 +3,10 @@ import {Menu, Layout} from 'antd';
 import propTypes from 'prop-types';
 import {useLocation} from 'react-router-dom';
 import $ from 'miaoxing';
-import {Box, Image} from '@mxjs/box';
 import {Link} from '@mxjs/router';
 import {matchMenus} from '@mxjs/a-page';
 import {useConfig} from '@miaoxing/app';
+import { Box, Center, Image } from '@chakra-ui/react';
 
 const MenuLink = ({menu}) => {
   // 快速检查是否为外部地址
@@ -79,10 +79,10 @@ const Sider = ({menus = []}) => {
       collapsed={collapsed}
       onCollapse={setCollapsed}
     >
-      <Box toCenter h="60px">
+      <Center h="60px">
         <Image h="25px" src={page.logo}/>
-        <Box as="h1" ml2 mb0 textXL white>{page.title}</Box>
-      </Box>
+        <Box as="h1" ml={2} mb={0} fontSize="xl" color="white">{page.title}</Box>
+      </Center>
       {menus.length && <Menu
         theme="dark"
         mode="inline"

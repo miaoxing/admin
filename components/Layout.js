@@ -1,7 +1,6 @@
 import {useEffect, useState} from 'react';
 import {Layout as AntdLayout} from 'antd';
 import Sider from './Sider';
-import {Box} from '@mxjs/box';
 import api from '@mxjs/api';
 import $ from 'miaoxing';
 import propTypes from 'prop-types';
@@ -11,6 +10,7 @@ import {useConfig} from '@miaoxing/app';
 import {AuthProvider} from '@mxjs/auth';
 import Navbar from './Navbar';
 import getLoginPath from '../modules/get-login-path';
+import { Box } from '@chakra-ui/react';
 
 const Layout = ({children}) => {
   const [user, setUser] = useState({});
@@ -60,7 +60,7 @@ const Layout = ({children}) => {
           <Sider menus={menus}/>
           <AntdLayout>
             <Navbar user={user}/>
-            <Box as={AntdLayout.Content} px4 pt4>
+            <Box as={AntdLayout.Content} px={4} pt={4}>
               {children}
             </Box>
             <Box as={AntdLayout.Footer} textAlign="center">

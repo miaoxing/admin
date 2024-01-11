@@ -4,10 +4,10 @@
 import {Page, PageActions} from '@mxjs/a-page';
 import {Form, FormItem, FormAction} from '@mxjs/a-form';
 import {CListBtn} from '@mxjs/a-clink';
-import {Box} from '@mxjs/box';
 import {Alert} from 'antd';
 import {useConfig} from '@miaoxing/app';
 import {FormItemUpload, Cascader, Select, useOption} from '@miaoxing/admin';
+import { Box } from '@chakra-ui/react';
 
 const TYPE_DEFAULT = 1;
 
@@ -21,7 +21,7 @@ const AdminForm = () => {
         <CListBtn/>
       </PageActions>
 
-      {config?.app?.isDemo && <Box my4>
+      {config?.app?.isDemo && <Box my={4}>
         <Alert type="warning" showIcon message="当前是演示模式，提交后密码不会改变"/>
       </Box>}
 

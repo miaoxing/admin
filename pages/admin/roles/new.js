@@ -6,7 +6,7 @@ import {Page, PageActions, PageContext} from '@mxjs/a-page';
 import {Form, FormItem, FormAction} from '@mxjs/a-form';
 import {Tree} from 'antd';
 import {useContext, useEffect, useState} from 'react';
-import {Box} from '@mxjs/box';
+import { Box } from '@chakra-ui/react';
 import propTypes from 'prop-types';
 import {Select, useOption} from '@miaoxing/admin';
 
@@ -52,7 +52,7 @@ const TreeInput = ({value, onChange}) => {
   };
 
   return (
-    tree.length > 0 ? <Box mt={4}>
+    tree.length > 0 ? <Box mt={1}>
       <Tree
         defaultExpandedKeys={['*']}
         checkable

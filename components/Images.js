@@ -1,6 +1,6 @@
 import Image from './Image';
 import propTypes from 'prop-types';
-import { Box } from '@chakra-ui/react';
+import { Box } from '@mxjs/a-box';
 import {Image as AImage} from 'antd';
 
 const Images = ({images, ...props}) => (

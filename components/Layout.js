@@ -10,7 +10,7 @@ import {useConfig} from '@miaoxing/app';
 import {AuthProvider} from '@mxjs/auth';
 import Navbar from './Navbar';
 import getLoginPath from '../modules/get-login-path';
-import { Box } from '@chakra-ui/react';
+import { Box } from '@mxjs/a-box';
 
 const Layout = ({children}) => {
   const [user, setUser] = useState({});

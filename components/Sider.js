@@ -6,7 +6,7 @@ import $ from 'miaoxing';
 import {Link} from '@mxjs/router';
 import {matchMenus} from '@mxjs/a-page';
 import {useConfig} from '@miaoxing/app';
-import { Box, Center, Image } from '@chakra-ui/react';
+import { Box, Image } from '@mxjs/a-box';
 
 const MenuLink = ({menu}) => {
   // 快速检查是否为外部地址
@@ -79,10 +79,10 @@ const Sider = ({menus = []}) => {
       collapsed={collapsed}
       onCollapse={setCollapsed}
     >
-      <Center h="60px">
+      <Box h="60px" display="flex" alignItems="center" justifyContent="center">
         <Image h="25px" src={page.logo}/>
         <Box as="h1" ml={2} mb={0} fontSize="xl" color="white">{page.title}</Box>
-      </Center>
+      </Box>
       {menus.length && <Menu
         theme="dark"
         mode="inline"

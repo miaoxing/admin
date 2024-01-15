@@ -1,6 +1,6 @@
 import {Image} from 'antd';
 import propTypes from 'prop-types';
-import { Box } from '@chakra-ui/react';
+import { Box } from '@mxjs/a-box';
 
 const TableImages = ({images, width = 60}) => (
   <Image.PreviewGroup>

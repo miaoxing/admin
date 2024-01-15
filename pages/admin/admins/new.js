@@ -7,7 +7,7 @@ import {CListBtn} from '@mxjs/a-clink';
 import {Alert} from 'antd';
 import {useConfig} from '@miaoxing/app';
 import {FormItemUpload, Cascader, Select, useOption} from '@miaoxing/admin';
-import { Box } from '@chakra-ui/react';
+import { Box } from '@mxjs/a-box';
 
 const TYPE_DEFAULT = 1;
 

@@ -5,7 +5,7 @@ import {Alert} from 'antd';
 import curUrl from '@mxjs/cur-url';
 import {history} from '@mxjs/app';
 import {useConfig} from '@miaoxing/app';
-import { Box } from '@chakra-ui/react';
+import { Box } from '@mxjs/a-box';
 
 const Index = () => {
   const config = useConfig();

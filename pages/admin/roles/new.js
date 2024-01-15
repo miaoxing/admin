@@ -6,7 +6,7 @@ import {Page, PageActions, PageContext} from '@mxjs/a-page';
 import {Form, FormItem, FormAction} from '@mxjs/a-form';
 import {Tree} from 'antd';
 import {useContext, useEffect, useState} from 'react';
-import { Box } from '@chakra-ui/react';
+import { Box } from '@mxjs/a-box';
 import propTypes from 'prop-types';
 import {Select, useOption} from '@miaoxing/admin';
 

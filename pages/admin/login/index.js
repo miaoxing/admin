@@ -13,7 +13,7 @@ import { useEffect, useRef, useState } from 'react';
 import publicSecurity from '@miaoxing/admin/images/public-security.png';
 import bg from '@miaoxing/admin/images/bg.svg';
 import propTypes from 'prop-types';
-import { Box, Image } from '@mxjs/box';
+import { Box, Image } from '@mxjs/a-box';
 
 /**
  * 解析 auth 参数，从中获得用户名和密码

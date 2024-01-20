@@ -1,13 +1,13 @@
-import {useEffect, useState} from 'react';
-import {Layout as AntdLayout} from 'antd';
+import { useEffect, useState } from 'react';
+import { Layout as AntdLayout } from 'antd';
 import Sider from './Sider';
 import api from '@mxjs/api';
 import $ from 'miaoxing';
 import propTypes from 'prop-types';
-import {PageContext} from '@mxjs/a-page';
-import {history, req} from '@mxjs/app';
-import {useConfig} from '@miaoxing/app';
-import {AuthProvider} from '@mxjs/auth';
+import { PageContext } from '@mxjs/a-page';
+import { history, req } from '@mxjs/app';
+import { useConfig } from '@miaoxing/app';
+import { AuthProvider } from '@mxjs/auth';
 import Navbar from './Navbar';
 import getLoginPath from '../modules/get-login-path';
 import { Box } from '@mxjs/a-box';
@@ -60,9 +60,9 @@ const Layout = ({children}) => {
           <Sider menus={menus}/>
           <AntdLayout>
             <Navbar user={user}/>
-            <Box as={AntdLayout.Content} px={4} pt={4}>
+            <AntdLayout.Content>
               {children}
-            </Box>
+            </AntdLayout.Content>
             <Box as={AntdLayout.Footer} textAlign="center">
               {page.copyright}
             </Box>

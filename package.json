@@ -13,7 +13,6 @@
   "dependencies": {
     "@ant-design/icons": "^4.6.2",
     "@ant-design/pro-components": "~2.3.52",
-    "@fower/react": "~1.75.0",
     "@mxjs/a-box": "^1.0.0",
     "@mxjs/a-clink": "^2.0.5",
     "@mxjs/a-form": "^2.0.3",

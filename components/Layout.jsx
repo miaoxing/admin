@@ -192,7 +192,7 @@ const Layout = ({ children }) => {
           ]}
           avatarProps={{
             src: user.avatar || defaultAvatar,
-            title: user.username,
+            title: user.username || user.mobile || user.email,
             render: (props, dom) => renderAvatar(dom, adminPage.menus, location),
           }}
           fixSiderbar={true}

@@ -1,14 +1,13 @@
-import {history} from '@mxjs/app';
+import { history } from '@mxjs/app';
 import api from '@mxjs/api';
 import $ from 'miaoxing';
-import {Layout, Dropdown} from 'antd';
-import {DownOutlined} from '@ant-design/icons';
-import {Link} from '@mxjs/router';
-import {Actions} from '@mxjs/actions';
-import {LockOutlined, LogoutOutlined, UserOutlined} from '@ant-design/icons';
+import { Layout, Dropdown } from 'antd';
+import { DownOutlined } from '@ant-design/icons';
+import { Link } from '@mxjs/router';
+import { Actions } from '@mxjs/actions';
+import { LockOutlined, LogoutOutlined, UserOutlined } from '@ant-design/icons';
 import propTypes from 'prop-types';
 import Avatar from './Avatar';
-import {css, createStyle} from '@mxjs/css';
 import { Box } from '@mxjs/a-box';
 import getLoginPath from '../modules/get-login-path';
 
@@ -50,11 +49,7 @@ const items = [
 
 const Navbar = ({user = {}}) => {
   return (
-    <Layout.Header
-      className={css('toRight', 'zIndex-1', {shadow: '0 1px 2px 0 rgba(0, 0, 0, 0.05)'})}
-      /* 开发时，避免 reload 之后被原有样式覆盖 */
-      style={createStyle('bgWhite')}
-    >
+    <Box as={Layout.Header} bg="white!" display="flex" justifyContent="flex-end" shadow="sm">
       <Dropdown
         menu={{
           items,
@@ -68,7 +63,7 @@ const Navbar = ({user = {}}) => {
           </Actions>
         </Box>
       </Dropdown>
-    </Layout.Header>
+    </Box>
   );
 };
 

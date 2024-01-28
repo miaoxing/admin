@@ -1,4 +1,4 @@
-import Upload from '@mxjs/upload';
+import { Upload } from '@mxjs/a-upload';
 import $ from 'miaoxing';
 
 /**

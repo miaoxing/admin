@@ -20,7 +20,7 @@
     "@mxjs/a-table": "^1.6.3",
     "@mxjs/api": "^1.0.10",
     "@mxjs/css": "^1.1.6",
-    "@mxjs/upload": "^0.6.26",
+    "@mxjs/a-upload": "^1.0.0",
     "color": "^3.1.2",
     "history": "^5.0.0",
     "lodash.merge": "^4.6.2",

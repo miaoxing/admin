@@ -1,3 +1,36 @@
+# [0.12.0](https://github.com/miaoxing/admin/compare/v0.11.5...v0.12.0) (2024-01-31)
+
+
+### Features
+
+* **admin:** `@mxjs/upload` 依赖更改为 `@mxjs/a-upload` ([4c05402](https://github.com/miaoxing/admin/commit/4c05402770b0f2bd147b3752527a7cff9f09dc70))
+* **admin:** 更新 `@chakra-ui/react` 为 `@mxjs/a-box` ([4d068a6](https://github.com/miaoxing/admin/commit/4d068a65daff0be283be58385493f177f1a9089c))
+* **admin:** 移除 `@mxjs/css` 依赖 ([b96bc96](https://github.com/miaoxing/admin/commit/b96bc96dd9453766b7afc05bf94195fb483a0f4e))
+* **admin:** 移除 `fower` 依赖 ([0893fd5](https://github.com/miaoxing/admin/commit/0893fd55a5e262319ceacfa16097dd7ee63a8a38))
+* 更新 `react` 支持 18 ([f03c19e](https://github.com/miaoxing/admin/commit/f03c19eb30d3817e730100dc6abb61db92a83acf))
+* 更新调用方法为 `react` 18 ([2b2bb9f](https://github.com/miaoxing/admin/commit/2b2bb9f4d5c3d92f003581926ec1e4cf4c04798e))
+
+
+### BREAKING CHANGES
+
+* **admin:** 移除 `fower` 依赖
+* 更新调用方法为 `react` 18
+
+
+
+
+
+### Dependencies
+
+* **@mxjs/a-box:** upgrade from `1.0.0` to `1.1.0`
+* **@mxjs/a-clink:** upgrade from `2.0.5` to `2.1.0`
+* **@mxjs/a-form:** upgrade from `2.0.3` to `2.1.0`
+* **@mxjs/a-page:** upgrade from `2.2.3` to `2.3.0`
+* **@mxjs/a-table:** upgrade from `1.6.3` to `1.7.0`
+* **@mxjs/a-upload:** upgrade from `1.0.0` to `1.1.0`
+* **@miaoxing/app:** upgrade from `0.7.11` to `0.8.0`
+* **@miaoxing/file:** upgrade from `0.3.24` to `0.3.25`
+
 ## [0.11.5](https://github.com/miaoxing/admin/compare/v0.11.4...v0.11.5) (2024-01-08)
 
 

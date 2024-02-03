@@ -11,8 +11,8 @@
     "test": "jest"
   },
   "dependencies": {
-    "@ant-design/icons": "^4.6.2",
-    "@ant-design/pro-components": "~2.3.52",
+    "@ant-design/icons": "^5",
+    "@ant-design/pro-components": "~2.6",
     "@mxjs/a-box": "^1.1.0",
     "@mxjs/a-clink": "^2.1.0",
     "@mxjs/a-form": "^2.1.0",

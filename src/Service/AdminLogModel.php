@@ -25,7 +25,7 @@ class AdminLogModel extends BaseModel
      * @param UserModel|null $user
      * @svc
      */
-    protected function log(string $description, UserModel $user = null)
+    protected function log(string $description, ?UserModel $user = null)
     {
         $this->saveAttributes([
             'userId' => $user ? $user->id : User::id(),

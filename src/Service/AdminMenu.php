@@ -76,7 +76,7 @@ class AdminMenu extends BaseService
      * @return mixed
      * @svc
      */
-    protected function getMenusByUser(UserModel $user = null)
+    protected function getMenusByUser(?UserModel $user = null)
     {
         $this->loadMenu();
 

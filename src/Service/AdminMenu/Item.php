@@ -47,7 +47,7 @@ class Item implements \JsonSerializable
      * @param string|null $name
      * @return static
      */
-    public static function new(string $name = null): self
+    public static function new(?string $name = null): self
     {
         return new static($name);
     }
@@ -55,7 +55,7 @@ class Item implements \JsonSerializable
     /**
      * @param string|null $name
      */
-    public function __construct(string $name = null)
+    public function __construct(?string $name = null)
     {
         $this->setName($name);
     }

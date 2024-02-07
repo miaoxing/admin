@@ -3,7 +3,7 @@
 exports[`InputPrice default 1`] = `
 <div>
   <div
-    class="ant-input-number"
+    class="ant-input-number ant-input-number-outlined"
   >
     <div
       class="ant-input-number-input-wrap"

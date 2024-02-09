@@ -4,7 +4,7 @@ import { wei } from '@mxjs/app';
 import config from 'config';
 import getLoginPath from './get-login-path';
 import { Spin } from 'antd';
-import { Loading } from '@mxjs/loading';
+import { Loading } from '@mxjs/a-loading';
 
 wei.setConfigs(config);
 

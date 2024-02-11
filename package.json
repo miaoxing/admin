@@ -19,6 +19,7 @@
     "@mxjs/a-page": "^2.3.0",
     "@mxjs/a-table": "^1.7.0",
     "@mxjs/api": "^1.0.10",
+    "@mxjs/config": "^1.0.0",
     "@mxjs/a-upload": "^1.1.0",
     "color": "^3.1.2",
     "history": "^5.0.0",

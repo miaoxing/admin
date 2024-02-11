@@ -1,4 +1,5 @@
-import {ConfigProvider} from 'antd';
+import {ConfigProvider} from '@mxjs/config';
+import {ConfigProvider as AntdConfigProvider} from 'antd';
 import App from 'plugins/app/components/App';
 import zhCN from 'antd/es/locale/zh_CN';
 import Layout from './Layout';
@@ -16,10 +17,12 @@ const AppContainer = () => {
   }
 
   return (
-    <ConfigProvider
-      locale={zhCN}
-    >
-      <App defaultLayout={Layout} configs={{theme, ...configs}}/>
+    <ConfigProvider>
+      <AntdConfigProvider
+        locale={zhCN}
+      >
+        <App defaultLayout={Layout} configs={{theme, ...configs}}/>
+      </AntdConfigProvider>
     </ConfigProvider>
   );
 };

@@ -12,6 +12,7 @@ import { AuthProvider } from '@mxjs/auth';
 import getLoginPath from '../modules/get-login-path';
 import { Box } from '@mxjs/a-box';
 import { Link } from "@mxjs/router";
+import SVG from 'react-inlinesvg';
 
 const handleLogout = async () => {
   const {ret} = await api.post('logout');
@@ -30,6 +31,18 @@ const MenuLink = ({menu}) => {
     return <Link to={menu.path} target={menu.target}>{menu.name}</Link>;
   }
 };
+
+const MenuIcon = ({image}) => {
+  if (!image) {
+    return '';
+  }
+
+  return (
+    <span className="anticon">
+     <SVG src={image} fill="currentColor" width="1em" height="1em"/>
+    </span>
+  )
+}
 
 const Layout = ({children}) => {
   const {token} = theme.useToken();
@@ -59,13 +72,15 @@ const Layout = ({children}) => {
         return {
           name: menu.label,
           path: menu.url,
+          icon: menu.icon ? <MenuIcon image={menu.icon}/> : '',
           target: menu.target,
           hideInMenu: menu.visible === false,
-          children: menu.children.map((item) => {
+          children: menu.children?.map((item) => {
             return {
               name: item.label,
               path: item.url,
-              target: menu.target,
+              icon: item.icon ? <MenuIcon image={item.icon}/> : '',
+              target: item.target,
             };
           }),
         }
@@ -103,7 +118,7 @@ const Layout = ({children}) => {
           borderInlineEndColor: 'transparent',
         },
         '.ant-menu .ant-menu-submenu-title .anticon': {
-          width: 'auto',
+          width: '20px',
           fontSize: '20px',
         }
       }}

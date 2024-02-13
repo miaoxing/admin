@@ -27,10 +27,25 @@ class AdminPlugin extends BasePlugin
 
     public function onAdminMenuGetMenus(AdminMenu $menu)
     {
-        $user = $menu->addChild('user')->setLabel('用户')->setSort(700);
-        $menu->addChild('content')->setLabel('内容')->setSort(500);
-        $menu->addChild('marketing')->setLabel('营销')->setSort(400);
-        $setting = $menu->addChild('setting')->setLabel('设置')->setSort(300);
+        $user = $menu->addChild('user')
+            ->setLabel('用户')
+            ->setIcon('https://cdnjs.cloudflare.com/ajax/libs/ant-design-icons-svg/4.3.1/outlined/user.svg')
+            ->setSort(700);
+
+        $menu->addChild('content')
+            ->setLabel('内容')
+            ->setIcon('https://cdnjs.cloudflare.com/ajax/libs/ant-design-icons-svg/4.3.1/outlined/book.svg')
+            ->setSort(500);
+
+        $menu->addChild('marketing')
+            ->setLabel('营销')
+            ->setIcon('https://cdnjs.cloudflare.com/ajax/libs/ant-design-icons-svg/4.3.1/outlined/gift.svg')
+            ->setSort(400);
+
+        $setting = $menu->addChild('setting')
+            ->setLabel('设置')
+            ->setIcon('https://cdnjs.cloudflare.com/ajax/libs/ant-design-icons-svg/4.3.1/outlined/setting.svg')
+            ->setSort(300);
         $menu->addChild()->setLabel('修改密码')->setUrl('admin/password')->setExtra('visible', false)
             ->setExtra('permission', false);
         $menu->addChild()->setLabel('修改资料')->setUrl('admin/user')->setExtra('visible', false)

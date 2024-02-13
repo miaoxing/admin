@@ -1,6 +1,7 @@
-import { useEffect, useState } from 'react';
-import { Layout as AntdLayout } from 'antd';
-import Sider from './Sider';
+import { LockOutlined, LogoutOutlined, UserOutlined, } from '@ant-design/icons';
+import { ProLayout, } from '@ant-design/pro-components';
+import { Dropdown, } from 'antd';
+import React, { useEffect, useState } from 'react';
 import api from '@mxjs/api';
 import $ from 'miaoxing';
 import propTypes from 'prop-types';
@@ -8,15 +9,36 @@ import { PageContext } from '@mxjs/a-page';
 import { history, req } from '@mxjs/app';
 import { useConfig } from '@miaoxing/app';
 import { AuthProvider } from '@mxjs/auth';
-import Navbar from './Navbar';
 import getLoginPath from '../modules/get-login-path';
 import { Box } from '@mxjs/a-box';
+import { Link } from "@mxjs/router";
+
+const handleLogout = async () => {
+  const {ret} = await api.post('logout');
+  await $.ret(ret);
+  if (ret.isSuc()) {
+    window.localStorage.removeItem('token');
+    history.push(getLoginPath());
+  }
+};
+
+const MenuLink = ({menu}) => {
+  // 快速检查是否为外部地址
+  if (menu.path.indexOf('://') > 0) {
+    return <a href={menu.path} target={menu.target}>{menu.name}</a>;
+  } else {
+    return <Link to={menu.path} target={menu.target}>{menu.name}</Link>;
+  }
+};
 
 const Layout = ({children}) => {
+  const [routes, setRoutes] = useState([]);
   const [user, setUser] = useState({});
-  const [menus, setMenus] = useState([]);
   const [permissions, setPermissions] = useState({});
   const {page} = useConfig();
+  const [adminPage, setAdminPage] = useState({
+    menus: [],
+  });
 
   useEffect(() => {
     // 没有 token 则提前跳转到登录页面
@@ -26,11 +48,28 @@ const Layout = ({children}) => {
     }
 
     api.get('admin-page', {loading: true}).then(({ret}) => {
-      if (ret.isSuc()) {
-        setMenus(ret.data.menus);
-      } else {
+      if (ret.isErr()) {
         $.ret(ret);
+        return;
       }
+
+      setAdminPage(ret.data);
+      const routes = ret.data.menus.map((menu) => {
+        return {
+          name: menu.label,
+          path: menu.url,
+          target: menu.target,
+          hideInMenu: menu.visible === false,
+          children: menu.children.map((item) => {
+            return {
+              name: item.label,
+              path: item.url,
+              target: menu.target,
+            };
+          }),
+        }
+      });
+      setRoutes(routes);
     });
 
     api.get('user').then(({ret}) => {
@@ -55,19 +94,96 @@ const Layout = ({children}) => {
 
   return (
     <AuthProvider permissions={permissions} baseUrl={req.getBaseUrl()}>
-      <PageContext.Provider value={{menus}}>
-        <Box as={AntdLayout} minH="100vh">
-          <Sider menus={menus}/>
-          <AntdLayout>
-            <Navbar user={user}/>
-            <AntdLayout.Content>
-              {children}
-            </AntdLayout.Content>
-            <Box as={AntdLayout.Footer} textAlign="center">
-              {page.copyright}
-            </Box>
-          </AntdLayout>
-        </Box>
+      <PageContext.Provider value={adminPage}>
+        <ProLayout
+          layout="mix"
+          title={page.title || ''}
+          logo={page.logo || null}
+          bgLayoutImgList={[
+            {
+              src: 'https://img.alicdn.com/imgextra/i2/O1CN01O4etvp1DvpFLKfuWq_!!6000000000279-2-tps-609-606.png',
+              left: 85,
+              bottom: 100,
+              height: '303px',
+            },
+            {
+              src: 'https://img.alicdn.com/imgextra/i2/O1CN01O4etvp1DvpFLKfuWq_!!6000000000279-2-tps-609-606.png',
+              bottom: -68,
+              right: -45,
+              height: '303px',
+            },
+            {
+              src: 'https://img.alicdn.com/imgextra/i3/O1CN018NxReL1shX85Yz6Cx_!!6000000005798-2-tps-884-496.png',
+              bottom: 0,
+              left: 0,
+              width: '331px',
+            },
+          ]}
+          avatarProps={{
+            src: user.avatar,
+            title: user.username,
+            render: (props, dom) => {
+              return (
+                <Dropdown
+                  menu={{
+                    items: [
+                      {
+                        key: 1,
+                        label: (
+                          <Link to={$.url('admin/password')}>
+                            <LockOutlined/>{' '}修改密码
+                          </Link>
+                        ),
+                      },
+                      {
+                        key: 2,
+                        label: (
+                          <Link to={$.url('admin/user')}>
+                            <UserOutlined/>{' '}修改资料
+                          </Link>
+                        ),
+                      },
+                      {
+                        key: 3,
+                        label: (
+                          <a onClick={handleLogout}>
+                            <LogoutOutlined/>{' '}退出登录
+                          </a>
+                        ),
+                      },
+                    ],
+                  }}
+                >
+                  {dom}
+                </Dropdown>
+              );
+            },
+          }}
+          route={{
+            path: '',
+            routes: routes,
+          }}
+          fixSiderbar={true}
+          siderMenuType="group"
+          menu={{
+            collapsedShowGroupTitle: true,
+          }}
+          menuItemRender={(item, dom) => {
+            return (
+              <MenuLink menu={item}>{dom}</MenuLink>
+            );
+          }}
+          menuFooterRender={(props) => {
+            if (props?.collapsed) {
+              return undefined;
+            }
+            return (
+              <Box textAlign="center" pt={2}>{page.copyright}</Box>
+            );
+          }}
+        >
+          {children}
+        </ProLayout>
       </PageContext.Provider>
     </AuthProvider>
   );

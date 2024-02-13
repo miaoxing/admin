@@ -28,6 +28,11 @@ class Item implements \JsonSerializable
     protected $sort = 50;
 
     /**
+     * @var string|null
+     */
+    protected $icon;
+
+    /**
      * @var array
      */
     protected $extras = [];
@@ -130,6 +135,24 @@ class Item implements \JsonSerializable
     public function getSort(): int
     {
         return $this->sort;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getIcon(): ?string
+    {
+        return $this->icon;
+    }
+
+    /**
+     * @param string|null $icon
+     * @return $this
+     */
+    public function setIcon(?string $icon): self
+    {
+        $this->icon = $icon;
+        return $this;
     }
 
     /**
@@ -271,6 +294,7 @@ class Item implements \JsonSerializable
                 'label' => $this->label,
                 'url' => $this->url,
                 'sort' => $this->sort,
+                'icon' => $this->icon,
                 'children' => $this->childrenToArray($this->children),
             ] + $this->extras;
     }

@@ -4,7 +4,6 @@ import $ from 'miaoxing';
 import { Layout, Dropdown } from 'antd';
 import { DownOutlined } from '@ant-design/icons';
 import { Link } from '@mxjs/router';
-import { Actions } from '@mxjs/actions';
 import { LockOutlined, LogoutOutlined, UserOutlined } from '@ant-design/icons';
 import propTypes from 'prop-types';
 import Avatar from './Avatar';
@@ -55,12 +54,10 @@ const Navbar = ({user = {}}) => {
           items,
         }}
       >
-        <Box cursor="pointer">
-          <Actions>
-            <Avatar user={user}/>
-            {user.username}
-            <DownOutlined/>
-          </Actions>
+        <Box cursor="pointer" display="flex" alignItems="center" gap={1}>
+          <Avatar user={user}/>
+          {user.username}
+          <DownOutlined/>
         </Box>
       </Dropdown>
     </Box>

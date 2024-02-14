@@ -1,1 +1,13 @@
-/* stylelint-disable no-empty-source */
+.ant-pro-layout .ant-layout-header.ant-pro-layout-header {
+  border-block-end-color: transparent;
+}
+
+.ant-pro .ant-pro-layout .ant-pro-sider .ant-layout-sider-children {
+  border-inline-end-color: transparent;
+}
+
+.ant-menu .ant-menu-submenu-title .anticon,
+.ant-menu-inline-collapsed > .ant-menu-submenu > .ant-menu-submenu-title .anticon {
+  width: 20px;
+  font-size: 20px;
+}

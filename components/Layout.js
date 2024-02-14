@@ -46,7 +46,6 @@ const MenuIcon = ({image}) => {
 
 const Layout = ({children}) => {
   const {token} = theme.useToken();
-  const [routes, setRoutes] = useState([]);
   const [user, setUser] = useState({});
   const [permissions, setPermissions] = useState({});
   const {page} = useConfig();
@@ -58,36 +57,37 @@ const Layout = ({children}) => {
     // 没有 token 则提前跳转到登录页面
     if (!window.localStorage.getItem('token')) {
       history.push(getLoginPath());
+    }
+  }, []);
+
+  const getMenu = async () => {
+    const {ret} = await api.get('admin-page', {loading: true});
+    if (ret.isErr()) {
+      $.ret(ret);
       return;
     }
 
-    api.get('admin-page', {loading: true}).then(({ret}) => {
-      if (ret.isErr()) {
-        $.ret(ret);
-        return;
+    setAdminPage(ret.data);
+    return ret.data.menus.map((menu) => {
+      return {
+        name: menu.label,
+        path: menu.url,
+        icon: menu.icon ? <MenuIcon image={menu.icon}/> : '',
+        target: menu.target,
+        hideInMenu: menu.visible === false,
+        children: menu.children?.map((item) => {
+          return {
+            name: item.label,
+            path: item.url,
+            icon: item.icon ? <MenuIcon image={item.icon}/> : '',
+            target: item.target,
+          };
+        }),
       }
-
-      setAdminPage(ret.data);
-      const routes = ret.data.menus.map((menu) => {
-        return {
-          name: menu.label,
-          path: menu.url,
-          icon: menu.icon ? <MenuIcon image={menu.icon}/> : '',
-          target: menu.target,
-          hideInMenu: menu.visible === false,
-          children: menu.children?.map((item) => {
-            return {
-              name: item.label,
-              path: item.url,
-              icon: item.icon ? <MenuIcon image={item.icon}/> : '',
-              target: item.target,
-            };
-          }),
-        }
-      });
-      setRoutes(routes);
     });
+  };
 
+  useEffect(() => {
     api.get('user').then(({ret}) => {
       if (ret.isSuc()) {
         setUser(ret.data);
@@ -189,12 +189,11 @@ const Layout = ({children}) => {
               );
             },
           }}
-          route={{
-            path: '',
-            routes: routes,
-          }}
           fixSiderbar={true}
           collapsedButtonRender={false}
+          menu={{
+            request: getMenu,
+          }}
           menuItemRender={(item, dom) => {
             return (
               <MenuLink menu={item}>{dom}</MenuLink>

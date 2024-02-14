@@ -1,7 +1,7 @@
-import { LockOutlined, LogoutOutlined, UserOutlined, } from '@ant-design/icons';
-import { ProLayout, } from '@ant-design/pro-components';
+import { LockOutlined, LogoutOutlined, UserOutlined } from '@ant-design/icons';
+import { ProLayout } from '@ant-design/pro-components';
 import { Dropdown, theme } from 'antd';
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import api from '@mxjs/api';
 import $ from 'miaoxing';
 import propTypes from 'prop-types';
@@ -11,7 +11,7 @@ import { useConfig } from '@miaoxing/app';
 import { AuthProvider } from '@mxjs/auth';
 import getLoginPath from '../modules/get-login-path';
 import { Box } from '@mxjs/a-box';
-import { Link } from "@mxjs/router";
+import { Link } from '@mxjs/router';
 import SVG from 'react-inlinesvg';
 
 const handleLogout = async () => {
@@ -32,6 +32,10 @@ const MenuLink = ({menu}) => {
   }
 };
 
+MenuLink.propTypes = {
+  menu: propTypes.object,
+};
+
 const MenuIcon = ({image}) => {
   if (!image) {
     return '';
@@ -41,8 +45,12 @@ const MenuIcon = ({image}) => {
     <span className="anticon">
      <SVG src={image} fill="currentColor" width="1em" height="1em"/>
     </span>
-  )
-}
+  );
+};
+
+MenuIcon.propTypes = {
+  image: propTypes.string,
+};
 
 const Layout = ({children}) => {
   const {token} = theme.useToken();
@@ -83,7 +91,7 @@ const Layout = ({children}) => {
             target: item.target,
           };
         }),
-      }
+      };
     });
   };
 
@@ -119,12 +127,12 @@ const Layout = ({children}) => {
             },
             sider: {
               colorTextMenuItemHover: token.colorPrimary,
-              colorTextMenuSelected: token.colorPrimary
+              colorTextMenuSelected: token.colorPrimary,
             },
             pageContainer: {
               paddingBlockPageContainerContent: 12,
               paddingInlinePageContainerContent: 16,
-            }
+            },
           }}
           layout="mix"
           title={page.title || ''}
@@ -199,8 +207,8 @@ const Layout = ({children}) => {
               <MenuLink menu={item}>{dom}</MenuLink>
             );
           }}
-          menuFooterRender={(props) => {
-            if (props?.collapsed) {
+          menuFooterRender={({collapsed}) => {
+            if (collapsed) {
               return undefined;
             }
             return (

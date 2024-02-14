@@ -127,6 +127,7 @@ const Layout = ({children}) => {
         <PageContext.Provider value={adminPage}>
           <ProLayout
             token={{
+              bgLayout: '#F5F7FA',
               header: {
                 colorBgHeader: 'transparent',
               },

@@ -135,6 +135,10 @@ const Layout = ({children}) => {
                 colorTextMenuItemHover: token.colorPrimary,
               colorTextMenuSelected: token.colorPrimary
             },
+              pageContainer: {
+                paddingBlockPageContainerContent: 12,
+                paddingInlinePageContainerContent: 16,
+              }
             }}
             layout="mix"
             title={page.title || ''}

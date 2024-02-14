@@ -109,126 +109,111 @@ const Layout = ({children}) => {
   }, []);
 
   return (
-    <Box
-      sx={{
-        '.ant-pro-layout .ant-layout-header.ant-pro-layout-header': {
-          borderBlockEndColor: 'transparent',
-        },
-        '.ant-pro .ant-pro-layout .ant-pro-sider .ant-layout-sider-children': {
-          borderInlineEndColor: 'transparent',
-        },
-        '.ant-menu .ant-menu-submenu-title .anticon': {
-          width: '20px',
-          fontSize: '20px',
-        }
-      }}
-    >
-      <AuthProvider permissions={permissions} baseUrl={req.getBaseUrl()}>
-        <PageContext.Provider value={adminPage}>
-          <ProLayout
-            token={{
-              bgLayout: '#F5F7FA',
-              header: {
-                colorBgHeader: 'transparent',
-              },
-              sider: {
-                colorTextMenuItemHover: token.colorPrimary,
+    <AuthProvider permissions={permissions} baseUrl={req.getBaseUrl()}>
+      <PageContext.Provider value={adminPage}>
+        <ProLayout
+          token={{
+            bgLayout: '#F5F7FA',
+            header: {
+              colorBgHeader: 'transparent',
+            },
+            sider: {
+              colorTextMenuItemHover: token.colorPrimary,
               colorTextMenuSelected: token.colorPrimary
             },
-              pageContainer: {
-                paddingBlockPageContainerContent: 12,
-                paddingInlinePageContainerContent: 16,
-              }
-            }}
-            layout="mix"
-            title={page.title || ''}
-            logo={page.logo || null}
-            bgLayoutImgList={[
-              {
-                src: 'https://img.alicdn.com/imgextra/i2/O1CN01O4etvp1DvpFLKfuWq_!!6000000000279-2-tps-609-606.png',
-                left: 85,
-                bottom: 100,
-                height: '303px',
-              },
-              {
-                src: 'https://img.alicdn.com/imgextra/i2/O1CN01O4etvp1DvpFLKfuWq_!!6000000000279-2-tps-609-606.png',
-                bottom: -68,
-                right: -45,
-                height: '303px',
-              },
-              {
-                src: 'https://img.alicdn.com/imgextra/i3/O1CN018NxReL1shX85Yz6Cx_!!6000000005798-2-tps-884-496.png',
-                bottom: 0,
-                left: 0,
-                width: '331px',
-              },
-            ]}
-            avatarProps={{
-              src: user.avatar,
-              title: user.username,
-              render: (props, dom) => {
-                return (
-                  <Dropdown
-                    menu={{
-                      items: [
-                        {
-                          key: 1,
-                          label: (
-                            <Link to={$.url('admin/password')}>
-                              <LockOutlined/>{' '}修改密码
-                            </Link>
-                          ),
-                        },
-                        {
-                          key: 2,
-                          label: (
-                            <Link to={$.url('admin/user')}>
-                              <UserOutlined/>{' '}修改资料
-                            </Link>
-                          ),
-                        },
-                        {
-                          key: 3,
-                          label: (
-                            <a onClick={handleLogout}>
-                              <LogoutOutlined/>{' '}退出登录
-                            </a>
-                          ),
-                        },
-                      ],
-                    }}
-                  >
-                    {dom}
-                  </Dropdown>
-                );
-              },
-            }}
-            route={{
-              path: '',
-              routes: routes,
-            }}
-            fixSiderbar={true}
-            collapsedButtonRender={false}
-            menuItemRender={(item, dom) => {
+            pageContainer: {
+              paddingBlockPageContainerContent: 12,
+              paddingInlinePageContainerContent: 16,
+            }
+          }}
+          layout="mix"
+          title={page.title || ''}
+          logo={page.logo || null}
+          bgLayoutImgList={[
+            {
+              src: 'https://img.alicdn.com/imgextra/i2/O1CN01O4etvp1DvpFLKfuWq_!!6000000000279-2-tps-609-606.png',
+              left: 85,
+              bottom: 100,
+              height: '303px',
+            },
+            {
+              src: 'https://img.alicdn.com/imgextra/i2/O1CN01O4etvp1DvpFLKfuWq_!!6000000000279-2-tps-609-606.png',
+              bottom: -68,
+              right: -45,
+              height: '303px',
+            },
+            {
+              src: 'https://img.alicdn.com/imgextra/i3/O1CN018NxReL1shX85Yz6Cx_!!6000000005798-2-tps-884-496.png',
+              bottom: 0,
+              left: 0,
+              width: '331px',
+            },
+          ]}
+          avatarProps={{
+            src: user.avatar,
+            title: user.username,
+            render: (props, dom) => {
               return (
-                <MenuLink menu={item}>{dom}</MenuLink>
+                <Dropdown
+                  menu={{
+                    items: [
+                      {
+                        key: 1,
+                        label: (
+                          <Link to={$.url('admin/password')}>
+                            <LockOutlined/>{' '}修改密码
+                          </Link>
+                        ),
+                      },
+                      {
+                        key: 2,
+                        label: (
+                          <Link to={$.url('admin/user')}>
+                            <UserOutlined/>{' '}修改资料
+                          </Link>
+                        ),
+                      },
+                      {
+                        key: 3,
+                        label: (
+                          <a onClick={handleLogout}>
+                            <LogoutOutlined/>{' '}退出登录
+                          </a>
+                        ),
+                      },
+                    ],
+                  }}
+                >
+                  {dom}
+                </Dropdown>
               );
-            }}
-            menuFooterRender={(props) => {
-              if (props?.collapsed) {
-                return undefined;
-              }
-              return (
-                <Box textAlign="center" pt={2}>{page.copyright}</Box>
-              );
-            }}
-          >
-            {children}
+            },
+          }}
+          route={{
+            path: '',
+            routes: routes,
+          }}
+          fixSiderbar={true}
+          collapsedButtonRender={false}
+          menuItemRender={(item, dom) => {
+            return (
+              <MenuLink menu={item}>{dom}</MenuLink>
+            );
+          }}
+          menuFooterRender={(props) => {
+            if (props?.collapsed) {
+              return undefined;
+            }
+            return (
+              <Box textAlign="center" pt={2}>{page.copyright}</Box>
+            );
+          }}
+        >
+          {children}
 
-          </ProLayout>
-        </PageContext.Provider>
-      </AuthProvider>
-    </Box>
+        </ProLayout>
+      </PageContext.Provider>
+    </AuthProvider>
   );
 };
 

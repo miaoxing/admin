@@ -1,6 +1,6 @@
-import { LockOutlined, LogoutOutlined, UserOutlined } from '@ant-design/icons';
+import { LockOutlined, LogoutOutlined, MenuFoldOutlined, MenuUnfoldOutlined, UserOutlined } from '@ant-design/icons';
 import { ProLayout } from '@ant-design/pro-components';
-import { Dropdown, theme } from 'antd';
+import { Button, Dropdown, theme } from 'antd';
 import { useEffect, useState } from 'react';
 import api from '@mxjs/api';
 import $ from 'miaoxing';
@@ -54,6 +54,7 @@ MenuIcon.propTypes = {
 
 const Layout = ({children}) => {
   const {token} = theme.useToken();
+  const [collapsed, setCollapsed] = useState(true);
   const [user, setUser] = useState({});
   const [permissions, setPermissions] = useState({});
   const {page} = useConfig();
@@ -137,6 +138,25 @@ const Layout = ({children}) => {
           layout="mix"
           title={page.title || ''}
           logo={page.logo || null}
+          collapsedButtonRender={false}
+          headerTitleRender={(logo, title) => {
+            return (
+              <Box role="group" display="flex" alignItems="center">
+                {logo}
+                {title}
+                <Box
+                  as={Button} type="text"
+                  icon={collapsed ? <MenuUnfoldOutlined/> : <MenuFoldOutlined/>}
+                  ml={2}
+                  opacity={0}
+                  _groupHover={{opacity: 1}}
+                  onClick={() => setCollapsed(!collapsed)}
+                />
+              </Box>
+            );
+          }}
+          collapsed={collapsed}
+          onCollapse={setCollapsed}
           bgLayoutImgList={[
             {
               src: 'https://img.alicdn.com/imgextra/i2/O1CN01O4etvp1DvpFLKfuWq_!!6000000000279-2-tps-609-606.png',
@@ -198,7 +218,6 @@ const Layout = ({children}) => {
             },
           }}
           fixSiderbar={true}
-          collapsedButtonRender={false}
           menu={{
             request: getMenu,
           }}

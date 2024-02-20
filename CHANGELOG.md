@@ -1,3 +1,40 @@
+## [0.12.1](https://github.com/miaoxing/admin/compare/v0.12.0...v0.12.1) (2024-02-20)
+
+
+### Bug Fixes
+
+* **admin:** `@ant-design/pro-components` 2.6 隐藏菜单后图标未对齐 ([44fcc09](https://github.com/miaoxing/admin/commit/44fcc09ded38a9f16fc0300fe70e6e4e0024c461))
+
+
+### Features
+
+* **admin:** 增加 `ConfigProvider` 控制全局配置 ([ebf655b](https://github.com/miaoxing/admin/commit/ebf655b25e354eece259c7a31c75c3e6ffc61803))
+* `@mxjs/loading` 依赖更改为 `@mxjs/a-loading` ([6e3528d](https://github.com/miaoxing/admin/commit/6e3528d11a8941e74e47244b3346260b8a1a0f2b))
+* **admin:** 增加内容区域的空白 ([ad7f97c](https://github.com/miaoxing/admin/commit/ad7f97cb281f777dd953624339c3b56e2e2b7010))
+* **admin:** 增加页面背景色 ([f078214](https://github.com/miaoxing/admin/commit/f0782149bba66700eb2ad327f54e3acc84148f7a))
+* **admin:** 自定义布局的样式移到 CSS 中，减少 HTML 层级 ([90abed3](https://github.com/miaoxing/admin/commit/90abed35645ae8f809a6aa2e355957b1a0c18e75))
+* **admin:** 菜单项增加图标 ([2cfd69f](https://github.com/miaoxing/admin/commit/2cfd69faea8649bf44994cf16bf301711a76212e))
+* **admin, u:** 更新布局为 `antd` `ProLayout` ([d076bc9](https://github.com/miaoxing/admin/commit/d076bc9805e34f620614885ae2baa57007f1d3b2))
+* **admin, u:** 简化布局，去掉背景色，分割线等 ([13c199d](https://github.com/miaoxing/admin/commit/13c199dfd5db3386578e6ca2c26dc2df2c2b3922))
+* **admin, u:** 菜单允许显示后台返回的图标 ([e897bb2](https://github.com/miaoxing/admin/commit/e897bb223a154bbf2bc7220b6a0b68f35887d687))
+* **admin, u:** 鼠标移动到标题后面，可以点击折叠/展开侧边菜单 ([b71eecc](https://github.com/miaoxing/admin/commit/b71eecc1d77be490c41f049d46ff2c0b645adcb2))
+* 更新 antd, antd icons 版本 ([e26f26b](https://github.com/miaoxing/admin/commit/e26f26b14e7396df2a7a1c4196f9d5450a2b47a8))
+
+
+
+
+
+### Dependencies
+
+* **@mxjs/a-clink:** upgrade from `2.1.0` to `2.1.1`
+* **@mxjs/a-form:** upgrade from `2.1.0` to `2.2.0`
+* **@mxjs/a-page:** upgrade from `2.3.0` to `2.4.0`
+* **@mxjs/a-table:** upgrade from `1.7.0` to `1.8.0`
+* **@mxjs/config:** upgrade from `1.0.0` to `1.1.0`
+* **@mxjs/a-upload:** upgrade from `1.1.0` to `1.2.0`
+* **@miaoxing/app:** upgrade from `0.8.0` to `0.8.1`
+* **@miaoxing/file:** upgrade from `0.3.25` to `0.3.26`
+
 # [0.12.0](https://github.com/miaoxing/admin/compare/v0.11.5...v0.12.0) (2024-01-31)
 
 

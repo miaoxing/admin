@@ -1,6 +1,6 @@
 {
   "name": "@miaoxing/admin",
-  "version": "0.12.1",
+  "version": "0.12.2",
   "private": true,
   "repository": "https://github.com/miaoxing/admin",
   "license": "MIT",
@@ -16,7 +16,7 @@
     "@mxjs/a-box": "^1.1.0",
     "@mxjs/a-clink": "^2.1.1",
     "@mxjs/a-form": "^2.2.0",
-    "@mxjs/a-page": "^2.4.0",
+    "@mxjs/a-page": "^2.4.1",
     "@mxjs/a-table": "^1.8.0",
     "@mxjs/api": "^1.0.10",
     "@mxjs/config": "^1.1.0",

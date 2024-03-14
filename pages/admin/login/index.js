@@ -1,10 +1,10 @@
 /**
  * @layout false
  */
-import { Card, Form, Button, Input, Layout } from 'antd';
+import { Button, Card, Form, Input, Layout } from 'antd';
 import $ from 'miaoxing';
 import api from '@mxjs/api';
-import { Global, css } from '@emotion/react';
+import { css, Global } from '@emotion/react';
 import { FormItem } from '@mxjs/a-form';
 import nextUrl from 'next-url';
 import { ConfigConsumer } from '@miaoxing/app';
@@ -14,6 +14,7 @@ import publicSecurity from '@miaoxing/admin/images/public-security.png';
 import bg from '@miaoxing/admin/images/bg.svg';
 import propTypes from 'prop-types';
 import { Box, Image } from '@mxjs/a-box';
+import { LockOutlined, UserOutlined } from '@ant-design/icons';
 
 /**
  * 解析 auth 参数，从中获得用户名和密码
@@ -99,7 +100,7 @@ const Index = () => {
       <Box flex={1}>
         <Box
           as={Card}
-          w={350}
+          w={375}
           mx="auto"
           my={12}
           p={6}
@@ -136,14 +137,14 @@ const Index = () => {
               name="username"
               rules={[{required: true, message: '请输入用户名'}]}
             >
-              <Input placeholder="用户名"/>
+              <Input placeholder="用户名" prefix={<UserOutlined/>}/>
             </FormItem>
 
             <FormItem
               name="password"
               rules={[{required: true, message: '请输入密码'}]}
             >
-              <Input.Password placeholder="密码"/>
+              <Input.Password placeholder="密码" prefix={<LockOutlined/>}/>
             </FormItem>
 
             <FormItem>

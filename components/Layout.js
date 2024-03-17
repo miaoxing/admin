@@ -13,6 +13,7 @@ import getLoginPath from '../modules/get-login-path';
 import { Box } from '@mxjs/a-box';
 import { Link } from '@mxjs/router';
 import SVG from 'react-inlinesvg';
+import defaultAvatar from '../images/avatar.jpg';
 
 const handleLogout = async () => {
   const {ret} = await api.post('logout');
@@ -178,7 +179,7 @@ const Layout = ({children}) => {
             },
           ]}
           avatarProps={{
-            src: user.avatar,
+            src: user.avatar || defaultAvatar,
             title: user.username,
             render: (props, dom) => {
               return (

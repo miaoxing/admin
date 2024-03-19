@@ -126,7 +126,7 @@ const Index = () => {
             size="large"
             onFinish={async values => {
               const {ret} = await api.postCur({data: values});
-              await $.ret(ret);
+              $.ret(ret);
               if (ret.isSuc()) {
                 window.localStorage.setItem('token', ret.token);
                 window.location.href = history.createHref({pathname: nextUrl($.url('admin'))});

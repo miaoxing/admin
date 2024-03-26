@@ -1,12 +1,13 @@
-import {ConfigProvider} from '@mxjs/config';
-import {ConfigProvider as AntdConfigProvider} from 'antd';
+import { ConfigProvider } from '@mxjs/config';
+import { ConfigProvider as AntdConfigProvider } from 'antd';
 import App from 'plugins/app/components/App';
 import zhCN from 'antd/es/locale/zh_CN';
 import Layout from './Layout';
 import configs from 'storage/configs/admin';
 import theme from '../modules/theme';
-import {url, history} from '@mxjs/app';
+import { url, history } from '@mxjs/app';
 import $ from 'miaoxing';
+import AntdApp from './AntdApp';
 
 const AppContainer = () => {
   if (!url.isAdmin()) {
@@ -18,14 +19,13 @@ const AppContainer = () => {
 
   return (
     <ConfigProvider>
-      <AntdConfigProvider
-        locale={zhCN}
-      >
-        <App defaultLayout={Layout} configs={{theme, ...configs}}/>
+      <AntdConfigProvider locale={zhCN}>
+        <AntdApp component={false}>
+          <App defaultLayout={Layout} configs={{theme, ...configs}}/>
+        </AntdApp>
       </AntdConfigProvider>
     </ConfigProvider>
   );
 };
 
 export default AppContainer;
-

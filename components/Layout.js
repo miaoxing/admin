@@ -53,6 +53,25 @@ MenuIcon.propTypes = {
   image: propTypes.string,
 };
 
+/**
+ * 转换后端的菜单配置为前端的菜单
+ */
+const convertMenus = (menus, level = 1) => {
+  return menus.map(menu => {
+    return {
+      name: menu.label,
+      // 将后端变量转换为 path-to-regexp 支持的格式，以便 ProLayout 识别到子页面
+      path: menu.url ? ('/' + menu.url.replace('[id]', ':id')) : null,
+      icon: menu.icon ? <MenuIcon image={menu.icon}/> : '',
+      target: menu.target,
+      hideInMenu: menu.visible === false,
+      // 超过只显示前两级菜单
+      hideChildrenInMenu: level > 1,
+      children: menu.children ? convertMenus(menu.children, level + 1) : null,
+    };
+  });
+};
+
 const Layout = ({children}) => {
   const {token} = theme.useToken();
   const [collapsed, setCollapsed] = useState(true);
@@ -78,23 +97,7 @@ const Layout = ({children}) => {
     }
 
     setAdminPage(ret.data);
-    return ret.data.menus.map((menu) => {
-      return {
-        name: menu.label,
-        path: menu.url,
-        icon: menu.icon ? <MenuIcon image={menu.icon}/> : '',
-        target: menu.target,
-        hideInMenu: menu.visible === false,
-        children: menu.children?.map((item) => {
-          return {
-            name: item.label,
-            path: item.url,
-            icon: item.icon ? <MenuIcon image={item.icon}/> : '',
-            target: item.target,
-          };
-        }),
-      };
-    });
+    return convertMenus(ret.data.menus);
   };
 
   useEffect(() => {

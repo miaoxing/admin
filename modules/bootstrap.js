@@ -1,10 +1,26 @@
-import axios from 'axios';
-import 'plugins/app/modules/bootstrap';
-import { wei } from '@mxjs/app';
-import config from 'config';
-import getLoginPath from './get-login-path';
+import $, { Ret } from 'miaoxing';
+import axios from '@mxjs/axios';
+import { wei, req, url } from '@mxjs/app';
 import { Spin } from 'antd';
 import { Loading } from '@mxjs/a-loading';
+import config from 'config';
+import './mxjs-preset-antd';
+import getLoginPath from './get-login-path';
+
+$.http = (...args) => axios(...args).then(res => {
+  res.ret = new Ret(res.data);
+  return res;
+});
+
+$.req = req.get.bind(req);
+$.url = url.to.bind(url);
+/**
+ * @experimental
+ */
+$.fullUrl = url.full.bind(url);
+$.apiUrl = url.api.bind(url);
+
+window.$ = $;
 
 wei.setConfigs(config);
 

@@ -1,3 +1,40 @@
+## [0.12.3](https://github.com/miaoxing/admin/compare/v0.12.2...v0.12.3) (2024-03-31)
+
+
+### Bug Fixes
+
+* **admin:** `@ant-design/pro-components` 2.6 隐藏菜单的边框 ([42dbd54](https://github.com/miaoxing/admin/commit/42dbd54d05c1f78741794bff5b7f1e8015c26876))
+
+
+### Features
+
+* **admin:** `message`，`modal` 改为全局对象 ([e2a6825](https://github.com/miaoxing/admin/commit/e2a68254a70afd4f6ae3e21d594753da0efd11f7))
+* **admin:** 增加 `AntdApp` 组件，用于提供全局的 `message`，`modal`，`notification` 变量 ([68e6e4f](https://github.com/miaoxing/admin/commit/68e6e4f8af9fcbf9736ee1fdec4f0fa3e76380a9))
+* **admin:** 导航栏用户无头像时显示默认头像 ([d90919c](https://github.com/miaoxing/admin/commit/d90919c3eb370ed0de55bb0a177de252814ba2e7))
+* **admin:** 登录成功不用等待，直接跳转页面 ([986a391](https://github.com/miaoxing/admin/commit/986a391eedb563041932c143d18895831ba20ce5))
+* **admin:** 登录输入框增加图标，增加宽度 ([83e5dd0](https://github.com/miaoxing/admin/commit/83e5dd0a26d457efe00e8a67106b2c029d30886e))
+* **admin:** 转换所有后台返回的菜单 ([82dac9b](https://github.com/miaoxing/admin/commit/82dac9bb37f60de820ca2cf4cb4d875bd4f36a47))
+
+
+
+
+
+### Dependencies
+
+* **@mxjs/a-box:** upgrade from `1.1.0` to `1.1.1`
+* **@mxjs/a-clink:** upgrade from `2.1.1` to `2.1.2`
+* **@mxjs/a-form:** upgrade from `2.2.0` to `2.2.1`
+* **@mxjs/a-page:** upgrade from `2.4.1` to `2.5.0`
+* **@mxjs/a-table:** upgrade from `1.8.0` to `1.8.1`
+* **@mxjs/api:** upgrade from `1.0.10` to `1.0.11`
+* **@mxjs/config:** upgrade from `1.1.0` to `1.1.1`
+* **@mxjs/a-upload:** upgrade from `1.2.0` to `1.2.1`
+* **miaoxing:** upgrade from `0.4.12` to `0.4.13`
+* **@miaoxing/dev:** upgrade from `9.1.0` to `9.1.1`
+* **@mxjs/test:** upgrade from `1.0.10` to `1.0.11`
+* **@miaoxing/app:** upgrade from `0.8.2` to `0.8.3`
+* **@miaoxing/file:** upgrade from `0.3.27` to `0.3.28`
+
 ## [0.12.2](https://github.com/miaoxing/admin/compare/v0.12.1...v0.12.2) (2024-02-29)
 
 

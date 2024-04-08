@@ -4,7 +4,7 @@ import {Form, FormAction, FormItem} from '@mxjs/a-form';
 import {Alert} from 'antd';
 import curUrl from '@mxjs/cur-url';
 import {history} from '@mxjs/app';
-import {useConfig} from '@miaoxing/app';
+import {useConfig} from '@mxjs/config';
 import { Box } from '@mxjs/a-box';
 
 const Index = () => {

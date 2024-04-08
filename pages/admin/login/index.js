@@ -7,7 +7,7 @@ import api from '@mxjs/api';
 import { css, Global } from '@emotion/react';
 import { FormItem } from '@mxjs/a-form';
 import nextUrl from 'next-url';
-import { ConfigConsumer } from '@miaoxing/app';
+import { ConfigConsumer } from '@mxjs/config';
 import { history } from '@mxjs/app';
 import { useEffect, useRef, useState } from 'react';
 import publicSecurity from '@miaoxing/admin/images/public-security.png';

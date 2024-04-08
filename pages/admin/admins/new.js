@@ -5,7 +5,7 @@ import {Page, PageActions} from '@mxjs/a-page';
 import {Form, FormItem, FormAction} from '@mxjs/a-form';
 import {CListBtn} from '@mxjs/a-clink';
 import {Alert} from 'antd';
-import {useConfig} from '@miaoxing/app';
+import {useConfig} from '@mxjs/config';
 import {FormItemUpload, Cascader, Select, useOption} from '@miaoxing/admin';
 import { Box } from '@mxjs/a-box';
 

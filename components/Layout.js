@@ -7,7 +7,7 @@ import $ from 'miaoxing';
 import propTypes from 'prop-types';
 import { PageContext } from '@mxjs/a-page';
 import { history, req } from '@mxjs/app';
-import { useConfig } from '@miaoxing/app';
+import { useConfig } from '@mxjs/config';
 import { AuthProvider } from '@mxjs/auth';
 import getLoginPath from '../modules/get-login-path';
 import { Box } from '@mxjs/a-box';

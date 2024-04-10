@@ -1,16 +1,12 @@
-import $, { Ret } from 'miaoxing';
+import $ from 'miaoxing';
 import axios from '@mxjs/axios';
 import { wei, req, url } from '@mxjs/app';
 import { Spin } from 'antd';
 import { Loading } from '@mxjs/a-loading';
 import config from 'config';
 import './mxjs-preset-antd';
+import './mxjs-preset-axios';
 import getLoginPath from './get-login-path';
-
-$.http = (...args) => axios(...args).then(res => {
-  res.ret = new Ret(res.data);
-  return res;
-});
 
 $.req = req.get.bind(req);
 $.url = url.to.bind(url);

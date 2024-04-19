@@ -5,15 +5,15 @@ import zhCN from 'antd/es/locale/zh_CN';
 import Layout from './Layout';
 import configs from 'storage/configs/admin';
 import theme from '../modules/theme';
-import { url, history } from '@mxjs/app';
+import { url } from '@mxjs/app';
 import $ from 'miaoxing';
 import AntdApp from './AntdApp';
 
 const AppContainer = () => {
   if (!url.isAdmin()) {
-    history.push($.url('admin'));
+    $.to('admin');
     // NOTE: 还未在路由器中，需主动刷新页面
-    location.reload();
+    window.location.reload();
     return null;
   }
 

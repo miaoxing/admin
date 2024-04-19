@@ -35,7 +35,7 @@ axios.interceptors.response.use(async response => {
   if (response.data?.code === UNAUTHORIZED_CODE) {
     // 控制未登录错误只提示一个
     await runFirst(() => {
-      window.location.href = getLoginPath(response.data.next);
+      $.to(getLoginPath(response.data.next));
     }, TIPS_DELAY);
   }
   return response;

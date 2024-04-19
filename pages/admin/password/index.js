@@ -3,12 +3,13 @@ import {Page} from '@mxjs/a-page';
 import {Form, FormAction, FormItem} from '@mxjs/a-form';
 import {Alert} from 'antd';
 import curUrl from '@mxjs/cur-url';
-import {history} from '@mxjs/app';
 import {useConfig} from '@mxjs/config';
 import { Box } from '@mxjs/a-box';
+import { useLocation } from 'react-router';
 
 const Index = () => {
   const config = useConfig();
+  const location = useLocation();
 
   return (
     <Page>
@@ -22,7 +23,7 @@ const Index = () => {
         valuesUrl={false}
         url={curUrl.api()}
         method="put"
-        redirectUrl={$.url('admin/login', {next: history.location.pathname})}
+        redirectUrl={$.url('admin/login', {next: location.pathname})}
       >
         <FormItem label="旧密码" name="oldPassword" type="password" required/>
 

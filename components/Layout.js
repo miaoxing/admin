@@ -6,7 +6,7 @@ import api from '@mxjs/api';
 import $ from 'miaoxing';
 import propTypes from 'prop-types';
 import { PageContext } from '@mxjs/a-page';
-import { history, req } from '@mxjs/app';
+import { req } from '@mxjs/app';
 import { useConfig } from '@mxjs/config';
 import { AuthProvider } from '@mxjs/auth';
 import getLoginPath from '../modules/get-login-path';
@@ -14,15 +14,7 @@ import { Box } from '@mxjs/a-box';
 import { Link } from '@mxjs/router';
 import SVG from 'react-inlinesvg';
 import defaultAvatar from '../images/avatar.jpg';
-
-const handleLogout = async () => {
-  const {ret} = await api.post('logout');
-  await $.ret(ret);
-  if (ret.isSuc()) {
-    window.localStorage.removeItem('token');
-    history.push(getLoginPath());
-  }
-};
+import { useLocation } from 'react-router';
 
 const MenuLink = ({menu}) => {
   // 快速检查是否为外部地址
@@ -82,10 +74,11 @@ const Layout = ({children}) => {
     menus: [],
   });
 
+  const location = useLocation();
   useEffect(() => {
     // 没有 token 则提前跳转到登录页面
     if (!window.localStorage.getItem('token')) {
-      history.push(getLoginPath());
+      $.to(getLoginPath(null, location));
     }
   }, []);
 
@@ -120,6 +113,15 @@ const Layout = ({children}) => {
       }
     });
   }, []);
+
+  const handleLogout = async () => {
+    const {ret} = await api.post('logout');
+    await $.ret(ret);
+    if (ret.isSuc()) {
+      window.localStorage.removeItem('token');
+      $.to(getLoginPath(null, location));
+    }
+  };
 
   return (
     <AuthProvider permissions={permissions} baseUrl={req.getBaseUrl()}>

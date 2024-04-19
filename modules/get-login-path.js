@@ -1,8 +1,7 @@
-import $ from 'miaoxing';
-import {history} from '@mxjs/app';
+import appendUrl from 'append-url';
 
-export default (url) => {
-  return $.url(url || 'admin/login', {
-    next: history.location.pathname + history.location.search + history.location.hash,
+export default (url, location = window.location) => {
+  return appendUrl(url || 'admin/login', {
+    next: location.pathname + location.search + location.hash,
   });
 };

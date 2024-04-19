@@ -8,7 +8,6 @@ import { css, Global } from '@emotion/react';
 import { FormItem } from '@mxjs/a-form';
 import nextUrl from 'next-url';
 import { ConfigConsumer } from '@mxjs/config';
-import { history } from '@mxjs/app';
 import { useEffect, useRef, useState } from 'react';
 import publicSecurity from '@miaoxing/admin/images/public-security.png';
 import bg from '@miaoxing/admin/images/bg.svg';
@@ -129,7 +128,7 @@ const Index = () => {
               $.ret(ret);
               if (ret.isSuc()) {
                 window.localStorage.setItem('token', ret.token);
-                window.location.href = history.createHref({pathname: nextUrl($.url('admin'))});
+                $.to(nextUrl('admin'));
               }
             }}
           >

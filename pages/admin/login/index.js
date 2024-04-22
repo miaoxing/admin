@@ -7,7 +7,7 @@ import api from '@mxjs/api';
 import { css, Global } from '@emotion/react';
 import { FormItem } from '@mxjs/a-form';
 import nextUrl from 'next-url';
-import { ConfigConsumer } from '@mxjs/config';
+import { useConfig } from '@mxjs/config';
 import { useEffect, useRef, useState } from 'react';
 import publicSecurity from '@miaoxing/admin/images/public-security.png';
 import bg from '@miaoxing/admin/images/bg.svg';
@@ -39,10 +39,10 @@ const parseAuth = () => {
   const username = result.substring(0, index);
   const password = result.substring(index + 1);
 
-  return {username, password};
+  return { username, password };
 };
 
-const RecordNumber = ({publicSecurityRecordNumber, icpRecordNumber}) => {
+const RecordNumber = ({ publicSecurityRecordNumber, icpRecordNumber }) => {
   return (
     <Box display="flex" alignItems="center" justifyContent="center" ml={2}>
       {publicSecurityRecordNumber && <Box as="a" display="flex" alignItems="center" mr={2} color="gray.500" target="_blank"
@@ -67,7 +67,7 @@ const Index = () => {
 
   const [data, setData] = useState({});
   useEffect(() => {
-    api.getCur().then(({ret}) => {
+    api.getCur().then(({ ret }) => {
       if (ret.isSuc()) {
         setData(ret.data);
       }
@@ -82,20 +82,18 @@ const Index = () => {
     form.current.setFieldsValue(result);
   }, []);
 
+  const { page = {} } = useConfig();
+
   return (
     <Box as={Layout} minH="100vh" bg="transparent">
-      <ConfigConsumer>
-        {({page}) => (
-          <Global
-            styles={css`
-              body {
-                background: #f5f8fa url(${page.bg || bg}) no-repeat center center fixed;
-                background-size: cover;
-              }
-            `}
-          />
-        )}
-      </ConfigConsumer>
+      <Global
+        styles={css`
+          body {
+            background: #f5f8fa url(${page.bg || bg}) no-repeat center center fixed;
+            background-size: cover;
+          }
+        `}
+      />
       <Box flex={1}>
         <Box
           as={Card}
@@ -108,9 +106,7 @@ const Index = () => {
             mb={4}
             textAlign="center"
           >
-            <ConfigConsumer>
-              {({page}) => <Image h={50} src={page.logo}/>}
-            </ConfigConsumer>
+            <Image h={50} src={page.logo}/>
           </Box>
           <Box
             mb={12}
@@ -124,7 +120,7 @@ const Index = () => {
             ref={form}
             size="large"
             onFinish={async values => {
-              const {ret} = await api.postCur({data: values});
+              const { ret } = await api.postCur({ data: values });
               $.ret(ret);
               if (ret.isSuc()) {
                 window.localStorage.setItem('token', ret.token);
@@ -134,14 +130,14 @@ const Index = () => {
           >
             <FormItem
               name="username"
-              rules={[{required: true, message: '请输入用户名'}]}
+              rules={[{ required: true, message: '请输入用户名' }]}
             >
               <Input placeholder="用户名" prefix={<UserOutlined/>}/>
             </FormItem>
 
             <FormItem
               name="password"
-              rules={[{required: true, message: '请输入密码'}]}
+              rules={[{ required: true, message: '请输入密码' }]}
             >
               <Input.Password placeholder="密码" prefix={<LockOutlined/>}/>
             </FormItem>
@@ -155,11 +151,7 @@ const Index = () => {
         </Box>
       </Box>
       <Box textAlign="center" py={4} color="gray.500">
-        <ConfigConsumer>
-          {({page}) => (
-            <>{page.copyright}</>
-          )}
-        </ConfigConsumer>
+        {page.copyright}
         <RecordNumber {...data}/>
       </Box>
     </Box>

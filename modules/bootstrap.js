@@ -7,6 +7,7 @@ import config from 'config';
 import './mxjs-preset-antd';
 import './mxjs-preset-axios';
 import './mxjs-preset-web';
+import './mxjs-preset-react-router';
 import getLoginPath from './get-login-path';
 
 window.$ = $;

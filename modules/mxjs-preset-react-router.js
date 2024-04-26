@@ -1,9 +1,9 @@
 import $ from 'miaoxing';
-import { history } from '@miaoxing/app/components/RouterStore';
+import { navigate } from '@miaoxing/app/components/RouterStore';
 
 $.to = (url, options) => {
   if (typeof url === 'number') {
-    return history.go(url);
+    return navigate(url);
   }
 
   // Generate full URL, if it is not an absolute URL
@@ -12,7 +12,7 @@ $.to = (url, options) => {
   }
 
   if (options?.replace) {
-    return history.replace(url);
+    return navigate(url, {replace: true});
   }
-  return history.push(url);
+  return navigate(url);
 };

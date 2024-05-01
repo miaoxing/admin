@@ -1,3 +1,37 @@
+# [0.13.0](https://github.com/miaoxing/admin/compare/v0.12.3...v0.13.0) (2024-05-01)
+
+
+### Features
+
+* **admin:** 更新 `mxjs-preset-react-router` 支持 `react-router` v6 ([d778b20](https://github.com/miaoxing/admin/commit/d778b203277dbabd9463ebb7940e4ba7e46df4d6))
+* 更新 `react-router` 到 v6 ([87382d3](https://github.com/miaoxing/admin/commit/87382d38de3242afcc0c86b02caf1883cd33db19))
+* **admin:** 增加 `$.to` 的 web 实现 ([8c915e9](https://github.com/miaoxing/admin/commit/8c915e9bd2ba2451de8494ff2d21b2ca9e54b9bb))
+* **admin:** 增加 `react-router` 的 `$.to` 实现 ([5081406](https://github.com/miaoxing/admin/commit/5081406e99cf4d2afbcc73fb863be252505ce285))
+* 更新 config context 为 `@mxjs/config` ([4f46390](https://github.com/miaoxing/admin/commit/4f46390272c5e1297407eaa67482f70e6645d5b6))
+
+
+### BREAKING CHANGES
+
+* 更新 `react-router` 到 v6
+
+
+
+
+
+### Dependencies
+
+* **@mxjs/a-clink:** upgrade from `2.1.2` to `3.0.0`
+* **@mxjs/a-form:** upgrade from `2.2.1` to `3.0.0`
+* **@mxjs/a-page:** upgrade from `2.5.0` to `3.0.0`
+* **@mxjs/a-table:** upgrade from `1.8.1` to `1.8.2`
+* **@mxjs/api:** upgrade from `1.0.11` to `1.0.12`
+* **@mxjs/config:** upgrade from `1.1.1` to `1.1.2`
+* **@mxjs/a-upload:** upgrade from `1.2.1` to `1.2.2`
+* **miaoxing:** upgrade from `0.4.13` to `0.4.14`
+* **@mxjs/test:** upgrade from `1.0.11` to `1.1.0`
+* **@miaoxing/app:** upgrade from `0.8.3` to `0.9.0`
+* **@miaoxing/file:** upgrade from `0.3.28` to `0.3.29`
+
 ## [0.12.3](https://github.com/miaoxing/admin/compare/v0.12.2...v0.12.3) (2024-03-31)
 
 

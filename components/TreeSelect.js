@@ -10,7 +10,6 @@ const TreeSelect = (
     beforeLoad,
     afterLoad,
     allowClear = true,
-    showArrow = true,
     showSearch = true,
     treeDefaultExpandAll = true,
     fieldNames = {label: 'name', value: 'id', children: 'children'},
@@ -40,7 +39,6 @@ const TreeSelect = (
     <OriTreeSelect
       treeData={data}
       allowClear={allowClear}
-      showArrow={showArrow}
       showSearch={showSearch}
       treeDefaultExpandAll={treeDefaultExpandAll}
       fieldNames={fieldNames}
@@ -55,7 +53,6 @@ TreeSelect.propTypes = {
   afterLoad: propTypes.func,
   prependData: propTypes.oneOfType([propTypes.object, propTypes.array]),
   allowClear: propTypes.bool,
-  showArrow: propTypes.bool,
   showSearch: propTypes.bool,
   treeDefaultExpandAll: propTypes.bool,
   fieldNames: propTypes.object,

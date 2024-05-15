@@ -2,7 +2,6 @@ import { LockOutlined, LogoutOutlined, MenuFoldOutlined, MenuUnfoldOutlined, Use
 import { ProLayout } from '@ant-design/pro-components';
 import { Button, Dropdown, theme } from 'antd';
 import { useEffect, useState } from 'react';
-import api from '@mxjs/api';
 import $ from 'miaoxing';
 import propTypes from 'prop-types';
 import { PageContext } from '@mxjs/a-page';
@@ -83,7 +82,7 @@ const Layout = ({children}) => {
   }, []);
 
   const getMenu = async () => {
-    const {ret} = await api.get('admin-page', {loading: true});
+    const {ret} = await $.get('admin-page', {loading: true});
     if (ret.isErr()) {
       $.ret(ret);
       return;
@@ -94,7 +93,7 @@ const Layout = ({children}) => {
   };
 
   useEffect(() => {
-    api.get('user').then(({ret}) => {
+    $.get('user').then(({ret}) => {
       if (ret.isSuc()) {
         setUser(ret.data);
       } else {
@@ -102,7 +101,7 @@ const Layout = ({children}) => {
       }
     });
 
-    api.get('user-permissions').then(({ret}) => {
+    $.get('user-permissions').then(({ret}) => {
       if (ret.isSuc()) {
         setPermissions(ret.data.codes.reduce((permissions, key) => {
           permissions[key] = true;
@@ -115,7 +114,7 @@ const Layout = ({children}) => {
   }, []);
 
   const handleLogout = async () => {
-    const {ret} = await api.post('logout');
+    const {ret} = await $.post('logout');
     await $.ret(ret);
     if (ret.isSuc()) {
       window.localStorage.removeItem('token');

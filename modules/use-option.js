@@ -1,11 +1,10 @@
 import {useState} from 'react';
 import useAsyncEffect from 'use-async-effect';
-import api from '@mxjs/api';
 import $ from 'miaoxing';
 import memoizeOne from 'async-memoize-one';
 
 async function getOption (name) {
-  const {ret} = await api.get('options', {params: {id: name}});
+  const {ret} = await $.get('options', {params: {id: name}});
   if (ret.isErr()) {
     $.ret(ret);
     return;

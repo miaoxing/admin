@@ -1,5 +1,5 @@
 import $ from 'miaoxing';
-import { navigate } from '@miaoxing/app/components/RouterStore';
+import { navigate } from '../components/RouterStore';
 
 $.to = (url, options) => {
   if (typeof url === 'number') {

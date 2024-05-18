@@ -1,6 +1,6 @@
 import { ConfigProvider } from '@mxjs/config';
 import { ConfigProvider as AntdConfigProvider } from 'antd';
-import App from 'plugins/app/components/App';
+import App from './App';
 import zhCN from 'antd/es/locale/zh_CN';
 import Layout from './Layout';
 import configs from 'storage/configs/admin';

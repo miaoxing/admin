@@ -54,8 +54,6 @@ const App = (
   const [config, setConfig] = useState({ page: {} });
 
   useAsyncEffect(async () => {
-    wei.setConfigs(configs);
-
     const ret = await loadConfig();
     wei.setConfigs(ret.data);
     setConfig(ret.data);

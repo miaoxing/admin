@@ -4,6 +4,7 @@ import { wei } from '@mxjs/app';
 import { Spin } from 'antd';
 import { Loading } from '@mxjs/a-loading';
 import config from 'config';
+import adminConfig from 'storage/configs/admin';
 import './mxjs-preset-antd';
 import './mxjs-preset-axios';
 import './mxjs-preset-web';
@@ -13,6 +14,7 @@ import getLoginPath from './get-login-path';
 window.$ = $;
 
 wei.setConfigs(config);
+wei.setConfigs(adminConfig);
 
 // 指定 Antd 全局的 loading 样式
 Spin.setDefaultIndicator(<Loading/>);

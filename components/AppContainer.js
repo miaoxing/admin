@@ -3,7 +3,6 @@ import { ConfigProvider as AntdConfigProvider } from 'antd';
 import App from './App';
 import zhCN from 'antd/es/locale/zh_CN';
 import Layout from './Layout';
-import configs from 'storage/configs/admin';
 import theme from '../modules/theme';
 import { url } from '@mxjs/app';
 import $ from 'miaoxing';
@@ -21,7 +20,7 @@ const AppContainer = () => {
     <ConfigProvider>
       <AntdConfigProvider locale={zhCN}>
         <AntdApp component={false}>
-          <App defaultLayout={Layout} configs={{theme, ...configs}}/>
+          <App defaultLayout={Layout} configs={{theme}}/>
         </AntdApp>
       </AntdConfigProvider>
     </ConfigProvider>

@@ -1,5 +1,5 @@
 import React from 'react';
-import { createBrowserRouter, useLocation } from 'react-router-dom';
+import { createBrowserRouter, createHashRouter, useLocation } from 'react-router-dom';
 import loadable from '@loadable/component';
 import { app, event } from '@mxjs/app';
 import { NotFound } from '@mxjs/a-ret';
@@ -58,7 +58,9 @@ const LoadableComponent = () => {
   );
 };
 
-const router = createBrowserRouter([
+const createRouter = 'hash' === window.miaoxing?.routerMode ? createHashRouter : createBrowserRouter;
+
+const router = createRouter([
   {
     path: '*',
     element: <LoadableComponent/>,

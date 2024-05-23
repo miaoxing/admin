@@ -140,6 +140,7 @@ const Layout = ({children}) => {
               paddingInlinePageContainerContent: 16,
             },
           }}
+          location={location}
           layout="mix"
           title={page.title || ''}
           logo={page.logo || null}

@@ -73,13 +73,12 @@ const Layout = ({children}) => {
     menus: [],
   });
 
+  // 没有 token 则提前跳转到登录页面
   const location = useLocation();
-  useEffect(() => {
-    // 没有 token 则提前跳转到登录页面
-    if (!window.localStorage.getItem('token')) {
-      $.to(getLoginPath(null, location));
-    }
-  }, []);
+  if (!window.localStorage.getItem('token')) {
+    $.to(getLoginPath(null, location));
+    return;
+  }
 
   const getMenu = async () => {
     const {ret} = await $.get('admin-page', {loading: true});

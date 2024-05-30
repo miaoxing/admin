@@ -1,3 +1,35 @@
+## [0.13.1](https://github.com/miaoxing/admin/compare/v0.13.0...v0.13.1) (2024-05-30)
+
+
+### Bug Fixes
+
+* **admin:** 先检查 token 再发送请求，避免两次跳转登录 ([ef1b90a](https://github.com/miaoxing/admin/commit/ef1b90a505321467c4969d69e9ea679f87a05a91))
+
+
+### Features
+
+* **admin:** `TreeSelect` 移除废弃的 `showArrow` 属性 ([9d3d574](https://github.com/miaoxing/admin/commit/9d3d57476fc9d5626e9390d0b602ca33962113ca))
+* **admin:** react-router v6 支持 hash 路由器 ([071e784](https://github.com/miaoxing/admin/commit/071e7844f10272b9c184490198c197a5015bb56f))
+* **experimental:** 移除 `$.fullUrl` 方法 ([833c8b8](https://github.com/miaoxing/admin/commit/833c8b83f9526dc717d66495f59e9f2d45fd8fa9))
+* `api.xxx` 调用改为 `$.xx` ([0f5f212](https://github.com/miaoxing/admin/commit/0f5f212e0fa6f1ec3fa02a5d58e6b999fe670f93))
+
+
+
+
+
+### Dependencies
+
+* **@mxjs/a-clink:** upgrade from `3.0.0` to `3.0.1`
+* **@mxjs/a-form:** upgrade from `3.0.0` to `3.0.1`
+* **@mxjs/a-page:** upgrade from `3.0.0` to `3.0.1`
+* **@mxjs/a-table:** upgrade from `1.8.2` to `1.8.3`
+* **@mxjs/api:** upgrade from `1.0.12` to `1.1.0`
+* **@mxjs/a-upload:** upgrade from `1.2.2` to `1.2.3`
+* **miaoxing:** upgrade from `0.4.14` to `0.4.15`
+* **@mxjs/test:** upgrade from `1.1.0` to `2.0.0`
+* **@miaoxing/app:** upgrade from `0.9.0` to `0.10.0`
+* **@miaoxing/file:** upgrade from `0.3.29` to `0.3.30`
+
 # [0.13.0](https://github.com/miaoxing/admin/compare/v0.12.3...v0.13.0) (2024-05-01)
 
 

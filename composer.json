@@ -39,7 +39,7 @@
       "wei/wei": "twinh/wei as 0.17.x-dev",
       "miaoxing/plugin": "miaoxing/plugin as 0.14.x-dev",
       "miaoxing/services": "miaoxing/services as 0.9.x-dev",
-      "miaoxing/app": "miaoxing/app as 0.9.x-dev"
+      "miaoxing/app": "miaoxing/app as 0.10.x-dev"
     }
   }
 }

@@ -1,5 +1,4 @@
-import { ConfigProvider } from '@mxjs/config';
-import { ConfigProvider as AntdConfigProvider } from 'antd';
+import { ConfigProvider } from 'antd';
 import App from './App';
 import zhCN from 'antd/es/locale/zh_CN';
 import theme from '../modules/theme';
@@ -17,12 +16,10 @@ const AppContainer = () => {
   }
 
   return (
-    <ConfigProvider>
-      <AntdConfigProvider locale={zhCN}>
-        <AntdApp component={false}>
-          <App router={router} configs={{theme}}/>
-        </AntdApp>
-      </AntdConfigProvider>
+    <ConfigProvider locale={zhCN}>
+      <AntdApp component={false}>
+        <App router={router} configs={{ theme }}/>
+      </AntdApp>
     </ConfigProvider>
   );
 };

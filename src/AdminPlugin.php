@@ -6,10 +6,10 @@ use Miaoxing\Admin\Service\AdminLogModel;
 use Miaoxing\Admin\Service\AdminMenu;
 use Miaoxing\App\Middleware\CheckPagePermission;
 use Miaoxing\App\Service\PermissionMap;
+use Miaoxing\Plugin\BasePage;
 use Miaoxing\Plugin\BasePlugin;
 use Miaoxing\Plugin\Service\User;
 use Miaoxing\Plugin\Service\UserModel;
-use Wei\BaseController;
 use Wei\RetTrait;
 
 /**
@@ -125,10 +125,10 @@ class AdminPlugin extends BasePlugin
         ]);
     }
 
-    public function onControllerInit(BaseController $controller)
+    public function onPageInit(BasePage $page)
     {
         if ($this->app->isAdmin() && $this->permission->isEnabledCheck()) {
-            $controller->middleware(CheckPagePermission::class);
+            $page->middleware(CheckPagePermission::class);
         }
     }
 

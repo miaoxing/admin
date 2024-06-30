@@ -1,3 +1,24 @@
+## [0.13.2](https://github.com/miaoxing/admin/compare/v0.13.1...v0.13.2) (2024-06-30)
+
+
+### Features
+
+* **admin:** 页面外层增加 `Suspense`，控制加载区域不影响到更上层的布局 ([559c118](https://github.com/miaoxing/admin/commit/559c118a76ff71c857466ea0acd3734ba36129e1))
+* 更新 `onControllerInit` 为 `onPageInit` ([b0a9721](https://github.com/miaoxing/admin/commit/b0a972186b154aba7931a95ff1c8d4d1109d3a85))
+* **admin:** 退出登录页面无需权限控制 ([d39915d](https://github.com/miaoxing/admin/commit/d39915d174fd9c502061d0b2e05a3051c4768190))
+
+
+
+
+
+### Dependencies
+
+* **@mxjs/a-form:** upgrade from `3.0.1` to `3.0.2`
+* **@mxjs/a-table:** upgrade from `1.8.3` to `1.9.0`
+* **@mxjs/a-upload:** upgrade from `1.2.3` to `1.3.0`
+* **@miaoxing/app:** upgrade from `0.10.0` to `0.10.1`
+* **@miaoxing/file:** upgrade from `0.3.30` to `0.3.31`
+
 ## [0.13.1](https://github.com/miaoxing/admin/compare/v0.13.0...v0.13.1) (2024-05-30)
 
 

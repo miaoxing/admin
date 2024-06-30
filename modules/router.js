@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Suspense } from 'react';
 import { createBrowserRouter, createHashRouter, useLocation } from 'react-router-dom';
 import loadable from '@loadable/component';
 import { app, event } from '@mxjs/app';
@@ -41,9 +41,7 @@ const LoadableComponent = () => {
 
   const key = location.pathname.replace(/\/+$/, '') + location.search;
   if (!loadedPages[key]) {
-    loadedPages[key] = loadable(() => importPage(page), {
-      fallback: <PageLoading/>,
-    });
+    loadedPages[key] = loadable(() => importPage(page));
   }
 
   const LoadableComponent = loadedPages[key];
@@ -52,7 +50,9 @@ const LoadableComponent = () => {
     <PageLayout>
       <RouterStore/>
       <ErrorBoundary>
-        <LoadableComponent/>
+        <Suspense fallback={<PageLoading/>}>
+          <LoadableComponent/>
+        </Suspense>
       </ErrorBoundary>
     </PageLayout>
   );

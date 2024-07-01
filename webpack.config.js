@@ -4,7 +4,7 @@ const CopyPlugin = require('copy-webpack-plugin');
 
 const config = WebpackConfig.build({
   name: path.basename(__dirname),
-  entry: 'plugins/admin/modules/app.js',
+  entry: 'plugins/admin/modules/app.jsx',
 });
 
 config.plugins.push(new CopyPlugin({

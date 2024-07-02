@@ -1,16 +1,34 @@
-export Avatar from './components/Avatar';
-export FormItemSort from './components/FormItemSort';
-export InputPrice from './components/InputPrice';
-export Upload from './components/Upload';
-export FormItemUpload from './components/FormItemUpload';
-export TableImage from './components/TableImage';
-export TableImages from './components/TableImages';
-export Select from './components/Select';
-export TreeSelect from './components/TreeSelect';
-export Cascader from './components/Cascader';
-export Image from './components/Image';
-export Images from './components/Images';
-export Descriptions from './components/Descriptions';
-export ModalDescriptions from './components/ModalDescriptions';
+import Avatar from './components/Avatar';
+import FormItemSort from './components/FormItemSort';
+import InputPrice from './components/InputPrice';
+import Upload from './components/Upload';
+import FormItemUpload from './components/FormItemUpload';
+import TableImage from './components/TableImage';
+import TableImages from './components/TableImages';
+import Select from './components/Select';
+import TreeSelect from './components/TreeSelect';
+import Cascader from './components/Cascader';
+import Image from './components/Image';
+import Images from './components/Images';
+import Descriptions from './components/Descriptions';
+import ModalDescriptions from './components/ModalDescriptions';
 
-export useOption from './modules/use-option';
+import useOption from './modules/use-option';
+
+export {
+  Avatar,
+  FormItemSort,
+  InputPrice,
+  Upload,
+  FormItemUpload,
+  TableImage,
+  TableImages,
+  Select,
+  TreeSelect,
+  Cascader,
+  Image,
+  Images,
+  Descriptions,
+  ModalDescriptions,
+  useOption,
+};

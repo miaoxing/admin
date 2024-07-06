@@ -1,14 +1,13 @@
 /**
  * @share [id]/edit
  */
-import {CListBtn} from '@mxjs/a-clink';
-import {Page, PageActions, PageContext} from '@mxjs/a-page';
-import {Form, FormItem, FormAction} from '@mxjs/a-form';
-import {Tree} from 'antd';
-import {useContext, useEffect, useState} from 'react';
-import { Box } from '@mxjs/a-box';
+import { CListBtn } from '@mxjs/a-clink';
+import { Page, PageActions, PageContext } from '@mxjs/a-page';
+import { Form, FormItem, FormAction } from '@mxjs/a-form';
+import { Tree } from 'antd';
+import { useContext, useEffect, useState } from 'react';
 import propTypes from 'prop-types';
-import {Select, useOption} from '@miaoxing/admin';
+import { Select, useOption } from '@miaoxing/admin';
 
 const buildTree = (menus) => {
   const tree = [];
@@ -39,12 +38,12 @@ const buildTree = (menus) => {
   return tree;
 };
 
-const TreeInput = ({value, onChange}) => {
-  const {menus} = useContext(PageContext);
+const TreeInput = ({ value, onChange }) => {
+  const { menus } = useContext(PageContext);
   const [tree, setTree] = useState([]);
 
   useEffect(() => {
-    setTree([{title: '全部', key: '*', children: buildTree(menus)}]);
+    setTree([{ title: '全部', key: '*', children: buildTree(menus) }]);
   }, [menus]);
 
   const onCheck = (checkedKeysValue) => {
@@ -52,16 +51,15 @@ const TreeInput = ({value, onChange}) => {
   };
 
   return (
-    tree.length > 0 ? <Box mt={1}>
-      <Tree
-        defaultExpandedKeys={['*']}
-        checkable
-        selectable={false}
-        checkedKeys={tree.length ? value : []}
-        onCheck={onCheck}
-        treeData={tree}
-      />
-    </Box> : ''
+    tree.length > 0 ? <Tree
+      className="mt-1"
+      defaultExpandedKeys={['*']}
+      checkable
+      selectable={false}
+      checkedKeys={tree.length ? value : []}
+      onCheck={onCheck}
+      treeData={tree}
+    /> : ''
   );
 };
 

@@ -9,7 +9,6 @@ import { req } from '@mxjs/app';
 import { useConfig } from '@mxjs/config';
 import { AuthProvider } from '@mxjs/auth';
 import getLoginPath from '../modules/get-login-path';
-import { Box } from '@mxjs/a-box';
 import { Link } from '@mxjs/router';
 import SVG from 'react-inlinesvg';
 import defaultAvatar from '../images/avatar.jpg';
@@ -146,18 +145,16 @@ const Layout = ({children}) => {
           collapsedButtonRender={false}
           headerTitleRender={(logo, title) => {
             return (
-              <Box role="group" display="flex" alignItems="center">
+              <div className="group flex items-center">
                 {logo}
                 {title}
-                <Box
-                  as={Button} type="text"
+                <Button
+                  type="text"
                   icon={collapsed ? <MenuUnfoldOutlined/> : <MenuFoldOutlined/>}
-                  ml={2}
-                  opacity={0}
-                  _groupHover={{opacity: 1}}
+                  className="ml-2 opacity-0 group-hover:opacity-100"
                   onClick={() => setCollapsed(!collapsed)}
                 />
-              </Box>
+              </div>
             );
           }}
           collapsed={collapsed}
@@ -236,7 +233,7 @@ const Layout = ({children}) => {
               return undefined;
             }
             return (
-              <Box textAlign="center" pt={2}>{page.copyright}</Box>
+              <div className="text-center pt-2">{page.copyright}</div>
             );
           }}
         >

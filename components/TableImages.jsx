@@ -1,12 +1,11 @@
 import {Image} from 'antd';
 import propTypes from 'prop-types';
-import { Box } from '@mxjs/a-box';
 
 const TableImages = ({images, width = 60}) => (
   <Image.PreviewGroup>
-    {images.map(image => <Box key={image} mr={2} mb={2} display="inline">
+    {images.map(image => <div key={image} className="mr-2 mb-2 inline">
       <Image width={width} src={image}/>
-    </Box>)}
+    </div>)}
   </Image.PreviewGroup>
 );
 

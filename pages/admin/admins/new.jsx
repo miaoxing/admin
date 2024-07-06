@@ -7,7 +7,6 @@ import {CListBtn} from '@mxjs/a-clink';
 import {Alert} from 'antd';
 import {useConfig} from '@mxjs/config';
 import {FormItemUpload, Cascader, Select, useOption} from '@miaoxing/admin';
-import { Box } from '@mxjs/a-box';
 
 const TYPE_DEFAULT = 1;
 
@@ -21,9 +20,7 @@ const AdminForm = () => {
         <CListBtn/>
       </PageActions>
 
-      {config?.app?.isDemo && <Box my={4}>
-        <Alert type="warning" showIcon message="当前是演示模式，提交后密码不会改变"/>
-      </Box>}
+      {config?.app?.isDemo && <Alert className="mb-4" type="warning" showIcon message="当前是演示模式，提交后密码不会改变"/>}
 
       <Form>
         {({id, user}) => {

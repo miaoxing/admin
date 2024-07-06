@@ -12,7 +12,6 @@ import { useEffect, useRef, useState } from 'react';
 import publicSecurity from '@miaoxing/admin/images/public-security.png';
 import bg from '@miaoxing/admin/images/bg.svg';
 import propTypes from 'prop-types';
-import { Box, Image } from '@mxjs/a-box';
 import { LockOutlined, UserOutlined } from '@ant-design/icons';
 
 /**
@@ -44,16 +43,17 @@ const parseAuth = () => {
 
 const RecordNumber = ({ publicSecurityRecordNumber, icpRecordNumber }) => {
   return (
-    <Box display="flex" alignItems="center" justifyContent="center" ml={2}>
-      {publicSecurityRecordNumber && <Box as="a" display="flex" alignItems="center" mr={2} color="gray.500" target="_blank"
-                                          href="https://www.beian.gov.cn/portal/registerSystemInfo">
-        <Image mr={1} src={publicSecurity}/>
+    <div className="flex items-center justify-center">
+      {publicSecurityRecordNumber && <a
+        className="flex items-center mr-2 text-gray-500" target="_blank"
+        href="https://www.beian.gov.cn/portal/registerSystemInfo">
+        <img className="mr-1" src={publicSecurity}/>
         {publicSecurityRecordNumber}
-      </Box>}
-      {icpRecordNumber && <Box as="a" color="gray.500" href="https://beian.miit.gov.cn/" target="_blank">
+      </a>}
+      {icpRecordNumber && <a className="text-gray-500" href="https://beian.miit.gov.cn/" target="_blank">
         {icpRecordNumber}
-      </Box>}
-    </Box>
+      </a>}
+    </div>
   );
 };
 
@@ -85,7 +85,7 @@ const Index = () => {
   const { page = {} } = useConfig();
 
   return (
-    <Box as={Layout} minH="100vh" bg="transparent">
+    <Layout className="min-h-screen bg-transparent">
       <Global
         styles={css`
           body {
@@ -94,28 +94,14 @@ const Index = () => {
           }
         `}
       />
-      <Box flex={1}>
-        <Box
-          as={Card}
-          w={375}
-          mx="auto"
-          my={12}
-          p={6}
-        >
-          <Box
-            mb={4}
-            textAlign="center"
-          >
-            <Image h={50} src={page.logo}/>
-          </Box>
-          <Box
-            mb={12}
-            textAlign="center"
-            fontSize="lg"
-            color="gray.500"
-          >
+      <div className="flex-1">
+        <Card className="w-[375px] mx-auto my-12 p-6">
+          <div className="mb-4 text-center">
+            <img className="inline h-12" src={page.logo} alt="Logo"/>
+          </div>
+          <div className="mb-12 text-center text-lg text-gray-500">
             登录
-          </Box>
+          </div>
           <Form
             ref={form}
             size="large"
@@ -148,13 +134,13 @@ const Index = () => {
               </Button>
             </FormItem>
           </Form>
-        </Box>
-      </Box>
-      <Box textAlign="center" py={4} color="gray.500">
+        </Card>
+      </div>
+      <div className="text-center py-4 text-gray-500">
         {page.copyright}
         <RecordNumber {...data}/>
-      </Box>
-    </Box>
+      </div>
+    </Layout>
   );
 };
 

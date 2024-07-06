@@ -1,7 +1,6 @@
 import { ConfigProvider } from 'antd';
 import App from './App';
 import zhCN from 'antd/es/locale/zh_CN';
-import theme from '../modules/theme';
 import { url } from '@mxjs/app';
 import $ from 'miaoxing';
 import AntdApp from './AntdApp';
@@ -18,7 +17,7 @@ const AppContainer = () => {
   return (
     <ConfigProvider locale={zhCN}>
       <AntdApp component={false}>
-        <App router={router} configs={{ theme }}/>
+        <App router={router}/>
       </AntdApp>
     </ConfigProvider>
   );

@@ -1,10 +1,11 @@
 import $ from 'miaoxing';
-import {Page} from '@mxjs/a-page';
-import {Form, FormAction, FormItem} from '@mxjs/a-form';
-import {Alert} from 'antd';
+import { Page } from '@mxjs/a-page';
+import { Form, FormAction, FormItem } from '@mxjs/a-form';
+import { Alert } from 'antd';
 import curUrl from '@mxjs/cur-url';
-import {useConfig} from '@mxjs/config';
+import { useConfig } from '@mxjs/config';
 import { useLocation } from 'react-router';
+import { Section } from '@mxjs/a-section';
 
 const Index = () => {
   const config = useConfig();
@@ -18,13 +19,15 @@ const Index = () => {
         valuesUrl={false}
         url={curUrl.api()}
         method="put"
-        redirectUrl={$.url('admin/login', {next: location.pathname})}
+        redirectUrl={$.url('admin/login', { next: location.pathname })}
       >
-        <FormItem label="旧密码" name="oldPassword" type="password" required/>
+        <Section>
+          <FormItem label="旧密码" name="oldPassword" type="password" required/>
 
-        <FormItem label="新密码" name="password" type="password" required/>
+          <FormItem label="新密码" name="password" type="password" required/>
 
-        <FormItem label="重复新密码" name="passwordConfirm" type="password" required/>
+          <FormItem label="重复新密码" name="passwordConfirm" type="password" required/>
+        </Section>
 
         <FormAction list={false}/>
       </Form>

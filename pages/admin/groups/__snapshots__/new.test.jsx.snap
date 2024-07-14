@@ -23,7 +23,6 @@ exports[`admin/groups form 1`] = `
     Array [
       Object {
         "data": Object {
-          "id": 1,
           "name": "测试分组",
           "parentId": undefined,
           "sort": 50,

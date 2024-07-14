@@ -3,11 +3,12 @@
  */
 import { CListBtn } from '@mxjs/a-clink';
 import { Page, PageActions, PageContext } from '@mxjs/a-page';
-import { Form, FormItem, FormAction } from '@mxjs/a-form';
+import { Form, FormAction, FormItem } from '@mxjs/a-form';
 import { Tree } from 'antd';
 import { useContext, useEffect, useState } from 'react';
 import propTypes from 'prop-types';
 import { Select, useOption } from '@miaoxing/admin';
+import { Section } from '@mxjs/a-section';
 
 const buildTree = (menus) => {
   const tree = [];
@@ -78,17 +79,20 @@ const New = () => {
       </PageActions>
 
       <Form>
-        <FormItem label="名称" name="name" required/>
+        <Section>
+          <FormItem label="名称" name="name" required/>
 
-        <FormItem label="菜单和操作" name="actions">
-          <TreeInput/>
-        </FormItem>
+          <FormItem label="菜单和操作" name="actions">
+            <TreeInput/>
+          </FormItem>
 
-        {isEnabledPermissionManage && <FormItem label="权限" name="permissionIds">
-          <Select url="permissions" mode="multiple" labelKey="name" valueKey="id"/>
-        </FormItem>}
+          {isEnabledPermissionManage && <FormItem label="权限" name="permissionIds">
+            <Select url="permissions" mode="multiple" labelKey="name" valueKey="id"/>
+          </FormItem>}
 
-        <FormItem label="描述" name="description" type="textarea"/>
+          <FormItem label="描述" name="description" type="textarea"/>
+        </Section>
+
         <FormAction/>
       </Form>
     </Page>

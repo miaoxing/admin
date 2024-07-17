@@ -1,5 +1,5 @@
 import { Page } from '@mxjs/a-page';
-import { Form, FormAction, FormItem } from '@mxjs/a-form';
+import { Form, FormActions, FormItem } from '@mxjs/a-form';
 import { FormItemUpload } from '@miaoxing/admin';
 import { Section } from '@mxjs/a-section';
 
@@ -17,7 +17,7 @@ const Index = () => {
           <FormItemUpload label="头像" name="avatar" max={1}/>
         </Section>
 
-        <FormAction list={false}/>
+        <FormActions list={false}/>
       </Form>
     </Page>
   );

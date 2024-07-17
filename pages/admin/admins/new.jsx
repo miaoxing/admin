@@ -2,7 +2,7 @@
  * @share [id]/edit
  */
 import { Page, PageActions } from '@mxjs/a-page';
-import { Form, FormItem, FormAction } from '@mxjs/a-form';
+import { Form, FormItem, FormActions } from '@mxjs/a-form';
 import { CListBtn } from '@mxjs/a-clink';
 import { Alert } from 'antd';
 import { useConfig } from '@mxjs/config';
@@ -52,7 +52,7 @@ const AdminForm = () => {
                 label="头像" name={['user', 'avatar']} extra="支持.jpg .jpeg .bmp .gif .png格式照片" max={1}/>
             </Section>
 
-            <FormAction/>
+            <FormActions/>
           </>;
         }}
       </Form>

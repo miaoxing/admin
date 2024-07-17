@@ -1,6 +1,6 @@
 import $ from 'miaoxing';
 import { Page } from '@mxjs/a-page';
-import { Form, FormAction, FormItem } from '@mxjs/a-form';
+import { Form, FormActions, FormItem } from '@mxjs/a-form';
 import { Alert } from 'antd';
 import curUrl from '@mxjs/cur-url';
 import { useConfig } from '@mxjs/config';
@@ -29,7 +29,7 @@ const Index = () => {
           <FormItem label="重复新密码" name="passwordConfirm" type="password" required/>
         </Section>
 
-        <FormAction list={false}/>
+        <FormActions list={false}/>
       </Form>
     </Page>
   );

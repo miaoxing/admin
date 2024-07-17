@@ -1,5 +1,5 @@
 import { Page } from '@mxjs/a-page';
-import { Form, FormAction, FormItem } from '@mxjs/a-form';
+import { Form, FormActions, FormItem } from '@mxjs/a-form';
 import { Section } from '@mxjs/a-section';
 
 const Index = () => {
@@ -10,7 +10,7 @@ const Index = () => {
           <FormItem label="ICP 备案号" name="adminLogin.icpRecordNumber"/>
           <FormItem label="公安备案号" name="adminLogin.publicSecurityRecordNumber" extra="填写后将显示在后台登录页面底部"/>
         </Section>
-        <FormAction list={false}/>
+        <FormActions list={false}/>
       </Form>
     </Page>
   );

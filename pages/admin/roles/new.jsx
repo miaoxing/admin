@@ -3,7 +3,7 @@
  */
 import { CListBtn } from '@mxjs/a-clink';
 import { Page, PageActions, PageContext } from '@mxjs/a-page';
-import { Form, FormAction, FormItem } from '@mxjs/a-form';
+import { Form, FormActions, FormItem } from '@mxjs/a-form';
 import { Tree } from 'antd';
 import { useContext, useEffect, useState } from 'react';
 import propTypes from 'prop-types';
@@ -93,7 +93,7 @@ const New = () => {
           <FormItem label="描述" name="description" type="textarea"/>
         </Section>
 
-        <FormAction/>
+        <FormActions/>
       </Form>
     </Page>
   );

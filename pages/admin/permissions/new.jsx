@@ -3,7 +3,7 @@
  */
 import { CListBtn } from '@mxjs/a-clink';
 import { Page, PageActions } from '@mxjs/a-page';
-import { Form, FormAction, FormItem } from '@mxjs/a-form';
+import { Form, FormActions, FormItem } from '@mxjs/a-form';
 import { Section } from '@mxjs/a-section';
 
 const New = () => {
@@ -19,7 +19,7 @@ const New = () => {
           <FormItem label="标识" name="code" required/>
           <FormItem label="描述" name="description" type="textarea"/>
         </Section>
-        <FormAction/>
+        <FormActions/>
       </Form>
     </Page>
   );

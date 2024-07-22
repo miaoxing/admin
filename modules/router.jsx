@@ -47,14 +47,16 @@ const LoadableComponent = () => {
   const LoadableComponent = loadedPages[key];
   const PageLayout = getLayout(page, Layout);
   return (
-    <PageLayout>
+    <>
       <RouterStore/>
-      <ErrorBoundary>
-        <Suspense fallback={<PageLoading/>}>
-          <LoadableComponent/>
-        </Suspense>
-      </ErrorBoundary>
-    </PageLayout>
+      <PageLayout>
+        <ErrorBoundary>
+          <Suspense fallback={<PageLoading/>}>
+            <LoadableComponent/>
+          </Suspense>
+        </ErrorBoundary>
+      </PageLayout>
+    </>
   );
 };
 

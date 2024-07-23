@@ -2,16 +2,14 @@ import { ConfigProvider } from 'antd';
 import App from './App';
 import zhCN from 'antd/es/locale/zh_CN';
 import { url } from '@mxjs/app';
-import $ from 'miaoxing';
 import AntdApp from './AntdApp';
 import router from '../modules/router';
 
 const AppContainer = () => {
+  // 如果不在 /admin 下，跳转到 /admin
   if (!url.isAdmin()) {
-    $.to('admin');
-    // NOTE: 还未在路由器中，需主动刷新页面
-    window.location.reload();
-    return null;
+    window.location.href = import.meta.env.BASE_URL + 'admin';
+    return ;
   }
 
   return (

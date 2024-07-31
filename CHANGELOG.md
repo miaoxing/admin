@@ -1,3 +1,49 @@
+# [0.14.0](https://github.com/miaoxing/admin/compare/v0.13.2...v0.14.0) (2024-07-31)
+
+
+### Bug Fixes
+
+* **admin:** `placeholder` 为空时不传 false, 需传空字符串 ([49eee61](https://github.com/miaoxing/admin/commit/49eee61cf67a63f9776d02a586ac8e3781bf6466))
+* **admin:** 提前渲染 `RouterStore`，以便 Layout 中判断为登录跳转可以使用 navigate ([2caf668](https://github.com/miaoxing/admin/commit/2caf668792eaec650163aefbcca0e190df5411ed))
+* **admin:** 解决自动跳转 admin 功能失效 ([c061695](https://github.com/miaoxing/admin/commit/c061695ed0a7b940e00e0ee410b7cf01f7eea459))
+* `export default from` 改为标准语法 ([6ae8361](https://github.com/miaoxing/admin/commit/6ae83616a458ce4962acbad2ef9693d2c31f8a71))
+
+
+### Code Refactoring
+
+* **admin:** 移除 Chakra-UI 主题配置和相关依赖，改为使用 Tailwind ([a99256b](https://github.com/miaoxing/admin/commit/a99256b824d78bd37409c5ba5c2ae7790b33c283))
+
+
+### Features
+
+* **u:** 调整页面内容为卡片视图 ([c0bccc2](https://github.com/miaoxing/admin/commit/c0bccc24878ce6d340f41a261a938ec95eb6cdf7))
+* Box 组件改为 tailwind 类名 ([188d8a4](https://github.com/miaoxing/admin/commit/188d8a442dc0375a948540b9cf8ff826255c7ef8))
+
+
+### BREAKING CHANGES
+
+* **admin:** 移除 Chakra-UI 主题配置和相关依赖，改为使用 Tailwind
+
+
+
+
+
+### Dependencies
+
+* **@mxjs/a-clink:** upgrade from `3.0.1` to `3.0.2`
+* **@mxjs/a-form:** upgrade from `3.0.2` to `4.0.0`
+* **@mxjs/a-page:** upgrade from `3.0.1` to `4.0.0`
+* **@mxjs/a-table:** upgrade from `1.9.0` to `2.0.0`
+* **@mxjs/api:** upgrade from `1.1.0` to `1.1.1`
+* **@mxjs/config:** upgrade from `1.1.2` to `1.1.3`
+* **@mxjs/a-section:** upgrade from `1.0.0` to `1.1.0`
+* **@mxjs/a-upload:** upgrade from `1.3.0` to `1.3.1`
+* **miaoxing:** upgrade from `0.4.15` to `0.4.16`
+* **@miaoxing/dev:** upgrade from `9.1.1` to `9.1.2`
+* **@mxjs/test:** upgrade from `2.0.0` to `2.0.1`
+* **@miaoxing/app:** upgrade from `0.10.1` to `0.10.2`
+* **@miaoxing/file:** upgrade from `0.3.31` to `0.3.32`
+
 ## [0.13.2](https://github.com/miaoxing/admin/compare/v0.13.1...v0.13.2) (2024-06-30)
 
 

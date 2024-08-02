@@ -1,3 +1,30 @@
+# [0.15.0](https://github.com/miaoxing/admin/compare/v0.14.0...v0.15.0) (2024-08-02)
+
+
+### Code Refactoring
+
+* **u:** 移除 webpack，改为使用 vite ([c7b172e](https://github.com/miaoxing/admin/commit/c7b172ead338c46e6302320600dd2a1d3a7236c1))
+
+
+### BREAKING CHANGES
+
+* **u:** 移除 webpack，改为使用 vite
+
+
+
+
+
+### Dependencies
+
+* **@mxjs/a-clink:** upgrade from `3.0.2` to `3.0.3`
+* **@mxjs/a-form:** upgrade from `4.0.0` to `4.0.1`
+* **@mxjs/a-page:** upgrade from `4.0.0` to `4.0.1`
+* **@mxjs/a-table:** upgrade from `2.0.0` to `2.0.1`
+* **@mxjs/api:** upgrade from `1.1.1` to `1.1.2`
+* **@mxjs/a-upload:** upgrade from `1.3.1` to `1.3.2`
+* **miaoxing:** upgrade from `0.4.16` to `0.4.17`
+* **@mxjs/test:** upgrade from `2.0.1` to `2.0.2`
+
 # [0.14.0](https://github.com/miaoxing/admin/compare/v0.13.2...v0.14.0) (2024-07-31)
 
 

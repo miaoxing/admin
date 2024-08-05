@@ -113,7 +113,7 @@ const Layout = ({children}) => {
 
   const handleLogout = async () => {
     const {ret} = await $.post('logout');
-    await $.ret(ret);
+    $.ret(ret);
     if (ret.isSuc()) {
       window.localStorage.removeItem('token');
       $.to(getLoginPath(null, location));

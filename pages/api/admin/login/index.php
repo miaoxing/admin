@@ -4,7 +4,7 @@ use Miaoxing\Plugin\BasePage;
 use Miaoxing\Plugin\Service\Config;
 use Miaoxing\Plugin\Service\User;
 
-return new class () extends BasePage {
+return new class extends BasePage {
     protected $requireAuth = false;
 
     protected $className = '用户';

@@ -9,7 +9,7 @@ use Miaoxing\Services\Service\ShowAction;
 use Wei\Req;
 use Wei\V;
 
-return new class () extends BasePage {
+return new class extends BasePage {
     use ItemTrait;
 
     protected $className = '管理员';

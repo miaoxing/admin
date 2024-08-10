@@ -6,7 +6,7 @@ use Miaoxing\Plugin\BasePage;
 return new /**
  * @experimental
  */
-class () extends BasePage {
+class extends BasePage {
     public function init()
     {
         parent::init();

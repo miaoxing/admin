@@ -5,7 +5,7 @@ use Miaoxing\Plugin\BasePage;
 use Miaoxing\Plugin\Service\User;
 use Wei\V;
 
-return new class () extends BasePage {
+return new class extends BasePage {
     protected $className = '个人资料';
 
     public function init()

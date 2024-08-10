@@ -10,7 +10,7 @@ use Miaoxing\Services\Service\UpdateAction;
 use Wei\Event;
 use Wei\V;
 
-return new class () extends BasePage {
+return new class extends BasePage {
     protected $className = '分组';
 
     public function get()

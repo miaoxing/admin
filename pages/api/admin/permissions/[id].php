@@ -6,7 +6,7 @@ use Miaoxing\Services\Page\ItemTrait;
 use Miaoxing\Services\Service\UpdateAction;
 use Wei\V;
 
-return new class () extends BasePage {
+return new class extends BasePage {
     use ItemTrait;
 
     protected $className = '权限';

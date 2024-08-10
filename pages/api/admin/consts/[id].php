@@ -3,7 +3,7 @@
 use Miaoxing\Plugin\BasePage;
 use Miaoxing\Plugin\ConstTrait;
 
-return new class () extends BasePage {
+return new class extends BasePage {
     /**
      * @experimental
      * @param mixed $req

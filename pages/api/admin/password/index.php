@@ -3,7 +3,7 @@
 use Miaoxing\Plugin\BasePage;
 use Miaoxing\Plugin\Service\User;
 
-return new class () extends BasePage {
+return new class extends BasePage {
     protected $controllerName = '密码管理';
 
     protected $actionPermissions = [

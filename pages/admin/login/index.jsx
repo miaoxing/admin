@@ -10,7 +10,7 @@ import nextUrl from 'next-url';
 import { useConfig } from '@mxjs/config';
 import { useEffect, useRef, useState } from 'react';
 import publicSecurity from '@miaoxing/admin/images/public-security.png';
-import bg from '@miaoxing/admin/images/bg.svg';
+import bg from '@miaoxing/admin/images/bg.png';
 import propTypes from 'prop-types';
 import { LockOutlined, UserOutlined } from '@ant-design/icons';
 

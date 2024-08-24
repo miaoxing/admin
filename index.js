@@ -15,6 +15,9 @@ import ModalDescriptions from './components/ModalDescriptions';
 
 import useOption from './modules/use-option';
 
+import defaultLogo from './images/logo.svg';
+import defaultEntryBg from './images/bg.png';
+
 export {
   Avatar,
   FormItemSort,
@@ -31,4 +34,6 @@ export {
   Descriptions,
   ModalDescriptions,
   useOption,
+  defaultLogo,
+  defaultEntryBg,
 };

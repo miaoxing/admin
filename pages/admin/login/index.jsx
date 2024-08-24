@@ -10,9 +10,9 @@ import nextUrl from 'next-url';
 import { useConfig } from '@mxjs/config';
 import { useEffect, useRef, useState } from 'react';
 import publicSecurity from '@miaoxing/admin/images/public-security.png';
-import bg from '@miaoxing/admin/images/bg.png';
 import propTypes from 'prop-types';
 import { LockOutlined, UserOutlined } from '@ant-design/icons';
+import { defaultEntryBg } from '@miaoxing/admin';
 
 /**
  * 解析 auth 参数，从中获得用户名和密码
@@ -89,7 +89,7 @@ const Index = () => {
       <Global
         styles={css`
           body {
-            background: #f5f8fa url(${page.bg || bg}) no-repeat center center fixed;
+            background: #f5f8fa url(${page.bg || defaultEntryBg}) no-repeat center center fixed;
             background-size: cover;
           }
         `}

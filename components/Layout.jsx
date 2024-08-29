@@ -62,7 +62,24 @@ const convertMenus = (menus, level = 1) => {
   });
 };
 
+const redirectIfNotLogin = () => {
+  const location = useLocation();
+  const token = window.localStorage.getItem('token');
+  useEffect(() => {
+    if (!token) {
+      // navigate 涉及到 state 更新，需放在 useEffect 中
+      $.to(getLoginPath(null, location));
+    }
+  }, []);
+  return !token;
+};
+
 const Layout = ({children}) => {
+  // 没有 token 则提前跳转到登录页面
+  if (redirectIfNotLogin()) {
+    return;
+  }
+
   const {token} = theme.useToken();
   const [collapsed, setCollapsed] = useState(true);
   const [user, setUser] = useState({});
@@ -71,13 +88,6 @@ const Layout = ({children}) => {
   const [adminPage, setAdminPage] = useState({
     menus: [],
   });
-
-  // 没有 token 则提前跳转到登录页面
-  const location = useLocation();
-  if (!window.localStorage.getItem('token')) {
-    $.to(getLoginPath(null, location));
-    return;
-  }
 
   const getMenu = async () => {
     const {ret} = await $.get('admin-page', {loading: true});
@@ -89,7 +99,6 @@ const Layout = ({children}) => {
     setAdminPage(ret.data);
     return convertMenus(ret.data.menus);
   };
-
   useEffect(() => {
     $.get('user').then(({ret}) => {
       if (ret.isSuc()) {

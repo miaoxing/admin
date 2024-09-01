@@ -1,3 +1,38 @@
+## [0.15.2](https://github.com/miaoxing/admin/compare/v0.15.1...v0.15.2) (2024-09-01)
+
+
+### Bug Fixes
+
+* **admin:** 未登录直接跳转，触发了 setstate-in-render ([1fd0e45](https://github.com/miaoxing/admin/commit/1fd0e4523788d5bb855fdee7ed3cd2a688a8b1e0))
+
+
+### Features
+
+* **admin:** loading 增加延迟加载和持续加载功能 ([66c1c08](https://github.com/miaoxing/admin/commit/66c1c08949e730143cfdda95cec05acf890891db))
+* **admin:** 增加导出默认 Logo 和入口背景图 ([3c8c3b3](https://github.com/miaoxing/admin/commit/3c8c3b327431ab401c5008d048473dfa95732b65))
+* **admin, u:** 更新默认入口背景图 ([0563f0f](https://github.com/miaoxing/admin/commit/0563f0fc8945ef197c3c622f594918d4b0a36a4e))
+* 插件增加 wei 命令行入口 ([999f816](https://github.com/miaoxing/admin/commit/999f8169fe5a7a1d958e9b87146fd63c2dfa09b0))
+
+
+
+
+
+### Dependencies
+
+* **@mxjs/a-clink:** upgrade from `3.0.4` to `3.0.5`
+* **@mxjs/a-form:** upgrade from `4.0.2` to `4.1.0`
+* **@mxjs/a-page:** upgrade from `4.0.2` to `4.1.0`
+* **@mxjs/a-table:** upgrade from `2.0.2` to `2.1.0`
+* **@mxjs/api:** upgrade from `1.1.3` to `1.1.4`
+* **@mxjs/config:** upgrade from `1.1.4` to `1.1.5`
+* **@mxjs/a-section:** upgrade from `1.1.1` to `1.2.0`
+* **@mxjs/a-upload:** upgrade from `1.3.3` to `1.4.0`
+* **miaoxing:** upgrade from `0.4.18` to `0.4.19`
+* **@miaoxing/dev:** upgrade from `9.1.3` to `9.2.0`
+* **@mxjs/test:** upgrade from `2.0.3` to `2.0.4`
+* **@miaoxing/app:** upgrade from `0.10.3` to `0.10.4`
+* **@miaoxing/file:** upgrade from `0.3.33` to `0.3.34`
+
 ## [0.15.1](https://github.com/miaoxing/admin/compare/v0.15.0...v0.15.1) (2024-08-03)
 
 

@@ -15,7 +15,7 @@ return new class extends BasePage {
 
     public function get()
     {
-        $config = Config::getSection('adminLogin');
+        $config = Config::getGlobalSection('adminLogin');
 
         return suc([
             'data' => $config,

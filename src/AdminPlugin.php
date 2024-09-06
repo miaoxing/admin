@@ -74,7 +74,7 @@ class AdminPlugin extends BasePlugin
             $permissions->addChild()->setLabel('删除')->setUrl('admin/permissions/[id]/delete');
         }
 
-        $setting->addChild()->setLabel('后台设置')->setUrl('admin/admin-settings')->setSort(10);
+        $setting->addChild()->setLabel('系统设置')->setUrl('admin/global/settings')->setSort(10);
     }
 
     public function onPermissionGetMap(PermissionMap $map)
@@ -120,8 +120,8 @@ class AdminPlugin extends BasePlugin
             $map->addDelete();
         });
 
-        $map->add('admin/admin-settings', [
-            'PATCH api/admin/admin-settings',
+        $map->add('admin/global/settings', [
+            'PATCH api/admin/global/settings',
         ]);
     }
 

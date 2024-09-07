@@ -75,6 +75,15 @@ class AdminPlugin extends BasePlugin
         }
 
         $setting->addChild()->setLabel('系统设置')->setUrl('admin/global/settings')->setSort(10);
+
+        $system = $menu->addChild()
+            ->setLabel('系统')
+            ->setIcon('https://cdnjs.cloudflare.com/ajax/libs/ant-design-icons-svg/4.3.1/outlined/control.svg');
+
+        $menus = $system->addChild()->setLabel('菜单管理')->setUrl('admin/admin-menus');
+        $menus->addChild()->setLabel('添加')->setUrl('admin/admin-menus/new');
+        $menus->addChild()->setLabel('编辑')->setUrl('admin/admin-menus/[id]/edit');
+        $menus->addChild()->setLabel('删除')->setUrl('admin/admin-menus/[id]/delete');
     }
 
     public function onPermissionGetMap(PermissionMap $map)
@@ -114,6 +123,13 @@ class AdminPlugin extends BasePlugin
         });
 
         $map->prefix('admin/permissions', static function (PermissionMap $map) {
+            $map->addList();
+            $map->addNew();
+            $map->addEdit();
+            $map->addDelete();
+        });
+
+        $map->prefix('admin/admin-menus', static function (PermissionMap $map) {
             $map->addList();
             $map->addNew();
             $map->addEdit();

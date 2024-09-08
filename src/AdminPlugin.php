@@ -46,10 +46,8 @@ class AdminPlugin extends BasePlugin
             ->setLabel('设置')
             ->setIcon('https://cdnjs.cloudflare.com/ajax/libs/ant-design-icons-svg/4.3.1/outlined/setting.svg')
             ->setSort(300);
-        $menu->addChild()->setLabel('修改密码')->setUrl('admin/password')->setExtra('visible', false)
-            ->setExtra('permission', false);
-        $menu->addChild()->setLabel('修改资料')->setUrl('admin/user')->setExtra('visible', false)
-            ->setExtra('permission', false);
+        $menu->addChild()->setLabel('修改密码')->setUrl('admin/password')->setIsShow(false);
+        $menu->addChild()->setLabel('修改资料')->setUrl('admin/user')->setIsShow(false);
 
         $admins = $user->addChild()->setLabel('管理员管理')->setUrl('admin/admins');
         $admins->addChild()->setUrl('admin/admins/new')->setLabel('添加');
@@ -78,6 +76,7 @@ class AdminPlugin extends BasePlugin
 
         $system = $menu->addChild()
             ->setLabel('系统')
+            ->setSort(200)
             ->setIcon('https://cdnjs.cloudflare.com/ajax/libs/ant-design-icons-svg/4.3.1/outlined/control.svg');
 
         $menus = $system->addChild()->setLabel('菜单管理')->setUrl('admin/admin-menus');

@@ -54,7 +54,7 @@ const convertMenus = (menus, level = 1) => {
       path: menu.url ? ('/' + menu.url.replace('[id]', ':id')) : null,
       icon: menu.icon ? <MenuIcon image={menu.icon}/> : '',
       target: menu.target,
-      hideInMenu: menu.visible === false,
+      hideInMenu: menu.isShow === false,
       // 超过只显示前两级菜单
       hideChildrenInMenu: level > 1,
       children: menu.children ? convertMenus(menu.children, level + 1) : null,

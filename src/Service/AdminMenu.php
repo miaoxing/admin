@@ -2,7 +2,6 @@
 
 namespace Miaoxing\Admin\Service;
 
-use Miaoxing\Admin\Service\AdminMenu\Item;
 use Miaoxing\App\Service\Permission;
 use Miaoxing\App\Service\UserModel;
 use Miaoxing\Plugin\BaseService;
@@ -13,16 +12,16 @@ use Miaoxing\Plugin\Service\User;
  *
  * @mixin \EventMixin
  *
- * @method Item addChild(string|Item|null $name = null): Item
- * @method Item|null getChild(string $name)
- * @method Item child(string $name)
- * @method Item removeChild(string $name)
- * @method Item removeChildByUrl(string|array $url)
+ * @method AdminMenuModel addChild(string|Item|null $name = null)
+ * @method AdminMenuModel|null getChild(string $name)
+ * @method AdminMenuModel child(string $name)
+ * @method AdminMenuModel removeChild(string $name)
+ * @method AdminMenuModel removeChildByUrl(string|array $url)
  */
 class AdminMenu extends BaseService
 {
     /**
-     * @var Item
+     * @var AdminMenuModel
      */
     protected $menu;
 
@@ -33,7 +32,7 @@ class AdminMenu extends BaseService
     {
         parent::__construct($options);
 
-        $this->menu = Item::new();
+        $this->menu = AdminMenuModel::new();
     }
 
     /**
@@ -53,10 +52,10 @@ class AdminMenu extends BaseService
     /**
      * Return the root menu object
      *
-     * @return Item
+     * @return AdminMenuModel
      * @svc
      */
-    protected function getMenu(): Item
+    protected function getMenu(): AdminMenuModel
     {
         return $this->menu;
     }
@@ -78,6 +77,9 @@ class AdminMenu extends BaseService
      */
     protected function getMenusByUser(?UserModel $user = null)
     {
+//        $menus = AdminMenuModel::all()->toTree();
+//        return $menus->toMenu();
+
         $this->loadMenu();
 
         $user || $user = User::cur();
@@ -86,7 +88,7 @@ class AdminMenu extends BaseService
             $this->filterMenu($this->menu, $permissions);
         }
 
-        return $this->menu->toArray()['children'];
+        return $this->menu->children->toMenu();
     }
 
     protected function loadMenu()
@@ -97,15 +99,15 @@ class AdminMenu extends BaseService
     }
 
     /**
-     * @param Item $menu
+     * @param AdminMenuModel $menu
      * @param array $permissions
-     * @return Item
+     * @return AdminMenuModel
      * @internal
      */
-    protected function filterMenu(Item $menu, array $permissions): Item
+    protected function filterMenu(AdminMenuModel $menu, array $permissions): AdminMenuModel
     {
-        foreach ($menu->getChildren() as $i => $subMenu) {
-            if (false === $subMenu->getExtra('permission')) {
+        foreach ($menu->children as $i => $subMenu) {
+            if (false === $subMenu->getMetadata('permission')) {
                 continue;
             }
 

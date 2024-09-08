@@ -33,10 +33,10 @@ class AdminMenuTest extends BaseTestCase
 
         $menu->addChild()->setUrl('url1');
         $menu->addChild()->setUrl('url2');
-        $this->assertCount(2, $menu->getChildren());
+        $this->assertCount(2, $menu->children);
 
         $menu->removeChildByUrl('url2');
-        $this->assertCount(1, $menu->getChildren());
+        $this->assertCount(1, $menu->children);
     }
 
     public function testAutoGenerateKey()
@@ -45,8 +45,8 @@ class AdminMenuTest extends BaseTestCase
         $child = $adminMenu->addChild();
         $child2 = $adminMenu->addChild();
 
-        $this->assertSame('0', $child->getName());
-        $this->assertSame('1', $child2->getName());
+        $this->assertSame('0', $child->getCode());
+        $this->assertSame('1', $child2->getCode());
     }
 
     public function testAddAndRemoveChild()
@@ -54,12 +54,12 @@ class AdminMenuTest extends BaseTestCase
         $menu = AdminMenu::instance()->getMenu();
         $menu->addChild();
         $menu->addChild();
-        $this->assertCount(2, $menu->getChildren());
+        $this->assertCount(2, $menu->children);
 
         $menu->removeChild(0);
-        $this->assertCount(1, $menu->getChildren());
+        $this->assertCount(1, $menu->children);
         $menu->addChild();
-        $this->assertCount(2, $menu->getChildren());
+        $this->assertCount(2, $menu->children);
     }
 
     public function testMixStringAndIntKey()
@@ -67,9 +67,9 @@ class AdminMenuTest extends BaseTestCase
         $menu = AdminMenu::instance()->getMenu();
         $menu->addChild('test');
         $menu->addChild();
-        $this->assertCount(2, $menu->getChildren());
+        $this->assertCount(2, $menu->children);
 
         $menu->removeChild(0);
-        $this->assertCount(1, $menu->getChildren());
+        $this->assertCount(1, $menu->children);
     }
 }

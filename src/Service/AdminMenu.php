@@ -77,18 +77,20 @@ class AdminMenu extends BaseService
      */
     protected function getMenusByUser(?UserModel $user = null)
     {
-//        $menus = AdminMenuModel::all()->toTree();
-//        return $menus->toMenu();
-
-        $this->loadMenu();
+        // 如果数据库没有菜单，则通过事件加载菜单
+        $menus = AdminMenuModel::where('isEnabled', true)->all()->toTree();
+        if (!$menus->count()) {
+            $this->loadMenu();
+            $menus = $this->menu->children;
+        }
 
         $user || $user = User::cur();
         if (!$user->isSuperAdmin() && Permission::isEnabledCheck()) {
             $permissions = $user->getActionPermissionCodes();
-            $this->filterMenu($this->menu, $permissions);
+            $this->filterMenu($menus, $permissions);
         }
 
-        return $this->menu->children->toMenu();
+        return $menus->toMenu();
     }
 
     protected function loadMenu()
@@ -99,23 +101,23 @@ class AdminMenu extends BaseService
     }
 
     /**
-     * @param AdminMenuModel $menu
+     * @param AdminMenuModel|AdminMenuModel[] $menus
      * @param array $permissions
      * @return AdminMenuModel
      * @internal
      */
-    protected function filterMenu(AdminMenuModel $menu, array $permissions): AdminMenuModel
+    protected function filterMenu(AdminMenuModel $menus, array $permissions): AdminMenuModel
     {
-        foreach ($menu->children as $i => $subMenu) {
-            if (false === $subMenu->getMetadata('permission')) {
+        foreach ($menus as $i => $menu) {
+            if (false === $menu->getMetadata('permission')) {
                 continue;
             }
 
-            if ($subMenu->getUrl() && !in_array($subMenu->getUrl(), $permissions, true)) {
-                $menu->removeChild($i);
+            if ($menu->getUrl() && !in_array($menu->getUrl(), $permissions, true)) {
+                unset($menus[$i]);
             }
-            $this->filterMenu($subMenu, $permissions);
+            $this->filterMenu($menu->children, $permissions);
         }
-        return $menu;
+        return $menus;
     }
 }

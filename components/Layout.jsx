@@ -90,11 +90,7 @@ const Layout = ({children}) => {
   });
 
   const getMenu = async () => {
-    const {ret} = await $.get('admin-page', {loading: true});
-    if (ret.isErr()) {
-      $.ret(ret);
-      return;
-    }
+    const {ret} = await $.get('admin-page', {suspense: true});
 
     setAdminPage(ret.data);
     return convertMenus(ret.data.menus);
@@ -121,12 +117,9 @@ const Layout = ({children}) => {
   }, []);
 
   const handleLogout = async () => {
-    const {ret} = await $.post('logout');
-    $.ret(ret);
-    if (ret.isSuc()) {
-      window.localStorage.removeItem('token');
-      $.to(getLoginPath(null, location));
-    }
+    await $.post('logout', { suspense: true });
+    window.localStorage.removeItem('token');
+    $.to(getLoginPath(null, location));
   };
 
   return (

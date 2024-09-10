@@ -13,8 +13,9 @@ import { Link } from '@mxjs/router';
 import SVG from 'react-inlinesvg';
 import defaultAvatar from '../images/avatar.jpg';
 import { useLocation } from 'react-router';
+import { useQuery } from '@mxjs/query';
 
-const MenuLink = ({menu}) => {
+const MenuLink = ({ menu }) => {
   // 快速检查是否为外部地址
   if (menu.path.indexOf('://') > 0) {
     return <a href={menu.path} target={menu.target}>{menu.name}</a>;
@@ -27,7 +28,7 @@ MenuLink.propTypes = {
   menu: propTypes.object,
 };
 
-const MenuIcon = ({image}) => {
+const MenuIcon = ({ image }) => {
   if (!image) {
     return '';
   }
@@ -74,53 +75,42 @@ const redirectIfNotLogin = () => {
   return !token;
 };
 
-const Layout = ({children}) => {
+const Layout = ({ children }) => {
   // 没有 token 则提前跳转到登录页面
   if (redirectIfNotLogin()) {
     return;
   }
 
-  const {token} = theme.useToken();
+  const { token } = theme.useToken();
   const [collapsed, setCollapsed] = useState(true);
-  const [user, setUser] = useState({});
-  const [permissions, setPermissions] = useState({});
-  const {page} = useConfig();
+  const { page } = useConfig();
   const [adminPage, setAdminPage] = useState({
     menus: [],
   });
 
   const getMenu = async () => {
-    const {ret} = await $.get('admin-page', {suspense: true});
+    const { ret } = await $.get('admin-page', { suspense: true });
+
 
     setAdminPage(ret.data);
     return convertMenus(ret.data.menus);
   };
-  useEffect(() => {
-    $.get('user').then(({ret}) => {
-      if (ret.isSuc()) {
-        setUser(ret.data);
-      } else {
-        $.ret(ret);
-      }
-    });
-
-    $.get('user-permissions').then(({ret}) => {
-      if (ret.isSuc()) {
-        setPermissions(ret.data.codes.reduce((permissions, key) => {
-          permissions[key] = true;
-          return permissions;
-        }, {}));
-      } else {
-        $.ret(ret);
-      }
-    });
-  }, []);
-
   const handleLogout = async () => {
     await $.post('logout', { suspense: true });
     window.localStorage.removeItem('token');
     $.to(getLoginPath(null, location));
   };
+
+  const { data: user = {} } = useQuery('user');
+
+  const { data: permissions = {} } = useQuery('user-permissions', {
+    onSuccess: (ret) => {
+      ret.data = ret.data.codes.reduce((permissions, key) => {
+        permissions[key] = true;
+        return permissions;
+      }, {});
+    }
+  });
 
   return (
     <AuthProvider permissions={permissions} baseUrl={req.getBaseUrl()}>
@@ -230,7 +220,7 @@ const Layout = ({children}) => {
               <MenuLink menu={item}>{dom}</MenuLink>
             );
           }}
-          menuFooterRender={({collapsed}) => {
+          menuFooterRender={({ collapsed }) => {
             if (collapsed) {
               return undefined;
             }

@@ -1,18 +1,5 @@
-import {useState} from 'react';
-import useAsyncEffect from 'use-async-effect';
-import $ from 'miaoxing';
-import memoizeOne from 'async-memoize-one';
-
-async function getOption (name) {
-  const {ret} = await $.get('options', {params: {id: name}});
-  if (ret.isErr()) {
-    $.ret(ret);
-    return;
-  }
-  return ret.data;
-}
-
-const getOptionFromCache = memoizeOne(name => getOption(name));
+import { useQuery } from '@mxjs/query';
+import appendUrl from 'append-url';
 
 /**
  * @experimental
@@ -23,15 +10,8 @@ const useOption = (name, defaults) => {
     name = Object.keys(name).join(',');
   }
 
-  const [value, setValue] = useState(defaults);
-  useAsyncEffect(async () => {
-    const data = await getOptionFromCache(name);
-    if (data) {
-      setValue(data);
-    }
-  }, [name]);
-
-  return value;
+  const { data = defaults } = useQuery(appendUrl('options', { id: name }));
+  return data;
 };
 
 export default useOption;

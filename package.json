@@ -24,7 +24,7 @@
     "@mxjs/config": "^1.1.5",
     "@mxjs/a-section": "^1.2.0",
     "@mxjs/a-upload": "^1.4.0",
-    "async-memoize-one": "^1.1.5",
+    "@mxjs/query": "^1.0.0",
     "color": "^3.1.2",
     "framer-motion": "^10",
     "lodash.merge": "^4.6.2",

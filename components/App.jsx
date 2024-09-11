@@ -1,16 +1,10 @@
 import { RouterProvider } from 'react-router-dom';
-import { wei } from '@mxjs/app';
 import PropTypes from 'prop-types';
 import { ConfigProvider } from '@mxjs/config';
-import { useQuery } from '@mxjs/query';
+import useConfig from '../modules/use-config';
 
-const App = ({ router}) => {
-  const { data: config = {page: {}} } = useQuery('js-config', {
-    onSuccess: ({ data }) => {
-      wei.setConfigs(data);
-      document.title = data.page.title;
-    }
-  });
+const App = ({ router }) => {
+  const { config } = useConfig();
 
   return (
     <ConfigProvider config={config}>

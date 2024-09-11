@@ -14,6 +14,7 @@ import Descriptions from './components/Descriptions';
 import ModalDescriptions from './components/ModalDescriptions';
 
 import useOption from './modules/use-option';
+import useConfig from './modules/use-config';
 
 import defaultLogo from './images/logo.svg';
 import defaultEntryBg from './images/bg.png';
@@ -34,6 +35,7 @@ export {
   Descriptions,
   ModalDescriptions,
   useOption,
+  useConfig,
   defaultLogo,
   defaultEntryBg,
 };

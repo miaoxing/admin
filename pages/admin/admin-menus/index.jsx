@@ -1,6 +1,8 @@
 import { Table, TableActions, TableProvider, CTableDeleteLink, useTable, TableStatusCheckbox } from '@mxjs/a-table';
 import { CEditLink, CNewBtn } from '@mxjs/a-clink';
 import { Page, PageActions } from '@mxjs/a-page';
+import { Button } from '@mxjs/a-button';
+import { useMutation } from '@mxjs/query';
 import { TableImage } from '../../../index';
 import usePage from '../../../modules/use-page';
 
@@ -14,11 +16,25 @@ export default () => {
     mutate();
   };
 
+  const { trigger, isMutating } = useMutation('admin-menus/reset');
+
+  const handleClickReset = async () => {
+    const result = await $.confirm('已有的菜单将被清空，确定重置？');
+    if (!result) {
+      return;
+    }
+
+    await trigger();
+    table.reload();
+    mutate();
+  };
+
   return (
     <Page>
       <TableProvider>
         <PageActions>
           <CNewBtn/>
+          <Button permission="admin/admin-menus#reset" onClick={handleClickReset} loading={isMutating}>重置</Button>
         </PageActions>
 
         <Table

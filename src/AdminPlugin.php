@@ -83,6 +83,7 @@ class AdminPlugin extends BasePlugin
         $menus->addChild()->setLabel('添加')->setUrl('admin/admin-menus/new');
         $menus->addChild()->setLabel('编辑')->setUrl('admin/admin-menus/[id]/edit');
         $menus->addChild()->setLabel('删除')->setUrl('admin/admin-menus/[id]/delete');
+        $menus->addChild()->setLabel('重置')->setUrl('admin/admin-menus#reset');
     }
 
     public function onPermissionGetMap(PermissionMap $map)
@@ -133,6 +134,9 @@ class AdminPlugin extends BasePlugin
             $map->addNew();
             $map->addEdit();
             $map->addDelete();
+            $map->add('#reset', [
+                'POST api/admin/admin-menus/reset',
+            ]);
         });
 
         $map->add('admin/global/settings', [

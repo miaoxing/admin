@@ -6,6 +6,7 @@ use Miaoxing\App\Service\Permission;
 use Miaoxing\App\Service\UserModel;
 use Miaoxing\Plugin\BaseService;
 use Miaoxing\Plugin\Service\User;
+use Wei\Db;
 
 /**
  * 后台菜单
@@ -68,6 +69,34 @@ class AdminMenu extends BaseService
     {
         $this->loadMenu();
         return $this->menu->toArray()['children'];
+    }
+
+    /**
+     * @svc
+     */
+    protected function reset()
+    {
+        $this->loadMenu();
+        Db::transactional(function () {
+            AdminMenuModel::all()->destroy();
+            $this->saveAll($this->menu->children);
+        });
+    }
+
+    /**
+     * @param AdminMenuModel|AdminMenuModel[] $menus
+     * @param int $parentId
+     * @return void
+     */
+    protected function saveAll($menus, int $parentId = 0)
+    {
+        foreach ($menus as $menu) {
+            $menu->parentId = $parentId;
+            $menu->save();
+            if ($menu->children) {
+                $this->saveAll($menu->children, $menu->id);
+            }
+        }
     }
 
     /**

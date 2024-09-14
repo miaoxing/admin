@@ -6,7 +6,6 @@ import $ from 'miaoxing';
 import propTypes from 'prop-types';
 import { PageContext } from '@mxjs/a-page';
 import { req } from '@mxjs/app';
-import { useConfig } from '@mxjs/config';
 import { AuthProvider } from '@mxjs/auth';
 import getLoginPath from '../modules/get-login-path';
 import { Link } from '@mxjs/router';
@@ -14,6 +13,8 @@ import SVG from 'react-inlinesvg';
 import defaultAvatar from '../images/avatar.jpg';
 import { useLocation } from 'react-router';
 import { useQuery } from '@mxjs/query';
+import { useConfig } from '@mxjs/config';
+import usePage from '../modules/use-page';
 
 const MenuLink = ({ menu }) => {
   // 快速检查是否为外部地址
@@ -83,18 +84,16 @@ const Layout = ({ children }) => {
 
   const { token } = theme.useToken();
   const [collapsed, setCollapsed] = useState(true);
-  const { page } = useConfig();
-  const [adminPage, setAdminPage] = useState({
-    menus: [],
-  });
+  const { page = {} } = useConfig();
 
-  const getMenu = async () => {
-    const { ret } = await $.get('admin-page', { suspense: true });
-
-
-    setAdminPage(ret.data);
-    return convertMenus(ret.data.menus);
-  };
+  const [routes, setRoutes] = useState([]);
+  const { data: adminPage, isLoading } = usePage();
+  useEffect(() => {
+    if (isLoading) {
+      return;
+    }
+    setRoutes(convertMenus(adminPage.menus));
+  }, [isLoading]);
   const handleLogout = async () => {
     await $.post('logout', { suspense: true });
     window.localStorage.removeItem('token');
@@ -212,8 +211,11 @@ const Layout = ({ children }) => {
             },
           }}
           fixSiderbar={true}
+          route={{
+            routes,
+          }}
           menu={{
-            request: getMenu,
+            loading: isLoading,
           }}
           menuItemRender={(item, dom) => {
             return (

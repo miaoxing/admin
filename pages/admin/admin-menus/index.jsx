@@ -1,4 +1,12 @@
-import { Table, TableActions, TableProvider, CTableDeleteLink, useTable, TableStatusCheckbox } from '@mxjs/a-table';
+import {
+  Table,
+  TableActions,
+  TableProvider,
+  CTableDeleteLink,
+  useTable,
+  TableStatusCheckbox,
+  useExpand, TableExpandIcon
+} from '@mxjs/a-table';
 import { CEditLink, CNewBtn } from '@mxjs/a-clink';
 import { Page, PageActions } from '@mxjs/a-page';
 import { Button } from '@mxjs/a-button';
@@ -9,6 +17,7 @@ import usePage from '../../../modules/use-page';
 export default () => {
   const [table] = useTable();
   const { mutate } = usePage();
+  const { expanded, onExpand, expandedRowKeys, setData, onExpandAll } = useExpand();
 
   // 删除后重新加载菜单
   const handleDelete = () => {
@@ -29,6 +38,7 @@ export default () => {
     mutate();
   };
 
+
   return (
     <Page>
       <TableProvider>
@@ -39,9 +49,23 @@ export default () => {
 
         <Table
           tableApi={table}
+          expandedRowKeys={expandedRowKeys}
+          onExpand={onExpand}
+          postData={(data) => {
+            setData(data);
+            return data;
+          }}
+          pagination={{
+            pageSize: 500,
+          }}
           columns={[
             {
-              title: '名称',
+              title: (
+                <>
+                  <TableExpandIcon expanded={expanded} onExpand={onExpandAll}/>
+                  名称
+                </>
+              ),
               dataIndex: 'label',
             },
             {

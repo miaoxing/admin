@@ -1,17 +1,18 @@
 import {
+  CTableDeleteLink,
   Table,
   TableActions,
+  TableExpandIcon,
   TableProvider,
-  CTableDeleteLink,
-  useTable,
   TableStatusCheckbox,
-  useExpand, TableExpandIcon
+  useExpand,
+  useTable
 } from '@mxjs/a-table';
 import { CEditLink, CNewBtn } from '@mxjs/a-clink';
 import { Page, PageActions } from '@mxjs/a-page';
 import { Button } from '@mxjs/a-button';
 import { useMutation } from '@mxjs/query';
-import { TableImage } from '../../../index';
+import SVG from 'react-inlinesvg';
 import usePage from '../../../modules/use-page';
 
 export default () => {
@@ -76,9 +77,13 @@ export default () => {
               title: '图标',
               dataIndex: 'icon',
               renderText: (cell) => {
+                if (!cell) {
+                  return;
+                }
+
                 return (
-                  cell ? <TableImage src={cell}/> : ''
-                )
+                  <SVG src={cell} className="text-xl" fill="currentColor" width="1em" height="1em"/>
+                );
               }
             },
             {

@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "@ant-design/icons": "^5",
+    "@ant-design/icons-svg": "^4",
     "@ant-design/pro-components": "~2.6",
     "@emotion/react": "^11",
     "@emotion/styled": "^11",

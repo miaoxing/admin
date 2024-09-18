@@ -35,8 +35,8 @@ const MenuIcon = ({ image }) => {
   }
 
   return (
-    <span className="anticon">
-     <SVG src={image} fill="currentColor" width="1em" height="1em"/>
+    <span className="anticon text-base">
+     <SVG src={image} fill="currentColor" width="1em" height="1em" viewBox="0 0 1024 1024"/>
     </span>
   );
 };

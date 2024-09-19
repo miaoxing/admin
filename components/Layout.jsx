@@ -1,4 +1,4 @@
-import { LockOutlined, LogoutOutlined, MenuFoldOutlined, MenuUnfoldOutlined, UserOutlined } from '@ant-design/icons';
+import { LogoutOutlined, MenuFoldOutlined, MenuUnfoldOutlined } from '@ant-design/icons';
 import { ProLayout } from '@ant-design/pro-components';
 import { Button, Dropdown, theme } from 'antd';
 import { useEffect, useState } from 'react';
@@ -64,6 +64,45 @@ const convertMenus = (menus, level = 1) => {
   });
 };
 
+const handleLogout = async (location) => {
+  await $.post('logout', { suspense: true });
+  window.localStorage.removeItem('token');
+  $.to(getLoginPath(null, location));
+};
+
+const renderAvatar = (dom, menus, location) => {
+  const mine = menus.find(menu => menu.code === 'mine');
+  let items = [];
+
+  items = items.concat(mine?.children?.map(menu => {
+    return {
+      key: menu.id,
+      label: (
+        <Link to={menu.url}>
+          {menu.icon && <MenuIcon image={menu.icon}/>}
+          {' '}
+          {menu.label}
+        </Link>
+      ),
+    }
+  }));
+
+  items.push({
+    key: 'logout',
+    label: (
+      <a onClick={handleLogout.bind(this, location)}>
+        <LogoutOutlined/>{' '}退出登录
+      </a>
+    ),
+  });
+
+  return (
+    <Dropdown menu={{ items }}>
+      {dom}
+    </Dropdown>
+  );
+};
+
 const redirectIfNotLogin = () => {
   const location = useLocation();
   const token = window.localStorage.getItem('token');
@@ -94,12 +133,6 @@ const Layout = ({ children }) => {
     }
     setRoutes(convertMenus(adminPage.menus));
   }, [isLoading]);
-  const handleLogout = async () => {
-    await $.post('logout', { suspense: true });
-    window.localStorage.removeItem('token');
-    $.to(getLoginPath(null, location));
-  };
-
   const { data: user = {} } = useQuery('user');
 
   const { data: permissions = {} } = useQuery('user-permissions', {
@@ -173,42 +206,7 @@ const Layout = ({ children }) => {
           avatarProps={{
             src: user.avatar || defaultAvatar,
             title: user.username,
-            render: (props, dom) => {
-              return (
-                <Dropdown
-                  menu={{
-                    items: [
-                      {
-                        key: 1,
-                        label: (
-                          <Link to={$.url('admin/password')}>
-                            <LockOutlined/>{' '}修改密码
-                          </Link>
-                        ),
-                      },
-                      {
-                        key: 2,
-                        label: (
-                          <Link to={$.url('admin/user')}>
-                            <UserOutlined/>{' '}修改资料
-                          </Link>
-                        ),
-                      },
-                      {
-                        key: 3,
-                        label: (
-                          <a onClick={handleLogout}>
-                            <LogoutOutlined/>{' '}退出登录
-                          </a>
-                        ),
-                      },
-                    ],
-                  }}
-                >
-                  {dom}
-                </Dropdown>
-              );
-            },
+            render: (props, dom) => renderAvatar(dom, adminPage.menus, location),
           }}
           fixSiderbar={true}
           route={{

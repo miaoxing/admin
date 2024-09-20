@@ -9,12 +9,12 @@ import { req } from '@mxjs/app';
 import { AuthProvider } from '@mxjs/auth';
 import getLoginPath from '../modules/get-login-path';
 import { Link } from '@mxjs/router';
-import SVG from 'react-inlinesvg';
 import defaultAvatar from '../images/avatar.jpg';
 import { useLocation } from 'react-router';
 import { useQuery } from '@mxjs/query';
 import { useConfig } from '@mxjs/config';
 import usePage from '../modules/use-page';
+import MenuIcon from './MenuIcon';
 
 const MenuLink = ({ menu }) => {
   // 快速检查是否为外部地址
@@ -29,22 +29,6 @@ MenuLink.propTypes = {
   menu: propTypes.object,
 };
 
-const MenuIcon = ({ image }) => {
-  if (!image) {
-    return '';
-  }
-
-  return (
-    <span className="anticon text-base">
-     <SVG src={image} fill="currentColor" width="1em" height="1em" viewBox="0 0 1024 1024"/>
-    </span>
-  );
-};
-
-MenuIcon.propTypes = {
-  image: propTypes.string,
-};
-
 /**
  * 转换后端的菜单配置为前端的菜单
  */
@@ -54,7 +38,7 @@ const convertMenus = (menus, level = 1) => {
       name: menu.label,
       // 将后端变量转换为 path-to-regexp 支持的格式，以便 ProLayout 识别到子页面
       path: menu.url ? ('/' + menu.url.replace('[id]', ':id')) : null,
-      icon: menu.icon ? <MenuIcon image={menu.icon}/> : '',
+      icon: <MenuIcon src={menu.icon} className="text-2xl"/>,
       target: menu.target,
       hideInMenu: menu.isShow === false,
       // 超过只显示前两级菜单
@@ -79,7 +63,9 @@ const renderAvatar = (dom, menus, location) => {
       key: menu.id,
       label: (
         <Link to={menu.url}>
-          {menu.icon && <MenuIcon image={menu.icon}/>}
+          <span className="anticon">
+            <MenuIcon src={menu.icon} className="text-base"/>
+          </span>
           {' '}
           {menu.label}
         </Link>

@@ -14,6 +14,7 @@ return new class extends BasePage {
             'title' => $page->getTitle(),
             'logo' => $page->getLogo(),
             'copyright' => $page->getCopyright(),
+            'entryBg' => $page->getEntryBg(),
             'bg' => $page->getBg(),
         ];
 

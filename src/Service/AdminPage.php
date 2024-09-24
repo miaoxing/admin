@@ -22,6 +22,13 @@ class AdminPage extends BaseService
     protected $logo = 'https://u.miaoxingyun.com/logo.svg';
 
     /**
+     * 入口页（如登录、注册页）背景图
+     *
+     * @var string
+     */
+    protected $entryBg = '';
+
+    /**
      * 背景图片，可用于登录等简单页面
      *
      * @var string
@@ -51,6 +58,14 @@ class AdminPage extends BaseService
     public function getLogo(): string
     {
         return $this->logo;
+    }
+
+    /**
+     * @return string
+     */
+    public function getEntryBg(): string
+    {
+        return $this->entryBg;
     }
 
     /**

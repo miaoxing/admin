@@ -41,7 +41,7 @@ class AdminPage extends BaseService
      */
     public function getTitle(): string
     {
-        return $this->title;
+        return $this->title ?: get_class_vars(__CLASS__)['title'];
     }
 
     /**
@@ -49,7 +49,7 @@ class AdminPage extends BaseService
      */
     public function getCopyright(): string
     {
-        return $this->copyright;
+        return $this->copyright ?: get_class_vars(__CLASS__)['copyright'];
     }
 
     /**
@@ -57,7 +57,7 @@ class AdminPage extends BaseService
      */
     public function getLogo(): string
     {
-        return $this->logo;
+        return $this->logo ?: get_class_vars(__CLASS__)['logo'];
     }
 
     /**
@@ -65,7 +65,7 @@ class AdminPage extends BaseService
      */
     public function getEntryBg(): string
     {
-        return $this->entryBg;
+        return $this->entryBg ?: get_class_vars(__CLASS__)['entryBg'];
     }
 
     /**
@@ -74,6 +74,6 @@ class AdminPage extends BaseService
      */
     public function getBg(): string
     {
-        return $this->bg;
+        return $this->bg ?: get_class_vars(__CLASS__)['bg'];
     }
 }

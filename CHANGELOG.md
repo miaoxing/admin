@@ -1,3 +1,54 @@
+# [0.16.0](https://github.com/miaoxing/admin/compare/v0.15.2...v0.16.0) (2024-09-30)
+
+
+### Bug Fixes
+
+* **admin:** 解决 SVG 图标显示时大小不一致 ([4769acb](https://github.com/miaoxing/admin/commit/4769acb580bb8ec5c39fdcf6a7dad08b8c425c3d))
+
+
+### Code Refactoring
+
+* **admin:** 更新菜单项使用 `AdminMenu` 模型 ([7d7bf2f](https://github.com/miaoxing/admin/commit/7d7bf2f3db3bf8d64805e7bf6a5176012cd6502f))
+* **admin:** 移除旧的设置页 ([4e2d25a](https://github.com/miaoxing/admin/commit/4e2d25ac635c659f5aeb405d9dc538aed4e525b5))
+
+
+### Features
+
+* **admin:** `AdminPage` 值为空时使用默认值 ([2c5ea6d](https://github.com/miaoxing/admin/commit/2c5ea6db09131f825d3afae02d1bce3399755a0e))
+* **admin:** 从数据库读取菜单，如果没有数据，则通过事件加载菜单 ([d7f1aac](https://github.com/miaoxing/admin/commit/d7f1aac5dd688aee63e5ebc3dff34430594c0cca))
+* **admin:** 允许自定义用户头像下拉菜单 ([3ead061](https://github.com/miaoxing/admin/commit/3ead061badd10b82cc748d5a21fc38533556376c))
+* **admin:** 增加 `usePage`，简化获取菜单请求 ([5aaad1d](https://github.com/miaoxing/admin/commit/5aaad1d7cff3ded70598cdf89a7bb87465b643dd))
+* **admin:** 增加 useConfig 钩子以便外部重新加载配置 ([a38a852](https://github.com/miaoxing/admin/commit/a38a8525b9199113aca9a2647dad6d2aeffb8e94))
+* **admin:** 增加菜单管理入口 ([b327fa1](https://github.com/miaoxing/admin/commit/b327fa1acee7264d6efcf7d5df84327285425121))
+* **admin:** 增加重置菜单操作 ([67e4264](https://github.com/miaoxing/admin/commit/67e426407495dc89b39cccebac532ae3135bd812))
+* **admin:** 添加入口背景图配置 ([fb40091](https://github.com/miaoxing/admin/commit/fb40091e48141d9351a93abd66d5e5a3fa95b5d4))
+* **admin:** 添加后台设置页面及API ([c77282f](https://github.com/miaoxing/admin/commit/c77282f32d8332d6bbca08cb0a8d541d282da576))
+* **admin:** 管理员可以查看后台菜单列表，包括名字、链接、图标、顺序、是否显示、操作（编辑，删除） ([38f6cc9](https://github.com/miaoxing/admin/commit/38f6cc9485c21570de4290fcbf4bdd246393f773))
+* **admin:** 菜单图标改为直接选择 antd 图标，并保存 svg 字符串 ([8ab26bf](https://github.com/miaoxing/admin/commit/8ab26bf307bad0c09d1e2b7e6238db73ec6a0828))
+* 加大 logo ([aead0a4](https://github.com/miaoxing/admin/commit/aead0a4a788554c3bd4af75483a5d8002a1b3129))
+* **admin:** 管理员可以添加或编辑菜单，包括上级菜单、名称、地址、图标、顺序、是否显示 ([45fc2e9](https://github.com/miaoxing/admin/commit/45fc2e98095fa68b25a3bae6e89eeb4afbbf7165))
+
+
+### BREAKING CHANGES
+
+* **admin:** 更新菜单项使用 `AdminMenu` 模型
+* **admin:** 移除旧的设置页
+
+
+
+
+
+### Dependencies
+
+* **@mxjs/a-clink:** upgrade from `3.0.5` to `3.0.6`
+* **@mxjs/a-form:** upgrade from `4.1.0` to `4.1.1`
+* **@mxjs/a-page:** upgrade from `4.1.0` to `4.2.0`
+* **@mxjs/a-table:** upgrade from `2.1.0` to `2.2.0`
+* **@mxjs/a-upload:** upgrade from `1.4.0` to `1.4.1`
+* **@mxjs/query:** upgrade from `1.1.3` to `1.2.0`
+* **@miaoxing/app:** upgrade from `0.10.4` to `0.10.5`
+* **@miaoxing/file:** upgrade from `0.3.34` to `0.3.35`
+
 ## [0.15.2](https://github.com/miaoxing/admin/compare/v0.15.1...v0.15.2) (2024-09-01)
 
 

@@ -17,7 +17,8 @@ const TreeSelect = (
     ...props
   },
 ) => {
-  const [data, setData] = useState([]);
+  const prepend = Array.isArray(prependData) ? prependData : [prependData];
+  const [data, setData] = useState(prepend);
 
   useEffect(() => {
     api.getMax(url, {loading: true}).then(({ret}) => {
@@ -28,8 +29,7 @@ const TreeSelect = (
 
       beforeLoad && beforeLoad(ret);
 
-      const data = Array.isArray(prependData) ? prependData : [prependData];
-      setData(data.concat(ret.data));
+      setData(prepend.concat(ret.data));
 
       afterLoad && afterLoad(ret);
     });

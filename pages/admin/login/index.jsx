@@ -94,7 +94,7 @@ const Index = () => {
           }
         `}
       />
-      <div className="flex-1">
+      <div className="flex-1 flex items-center">
         <Card className="w-[375px] mx-auto my-12 p-6">
           <div className="mb-4 text-center">
             <img className="inline h-16" src={page.logo} alt="Logo"/>

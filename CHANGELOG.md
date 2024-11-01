@@ -1,3 +1,30 @@
+## [0.16.1](https://github.com/miaoxing/admin/compare/v0.16.0...v0.16.1) (2024-11-01)
+
+
+### Features
+
+* **admin:** `Select` 组件获取数据改为 `suspense` 模式 ([34dc532](https://github.com/miaoxing/admin/commit/34dc532b7cd02653ba9b85d8acc9329a1acbccc2))
+* **admin:** `TreeSelect` 先显示预设数据 ([55c7088](https://github.com/miaoxing/admin/commit/55c7088e4c45949cf74db5fb168b6cf0aa3ff388))
+* **admin, experimental:** 接口请求增加 `throw` 配置，允许出错时提示错误，并中断后续流程 ([3f6d9b6](https://github.com/miaoxing/admin/commit/3f6d9b62044e0a87e2df6065684906ec495825ac))
+* **admin, u:** 登录框上下居中 ([f076601](https://github.com/miaoxing/admin/commit/f0766018a96aed173053d8060356d391ee78463f))
+
+
+
+
+
+### Dependencies
+
+* **@mxjs/a-clink:** upgrade from `3.0.6` to `3.0.7`
+* **@mxjs/a-form:** upgrade from `4.1.1` to `5.0.0`
+* **@mxjs/a-page:** upgrade from `4.2.0` to `4.2.1`
+* **@mxjs/a-table:** upgrade from `2.2.0` to `2.2.1`
+* **@mxjs/api:** upgrade from `1.1.4` to `1.1.5`
+* **@mxjs/a-upload:** upgrade from `1.4.1` to `1.4.2`
+* **@mxjs/query:** upgrade from `1.2.0` to `1.3.0`
+* **@mxjs/test:** upgrade from `2.0.4` to `2.0.5`
+* **@miaoxing/app:** upgrade from `0.10.5` to `0.10.6`
+* **@miaoxing/file:** upgrade from `0.3.35` to `0.3.36`
+
 # [0.16.0](https://github.com/miaoxing/admin/compare/v0.15.2...v0.16.0) (2024-09-30)
 
 

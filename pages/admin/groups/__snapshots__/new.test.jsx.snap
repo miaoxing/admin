@@ -5,6 +5,7 @@ exports[`admin/groups form 1`] = `
   "calls": Array [
     Array [
       Object {
+        "suspense": true,
         "url": "groups?limit=500",
       },
     ],

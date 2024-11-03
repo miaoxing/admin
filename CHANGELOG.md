@@ -1,3 +1,10 @@
+## [0.16.2](https://github.com/miaoxing/admin/compare/v0.16.1...v0.16.2) (2024-11-03)
+
+
+### Bug Fixes
+
+* **admin:** `Select` 组件获取数据移除 `suspense` 模式 ([ff45e54](https://github.com/miaoxing/admin/commit/ff45e54cede617e7276e78f2155f6f470d92ba3e))
+
 ## [0.16.1](https://github.com/miaoxing/admin/compare/v0.16.0...v0.16.1) (2024-11-01)
 
 

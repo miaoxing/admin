@@ -5,7 +5,6 @@ import { url as Url } from '@mxjs/app';
 
 const Select = ({ url, afterLoad, optionsKeys = [['data', 'items'], 'data'], ...props }) => {
   const { data } = useQuery(Url.appendLimit(url), {
-    suspense: true,
     onSuccess: (ret) => {
       for (const key of optionsKeys) {
         if (Array.isArray(key) && ret?.[key[0]]?.[key[1]]) {

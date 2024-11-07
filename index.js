@@ -12,7 +12,7 @@ import Image from './components/Image';
 import Images from './components/Images';
 import Descriptions from './components/Descriptions';
 import ModalDescriptions from './components/ModalDescriptions';
-
+import CopyLink from './components/CopyLink';
 import useOption from './modules/use-option';
 import useConfig from './modules/use-config';
 
@@ -34,6 +34,7 @@ export {
   Images,
   Descriptions,
   ModalDescriptions,
+  CopyLink,
   useOption,
   useConfig,
   defaultLogo,

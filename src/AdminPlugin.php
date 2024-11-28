@@ -47,6 +47,11 @@ class AdminPlugin extends BasePlugin
             ->setIcon('https://cdnjs.cloudflare.com/ajax/libs/ant-design-icons-svg/4.3.1/outlined/setting.svg')
             ->setSort(300);
 
+        $system = $menu->addChild('system')
+            ->setLabel('系统')
+            ->setSort(200)
+            ->setIcon('https://cdnjs.cloudflare.com/ajax/libs/ant-design-icons-svg/4.3.1/outlined/control.svg');
+
         $mine = $menu->addChild('mine')->setLabel('我的')->setIsShow(false);
         $mine->addChild()->setLabel('修改密码')->setUrl('admin/password')
             ->setIcon('https://cdnjs.cloudflare.com/ajax/libs/ant-design-icons-svg/4.3.1/outlined/lock.svg');
@@ -77,11 +82,6 @@ class AdminPlugin extends BasePlugin
         }
 
         $system->addChild()->setLabel('系统设置')->setUrl('admin/global/settings')->setSort(10);
-
-        $system = $menu->addChild()
-            ->setLabel('系统')
-            ->setSort(200)
-            ->setIcon('https://cdnjs.cloudflare.com/ajax/libs/ant-design-icons-svg/4.3.1/outlined/control.svg');
 
         $menus = $system->addChild()->setLabel('菜单管理')->setUrl('admin/admin-menus');
         $menus->addChild()->setLabel('添加')->setUrl('admin/admin-menus/new');

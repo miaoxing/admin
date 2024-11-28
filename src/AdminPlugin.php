@@ -76,7 +76,7 @@ class AdminPlugin extends BasePlugin
             $permissions->addChild()->setLabel('删除')->setUrl('admin/permissions/[id]/delete');
         }
 
-        $setting->addChild()->setLabel('系统设置')->setUrl('admin/global/settings')->setSort(10);
+        $system->addChild()->setLabel('系统设置')->setUrl('admin/global/settings')->setSort(10);
 
         $system = $menu->addChild()
             ->setLabel('系统')

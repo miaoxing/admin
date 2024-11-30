@@ -1,3 +1,25 @@
+## [0.16.3](https://github.com/miaoxing/admin/compare/v0.16.2...v0.16.3) (2024-11-30)
+
+
+### Features
+
+* **admin:** 接口请求增加 `suspense` 配置，即同时启用 `loading` 和 `throw` 配置 ([7b7f678](https://github.com/miaoxing/admin/commit/7b7f678e7a85872b568ff82d24c1f053680f6927))
+* **admin:** 系统菜单增加 `system` 标识 ([b4b7145](https://github.com/miaoxing/admin/commit/b4b714506d0c2c20a24c0466df54342ec1053258))
+* **admin, experimental:** 增加 `CopyLink` 组件 ([c0b3c0a](https://github.com/miaoxing/admin/commit/c0b3c0ad5db6e0c8afb30d5cf214326419370f24))
+
+
+
+
+
+### Dependencies
+
+* **@mxjs/a-form:** upgrade from `5.0.0` to `5.1.0`
+* **@mxjs/a-page:** upgrade from `4.2.1` to `4.3.0`
+* **@mxjs/a-table:** upgrade from `2.2.1` to `2.3.0`
+* **@mxjs/a-upload:** upgrade from `1.4.2` to `1.4.3`
+* **@miaoxing/app:** upgrade from `0.10.6` to `0.10.7`
+* **@miaoxing/file:** upgrade from `0.3.36` to `0.3.37`
+
 ## [0.16.2](https://github.com/miaoxing/admin/compare/v0.16.1...v0.16.2) (2024-11-03)
 
 

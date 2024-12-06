@@ -2,7 +2,6 @@
 
 namespace Miaoxing\Admin;
 
-use Miaoxing\Admin\Service\AdminLogModel;
 use Miaoxing\Admin\Service\AdminMenu;
 use Miaoxing\App\Middleware\CheckPagePermission;
 use Miaoxing\App\Service\PermissionMap;
@@ -152,20 +151,6 @@ class AdminPlugin extends BasePlugin
     {
         if ($this->app->isAdmin() && $this->permission->isEnabledCheck()) {
             $page->middleware(CheckPagePermission::class);
-        }
-    }
-
-    public function onUserLogin(UserModel $user)
-    {
-        if ($user->isAdmin) {
-            AdminLogModel::log('用户登陆', $user);
-        }
-    }
-
-    public function onBeforeUserLogout(UserModel $user)
-    {
-        if ($user->isAdmin) {
-            AdminLogModel::log('用户退出', $user);
         }
     }
 

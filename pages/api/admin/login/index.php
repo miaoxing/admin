@@ -3,6 +3,7 @@
 use Miaoxing\Plugin\BasePage;
 use Miaoxing\Plugin\Service\Config;
 use Miaoxing\Plugin\Service\User;
+use Miaoxing\Services\Middleware\RateLimit;
 
 return new class extends BasePage {
     protected $requireAuth = false;
@@ -12,6 +13,17 @@ return new class extends BasePage {
     protected $methodNames = [
         'post' => '登录',
     ];
+
+    public function init()
+    {
+        parent::init();
+        $this->middleware(RateLimit::class, [
+            'timeWindow' => RateLimit::DAY,
+            'max' => 5,
+            'incrOnErr' => true,
+            'only' => ['post'],
+        ]);
+    }
 
     public function get()
     {

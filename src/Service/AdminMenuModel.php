@@ -263,12 +263,13 @@ class AdminMenuModel extends BaseModel
     }
 
     /**
+     * @param int $level
      * @return array
      */
-    public function toMenu(): array
+    public function toMenu(int $level = 1): array
     {
         if ($this->coll) {
-            return $this->childrenToMenu();
+            return $this->childrenToMenu($level);
         }
 
         return array_merge([
@@ -278,15 +279,16 @@ class AdminMenuModel extends BaseModel
             'sort' => $this->sort,
             'icon' => $this->icon,
             'isShow' => $this->isShow,
-            'children' => $this->children->toMenu(),
+            'children' => $this->children->toMenu($level),
         ], $this->metadata);
     }
 
     /**
+     * @param int $level
      * @return array
      * @coll
      */
-    protected function childrenToMenu(): array
+    protected function childrenToMenu(int $level = 1): array
     {
         // Sort items
         usort($this->attributes, static function (self $childA, self $childB) {
@@ -295,9 +297,14 @@ class AdminMenuModel extends BaseModel
 
         $data = [];
         foreach ($this->attributes as $child) {
+            // Ignore invalid level
+            if ($child->level !== $level) {
+                continue;
+            }
+
             // Remote empty item
             if (!$child->isEmpty()) {
-                $data[] = $child->toMenu();
+                $data[] = $child->toMenu($level + 1);
             }
         }
 

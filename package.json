@@ -13,7 +13,7 @@
   "dependencies": {
     "@ant-design/icons": "^5",
     "@ant-design/icons-svg": "^4",
-    "@ant-design/pro-components": "~2.6",
+    "@ant-design/pro-components": "~2.8",
     "@emotion/react": "^11",
     "@emotion/styled": "^11",
     "@loadable/component": "^5.14.1",

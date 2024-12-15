@@ -112,13 +112,13 @@ const Layout = ({ children }) => {
   const { page = {} } = useConfig();
 
   const [routes, setRoutes] = useState([]);
-  const { data: adminPage, isLoading } = usePage();
+  const { data: adminPage, isLoading, isValidating } = usePage();
   useEffect(() => {
-    if (isLoading) {
+    if (isValidating) {
       return;
     }
     setRoutes(convertMenus(adminPage.menus));
-  }, [isLoading]);
+  }, [isValidating]);
   const { data: user = {} } = useQuery('user');
 
   const { data: permissions = {} } = useQuery('user-permissions', {

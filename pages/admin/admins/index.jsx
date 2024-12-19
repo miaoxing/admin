@@ -1,10 +1,17 @@
-import {Page, PageActions} from '@mxjs/a-page';
-import {Table, TableProvider, TableStatusCheckbox} from '@mxjs/a-table';
-import {SearchForm, SearchItem} from '@mxjs/a-form';
-import {CNewBtn, CEditLink} from '@mxjs/a-clink';
-import {Tooltip} from 'antd';
-import {QuestionCircleOutlined} from '@ant-design/icons';
-import {TreeSelect} from '@miaoxing/admin';
+import { Page, PageActions } from '@mxjs/a-page';
+import { Table, TableActions, TableProvider, TableStatusCheckbox } from '@mxjs/a-table';
+import { SearchForm, SearchItem } from '@mxjs/a-form';
+import { CNewBtn, CEditLink } from '@mxjs/a-clink';
+import { Tooltip } from 'antd';
+import { QuestionCircleOutlined } from '@ant-design/icons';
+import { TreeSelect } from '@miaoxing/admin';
+import CDeleteLink from '@mxjs/a-clink/CDeleteLink';
+
+const TYPE_SUPER = 2;
+
+const isSuper = (admin) => {
+  return admin.user.adminType === TYPE_SUPER;
+};
 
 const Index = () => {
   return (
@@ -74,8 +81,11 @@ const Index = () => {
             {
               title: '操作',
               dataIndex: 'id',
-              render: (id) => (
-                <CEditLink id={id}/>
+              render: (id, row) => (
+                <TableActions>
+                  <CEditLink id={id}/>
+                  {!isSuper(row) && <CDeleteLink id={id}/>}
+                </TableActions>
               ),
             },
           ]}

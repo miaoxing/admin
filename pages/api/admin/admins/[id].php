@@ -3,8 +3,10 @@
 use Miaoxing\Admin\Service\AdminModel;
 use Miaoxing\App\Service\RolesUserModel;
 use Miaoxing\Plugin\BasePage;
+use Miaoxing\Plugin\Service\User;
 use Miaoxing\Plugin\Service\UserModel;
 use Miaoxing\Services\Page\ItemTrait;
+use Miaoxing\Services\Service\DestroyAction;
 use Miaoxing\Services\Service\ShowAction;
 use Wei\Req;
 use Wei\V;
@@ -72,6 +74,24 @@ return new class extends BasePage {
         }
 
         return $admin->toRet();
+    }
+
+    public function delete()
+    {
+        return DestroyAction::new()
+            ->beforeDestroy(static function (AdminModel $admin) {
+                if ($admin->userId === User::id()) {
+                    return err('不能删除自己');
+                }
+                if ($admin->user->isSuperAdmin()) {
+                    return err('不能删除超级管理员');
+                }
+            })
+            ->afterDestroy(static function (AdminModel $admin) {
+                $admin->user->adminType = UserModel::ADMIN_TYPE_DEFAULT;
+                $admin->user->save();
+            })
+            ->exec($this);
     }
 
     protected function shouldUpdatePassword(bool $validatePassword, UserModel $user): bool

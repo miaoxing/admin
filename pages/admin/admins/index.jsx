@@ -74,7 +74,7 @@ const Index = () => {
               </Tooltip>,
               dataIndex: ['user', 'isEnabled'],
               render: (cell, row) => {
-                return row.id === 1 ? <Tooltip title="不能禁用超级管理员">-</Tooltip> :
+                return isSuper(row) ? <Tooltip title="不能禁用超级管理员">-</Tooltip> :
                   <TableStatusCheckbox row={row} name={['user', 'isEnabled']}/>;
               },
             },

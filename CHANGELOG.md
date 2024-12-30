@@ -1,3 +1,51 @@
+# [0.17.0](https://github.com/miaoxing/admin/compare/v0.16.3...v0.17.0) (2024-12-30)
+
+
+### Bug Fixes
+
+* 限制 react 版本低于 19，避免测试失败 ([15c5d40](https://github.com/miaoxing/admin/commit/15c5d40ec005d3e232fb4af38ccb2c93b497b127))
+* **admin:** 不能禁用超级管理员 ([078ac29](https://github.com/miaoxing/admin/commit/078ac29260dc396ff7792cfd1f28d4a53f8d9922))
+* **admin:** 修改菜单后没有重新加载 ([229be41](https://github.com/miaoxing/admin/commit/229be41711713c62f07bae8013ab525b6ab6ab32))
+* **admin:** 禁用菜单后不显示下级菜单 ([b634c59](https://github.com/miaoxing/admin/commit/b634c59968d2b960f85b75deecacad457c9dffa6))
+
+
+### Code Refactoring
+
+* **admin:** 移除 `adminLog`，改为使用 `loginLog` ([2134ee6](https://github.com/miaoxing/admin/commit/2134ee60415d0ec3678076fdab9db3540f3156fc))
+
+
+### Features
+
+* **admin, u:** 增加删除管理员功能 ([eb8642d](https://github.com/miaoxing/admin/commit/eb8642d099c9a27a13bc4d9b779151431ba8a15a))
+* 更新 @ant-design/pro-components 到 ~2.8 ([e082bda](https://github.com/miaoxing/admin/commit/e082bdaef9d54a0dd2c25a91103a4631aa8ccae1))
+* **admin:** 限制登录接口的错误尝试次数 ([295ab9a](https://github.com/miaoxing/admin/commit/295ab9af4b809fc5cdd193fb50f603c57756f4ae))
+
+
+### BREAKING CHANGES
+
+* **admin:** 移除 `adminLog`，改为使用 `loginLog`
+
+
+
+
+
+### Dependencies
+
+* **@mxjs/a-clink:** upgrade from `3.0.7` to `3.0.8`
+* **@mxjs/a-form:** upgrade from `5.1.0` to `5.2.0`
+* **@mxjs/a-page:** upgrade from `4.3.0` to `4.3.1`
+* **@mxjs/a-table:** upgrade from `2.3.0` to `2.4.0`
+* **@mxjs/api:** upgrade from `1.1.5` to `1.1.6`
+* **@mxjs/config:** upgrade from `1.1.5` to `1.1.6`
+* **@mxjs/a-section:** upgrade from `1.2.0` to `1.2.1`
+* **@mxjs/a-upload:** upgrade from `1.4.3` to `1.4.4`
+* **@mxjs/query:** upgrade from `1.3.0` to `1.3.1`
+* **miaoxing:** upgrade from `0.4.19` to `0.4.20`
+* **@miaoxing/dev:** upgrade from `9.2.0` to `9.3.0`
+* **@mxjs/test:** upgrade from `2.0.5` to `2.0.6`
+* **@miaoxing/app:** upgrade from `0.10.7` to `0.10.8`
+* **@miaoxing/file:** upgrade from `0.3.37` to `0.3.38`
+
 ## [0.16.3](https://github.com/miaoxing/admin/compare/v0.16.2...v0.16.3) (2024-11-30)
 
 

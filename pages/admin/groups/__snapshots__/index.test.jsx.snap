@@ -6,7 +6,7 @@ exports[`admin/groups delete 1`] = `
     Array [
       Object {
         "method": "get",
-        "url": "/api/admin/groups?page=1&limit=20",
+        "url": "groups?page=1&limit=20",
       },
     ],
     Array [
@@ -14,7 +14,7 @@ exports[`admin/groups delete 1`] = `
         "dataType": "json",
         "loading": true,
         "method": "delete",
-        "url": "/api/admin/groups/1",
+        "url": "groups/1",
       },
     ],
   ],
@@ -43,7 +43,7 @@ exports[`admin/groups index 1`] = `
     Array [
       Object {
         "method": "get",
-        "url": "/api/admin/groups?page=1&limit=20",
+        "url": "groups?page=1&limit=20",
       },
     ],
   ],

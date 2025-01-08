@@ -14,6 +14,7 @@ import { useLocation } from 'react-router';
 import { useQuery } from '@mxjs/query';
 import { useConfig } from '@mxjs/config';
 import usePage from '../modules/use-page';
+import { useUser } from '@miaoxing/admin';
 import MenuIcon from './MenuIcon';
 
 const MenuLink = ({ menu }) => {
@@ -119,7 +120,7 @@ const Layout = ({ children }) => {
     }
     setRoutes(convertMenus(adminPage.menus));
   }, [isValidating]);
-  const { data: user = {} } = useQuery('user');
+  const { user } = useUser();
 
   const { data: permissions = {} } = useQuery('user-permissions', {
     onSuccess: (ret) => {

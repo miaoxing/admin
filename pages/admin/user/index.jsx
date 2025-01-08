@@ -1,11 +1,10 @@
 import { Page } from '@mxjs/a-page';
 import { Form, FormActions, FormItem } from '@mxjs/a-form';
-import { FormItemUpload } from '@miaoxing/admin';
+import { FormItemUpload, useUser } from '@miaoxing/admin';
 import { Section } from '@mxjs/a-section';
-import { useQuery } from '@mxjs/query';
 
 const Index = () => {
-  const { mutate } = useQuery('user');
+  const { mutate } = useUser();
 
   return (
     <Page>

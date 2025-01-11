@@ -13,10 +13,10 @@ use Wei\Db;
  *
  * @mixin \EventMixin
  *
- * @method AdminMenuModel addChild(string|Item|null $name = null)
- * @method AdminMenuModel|null getChild(string $name)
- * @method AdminMenuModel child(string $name)
- * @method AdminMenuModel removeChild(string $name)
+ * @method AdminMenuModel addChild(string|Item|null $code = null)
+ * @method AdminMenuModel|null getChild(string $code)
+ * @method AdminMenuModel child(string $code)
+ * @method AdminMenuModel removeChild(string $code)
  * @method AdminMenuModel removeChildByUrl(string|array $url)
  */
 class AdminMenu extends BaseService

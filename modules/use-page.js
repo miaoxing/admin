@@ -1,13 +1,8 @@
 import { useQuery } from '@mxjs/query';
 
 const usePage = () => {
-  return useQuery('admin-page', {
-    fallbackData: {
-      data: {
-        menus: [],
-      },
-    },
-  });
+  const { data = { menus: [] }, ...rest } = useQuery('admin-page');
+  return { data, ...rest };
 };
 
 export default usePage;

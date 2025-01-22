@@ -15,6 +15,7 @@ import ModalDescriptions from './components/ModalDescriptions';
 import CopyLink from './components/CopyLink';
 import useOption from './modules/use-option';
 import useConfig from './modules/use-config';
+import useConsts from './modules/use-consts';
 import useUser from './modules/use-user';
 
 import defaultLogo from './images/logo.svg';
@@ -38,6 +39,7 @@ export {
   CopyLink,
   useOption,
   useConfig,
+  useConsts,
   useUser,
   defaultLogo,
   defaultEntryBg,

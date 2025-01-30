@@ -4,7 +4,7 @@ import {
   TableActions,
   TableExpandIcon,
   TableProvider,
-  TableStatusCheckbox,
+  TableSwitch,
   useExpand,
   useTable
 } from '@mxjs/a-table';
@@ -89,14 +89,14 @@ export default () => {
               title: '显示',
               dataIndex: 'isShow',
               render: (cell, row) => (
-                <TableStatusCheckbox row={row} name="isShow"/>
+                <TableSwitch row={row} name="isShow"/>
               ),
             },
             {
               title: '启用',
               dataIndex: 'isEnabled',
               render: (cell, row) => (
-                <TableStatusCheckbox row={row} name="isEnabled"/>
+                <TableSwitch row={row} name="isEnabled"/>
               ),
             },
             {

@@ -1,5 +1,5 @@
 import { Page, PageActions } from '@mxjs/a-page';
-import { Table, TableActions, TableProvider, TableStatusCheckbox } from '@mxjs/a-table';
+import { Table, TableActions, TableProvider, TableSwitch } from '@mxjs/a-table';
 import { SearchForm, SearchItem } from '@mxjs/a-form';
 import { CNewBtn, CEditLink } from '@mxjs/a-clink';
 import { Tooltip } from 'antd';
@@ -75,7 +75,7 @@ const Index = () => {
               dataIndex: ['user', 'isEnabled'],
               render: (cell, row) => {
                 return isSuper(row) ? <Tooltip title="不能禁用超级管理员">-</Tooltip> :
-                  <TableStatusCheckbox row={row} name={['user', 'isEnabled']}/>;
+                  <TableSwitch row={row} name={['user', 'isEnabled']}/>;
               },
             },
             {

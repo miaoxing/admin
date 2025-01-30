@@ -1,4 +1,4 @@
-import {Table, TableActions, TableProvider, CTableDeleteLink, TableStatusCheckbox} from '@mxjs/a-table';
+import { Table, TableActions, TableProvider, CTableDeleteLink, TableSwitch } from '@mxjs/a-table';
 import {CEditLink, CNewBtn} from '@mxjs/a-clink';
 import {Page, PageActions} from '@mxjs/a-page';
 
@@ -28,7 +28,7 @@ const Index = () => {
               title: '启用',
               dataIndex: 'isEnabled',
               render: (cell, row) => (
-                <TableStatusCheckbox row={row} name="isEnabled"/>
+                <TableSwitch row={row} name="isEnabled"/>
               ),
             },
             {

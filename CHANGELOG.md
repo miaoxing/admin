@@ -1,3 +1,30 @@
+## [0.17.2](https://github.com/miaoxing/admin/compare/v0.17.1...v0.17.2) (2025-02-02)
+
+
+### Bug Fixes
+
+* **admin:** `usePage` 默认值不用 fallback ([4a1ee84](https://github.com/miaoxing/admin/commit/4a1ee84400312f7e76e7561a5a0c8724cd36e51a))
+
+
+### Features
+
+* **admin:** 提交用户信息后直接更新，不用刷新页面 ([29b28ed](https://github.com/miaoxing/admin/commit/29b28edca32175dc17b943e3a58ab4373ca2ed04))
+* **admin:** 新增 useUser 钩子，用于获取用户信息 ([3a87eb5](https://github.com/miaoxing/admin/commit/3a87eb53d070833132897e7547d7db4e6314b028))
+* **admin, experimental:** 添加 `useConsts` 钩子 ([f72bf5b](https://github.com/miaoxing/admin/commit/f72bf5be4aaa4ad58a8dc8b562e2c9eb54475df1))
+* **admin, u:** 页面右上角，管理员无用户名时，显示手机号或邮箱 ([9b64255](https://github.com/miaoxing/admin/commit/9b6425536dc3a19b4fc91eb8d057016e6fdc9531))
+
+
+
+
+
+### Dependencies
+
+* **@mxjs/a-form:** upgrade from `5.2.1` to `5.2.2`
+* **@mxjs/a-table:** upgrade from `2.4.1` to `2.5.0`
+* **@mxjs/a-upload:** upgrade from `1.4.5` to `1.4.6`
+* **@miaoxing/app:** upgrade from `0.10.9` to `0.10.10`
+* **@miaoxing/file:** upgrade from `0.3.39` to `0.3.40`
+
 ## [0.17.1](https://github.com/miaoxing/admin/compare/v0.17.0...v0.17.1) (2024-12-31)
 
 

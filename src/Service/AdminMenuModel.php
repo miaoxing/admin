@@ -34,7 +34,6 @@ class AdminMenuModel extends BaseModel
     use ModelTrait;
     use ReqQueryTrait;
     use SnowflakeTrait;
-    use SnowflakeTrait;
     use SoftDeleteTrait;
     use TreeTrait;
 

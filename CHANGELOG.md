@@ -1,3 +1,14 @@
+## [0.17.3](https://github.com/miaoxing/admin/compare/v0.17.2...v0.17.3) (2025-05-01)
+
+
+
+
+
+### Dependencies
+
+* **@miaoxing/app:** upgrade from `0.10.10` to `0.10.11`
+* **@miaoxing/file:** upgrade from `0.3.40` to `0.3.41`
+
 ## [0.17.2](https://github.com/miaoxing/admin/compare/v0.17.1...v0.17.2) (2025-02-02)
 
 
